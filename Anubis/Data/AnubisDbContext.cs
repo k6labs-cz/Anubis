@@ -1,5 +1,6 @@
 using k6labs.Anubis.Data.Entities;
 
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +11,7 @@ namespace k6labs.Anubis.Data;
 /// OpenIddict entities are registered through
 /// <c>DbContextOptionsBuilder.UseOpenIddict&lt;...&gt;()</c> in <c>Program.cs</c>.
 /// </summary>
-public class AnubisDbContext : IdentityDbContext<User, Role, string>
+public class AnubisDbContext : IdentityDbContext<User, Group, string>
 {
     // Default table-name prefixes stripped from Identity ("AspNetUsers" -> "Users")
     // and OpenIddict ("OpenIddictTokens" -> "Tokens") tables.
@@ -70,5 +71,22 @@ public class AnubisDbContext : IdentityDbContext<User, Role, string>
                 }
             }
         }
+
+        // Identity roles are Anubis groups.
+        builder.Entity<Group>(entity =>
+        {
+            entity.ToTable("Groups");
+            entity.HasIndex(g => g.NormalizedName).HasDatabaseName("GroupNameIndex");
+        });
+        builder.Entity<IdentityUserRole<string>>(entity =>
+        {
+            entity.ToTable("UserGroups");
+            entity.Property(m => m.RoleId).HasColumnName("GroupId");
+        });
+        builder.Entity<IdentityRoleClaim<string>>(entity =>
+        {
+            entity.ToTable("GroupClaims");
+            entity.Property(c => c.RoleId).HasColumnName("GroupId");
+        });
     }
 }

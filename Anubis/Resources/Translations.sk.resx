@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Vytvorené</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Nastavenie prehliadača</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Prístupové kľúče</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Roly</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Skupiny</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Odoslať potvrdzovací e-mail</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Viacfaktorové overenie</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>Klienti OIDC</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Záznam medzitým zmenil niekto iný. Obnovte stránku a skúste to znova.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>Nastala neznáma chyba.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>E-mail '{0}' sa už používa.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Názov roly '{0}' sa už používa.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Názov skupiny '{0}' sa už používa.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Používateľské meno '{0}' sa už používa.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>E-mail '{0}' je neplatný.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Názov roly '{0}' je neplatný.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Názov skupiny '{0}' je neplatný.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Neplatný token.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>Používateľské meno '{0}' je neplatné.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Používateľ s týmto prihlásením už existuje.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Heslo musí mať aspoň {0} znakov.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Obnovovací kód sa nepodarilo použiť.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Používateľ už má heslo.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Používateľ už má rolu '{0}'.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Používateľ už je členom skupiny '{0}'.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Pre tohto používateľa nie je zapnuté blokovanie.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Používateľ nemá rolu '{0}'.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Používateľ nie je členom skupiny '{0}'.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Účet</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Jazyk</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Ponechať si prístup, aj keď nie ste prítomní (refresh tokeny)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>Overiť, kto ste</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>Vidieť vaše meno a profil</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Vidieť vaše roly</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>Zobraziť vaše skupiny</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Vytvoriť scope</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>Vlastné scopes môžu klienti vyžadovať a môžu byť priradené k zdrojom (audiences).</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Moje API</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>Neplatný alebo nepodporovaný obrázok.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Obrázok je príliš veľký (max. 10 MB).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Nastavenia</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Roly</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Skupiny</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Vzhľad</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Účty, ktoré sa môžu prihlásiť do Anubis.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>Roly sa klientskym aplikáciám odovzdávajú v claime roles.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>Skupiny sa klientskym aplikáciám odovzdávajú v claime groups.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Oprávnenia, ktoré si môžu klientske aplikácie vyžiadať.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Aplikácie, ktoré prihlasujú používateľov cez Anubis.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>Odchádzajúce e-maily na potvrdenie adresy a obnovenie hesla.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Sekundárna</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Pozadie</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Text</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Vytvoriť rolu</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>Nová rola nemá žiadnych členov; pridáte ich v zozname nižšie.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Členovia</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Vstavaná</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Odstrániť rolu</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Odstrániť rolu {0}? Všetci jej členovia o ňu prídu.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>Členovia roly {0}</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Pridať</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Odobrať</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>Zatiaľ žiadni členovia.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>Posledného administrátora nie je možné odobrať.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Zadajte názov roly.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Vytvoriť skupinu</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>Nová skupina nemá žiadnych členov; pridáte ich v zozname nižšie.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Členovia</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Vstavaná</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Odstrániť skupinu</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>Odstrániť skupinu {0}? Všetci jej členovia z nej budú odobratí.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>Členovia skupiny {0}</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Pridať</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Odobrať</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>Zatiaľ žiadni členovia.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>Posledného administrátora nie je možné odobrať.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Zadajte názov skupiny.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Zadajte farbu ako #RRGGBB alebo pole nechajte prázdne.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>Nesmie obsahovať ; { } &lt; &gt; ani \.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Zadajte absolútnu adresu https://.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-mailová adresa overená</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Zmenené číslo sa uloží ako neoverené.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>Túto e-mailovú adresu už používa iný účet.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Svojmu vlastnému účtu nemôžete odobrať rolu Admin.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Svoj vlastný účet nemôžete odobrať zo skupiny Admins.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>Zmeny účtu {0} boli uložené.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>E-mailová adresa zmenená</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Rola pridaná</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Rola odobratá</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Pridaný do skupiny</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Odobratý zo skupiny</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Po uložení príde na novú adresu overovací e-mail.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>Na adresu {0} bol odoslaný overovací e-mail.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Začnite písmenom, ďalej písmená, číslice a - _ . : / (najviac {0} znakov).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Najviac {0} znakov.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Tento claim je uvedený dvakrát.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Najviac {0} claimov.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>Rola sa nenašla.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>Vstavané roly nie je možné premenovať.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Rola s týmto názvom už existuje.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>Upraviť rolu {0}</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>Rola {0} bola uložená.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Pridať rolu</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>Skupina sa nenašla.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>Vstavané skupiny nie je možné premenovať.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Skupina s týmto názvom už existuje.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>Upraviť skupinu {0}</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>Skupina {0} bola uložená.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Pridať skupinu</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claimy</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Pridávajú sa do access tokenu, ID tokenu a userinfo spolu s claimami rolí používateľa.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Pridávajú sa do tokenov všetkých členov tejto roly.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Pridávajú sa do access tokenu, ID tokenu a userinfo spolu s claimami skupín používateľa.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Pridávajú sa do tokenov všetkých členov tejto skupiny.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Typ</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Hodnota</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Pridať claim</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Odobrať claim</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Zatiaľ žiadne claimy.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Z rolí</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Zo skupín</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Zmeniť avatara</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Načítavanie…</value></data>
 </root>

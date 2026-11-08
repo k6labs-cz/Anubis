@@ -7,7 +7,7 @@ Kromě OIDC přihlášení podporuje i klasické **přihlášení e-mailem a hes
 - **UI**: Blazor Web App (.NET 10) + [Hathor](https://github.com/k6labs-cz/Hathor) (MIT)
 - **Úložiště**: SQLite přes EF Core (soubor `anubis.db`, migrace v `Data/Migrations`)
 - **Hesla**: Argon2id (OWASP parametry: 64 MiB, t=3, p=4), PHC formát, unikátní salt
-- **Identity**: ASP.NET Core Identity (role `Admin`/`User`, lockout po 5 neúspěšných pokusech, rate limiting token endpointu)
+- **Identity**: ASP.NET Core Identity (skupiny `Admins`/`Users`, lockout po 5 neúspěšných pokusech, rate limiting token endpointu)
 - **100 % free OSS**: MIT licence projektu, všechny závislosti MIT/Apache-2.0/public domain
 
 ## NuGet balíčky Hathor
@@ -84,10 +84,10 @@ curl -X POST http://localhost:5080/token \
   -d scope=anubis-api
 ```
 
-## SCIM API (správa uživatelů, rolí a claimů)
+## SCIM API (správa uživatelů, skupin a claimů)
 
 Pod `/api/` běží podmnožina **SCIM 2.0** (RFC 7643 / 7644) pro provisioning — standardizované API,
-kterým externí systém (HR, IdP nadřazený Anubisu, skripty) spravuje uživatele, role a jejich claimy.
+kterým externí systém (HR, IdP nadřazený Anubisu, skripty) spravuje uživatele, skupiny a jejich claimy.
 Autentizace je stejným bearer tokenem jako výše: `client_credentials` grant na `/token` se scope
 `Anubis:ApiScope` (výchozí `anubis-api`). Požadavky i odpovědi jsou `application/scim+json`,
 chyby mají tvar RFC 7644 (`schemas`, `status`, `scimType`, `detail`).
@@ -97,14 +97,14 @@ chyby mají tvar RFC 7644 (`schemas`, `status`, `scimType`, `detail`).
 | `GET /api/ServiceProviderConfig` | co API podporuje (patch, filtry, stránkování, auth schéma) |
 | `GET /api/ResourceTypes`, `GET /api/Schemas` (+ `/{id}`) | discovery schémat |
 | `GET/POST /api/Users`, `GET/PUT/PATCH/DELETE /api/Users/{id}` | uživatelé |
-| `GET/POST /api/Groups`, `GET/PUT/PATCH/DELETE /api/Groups/{id}` | role (groups) |
+| `GET/POST /api/Groups`, `GET/PUT/PATCH/DELETE /api/Groups/{id}` | skupiny |
 
 Mapování na Anubis:
 
 - **User**: `userName` = e-mail (zároveň přihlašovací jméno), `displayName`/`name.formatted`, `active` = zámek účtu,
-  `emails[primary]`, `phoneNumbers[primary]`, `password` (jen při zápisu), `groups` = role uživatele (`value` = id role, `display` = název)
+  `emails[primary]`, `phoneNumbers[primary]`, `password` (jen při zápisu), `groups` = skupiny uživatele (`value` = id skupiny, `display` = název)
 - **Anubis extension** `urn:ietf:params:scim:schemas:extension:anubis:2.0:User`: `claims` (vlastní claimy uživatele, rezervované typy jako `sub`/`email` jsou odmítnuty) a `emailConfirmed`
-- **Group** = role: `displayName` = název role, `members` = uživatelé v roli. Vestavěné role `Admin`/`User` nelze přejmenovat ani smazat
+- **Group** = skupina: `displayName` = název skupiny, `members` = členové. Vestavěné skupiny `Admins`/`Users` nelze přejmenovat ani smazat
 
 List endpointy podporují `filter` (`userName eq "..."`, `displayName co "..."`, kombinace přes `and`), `sortBy`, `sortOrder`,
 `startIndex` (1-based), `count` (výchozí 50, max 200), `attributes` a `excludedAttributes`; odpověď je `ListResponse`
@@ -127,34 +127,35 @@ curl -X POST http://localhost:5080/api/Users \
 
 ## Webové UI
 
-- `/` — bez úvodní stránky: přesměruje na `/account` (přihlášený uživatel) nebo `/login`
+- `/` — bez úvodní stránky: přesměruje na `/profile` (přihlášený uživatel) nebo `/login`
 - `/login`, `/register` — přihlášení (heslo nebo passkey) a registrace
-- `/login/2fa`, `/login/recovery-code` — druhý krok přihlášení (kód z aplikace / záchranný kód)
+- `/login-2fa`, `/login-recovery-code` — druhý krok přihlášení (kód z aplikace / záchranný kód)
 - `/forgot-password`, `/reset-password` — obnova hesla odkazem v e-mailu (platnost 1 h, jednorázový)
-- `/confirm-email`, `/confirm-email/resend` — potvrzení e-mailové adresy (odkaz platí 24 h)
-- `/account/security` — passkeys (otisk prstu, Face ID, PIN), authenticator aplikace, záchranné kódy
+- `/confirm-email`, `/confirm-email-resend` — potvrzení e-mailové adresy (odkaz platí 24 h)
+- `/passkeys` — passkeys (otisk prstu, Face ID, PIN)
+- `/mfa` — dvoufázové ověření: authenticator aplikace (`/mfa/authenticator`), záchranné kódy (`/mfa/recovery-codes`), vypnutí (`/mfa/disable`)
 - `/consent` — souhlas uživatele s oprávněními klienta (při code flow)
-- `/account` — profil: avatar, jméno, e-mail (+ odeslání ověřovacího e-mailu), telefonní číslo (uloží se jako neověřené, ověří se kódem z SMS; po změně je potřeba ověřit znovu),
+- `/profile` — profil: avatar, jméno, e-mail (+ odeslání ověřovacího e-mailu), telefonní číslo (uloží se jako neověřené, ověří se kódem z SMS; po změně je potřeba ověřit znovu),
   jazyk a barevný režim (světlý / tmavý / podle systému)
-- `/account/change-password` — změna hesla
-- `/account/history` — historie účtu: přihlášení (i neúspěšná a do aplikací), odhlášení, změny hesla, MFA, passkeys,
+- `/change-password` — změna hesla
+- `/history` — historie účtu: přihlášení (i neúspěšná a do aplikací), odhlášení, změny hesla, MFA, passkeys,
   telefonu, e-mailu a zásahy administrátora; s časem (v místním čase prohlížeče), zařízením a IP adresou
-- `/admin` — administrace (role `Admin`). Účet i administrace sdílejí jedno rozložení (Hathor `AppShell`) a jednu navigaci;
+- Administrace (jen členové skupiny `Admins`). Účet i administrace sdílejí jedno rozložení (Hathor `AppShell`) a jednu navigaci;
   sekce **Správa** a **Nastavení** v ní vidí jen administrátor. Sekce **Správa** jsou jen seznamy: akce nad záznamem jsou v menu ⋮ na řádku, nové záznamy (a úprava klienta) se zadávají v modálním okně:
-  - `/admin/users` — uživatelé: úprava účtu (e-mail = přihlašovací jméno, jméno, telefon, ověření e-mailu, role) s validací
-    před uložením (formát a jedinečnost e-mailu, poslední administrátor, vlastní role Admin, souběžné změny),
+  - `/users` — uživatelé: úprava účtu (e-mail = přihlašovací jméno, jméno, telefon, ověření e-mailu, skupiny) s validací
+    před uložením (formát a jedinečnost e-mailu, poslední administrátor, vlastní členství v Admins, souběžné změny),
     zablokování, reset MFA, smazání
-  - `/admin/roles` — role a jejich členové
-  - `/admin/scopes`, `/admin/clients` — scopes, OIDC klienti (včetně generování secretu)
+  - `/groups` — skupiny, jejich claimy a členové
+  - `/scopes`, `/clients` — scopes, OIDC klienti (včetně generování secretu)
   - **Nastavení** (vše se ukládá do souboru s nastavením a platí hned, kromě veřejné adresy, která se projeví po restartu):
-    - `/admin/general` – Obecné: název serveru (titulek záložky „Stránka — Název“, logo + název vlevo nahoře),
+    - `/options-general` – Obecné: název serveru (titulek záložky „Stránka — Název“, logo + název vlevo nahoře),
       veřejná adresa (issuer), samoobslužná registrace, povinné ověření e-mailu
-    - `/admin/security` – Zabezpečení: pravidla hesel, zablokování po neúspěšném přihlášení, délka přihlášení,
+    - `/options-security` – Zabezpečení: pravidla hesel, zablokování po neúspěšném přihlášení, délka přihlášení,
       maximální počet passkeys na účet
-    - `/admin/tokens` – Tokeny: platnost access tokenu, ID tokenu, autorizačního kódu, refresh tokenu a souhlasu
-    - `/admin/appearance` – Vzhled (logo, favicon, písmo, barvy), `/admin/email` – E-mail (provider, odesílatel,
+    - `/options-tokens` – Tokeny: platnost access tokenu, ID tokenu, autorizačního kódu, refresh tokenu a souhlasu
+    - `/options-appearance` – Vzhled (logo, favicon, písmo, barvy), `/options-email` – E-mail (provider, odesílatel,
       přístupové údaje + testovací e-mail)
-  - Všechny seznamy (i passkeys na účtu a členové role) mají akce nad záznamem v menu ⋮
+  - Všechny seznamy (i passkeys na účtu a členové skupiny) mají akce nad záznamem v menu ⋮
 
 ### Vzhled a jazyk
 
@@ -173,6 +174,8 @@ curl -X POST http://localhost:5080/api/Users \
 - **Avatar uživatele** je na stránce účtu; výchozí je [Gravatar](https://gravatar.com) podle
   e-mailu (MD5 hash), vlastní URL jde nastavit přes `AvatarUrl` u uživatele. S `profile` scope se avatar
   posílá i jako standardní OIDC claim `picture` (userinfo + ID token).
+- **Skupiny v tokenech:** claim `groups` (pole názvů skupin) je vždy v access tokenu; se scope `groups`
+  i v ID tokenu a userinfo (stejně jako Keycloak nebo Entra ID). Claimy nastavené na skupině dostanou všichni její členové.
 - **Jazyky:** všech 24 úředních jazyků EU (bg, cs, da, de, el, en, es, et, fi, fr, ga, hr, hu, it, lt, lv, mt,
   nl, pl, pt, ro, sk, sl, sv); výchozí je angličtina. Pořadí: jazyk uložený u účtu (volí se na stránce účtu)
   → OIDC parametr `ui_locales` od klienta → jazyk prohlížeče → angličtina.
@@ -226,8 +229,8 @@ Konfigurace se dá zadat i přes proměnné prostředí — v kontejneru/k8s sta
 
 | Klíč | Význam |
 | --- | --- |
-| `LogoPath` | logo na přihlašovací stránce: `data:` URL, cesta ve `wwwroot` nebo `https://` adresa (default: pyramida Anubis jako `data:` URL přímo v `appsettings.json`) |
-| `FaviconPath` | favicon, stejné možnosti (default: pyramida Anubis jako `data:` URL v `appsettings.json`) |
+| `LogoPath` | logo na přihlašovací stránce: `data:` URL, cesta ve `wwwroot` nebo `https://` adresa (default: logo Anubis (`anubis.svg`) jako `data:` URL přímo v `appsettings.json`) |
+| `FaviconPath` | favicon, stejné možnosti (default: logo Anubis (`anubis.svg`) jako `data:` URL v `appsettings.json`) |
 | `FontFamily` | CSS font-family pro celé UI (Hathor `FontFamily`) z písem nainstalovaných v zařízení; prázdné = výchozí písmo Hathoru |
 | `Light:Primary` / `Light:Secondary` / `Light:Background` / `Light:Foreground` | barvy světlého motivu (Hathor `--primary`, `--secondary`, `--bg`, `--text`) |
 | `Dark:Primary` / `Dark:Secondary` / `Dark:Background` / `Dark:Foreground` | totéž pro tmavý motiv |
@@ -407,7 +410,7 @@ Anubis/
 ├── Components/                       # Blazor stránky (Hathor + konfigurovatelné appearance)
 │   ├── Pages/Auth/                   # login (+ 2FA, recovery), register, consent, obnova hesla, potvrzení e-mailu
 │   ├── Pages/Account/                # profil, změna hesla, passkeys a 2FA
-│   ├── Pages/Admin/                  # uživatelé, role, klienti, scopes, nastavení
+│   ├── Pages/Admin/                  # uživatelé, skupiny, klienti, scopes, nastavení
 │   └── Layout/                       # AppLayout (účet + administrace), MainLayout (přihlášení)
 ├── Data/                             # ApplicationDbContext (Identity + OpenIddict), seed, pruning, migrace
 ├── Services/                         # consent cookie, správa klientů/scopes

@@ -1,4 +1,4 @@
-@page "/account/security/passkeys/{Id}"
+@page "/passkeys/{Id}"
 @attribute [Authorize]
 
 @using System.Buffers.Text
@@ -23,7 +23,7 @@
                 <Button Type="submit" Icon="@AppIcons.Check">
                     @Translations.Common_Save
                 </Button>
-                <Button Variant="ButtonVariant.Ghost" Href="@(IsNew ? "/account/security?status=passkey-added" : "/account/passkeys")">
+                <Button Variant="ButtonVariant.Ghost" Href="@(IsNew ? "/passkeys?status=passkey-added" : "/passkeys")">
                     @(IsNew ? Translations.RenamePasskey_Skip : Translations.Common_Cancel)
                 </Button>
             </Stack>
@@ -70,7 +70,7 @@
 
         if (passkey is null)
         {
-            Navigation.NavigateTo("/account/security?status=passkey-not-found", forceLoad: true);
+            Navigation.NavigateTo("/passkeys?status=passkey-not-found", forceLoad: true);
             return;
         }
 
@@ -89,7 +89,7 @@
 
         passkey.Name = model!.Name.Trim();
         await UserManager.AddOrUpdatePasskeyAsync(user, passkey);
-        Navigation.NavigateTo(IsNew ? "/account/security?status=passkey-added" : "/account/security?status=passkey-renamed", forceLoad: true);
+        Navigation.NavigateTo(IsNew ? "/passkeys?status=passkey-added" : "/passkeys?status=passkey-renamed", forceLoad: true);
     }
 
     public sealed class RenameModel

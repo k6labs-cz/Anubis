@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace k6labs.Anubis.Controllers.Scim;
 
-/// <summary>SCIM Groups resource (RFC 7643 section 4.2): /api/Groups. A group is an Anubis role, its members are the users in the role.</summary>
+/// <summary>SCIM Groups resource (RFC 7643 section 4.2): /api/Groups. Its members are the users in the group.</summary>
 [Route("api/Groups")]
 public sealed class GroupsController : ScimControllerBase
 {

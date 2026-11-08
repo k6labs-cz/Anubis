@@ -1,4 +1,4 @@
-@page "/account/history"
+@page "/history"
 @attribute [Authorize]
 
 @using k6labs.Anubis.Services.Activity
@@ -104,7 +104,7 @@
         events = page.Take(PageSize).ToList();
     }
 
-    private static string PageUrl(int page) => page <= 1 ? "/account/history" : $"/account/history?page={page}";
+    private static string PageUrl(int page) => page <= 1 ? "/history" : $"/history?page={page}";
 
     private static string Title(string type) => type switch
     {
@@ -118,8 +118,8 @@
         UserEventTypes.PasswordReset => Translations.History_PasswordReset,
         UserEventTypes.EmailConfirmed => Translations.History_EmailConfirmed,
         UserEventTypes.EmailChanged => Translations.History_EmailChanged,
-        UserEventTypes.RoleAdded => Translations.History_RoleAdded,
-        UserEventTypes.RoleRemoved => Translations.History_RoleRemoved,
+        UserEventTypes.GroupAdded => Translations.History_GroupAdded,
+        UserEventTypes.GroupRemoved => Translations.History_GroupRemoved,
         UserEventTypes.TwoFactorEnabled => Translations.History_TwoFactorEnabled,
         UserEventTypes.TwoFactorDisabled => Translations.History_TwoFactorDisabled,
         UserEventTypes.RecoveryCodesGenerated => Translations.History_RecoveryCodesGenerated,
@@ -176,7 +176,7 @@
         UserEventTypes.PasskeyAdded or UserEventTypes.PasskeyRemoved => (AppIcons.Fingerprint, Tone.Primary),
         UserEventTypes.PhoneChanged or UserEventTypes.PhoneVerified or UserEventTypes.PhoneRemoved => (AppIcons.Phone, Tone.Default),
         UserEventTypes.EmailConfirmed or UserEventTypes.EmailChanged => (AppIcons.MarkEmailRead, Tone.Default),
-        UserEventTypes.RoleAdded or UserEventTypes.RoleRemoved => (AppIcons.Badge, Tone.Primary),
+        UserEventTypes.GroupAdded or UserEventTypes.GroupRemoved => (AppIcons.Badge, Tone.Primary),
         _ => (AppIcons.Person, Tone.Default),
     };
 }

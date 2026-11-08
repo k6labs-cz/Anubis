@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Vytvořeno</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Podle prohlížeče</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Passkeys</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Role</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Skupiny</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Poslat potvrzovací e-mail</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Multifaktor</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>OIDC klienti</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Záznam mezitím změnil někdo jiný. Načtěte stránku znovu a zkuste to ještě jednou.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>Došlo k neznámé chybě.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>E-mail „{0}“ už je použitý.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Název role „{0}“ už je obsazený.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Název skupiny „{0}“ už je obsazený.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Uživatelské jméno „{0}“ už je obsazené.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>E-mail „{0}“ je neplatný.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Název role „{0}“ je neplatný.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Název skupiny „{0}“ je neplatný.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Neplatný token.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>Uživatelské jméno „{0}“ je neplatné.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Uživatel s tímto přihlášením už existuje.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Heslo musí mít alespoň {0} znaků.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Záchranný kód se nepodařilo použít.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Uživatel už má heslo nastavené.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Uživatel už má roli „{0}“.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Uživatel už je členem skupiny „{0}“.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Blokování není u tohoto uživatele zapnuté.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Uživatel nemá roli „{0}“.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Uživatel není členem skupiny „{0}“.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Účet</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Jazyk</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Mít přístup i ve vaší nepřítomnosti (refresh tokeny)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>Ověřit, kdo jste</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>Zobrazit vaše jméno a profil</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Zobrazit vaše role</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>Zobrazit vaše skupiny</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Vytvořit scope</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>Vlastní scopes si mohou klienti vyžádat a lze je mapovat na resources (audience).</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Moje API</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>Neplatný nebo nepodporovaný soubor obrázku.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Soubor obrázku je příliš velký (max. 10 MB).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Nastavení</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Role</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Skupiny</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Vzhled</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Účty, které se mohou přihlásit do Anubis.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>Role se klientským aplikacím předávají v claimu roles.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>Skupiny se klientským aplikacím předávají v claimu groups.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Oprávnění, která si mohou klientské aplikace vyžádat.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Aplikace, které přihlašují uživatele přes Anubis.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>Odchozí e-maily pro potvrzení adresy a obnovu hesla.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Sekundární</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Pozadí</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Text</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Vytvořit roli</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>Nová role nemá žádné členy; přidáte je v seznamu níže.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Členové</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Vestavěná</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Smazat roli</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Smazat roli {0}? Všichni její členové o ni přijdou.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>Členové role {0}</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Přidat</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Odebrat</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>Zatím žádní členové.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>Posledního administrátora nelze odebrat.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Zadejte název role.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Vytvořit skupinu</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>Nová skupina nemá žádné členy; přidáte je v seznamu níže.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Členové</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Vestavěná</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Smazat skupinu</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>Smazat skupinu {0}? Všichni její členové z ní budou odebráni.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>Členové skupiny {0}</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Přidat</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Odebrat</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>Zatím žádní členové.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>Posledního administrátora nelze odebrat.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Zadejte název skupiny.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Zadejte barvu jako #RRGGBB, nebo pole nechte prázdné.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>Nesmí obsahovat ; { } &lt; &gt; ani \.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Zadejte absolutní adresu https://.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-mailová adresa ověřena</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Změněné číslo se uloží jako neověřené.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>Tuto e-mailovou adresu už používá jiný účet.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Svému vlastnímu účtu nemůžete odebrat roli Admin.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Svůj vlastní účet nemůžete odebrat ze skupiny Admins.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>Změny účtu {0} byly uloženy.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>E-mailová adresa změněna</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Role přidána</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Role odebrána</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Přidán do skupiny</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Odebrán ze skupiny</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Po uložení přijde na novou adresu ověřovací e-mail.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>Na adresu {0} byl odeslán ověřovací e-mail.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Začněte písmenem, dále písmena, číslice a - _ . : / (nejvýše {0} znaků).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Nejvýše {0} znaků.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Tento claim je uveden dvakrát.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Nejvýše {0} claimů.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>Role nebyla nalezena.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>Vestavěné role nelze přejmenovat.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Role s tímto názvem už existuje.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>Upravit roli {0}</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>Role {0} byla uložena.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Přidat roli</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>Skupina nebyla nalezena.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>Vestavěné skupiny nelze přejmenovat.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Skupina s tímto názvem už existuje.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>Upravit skupinu {0}</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>Skupina {0} byla uložena.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Přidat skupinu</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claimy</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Přidávají se do access tokenu, ID tokenu a userinfo, spolu s claimy rolí uživatele.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Přidávají se do tokenů všech členů této role.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Přidávají se do access tokenu, ID tokenu a userinfo, spolu s claimy skupin uživatele.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Přidávají se do tokenů všech členů této skupiny.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Typ</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Hodnota</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Přidat claim</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Odebrat claim</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Zatím žádné claimy.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Z rolí</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Ze skupin</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Změnit avatara</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Načítání…</value></data>
 </root>

@@ -61,8 +61,8 @@ public sealed class CreateUserModel
     [LRequired(nameof(Translations.Validation_PasswordRequired))]
     public string Password { get; set; } = string.Empty;
 
-    /// <summary>Roles of the new account ("User" is always added).</summary>
-    public HashSet<string> Roles { get; set; } = new(StringComparer.OrdinalIgnoreCase);
+    /// <summary>Groups of the new account ("Users" is always added).</summary>
+    public HashSet<string> Groups { get; set; } = new(StringComparer.OrdinalIgnoreCase);
 }
 
 public enum AvatarChange
@@ -80,7 +80,7 @@ public sealed class ClaimEntry
     public string Value { get; set; } = string.Empty;
 }
 
-public sealed class RoleEditModel
+public sealed class GroupEditModel
 {
     public string Id { get; set; } = string.Empty;
 
@@ -114,9 +114,9 @@ public sealed class UserEditModel
 
     public string? PhoneNumber { get; set; }
 
-    public HashSet<string> Roles { get; set; } = new(StringComparer.OrdinalIgnoreCase);
+    public HashSet<string> Groups { get; set; } = new(StringComparer.OrdinalIgnoreCase);
 
-    /// <summary>The user's own claims (the claims of their roles are added on top).</summary>
+    /// <summary>The user's own claims (the claims of their groups are added on top).</summary>
     public List<ClaimEntry> Claims { get; set; } = new();
 
     /// <summary>Replace / remove the avatar on save.</summary>

@@ -32,8 +32,8 @@ public sealed class UserAdministrationResult
 
 /// <summary>
 /// Creating and editing accounts in the admin UI. Everything is validated first (email format,
-/// length and uniqueness, display name, phone number, roles, "last administrator" and
-/// "own Admin role" rules, concurrent changes) and then applied in one database transaction,
+/// length and uniqueness, display name, phone number, groups, "last administrator" and
+/// "own Admins membership" rules, concurrent changes) and then applied in one database transaction,
 /// so an edit is saved completely or not at all.
 /// </summary>
 public sealed class UserAdministration
@@ -42,23 +42,23 @@ public sealed class UserAdministration
     public const int DisplayNameMaxLength = 100;
 
     private readonly UserManager<User> _users;
-    private readonly RoleManager<Role> _roles;
+    private readonly RoleManager<Group> _groups;
     private readonly AnubisDbContext _db;
     private readonly Email.AccountEmailService _emails;
     private readonly AvatarService _avatars;
 
-    public UserAdministration(UserManager<User> users, RoleManager<Role> roles, AnubisDbContext db, Email.AccountEmailService emails, AvatarService avatars)
+    public UserAdministration(UserManager<User> users, RoleManager<Group> groups, AnubisDbContext db, Email.AccountEmailService emails, AvatarService avatars)
     {
         _users = users;
-        _roles = roles;
+        _groups = groups;
         _db = db;
         _emails = emails;
         _avatars = avatars;
     }
 
-    /// <summary>All role names, sorted.</summary>
-    public Task<List<string>> RoleNamesAsync()
-        => _roles.Roles.OrderBy(r => r.Name).Select(r => r.Name!).ToListAsync();
+    /// <summary>All group names, sorted.</summary>
+    public Task<List<string>> GroupNamesAsync()
+        => _groups.Roles.OrderBy(r => r.Name).Select(r => r.Name!).ToListAsync();
 
     public async Task<UserEditModel?> LoadAsync(string userId)
     {
@@ -78,7 +78,7 @@ public sealed class UserAdministration
             EmailConfirmed = user.EmailConfirmed,
             DisplayName = user.DisplayName,
             PhoneNumber = user.PhoneNumber,
-            Roles = new HashSet<string>(await _users.GetRolesAsync(user), StringComparer.OrdinalIgnoreCase),
+            Groups = new HashSet<string>(await _users.GetRolesAsync(user), StringComparer.OrdinalIgnoreCase),
             Claims = CustomClaims.ToEntries(await _users.GetClaimsAsync(user)),
         };
     }
@@ -88,7 +88,7 @@ public sealed class UserAdministration
         var result = new UserAdministrationResult();
         var email = model.Email.Trim();
         await ValidateEmailAsync(result, email, userId: null);
-        var roles = await ValidateRolesAsync(result, model.Roles);
+        var groups = await ValidateGroupsAsync(result, model.Groups);
         if (!result.Succeeded)
         {
             return result;
@@ -111,7 +111,7 @@ public sealed class UserAdministration
         }
 
         var current = await _users.GetRolesAsync(user);   // the very first account already got Admin
-        var missing = roles.Where(role => !current.Contains(role, StringComparer.OrdinalIgnoreCase)).ToList();
+        var missing = groups.Where(group => !current.Contains(group, StringComparer.OrdinalIgnoreCase)).ToList();
         if (missing.Count > 0 && AddIdentityErrors(result, await _users.AddToRolesAsync(user, missing)) is { Succeeded: false })
         {
             return result;
@@ -122,7 +122,7 @@ public sealed class UserAdministration
     }
 
     /// <param name="model">The validated user changes submitted by the administrator.</param>
-    /// <param name="actingUserId">The signed-in administrator (may not remove their own Admin role).</param>
+    /// <param name="actingUserId">The signed-in administrator (may not remove themselves from Admins).</param>
     /// <param name="requestBaseUri">For the link in the confirmation email when <c>Anubis:Issuer</c> is not set.</param>
     public async Task<UserAdministrationResult> UpdateAsync(UserEditModel model, string? actingUserId, string? requestBaseUri = null)
     {
@@ -162,18 +162,18 @@ public sealed class UserAdministration
             }
         }
 
-        var roles = await ValidateRolesAsync(result, model.Roles);
-        var currentRoles = await _users.GetRolesAsync(user);
-        var isAdmin = currentRoles.Contains(DatabaseInitializer.AdminRole, StringComparer.OrdinalIgnoreCase);
-        if (isAdmin && !roles.Contains(DatabaseInitializer.AdminRole))
+        var groups = await ValidateGroupsAsync(result, model.Groups);
+        var currentGroups = await _users.GetRolesAsync(user);
+        var isAdmin = currentGroups.Contains(DatabaseInitializer.AdminGroup, StringComparer.OrdinalIgnoreCase);
+        if (isAdmin && !groups.Contains(DatabaseInitializer.AdminGroup))
         {
             if (user.Id == actingUserId)
             {
-                result.Add(nameof(UserEditModel.Roles), Translations.Users_CannotRemoveOwnAdmin);
+                result.Add(nameof(UserEditModel.Groups), Translations.Users_CannotRemoveOwnAdmin);
             }
-            else if ((await _users.GetUsersInRoleAsync(DatabaseInitializer.AdminRole)).Count <= 1)
+            else if ((await _users.GetUsersInRoleAsync(DatabaseInitializer.AdminGroup)).Count <= 1)
             {
-                result.Add(nameof(UserEditModel.Roles), Translations.Roles_LastAdmin);
+                result.Add(nameof(UserEditModel.Groups), Translations.Groups_LastAdmin);
             }
         }
 
@@ -213,8 +213,8 @@ public sealed class UserAdministration
             return result;
         }
 
-        var toRemove = currentRoles.Where(role => !roles.Contains(role)).ToList();
-        var toAdd = roles.Where(role => !currentRoles.Contains(role, StringComparer.OrdinalIgnoreCase)).ToList();
+        var toRemove = currentGroups.Where(group => !groups.Contains(group)).ToList();
+        var toAdd = groups.Where(group => !currentGroups.Contains(group, StringComparer.OrdinalIgnoreCase)).ToList();
         if (toRemove.Count > 0 && AddIdentityErrors(result, await _users.RemoveFromRolesAsync(user, toRemove)) is { Succeeded: false })
         {
             return result;
@@ -225,7 +225,7 @@ public sealed class UserAdministration
             return result;
         }
 
-        // Own claims: only the difference is written (the claims of the roles are not stored on the user).
+        // Own claims: only the difference is written (the claims of the groups are not stored on the user).
         var currentClaims = (await _users.GetClaimsAsync(user)).Where(claim => !CustomClaims.IsReserved(claim.Type)).ToList();
         var removedClaims = currentClaims.Where(c => !claims.Any(n => n.Type == c.Type && n.Value == c.Value)).ToList();
         var addedClaims = claims.Where(n => !currentClaims.Any(c => c.Type == n.Type && c.Value == n.Value)).ToList();
@@ -258,7 +258,7 @@ public sealed class UserAdministration
 
         if (toRemove.Count > 0 || toAdd.Count > 0 || removedClaims.Count > 0 || addedClaims.Count > 0)
         {
-            // Sign-in cookies and tokens carry roles: make existing sessions pick up the change.
+            // Sign-in cookies and tokens carry groups: make existing sessions pick up the change.
             await _users.UpdateSecurityStampAsync(user);
         }
 
@@ -301,24 +301,24 @@ public sealed class UserAdministration
         }
     }
 
-    private async Task<HashSet<string>> ValidateRolesAsync(UserAdministrationResult result, IEnumerable<string> requested)
+    private async Task<HashSet<string>> ValidateGroupsAsync(UserAdministrationResult result, IEnumerable<string> requested)
     {
-        var existing = await RoleNamesAsync();
-        var roles = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { DatabaseInitializer.UserRole };   // every account
-        foreach (var role in requested)
+        var existing = await GroupNamesAsync();
+        var groups = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { DatabaseInitializer.UserGroup };   // every account
+        foreach (var group in requested)
         {
-            var match = existing.FirstOrDefault(name => string.Equals(name, role, StringComparison.OrdinalIgnoreCase));
+            var match = existing.FirstOrDefault(name => string.Equals(name, group, StringComparison.OrdinalIgnoreCase));
             if (match is null)
             {
-                result.Add(nameof(UserEditModel.Roles), Translations.Identity_InvalidRoleName.Format(role));
+                result.Add(nameof(UserEditModel.Groups), Translations.Identity_InvalidRoleName.Format(group));
             }
             else
             {
-                roles.Add(match);
+                groups.Add(match);
             }
         }
 
-        return roles;
+        return groups;
     }
 
     private static UserAdministrationResult AddIdentityErrors(UserAdministrationResult result, IdentityResult identity)

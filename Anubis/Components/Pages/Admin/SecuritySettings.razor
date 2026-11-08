@@ -1,6 +1,6 @@
-@page "/admin/security"
+@page "/options-security"
 @rendermode InteractiveServer
-@attribute [Authorize(Roles = "Admin")]
+@attribute [Authorize(Roles = DatabaseInitializer.AdminGroup)]
 
 @using k6labs.Anubis.Options
 @using k6labs.Anubis.Services

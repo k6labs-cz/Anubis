@@ -1,4 +1,4 @@
-@page "/account/security/authenticator"
+@page "/mfa/authenticator"
 @attribute [Authorize]
 
 @using k6labs.Anubis.Localization
@@ -17,7 +17,7 @@
         <PageHeader Title="@Translations.Status_AuthenticatorEnabledTitle" Description="@Translations.Authenticator_EnabledText" />
         <Stack Gap="Gap.Medium">
             <RecoveryCodesList Codes="recoveryCodes" />
-            <Button Href="/account/mfa">@Translations.RecoveryCodes_Saved</Button>
+            <Button Href="/mfa">@Translations.RecoveryCodes_Saved</Button>
         </Stack>
     }
     else if (alreadyEnabled)
@@ -29,7 +29,7 @@
                 <Button Variant="ButtonVariant.Danger" Type="submit" Icon="@AppIcons.Refresh">
                     @Translations.Authenticator_CreateNewKey
                 </Button>
-                <Button Variant="ButtonVariant.Ghost" Href="/account/mfa">@Translations.Common_Cancel</Button>
+                <Button Variant="ButtonVariant.Ghost" Href="/mfa">@Translations.Common_Cancel</Button>
             </Stack>
         </form>
     }
@@ -68,7 +68,7 @@
                         <Button Type="submit" Icon="@AppIcons.VerifiedUser">
                             @Translations.Authenticator_VerifyAndEnable
                         </Button>
-                        <Button Variant="ButtonVariant.Ghost" Href="/account/mfa">@Translations.Common_Cancel</Button>
+                        <Button Variant="ButtonVariant.Ghost" Href="/mfa">@Translations.Common_Cancel</Button>
                     </Stack>
                 </Stack>
             </EditForm>
@@ -149,7 +149,7 @@
             return;
         }
 
-        Navigation.NavigateTo("/account/security?status=authenticator-enabled", forceLoad: true);
+        Navigation.NavigateTo("/passkeys?status=authenticator-enabled", forceLoad: true);
     }
 
     private async Task ResetAsync()
@@ -162,7 +162,7 @@
         await UserManager.SetTwoFactorEnabledAsync(user, false);
         await UserManager.ResetAuthenticatorKeyAsync(user);
         await SignInManager.RefreshSignInAsync(user);
-        Navigation.NavigateTo("/account/security/authenticator?status=authenticator-reset", forceLoad: true);
+        Navigation.NavigateTo("/mfa/authenticator?status=authenticator-reset", forceLoad: true);
     }
 
     public sealed class VerifyModel

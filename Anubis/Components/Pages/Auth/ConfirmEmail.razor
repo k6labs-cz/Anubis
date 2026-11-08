@@ -15,14 +15,14 @@
                         <Alert Severity="AlertSeverity.Success" Title="@Translations.Confirm_SuccessTitle">
                             @Translations.Confirm_SuccessText
                         </Alert>
-                        <Button Href="/account" Block="true">@Translations.Confirm_Continue</Button>
+                        <Button Href="/profile" Block="true">@Translations.Confirm_Continue</Button>
                     }
                     else
                     {
                         <Alert Severity="AlertSeverity.Danger" Title="@Translations.Confirm_InvalidTitle">
                             @Translations.Confirm_InvalidText
                         </Alert>
-                        <Button Variant="ButtonVariant.Ghost" Href="/confirm-email/resend" Block="true">@Translations.Confirm_SendNew</Button>
+                        <Button Variant="ButtonVariant.Ghost" Href="/confirm-email-resend" Block="true">@Translations.Confirm_SendNew</Button>
                     }
                 </Stack>
             </ChildContent>

@@ -25,17 +25,17 @@ public sealed class LocalizedIdentityErrorDescriber : IdentityErrorDescriber
 
     public override IdentityError DuplicateEmail(string email) => Error(nameof(DuplicateEmail), Translations.Identity_DuplicateEmail.F(email));
 
-    public override IdentityError InvalidRoleName(string? role) => Error(nameof(InvalidRoleName), Translations.Identity_InvalidRoleName.F(role));
+    public override IdentityError InvalidRoleName(string? group) => Error(nameof(InvalidRoleName), Translations.Identity_InvalidRoleName.F(group));
 
-    public override IdentityError DuplicateRoleName(string role) => Error(nameof(DuplicateRoleName), Translations.Identity_DuplicateRoleName.F(role));
+    public override IdentityError DuplicateRoleName(string group) => Error(nameof(DuplicateRoleName), Translations.Identity_DuplicateRoleName.F(group));
 
     public override IdentityError UserAlreadyHasPassword() => Error(nameof(UserAlreadyHasPassword), Translations.Identity_UserAlreadyHasPassword);
 
     public override IdentityError UserLockoutNotEnabled() => Error(nameof(UserLockoutNotEnabled), Translations.Identity_UserLockoutNotEnabled);
 
-    public override IdentityError UserAlreadyInRole(string role) => Error(nameof(UserAlreadyInRole), Translations.Identity_UserAlreadyInRole.F(role));
+    public override IdentityError UserAlreadyInRole(string group) => Error(nameof(UserAlreadyInRole), Translations.Identity_UserAlreadyInRole.F(group));
 
-    public override IdentityError UserNotInRole(string role) => Error(nameof(UserNotInRole), Translations.Identity_UserNotInRole.F(role));
+    public override IdentityError UserNotInRole(string group) => Error(nameof(UserNotInRole), Translations.Identity_UserNotInRole.F(group));
 
     public override IdentityError PasswordTooShort(int length) => Error(nameof(PasswordTooShort), Translations.Identity_PasswordTooShort.F(length));
 

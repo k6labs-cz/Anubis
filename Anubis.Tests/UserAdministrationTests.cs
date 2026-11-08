@@ -16,7 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Anubis.Tests;
 
 /// <summary>
-/// Admin edit of accounts (email = sign-in name, display name, phone, roles): validation
+/// Admin edit of accounts (email = sign-in name, display name, phone, groups): validation
 /// before anything changes, all-or-nothing saving, and the administrator safety rules.
 /// Runs on its own database, so "the only administrator" is known.
 /// </summary>
@@ -141,53 +141,53 @@ public class UserAdministrationTests : IClassFixture<UserAdministrationTests.Fac
     }
 
     [Fact]
-    public async Task Roles_AreAssigned_UserRoleStays_AndUnknownRolesAreRejected()
+    public async Task Groups_AreAssigned_UserGroupStays_AndUnknownGroupsAreRejected()
     {
         var user = await CreateUserAsync();
         using (var scope = _factory.Services.CreateScope())
         {
-            await scope.ServiceProvider.GetRequiredService<RoleManager<Role>>().CreateAsync(new Role("editors"));
+            await scope.ServiceProvider.GetRequiredService<RoleManager<Group>>().CreateAsync(new Group("editors"));
         }
 
         using (var scope = _factory.Services.CreateScope())
         {
             var admin = scope.ServiceProvider.GetRequiredService<UserAdministration>();
             var model = (await admin.LoadAsync(user.Id))!;
-            model.Roles = ["editors"];                       // "User" not ticked: it is kept anyway
+            model.Groups = ["editors"];                       // "Users" not ticked: it is kept anyway
             Assert.True((await admin.UpdateAsync(model, null)).Succeeded);
 
             model = (await admin.LoadAsync(user.Id))!;
-            Assert.Equal(new HashSet<string> { "editors", DatabaseInitializer.UserRole }, model.Roles);
+            Assert.Equal(new HashSet<string> { "editors", DatabaseInitializer.UserGroup }, model.Groups);
 
-            model.Roles = ["no-such-role"];
+            model.Groups = ["no-such-group"];
             var rejected = await admin.UpdateAsync(model, null);
-            Assert.True(rejected.Errors.ContainsKey(nameof(UserEditModel.Roles)));
-            Assert.Contains("editors", (await admin.LoadAsync(user.Id))!.Roles);   // unchanged
+            Assert.True(rejected.Errors.ContainsKey(nameof(UserEditModel.Groups)));
+            Assert.Contains("editors", (await admin.LoadAsync(user.Id))!.Groups);   // unchanged
 
             model = (await admin.LoadAsync(user.Id))!;
-            model.Roles = [];
+            model.Groups = [];
             Assert.True((await admin.UpdateAsync(model, null)).Succeeded);
-            Assert.Equal(new HashSet<string> { DatabaseInitializer.UserRole }, (await admin.LoadAsync(user.Id))!.Roles);
+            Assert.Equal(new HashSet<string> { DatabaseInitializer.UserGroup }, (await admin.LoadAsync(user.Id))!.Groups);
         }
 
         var types = await EventTypesAsync(user.Id);
-        Assert.Contains(UserEventTypes.RoleAdded, types);
-        Assert.Contains(UserEventTypes.RoleRemoved, types);
+        Assert.Contains(UserEventTypes.GroupAdded, types);
+        Assert.Contains(UserEventTypes.GroupRemoved, types);
     }
 
     [Fact]
-    public async Task AdminRole_CannotBeRemoved_FromYourself_OrFromTheLastAdministrator()
+    public async Task AdminGroup_CannotBeRemoved_FromYourself_OrFromTheLastAdministrator()
     {
         using var scope = _factory.Services.CreateScope();
         var users = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
         var admin = scope.ServiceProvider.GetRequiredService<UserAdministration>();
-        var onlyAdmin = (await users.GetUsersInRoleAsync(DatabaseInitializer.AdminRole)).Single();
+        var onlyAdmin = (await users.GetUsersInRoleAsync(DatabaseInitializer.AdminGroup)).Single();
 
         var model = (await admin.LoadAsync(onlyAdmin.Id))!;
-        model.Roles.Remove(DatabaseInitializer.AdminRole);
-        Assert.Equal("You can't remove the Admin role from your own account.", (await admin.UpdateAsync(model, onlyAdmin.Id)).Errors["Roles"]);
-        Assert.Equal("The last administrator cannot be removed.", (await admin.UpdateAsync(model, actingUserId: "someone-else")).Errors["Roles"]);
-        Assert.True(await users.IsInRoleAsync(onlyAdmin, DatabaseInitializer.AdminRole));
+        model.Groups.Remove(DatabaseInitializer.AdminGroup);
+        Assert.Equal("You can't remove the Admins group from your own account.", (await admin.UpdateAsync(model, onlyAdmin.Id)).Errors["Groups"]);
+        Assert.Equal("The last administrator cannot be removed.", (await admin.UpdateAsync(model, actingUserId: "someone-else")).Errors["Groups"]);
+        Assert.True(await users.IsInRoleAsync(onlyAdmin, DatabaseInitializer.AdminGroup));
     }
 
     [Fact]
@@ -220,7 +220,7 @@ public class UserAdministrationTests : IClassFixture<UserAdministrationTests.Fac
     }
 
     [Fact]
-    public async Task Create_AssignsTheChosenRoles_AndValidatesTheEmail()
+    public async Task Create_AssignsTheChosenGroups_AndValidatesTheEmail()
     {
         using var scope = _factory.Services.CreateScope();
         var admin = scope.ServiceProvider.GetRequiredService<UserAdministration>();
@@ -230,10 +230,10 @@ public class UserAdministrationTests : IClassFixture<UserAdministrationTests.Fac
         Assert.True(duplicate.Errors.ContainsKey(nameof(UserEditModel.Email)));
 
         var email = $"new-admin-{Guid.NewGuid():N}@test.local";
-        var created = await admin.CreateAsync(new CreateUserModel { Email = email, Password = Password, Roles = [DatabaseInitializer.AdminRole] });
+        var created = await admin.CreateAsync(new CreateUserModel { Email = email, Password = Password, Groups = [DatabaseInitializer.AdminGroup] });
         Assert.True(created.Succeeded, string.Join(" ", created.Errors.Values));
-        var roles = await scope.ServiceProvider.GetRequiredService<UserManager<User>>().GetRolesAsync(created.User!);
-        Assert.Equal(new HashSet<string> { DatabaseInitializer.AdminRole, DatabaseInitializer.UserRole }, roles.ToHashSet());
+        var groups = await scope.ServiceProvider.GetRequiredService<UserManager<User>>().GetRolesAsync(created.User!);
+        Assert.Equal(new HashSet<string> { DatabaseInitializer.AdminGroup, DatabaseInitializer.UserGroup }, groups.ToHashSet());
 
         // Clean up so the "only administrator" test stays valid.
         await scope.ServiceProvider.GetRequiredService<UserManager<User>>().DeleteAsync(created.User!);
@@ -245,7 +245,7 @@ public class UserAdministrationTests : IClassFixture<UserAdministrationTests.Fac
         using var client = new FormClient(_factory);
         (await client.PasswordLoginAsync(AnubisFactory.AdminEmail, AnubisFactory.AdminPassword)).Dispose();
 
-        var html = await client.Http.GetStringAsync("/admin/users");
+        var html = await client.Http.GetStringAsync("/users");
 
         Assert.Contains("data-row-menu", html);
         Assert.DoesNotContain("Make admin", html);
@@ -295,7 +295,7 @@ public class UserAdministrationTests : IClassFixture<UserAdministrationTests.Fac
         var email = $"edit-{Guid.NewGuid():N}@test.local";
         var user = new User { UserName = email, Email = email, EmailConfirmed = true };
         Assert.True((await users.CreateAsync(user, Password)).Succeeded);
-        await users.AddToRoleAsync(user, DatabaseInitializer.UserRole);
+        await users.AddToRoleAsync(user, DatabaseInitializer.UserGroup);
         return user;
     }
 

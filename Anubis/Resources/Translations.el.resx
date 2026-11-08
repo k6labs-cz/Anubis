@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Δημιουργήθηκε</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Ρύθμιση προγράμματος περιήγησης</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Κλειδιά πρόσβασης</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Ρόλοι</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Ομάδες</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Αποστολή email επιβεβαίωσης</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Πολλαπλών παραγόντων</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>Πελάτες OIDC</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Η εγγραφή τροποποιήθηκε από κάποιον άλλο. Φορτώστε ξανά και δοκιμάστε πάλι.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>Παρουσιάστηκε άγνωστο σφάλμα.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>Το email '{0}' χρησιμοποιείται ήδη.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Το όνομα ρόλου '{0}' χρησιμοποιείται ήδη.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Το όνομα ομάδας '{0}' χρησιμοποιείται ήδη.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Το όνομα χρήστη '{0}' χρησιμοποιείται ήδη.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>Το email '{0}' δεν είναι έγκυρο.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Το όνομα ρόλου '{0}' δεν είναι έγκυρο.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Το όνομα ομάδας '{0}' δεν είναι έγκυρο.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Μη έγκυρο token.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>Το όνομα χρήστη '{0}' δεν είναι έγκυρο.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Υπάρχει ήδη χρήστης με αυτή τη σύνδεση.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Ο κωδικός πρόσβασης πρέπει να έχει μήκος τουλάχιστον {0} χαρακτήρων.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Δεν ήταν δυνατή η χρήση του κωδικού ανάκτησης.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Ο χρήστης έχει ήδη κωδικό πρόσβασης.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Ο χρήστης έχει ήδη τον ρόλο '{0}'.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Ο χρήστης είναι ήδη μέλος της ομάδας '{0}'.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Το κλείδωμα δεν είναι ενεργοποιημένο για αυτόν τον χρήστη.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Ο χρήστης δεν έχει τον ρόλο '{0}'.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Ο χρήστης δεν είναι μέλος της ομάδας '{0}'.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Λογαριασμός</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Γλώσσα</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Διατηρεί την πρόσβαση όσο λείπετε (refresh tokens)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>Επιβεβαιώνει ποιος είστε</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>Βλέπει το όνομα και το προφίλ σας</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Βλέπει τους ρόλους σας</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>Προβολή των ομάδων σας</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Δημιουργία scope</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>Οι πελάτες μπορούν να ζητούν προσαρμοσμένα scopes, συνδεδεμένα με πόρους (audiences).</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Το API μου</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>Μη έγκυρο ή μη υποστηριζόμενο αρχείο εικόνας.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Το αρχείο εικόνας είναι πολύ μεγάλο (έως 10 MB).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Ρυθμίσεις</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Ρόλοι</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Ομάδες</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Εμφάνιση</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Λογαριασμοί που μπορούν να συνδεθούν στο Anubis.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>Οι ρόλοι αποστέλλονται στις εφαρμογές πελάτη στο claim roles.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>Οι ομάδες αποστέλλονται στις εφαρμογές-πελάτες στο claim groups.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Δικαιώματα που μπορούν να ζητήσουν οι εφαρμογές πελάτη.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Εφαρμογές που συνδέουν χρήστες μέσω του Anubis.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>Εξερχόμενα email για επιβεβαίωση διεύθυνσης και επαναφορά κωδικού πρόσβασης.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Δευτερεύον</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Φόντο</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Κείμενο</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Δημιουργία ρόλου</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>Ένας νέος ρόλος δεν έχει μέλη· προσθέστε τα στη λίστα παρακάτω.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Μέλη</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Ενσωματωμένος</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Διαγραφή ρόλου</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Διαγραφή του ρόλου {0}; Όλα τα μέλη του θα τον χάσουν.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>Μέλη του {0}</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Προσθήκη</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Αφαίρεση</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>Δεν υπάρχουν ακόμη μέλη.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>Ο τελευταίος διαχειριστής δεν μπορεί να αφαιρεθεί.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Εισαγάγετε όνομα ρόλου.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Δημιουργία ομάδας</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>Μια νέα ομάδα δεν έχει μέλη· προσθέστε τα στη λίστα παρακάτω.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Μέλη</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Ενσωματωμένη</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Διαγραφή ομάδας</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>Διαγραφή της ομάδας {0}; Όλα τα μέλη της θα αφαιρεθούν από αυτήν.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>Μέλη της {0}</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Προσθήκη</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Αφαίρεση</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>Δεν υπάρχουν ακόμη μέλη.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>Ο τελευταίος διαχειριστής δεν μπορεί να αφαιρεθεί.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Εισαγάγετε όνομα ομάδας.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Εισαγάγετε χρώμα ως #RRGGBB ή αφήστε το πεδίο κενό.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>Δεν πρέπει να περιέχει ; { } &lt; &gt; ή \.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Εισαγάγετε απόλυτη διεύθυνση https://.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>Η διεύθυνση email επιβεβαιώθηκε</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Ένας αλλαγμένος αριθμός αποθηκεύεται ως μη επαληθευμένος.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>Αυτή η διεύθυνση email χρησιμοποιείται ήδη από άλλον λογαριασμό.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Δεν μπορείτε να αφαιρέσετε τον ρόλο Admin από τον δικό σας λογαριασμό.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Δεν μπορείτε να αφαιρέσετε τον δικό σας λογαριασμό από την ομάδα Admins.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>Οι αλλαγές στο {0} αποθηκεύτηκαν.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>Αλλαγή διεύθυνσης email</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Προσθήκη ρόλου</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Αφαίρεση ρόλου</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Προστέθηκε σε ομάδα</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Αφαιρέθηκε από ομάδα</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Μετά την αποθήκευση, αποστέλλεται email επιβεβαίωσης στη νέα διεύθυνση.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>Στάλθηκε email επιβεβαίωσης στο {0}.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Ξεκινήστε με γράμμα, μετά γράμματα, ψηφία και - _ . : / (έως {0} χαρακτήρες).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Έως {0} χαρακτήρες.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Αυτό το claim εμφανίζεται δύο φορές.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Έως {0} claims.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>Ο ρόλος δεν βρέθηκε.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>Οι ενσωματωμένοι ρόλοι δεν μετονομάζονται.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Υπάρχει ήδη ρόλος με αυτό το όνομα.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>Επεξεργασία ρόλου {0}</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>Ο ρόλος {0} αποθηκεύτηκε.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Προσθήκη ρόλου</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>Η ομάδα δεν βρέθηκε.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>Οι ενσωματωμένες ομάδες δεν μπορούν να μετονομαστούν.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Υπάρχει ήδη ομάδα με αυτό το όνομα.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>Επεξεργασία ομάδας {0}</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>Η ομάδα {0} αποθηκεύτηκε.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Προσθήκη ομάδας</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Προστίθενται στο access token, στο ID token και στο userinfo, μαζί με τα claims των ρόλων του χρήστη.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Προστίθενται στα tokens όλων των μελών αυτού του ρόλου.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Προστίθενται στο access token, στο ID token και στο userinfo, μαζί με τα claims των ομάδων του χρήστη.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Προστίθενται στα tokens κάθε μέλους αυτής της ομάδας.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Τύπος</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Τιμή</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Προσθήκη claim</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Αφαίρεση claim</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Δεν υπάρχουν ακόμη claims.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Από ρόλους</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Από ομάδες</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Αλλαγή avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Φόρτωση…</value></data>
 </root>

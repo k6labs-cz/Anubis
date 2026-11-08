@@ -207,7 +207,7 @@ public class OidcEndpointTests
         using var response = await client.Http.GetAsync("/");
 
         Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
-        Assert.Contains("/account", response.Headers.Location?.ToString());
+        Assert.Contains("/profile", response.Headers.Location?.ToString());
     }
 
     private static string CreatePkceChallenge()

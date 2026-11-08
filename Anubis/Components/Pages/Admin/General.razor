@@ -1,6 +1,6 @@
-@page "/admin/general"
+@page "/options-general"
 @rendermode InteractiveServer
-@attribute [Authorize(Roles = "Admin")]
+@attribute [Authorize(Roles = DatabaseInitializer.AdminGroup)]
 
 @using System.Text.Json.Nodes
 @using k6labs.Anubis.Localization
@@ -109,7 +109,7 @@
         }
 
         // Full reload, so the new name shows in the tab title and the page header right away.
-        Navigation.NavigateTo("/admin/general?saved=true", forceLoad: true);
+        Navigation.NavigateTo("/options-general?saved=true", forceLoad: true);
     }
 
     private sealed class GeneralModel

@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Creato</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Impostazione del browser</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Passkey</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Ruoli</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Gruppi</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Invia email di conferma</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Multifattore</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>Client OIDC</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Il record è stato modificato da qualcun altro. Ricarica e riprova.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>Si è verificato un errore sconosciuto.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>L'email '{0}' è già in uso.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Il nome del ruolo '{0}' è già in uso.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Il nome del gruppo '{0}' è già in uso.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Il nome utente '{0}' è già in uso.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>L'email '{0}' non è valida.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Il nome del ruolo '{0}' non è valido.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Il nome del gruppo '{0}' non è valido.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Token non valido.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>Il nome utente '{0}' non è valido.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Esiste già un utente con questo accesso.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Le password devono contenere almeno {0} caratteri.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Impossibile usare il codice di recupero.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>L'utente ha già una password.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>L'utente ha già il ruolo '{0}'.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>L'utente è già membro del gruppo '{0}'.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Il blocco non è abilitato per questo utente.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>L'utente non ha il ruolo '{0}'.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>L'utente non è membro del gruppo '{0}'.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Account</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Lingua</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Mantenere l'accesso quando non ci sei (refresh token)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>Confermare chi sei</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>Vedere il tuo nome e il profilo</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Vedere i tuoi ruoli</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>Vedere i tuoi gruppi</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Crea scope</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>I client possono richiedere scope personalizzati, associati a risorse (audience).</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>La mia API</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>File immagine non valido o non supportato.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Il file immagine è troppo grande (max 10 MB).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Impostazioni</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Ruoli</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Gruppi</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Aspetto</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Account che possono accedere ad Anubis.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>I ruoli vengono inviati alle applicazioni client nel claim roles.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>I gruppi vengono inviati alle applicazioni client nel claim groups.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Autorizzazioni che le applicazioni client possono richiedere.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Applicazioni che fanno accedere gli utenti tramite Anubis.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>Email in uscita per la conferma dell'indirizzo e la reimpostazione della password.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Secondario</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Sfondo</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Testo</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Crea ruolo</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>Un nuovo ruolo non ha membri; aggiungili nell'elenco qui sotto.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Membri</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Predefinito</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Elimina ruolo</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Eliminare il ruolo {0}? Tutti i suoi membri lo perderanno.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>Membri di {0}</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Aggiungi</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Rimuovi</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>Ancora nessun membro.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>L'ultimo amministratore non può essere rimosso.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Inserisci un nome per il ruolo.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Crea gruppo</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>Un nuovo gruppo non ha membri; aggiungili nell'elenco qui sotto.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Membri</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Predefinito</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Elimina gruppo</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>Eliminare il gruppo {0}? Tutti i suoi membri ne verranno rimossi.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>Membri di {0}</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Aggiungi</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Rimuovi</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>Ancora nessun membro.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>L'ultimo amministratore non può essere rimosso.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Inserisci un nome per il gruppo.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Inserisci un colore come #RRGGBB oppure lascia vuoto.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>Non deve contenere ; { } &lt; &gt; o \.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Inserisci un URL https:// assoluto.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>Indirizzo email confermato</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Un numero modificato viene salvato come non verificato.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>Questo indirizzo email è già usato da un altro account.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Non puoi rimuovere il ruolo Admin dal tuo account.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Non puoi rimuovere il tuo account dal gruppo Admins.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>Le modifiche a {0} sono state salvate.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>Indirizzo email modificato</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Ruolo aggiunto</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Ruolo rimosso</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Aggiunto a un gruppo</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Rimosso da un gruppo</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Dopo il salvataggio viene inviata un'email di conferma al nuovo indirizzo.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>È stata inviata un'email di conferma a {0}.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Inizia con una lettera, poi lettere, cifre e - _ . : / (al massimo {0} caratteri).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Al massimo {0} caratteri.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Questo claim è elencato due volte.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Al massimo {0} claim.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>Ruolo non trovato.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>I ruoli predefiniti non possono essere rinominati.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Esiste già un ruolo con questo nome.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>Modifica ruolo {0}</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>Ruolo {0} salvato.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Aggiungi ruolo</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>Gruppo non trovato.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>I gruppi predefiniti non possono essere rinominati.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Esiste già un gruppo con questo nome.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>Modifica il gruppo {0}</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>Gruppo {0} salvato.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Aggiungi gruppo</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claim</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Aggiunti all'access token, all'ID token e a userinfo, insieme ai claim dei ruoli dell'utente.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Aggiunti ai token di tutti i membri di questo ruolo.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Aggiunti all'access token, all'ID token e a userinfo, insieme ai claim dei gruppi dell'utente.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Aggiunti ai token di ogni membro di questo gruppo.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Tipo</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Valore</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Aggiungi claim</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Rimuovi claim</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Ancora nessun claim.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Dai ruoli</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Dai gruppi</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Cambia avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Caricamento…</value></data>
 </root>

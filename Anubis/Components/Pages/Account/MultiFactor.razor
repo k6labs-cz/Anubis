@@ -1,4 +1,4 @@
-@page "/account/mfa"
+@page "/mfa"
 @attribute [Authorize]
 
 @using Microsoft.AspNetCore.Authorization
@@ -32,16 +32,16 @@
         <Stack Direction="Direction.Row" Gap="Gap.Small" Align="Align.Center" Wrap="true">
             @if (twoFactorEnabled)
             {
-                <Button Variant="ButtonVariant.Ghost" Href="/account/security/authenticator" Icon="@AppIcons.Smartphone">
+                <Button Variant="ButtonVariant.Ghost" Href="/mfa/authenticator" Icon="@AppIcons.Smartphone">
                     @Translations.Security_MoveToAnotherApp
                 </Button>
-                <Button Variant="ButtonVariant.Danger" Href="/account/security/disable" Icon="@AppIcons.RemoveModerator">
+                <Button Variant="ButtonVariant.Danger" Href="/mfa/disable" Icon="@AppIcons.RemoveModerator">
                     @Translations.Security_TurnOff
                 </Button>
             }
             else
             {
-                <Button Href="/account/security/authenticator" Icon="@AppIcons.Smartphone">
+                <Button Href="/mfa/authenticator" Icon="@AppIcons.Smartphone">
                     @Translations.Security_SetUpAuthenticator
                 </Button>
             }
@@ -70,7 +70,7 @@
                 <Typography Tone="Tone.Muted">@Translations.Security_CodesLeft.F(recoveryCodesLeft)</Typography>
             }
             <Stack Direction="Direction.Row" Gap="Gap.Small" Align="Align.Center" Wrap="true">
-                <Button Variant="ButtonVariant.Ghost" Href="/account/security/recovery-codes" Icon="@AppIcons.Refresh">
+                <Button Variant="ButtonVariant.Ghost" Href="/mfa/recovery-codes" Icon="@AppIcons.Refresh">
                     @Translations.RecoveryCodes_Generate
                 </Button>
             </Stack>
@@ -118,6 +118,6 @@
     private async Task ForgetBrowserAsync()
     {
         await SignInManager.ForgetTwoFactorClientAsync();
-        Navigation.NavigateTo("/account/mfa?status=browser-forgotten", forceLoad: true);
+        Navigation.NavigateTo("/mfa?status=browser-forgotten", forceLoad: true);
     }
 }

@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Oprettet</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Browserens indstilling</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Adgangsnøgler</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Roller</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Grupper</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Send bekræftelsesmail</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Flerfaktor</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>OIDC-klienter</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Posten er blevet ændret af en anden. Genindlæs, og prøv igen.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>Der opstod en ukendt fejl.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>E-mailen '{0}' er allerede i brug.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Rollenavnet '{0}' er allerede i brug.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Gruppenavnet '{0}' er allerede i brug.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Brugernavnet '{0}' er allerede i brug.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>E-mailen '{0}' er ugyldig.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Rollenavnet '{0}' er ugyldigt.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Gruppenavnet '{0}' er ugyldigt.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Ugyldigt token.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>Brugernavnet '{0}' er ugyldigt.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Der findes allerede en bruger med dette login.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Adgangskoder skal være mindst {0} tegn lange.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Gendannelseskoden kunne ikke bruges.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Brugeren har allerede en adgangskode.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Brugeren har allerede rollen '{0}'.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Brugeren er allerede medlem af gruppen '{0}'.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Spærring er ikke slået til for denne bruger.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Brugeren har ikke rollen '{0}'.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Brugeren er ikke medlem af gruppen '{0}'.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Konto</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Sprog</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Bevare adgangen, mens du er væk (refresh tokens)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>Bekræfte, hvem du er</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>Se dit navn og din profil</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Se dine roller</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>Se dine grupper</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Opret scope</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>Klienter kan anmode om egne scopes, der knyttes til ressourcer (audiences).</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Min API</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>Ugyldig eller ikke-understøttet billedfil.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Billedfilen er for stor (højst 10 MB).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Indstillinger</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Roller</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Grupper</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Udseende</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Konti, der kan logge ind på Anubis.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>Roller sendes til klientapplikationer i claimet roles.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>Grupper sendes til klientapplikationer i claimet groups.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Tilladelser, som klientapplikationer kan anmode om.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Applikationer, der logger brugere ind via Anubis.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>Udgående e-mail til adressebekræftelse og nulstilling af adgangskode.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Sekundær</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Baggrund</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Tekst</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Opret rolle</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>En ny rolle har ingen medlemmer; tilføj dem på listen nedenfor.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Medlemmer</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Indbygget</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Slet rolle</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Slet rollen {0}? Alle medlemmer mister den.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>Medlemmer af {0}</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Tilføj</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Fjern</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>Ingen medlemmer endnu.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>Den sidste administrator kan ikke fjernes.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Indtast et rollenavn.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Opret gruppe</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>En ny gruppe har ingen medlemmer; tilføj dem i listen nedenfor.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Medlemmer</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Indbygget</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Slet gruppe</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>Slet gruppen {0}? Alle medlemmer fjernes fra den.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>Medlemmer af {0}</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Tilføj</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Fjern</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>Ingen medlemmer endnu.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>Den sidste administrator kan ikke fjernes.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Angiv et gruppenavn.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Angiv en farve som #RRGGBB, eller lad feltet være tomt.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>Må ikke indeholde ; { } &lt; &gt; eller \.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Indtast en absolut https://-URL.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-mailadresse bekræftet</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Et ændret nummer gemmes som ikke bekræftet.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>E-mailadressen bruges allerede af en anden konto.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Du kan ikke fjerne rollen Admin fra din egen konto.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Du kan ikke fjerne din egen konto fra gruppen Admins.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>Ændringerne for {0} er gemt.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>E-mailadresse ændret</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Rolle tilføjet</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Rolle fjernet</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Tilføjet til en gruppe</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Fjernet fra en gruppe</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Når du gemmer, sendes en bekræftelsesmail til den nye adresse.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>Der er sendt en bekræftelsesmail til {0}.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Start med et bogstav, derefter bogstaver, cifre og - _ . : / (højst {0} tegn).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Højst {0} tegn.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Dette claim står der to gange.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Højst {0} claims.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>Rollen blev ikke fundet.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>Indbyggede roller kan ikke omdøbes.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Der findes allerede en rolle med dette navn.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>Rediger rollen {0}</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>Rollen {0} er gemt.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Tilføj rolle</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>Gruppen blev ikke fundet.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>Indbyggede grupper kan ikke omdøbes.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Der findes allerede en gruppe med dette navn.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>Rediger gruppen {0}</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>Gruppen {0} er gemt.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Tilføj gruppe</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Føjes til adgangstokenet, ID-tokenet og userinfo sammen med claims fra brugerens roller.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Føjes til tokens for alle medlemmer af denne rolle.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Tilføjes til access token, ID token og userinfo sammen med claims fra brugerens grupper.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Tilføjes til tokens for alle medlemmer af denne gruppe.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Type</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Værdi</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Tilføj claim</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Fjern claim</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Ingen claims endnu.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Fra roller</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Fra grupper</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Skift avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Indlæser…</value></data>
 </root>

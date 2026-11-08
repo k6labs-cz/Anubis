@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Maħluq</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Issettjar tal-browser</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Passkeys</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Rwoli</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Gruppi</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Ibgħat email ta' konferma</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Multi-fattur</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>Klijenti OIDC</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Ir-rekord inbidel minn xi ħadd ieħor. Erġa' tella' l-paġna u erġa' pprova.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>Seħħ żball mhux magħruf.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>L-email '{0}' diġà qed tintuża.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>L-isem tar-rwol '{0}' diġà qed jintuża.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>L-isem tal-grupp '{0}' diġà qed jintuża.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>L-isem tal-utent '{0}' diġà qed jintuża.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>L-email '{0}' mhijiex valida.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>L-isem tar-rwol '{0}' mhuwiex validu.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>L-isem tal-grupp '{0}' mhuwiex validu.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Token invalidu.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>L-isem tal-utent '{0}' mhuwiex validu.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Diġà jeżisti utent b'dan id-dħul.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Il-passwords għandhom ikunu mill-inqas {0} karattri twal.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Il-kodiċi ta' rkupru ma setax jintuża.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>L-utent diġà għandu password.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>L-utent diġà għandu r-rwol '{0}'.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>L-utent diġà membru tal-grupp '{0}'.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Is-sakkar mhuwiex attivat għal dan l-utent.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>L-utent m'għandux ir-rwol '{0}'.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>L-utent mhuwiex membru tal-grupp '{0}'.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Kont</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Lingwa</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Iżomm l-aċċess waqt li m'intix preżenti (refresh tokens)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>Jikkonferma min int</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>Jara ismek u l-profil tiegħek</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Jara r-rwoli tiegħek</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>Ara l-gruppi tiegħek</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Oħloq scope</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>Il-klijenti jistgħu jitolbu scopes personalizzati, marbuta ma' riżorsi (audiences).</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>L-API tiegħi</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>Fajl tal-immaġni invalidu jew mhux appoġġjat.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Il-fajl tal-immaġni huwa kbir wisq (massimu 10 MB).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Settings</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Rwoli</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Gruppi</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Dehra</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Kontijiet li jistgħu jidħlu f'Anubis.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>Ir-rwoli jintbagħtu lill-applikazzjonijiet klijenti fil-claim roles.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>Il-gruppi jintbagħtu lill-applikazzjonijiet klijenti fil-claim groups.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Permessi li l-applikazzjonijiet klijenti jistgħu jitolbu.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Applikazzjonijiet li jdaħħlu lill-utenti permezz ta' Anubis.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>Email ħierġa għall-konferma tal-indirizz u r-risettjar tal-password.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Sekondarju</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Sfond</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Test</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Oħloq rwol</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>Rwol ġdid m'għandux membri; żidhom fil-lista hawn taħt.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Membri</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Inkorporat</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Ħassar ir-rwol</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Tħassar ir-rwol {0}? Il-membri kollha tiegħu jitilfuh.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>Membri ta' {0}</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Żid</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Neħħi</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>L-ebda membru s'issa.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>L-aħħar amministratur ma jistax jitneħħa.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Daħħal isem għar-rwol.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Oħloq grupp</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>Grupp ġdid m'għandux membri; żidhom fil-lista hawn taħt.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Membri</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Inkorporat</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Ħassar il-grupp</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>Tħassar il-grupp {0}? Il-membri kollha tiegħu jitneħħew minnu.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>Membri ta' {0}</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Żid</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Neħħi</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>L-ebda membru s'issa.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>L-aħħar amministratur ma jistax jitneħħa.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Daħħal isem għall-grupp.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Daħħal kulur bħala #RRGGBB, jew ħallih vojt.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>M'għandux ikun fih ; { } &lt; &gt; jew \.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Daħħal URL https:// assolut.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>Indirizz tal-email ikkonfermat</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Numru mibdul jiġi ssejvjat bħala mhux ivverifikat.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>Dan l-indirizz tal-email diġà jintuża minn kont ieħor.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Ma tistax tneħħi r-rwol Admin mill-kont tiegħek.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Ma tistax tneħħi l-kont tiegħek stess mill-grupp Admins.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>Il-bidliet fi {0} ġew issejvjati.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>Indirizz tal-email mibdul</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Rwol miżjud</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Rwol imneħħi</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Miżjud ma' grupp</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Imneħħi minn grupp</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Wara li tissejvja, tintbagħat email ta' konferma lill-indirizz il-ġdid.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>Intbagħtet email ta' konferma lil {0}.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Ibda b'ittra, imbagħad ittri, ċifri u - _ . : / (massimu {0} karattru).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Massimu {0} karattru.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Dan il-claim jidher darbtejn.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Massimu {0} claims.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>Ir-rwol ma nstabx.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>Ir-rwoli integrati ma jistgħux jingħataw isem ġdid.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Diġà jeżisti rwol b'dan l-isem.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>Editja r-rwol {0}</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>Ir-rwol {0} ġie ssejvjat.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Żid rwol</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>Il-grupp ma nstabx.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>Il-gruppi inkorporati ma jistgħux jingħataw isem ġdid.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Diġà jeżisti grupp b'dan l-isem.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>Editja l-grupp {0}</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>Il-grupp {0} ġie ssejvjat.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Żid grupp</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Jiżdiedu mal-access token, mal-ID token u ma' userinfo, flimkien mal-claims tar-rwoli tal-utent.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Jiżdiedu mat-tokens tal-membri kollha ta' dan ir-rwol.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Jiżdiedu mal-access token, mal-ID token u ma' userinfo, flimkien mal-claims tal-gruppi tal-utent.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Jiżdiedu mat-tokens ta' kull membru ta' dan il-grupp.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Tip</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Valur</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Żid claim</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Neħħi l-claim</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Għad m'hemmx claims.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Mir-rwoli</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Mill-gruppi</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Biddel l-avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Qed jitgħabba…</value></data>
 </root>

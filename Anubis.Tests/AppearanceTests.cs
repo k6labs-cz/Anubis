@@ -129,7 +129,7 @@ public class AppearanceTests
         var (user, password) = await client.CreateUserAsync();
         (await client.PasswordLoginAsync(user.Email!, password)).Dispose();
 
-        var html = await client.Http.GetStringAsync("/account");
+        var html = await client.Http.GetStringAsync("/profile");
 
         var hash = Convert.ToHexString(MD5.HashData(Encoding.UTF8.GetBytes(user.Email!.Trim().ToLowerInvariant()))).ToLowerInvariant();
         Assert.Contains($"https://www.gravatar.com/avatar/{hash}", html);
@@ -138,15 +138,15 @@ public class AppearanceTests
         // Navigation: once as the desktop column, once in the phone drawer behind the menu button.
         Assert.Contains("aria-label=\"Main navigation\"", html);
         Assert.Equal(2, Regex.Matches(html, "<nav [^>]*aria-label=\"Account\"").Count);
-        Assert.Contains("href=\"/account/passkeys\"", html);
-        Assert.Contains("href=\"/account/mfa\"", html);
-        Assert.Contains("href=\"/account/change-password\"", html);
+        Assert.Contains("href=\"/passkeys\"", html);
+        Assert.Contains("href=\"/mfa\"", html);
+        Assert.Contains("href=\"/change-password\"", html);
         Assert.DoesNotContain("/account/permissions", html);
         Assert.Contains("action=\"/auth/logout\"", html);
         Assert.Contains("href=\"/logout\"", html);
         // Management and Settings are for administrators only.
-        Assert.DoesNotContain("href=\"/admin/users\"", html);
-        Assert.DoesNotContain("href=\"/admin/general\"", html);
+        Assert.DoesNotContain("href=\"/users\"", html);
+        Assert.DoesNotContain("href=\"/options-general\"", html);
     }
 
     [Fact]
@@ -155,12 +155,12 @@ public class AppearanceTests
         using var client = new FormClient(_factory);
         (await client.PasswordLoginAsync(AnubisFactory.AdminEmail, AnubisFactory.AdminPassword)).Dispose();
 
-        var html = await client.Http.GetStringAsync("/account");
+        var html = await client.Http.GetStringAsync("/profile");
 
         Assert.Equal(2, Regex.Matches(html, "<nav [^>]*aria-label=\"Management\"").Count);
         Assert.Equal(2, Regex.Matches(html, "<nav [^>]*aria-label=\"Settings\"").Count);
         // Order: account, Management, Settings, then signing out.
-        var order = new[] { "href=\"/account/history\"", "href=\"/admin/users\"", "href=\"/admin/general\"", "href=\"/logout\"" }
+        var order = new[] { "href=\"/history\"", "href=\"/users\"", "href=\"/options-general\"", "href=\"/logout\"" }
             .Select(link => html.IndexOf(link, StringComparison.Ordinal)).ToArray();
         Assert.All(order, index => Assert.True(index >= 0));
         Assert.Equal(order.Order().ToArray(), order);
@@ -173,8 +173,8 @@ public class AppearanceTests
         var (user, password) = await client.CreateUserAsync();
         (await client.PasswordLoginAsync(user.Email!, password)).Dispose();
 
-        var token = await client.GetTokenAsync("/account");
-        using var response = await client.Http.PostAsync("/account/profile", new FormUrlEncodedContent(new Dictionary<string, string>
+        var token = await client.GetTokenAsync("/profile");
+        using var response = await client.Http.PostAsync("/auth/profile", new FormUrlEncodedContent(new Dictionary<string, string>
         {
             ["__RequestVerificationToken"] = token,
             ["displayName"] = "Anubis Jackal",
@@ -182,7 +182,7 @@ public class AppearanceTests
 
         Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
 
-        var html = await client.Http.GetStringAsync("/account");
+        var html = await client.Http.GetStringAsync("/profile");
         Assert.Contains("Anubis Jackal", html);
     }
 
@@ -209,7 +209,7 @@ public class AppearanceTests
             pngBytes = encoded.ToArray();
         }
 
-        var token = await client.GetTokenAsync("/account");
+        var token = await client.GetTokenAsync("/profile");
         using (var form = new MultipartFormDataContent())
         {
             form.Add(new StringContent(token), "__RequestVerificationToken");
@@ -217,9 +217,9 @@ public class AppearanceTests
             fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
             form.Add(fileContent, "avatar", "avatar.png");
 
-            using var uploadResponse = await client.Http.PostAsync("/account/avatar", form);
+            using var uploadResponse = await client.Http.PostAsync("/auth/avatar", form);
             Assert.Equal(HttpStatusCode.Redirect, uploadResponse.StatusCode);
-            Assert.Equal("/account?status=avatar-updated", uploadResponse.Headers.Location?.OriginalString);
+            Assert.Equal("/profile?status=avatar-updated", uploadResponse.Headers.Location?.OriginalString);
         }
 
         // Verify the UserAvatars row in SQLite is resized to 1024x768 and stored as transparent WebP.
@@ -241,29 +241,29 @@ public class AppearanceTests
             Assert.True(decoded.GetPixel(512, 384).Alpha > 200);
         }
 
-        // Verify the avatar endpoint serves the WebP image and /account links to it instead of Gravatar.
+        // Verify the avatar endpoint serves the WebP image and /profile links to it instead of Gravatar.
         using (var avatarResponse = await client.Http.GetAsync($"/avatars/{user.Id}"))
         {
             Assert.Equal(HttpStatusCode.OK, avatarResponse.StatusCode);
             Assert.Equal("image/webp", avatarResponse.Content.Headers.ContentType?.MediaType);
         }
 
-        var accountHtml = await client.Http.GetStringAsync("/account");
+        var accountHtml = await client.Http.GetStringAsync("/profile");
         Assert.Contains($"/avatars/{user.Id}?v=", accountHtml);
         Assert.DoesNotContain("gravatar.com", accountHtml);
 
-        // Removing the custom avatar deletes the DB row and reverts /account to Gravatar.
-        token = await client.GetTokenAsync("/account");
-        using (var deleteResponse = await client.Http.PostAsync("/account/avatar/delete", new FormUrlEncodedContent(new Dictionary<string, string>
+        // Removing the custom avatar deletes the DB row and reverts /profile to Gravatar.
+        token = await client.GetTokenAsync("/profile");
+        using (var deleteResponse = await client.Http.PostAsync("/auth/avatar/delete", new FormUrlEncodedContent(new Dictionary<string, string>
         {
             ["__RequestVerificationToken"] = token,
         })))
         {
             Assert.Equal(HttpStatusCode.Redirect, deleteResponse.StatusCode);
-            Assert.Equal("/account?status=avatar-removed", deleteResponse.Headers.Location?.OriginalString);
+            Assert.Equal("/profile?status=avatar-removed", deleteResponse.Headers.Location?.OriginalString);
         }
 
-        var revertedHtml = await client.Http.GetStringAsync("/account");
+        var revertedHtml = await client.Http.GetStringAsync("/profile");
         var hash = Convert.ToHexString(MD5.HashData(Encoding.UTF8.GetBytes(user.Email!.Trim().ToLowerInvariant()))).ToLowerInvariant();
         Assert.Contains($"https://www.gravatar.com/avatar/{hash}", revertedHtml);
     }

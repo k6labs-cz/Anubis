@@ -39,7 +39,7 @@
                                         @error
                                         @if (emailNotConfirmed)
                                         {
-                                            <a href="/confirm-email/resend">@Translations.Login_ResendConfirmation</a>
+                                            <a href="/confirm-email-resend">@Translations.Login_ResendConfirmation</a>
                                         }
                                     </div>
                                 </Alert>
@@ -135,7 +135,7 @@
 
         if (result.RequiresTwoFactor)
         {
-            Navigation.NavigateTo("/login/2fa?returnUrl=" + Uri.EscapeDataString(returnUrl), forceLoad: true);
+            Navigation.NavigateTo("/login-2fa?returnUrl=" + Uri.EscapeDataString(returnUrl), forceLoad: true);
             return;
         }
 

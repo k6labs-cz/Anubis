@@ -1,6 +1,6 @@
-@page "/admin/tokens"
+@page "/options-tokens"
 @rendermode InteractiveServer
-@attribute [Authorize(Roles = "Admin")]
+@attribute [Authorize(Roles = DatabaseInitializer.AdminGroup)]
 
 @using System.Text.Json.Nodes
 @using k6labs.Anubis.Options

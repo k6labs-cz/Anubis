@@ -50,7 +50,7 @@ public class AuthController : Controller
     }
 
     [Authorize]
-    [HttpPost("/account/profile")]
+    [HttpPost("/auth/profile")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> UpdateProfile([FromForm] string? displayName)
     {
@@ -63,7 +63,7 @@ public class AuthController : Controller
         var trimmed = displayName?.Trim();
         if (trimmed is { Length: > 100 })
         {
-            return Redirect("/account?status=profile-invalid");
+            return Redirect("/profile?status=profile-invalid");
         }
 
         var name = string.IsNullOrWhiteSpace(trimmed) ? user.Email : trimmed;
@@ -75,11 +75,11 @@ public class AuthController : Controller
                 .RecordAsync(user.Id, Services.Activity.UserEventTypes.ProfileUpdated, name);
         }
 
-        return Redirect("/account?status=profile-updated");
+        return Redirect("/profile?status=profile-updated");
     }
 
     [Authorize]
-    [HttpPost("/account/avatar")]
+    [HttpPost("/auth/avatar")]
     [ValidateAntiForgeryToken]
     [RequestSizeLimit(AvatarService.MaxUploadBytes + 1024 * 64)]
     public async Task<IActionResult> UploadAvatar(IFormFile? avatar, CancellationToken cancellationToken)
@@ -92,12 +92,12 @@ public class AuthController : Controller
 
         if (avatar is null || avatar.Length <= 0)
         {
-            return Redirect("/account?status=avatar-invalid");
+            return Redirect("/profile?status=avatar-invalid");
         }
 
         if (avatar.Length > AvatarService.MaxUploadBytes)
         {
-            return Redirect("/account?status=avatar-too-large");
+            return Redirect("/profile?status=avatar-too-large");
         }
 
         try
@@ -105,16 +105,16 @@ public class AuthController : Controller
             using var memory = new MemoryStream((int)avatar.Length);
             await avatar.CopyToAsync(memory, cancellationToken);
             await _avatarService.SetAvatarAsync(user, memory.ToArray(), cancellationToken);
-            return Redirect("/account?status=avatar-updated");
+            return Redirect("/profile?status=avatar-updated");
         }
         catch (InvalidDataException)
         {
-            return Redirect("/account?status=avatar-invalid");
+            return Redirect("/profile?status=avatar-invalid");
         }
     }
 
     [Authorize]
-    [HttpPost("/account/avatar/delete")]
+    [HttpPost("/auth/avatar/delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteAvatar(CancellationToken cancellationToken)
     {
@@ -125,7 +125,7 @@ public class AuthController : Controller
         }
 
         await _avatarService.RemoveAvatarAsync(user, cancellationToken);
-        return Redirect("/account?status=avatar-removed");
+        return Redirect("/profile?status=avatar-removed");
     }
 
     [HttpPost("/auth/logout")]

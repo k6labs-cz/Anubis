@@ -87,7 +87,7 @@ public class AccountSettingsTests
         var (user, password) = await client.CreateUserAsync();
         (await client.PasswordLoginAsync(user.Email!, password)).Dispose();
 
-        Assert.Contains("data-theme=\"system\"", await client.Http.GetStringAsync("/account"));
+        Assert.Contains("data-theme=\"system\"", await client.Http.GetStringAsync("/profile"));
 
         using (var scope = _factory.Services.CreateScope())
         {
@@ -97,7 +97,7 @@ public class AccountSettingsTests
             await userManager.UpdateAsync(saved);
         }
 
-        Assert.Contains("data-theme=\"dark\"", await client.Http.GetStringAsync("/account"));
+        Assert.Contains("data-theme=\"dark\"", await client.Http.GetStringAsync("/profile"));
     }
 
     [Fact]
@@ -117,7 +117,7 @@ public class AccountSettingsTests
         var (user, password) = await client.CreateUserAsync();
         (await client.PasswordLoginAsync(user.Email!, password)).Dispose();
 
-        var account = await client.Http.GetStringAsync("/account");
+        var account = await client.Http.GetStringAsync("/profile");
         Assert.Contains("href=\"/logout\"", account);
         Assert.Contains("data-logout-form", account);
 
@@ -134,7 +134,7 @@ public class AccountSettingsTests
         var (user, password) = await client.CreateUserAsync();
         (await client.PasswordLoginAsync(user.Email!, password)).Dispose();
 
-        var html = await client.Http.GetStringAsync("/account");
+        var html = await client.Http.GetStringAsync("/profile");
 
         Assert.Contains("id=\"displayName\"", html);
         Assert.Contains(user.Email!, html);

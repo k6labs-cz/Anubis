@@ -6,12 +6,14 @@ using k6labs.Anubis.Models;
 
 using Microsoft.AspNetCore.Identity;
 
+using Group = k6labs.Anubis.Data.Entities.Group;
+
 namespace k6labs.Anubis.Services;
 
 /// <summary>
-/// Claims an administrator sets on a role or directly on a user. A user gets the claims of all
-/// their roles plus their own; they are added to the access token, the ID token and userinfo.
-/// Claim types that Anubis or OpenID Connect set themselves (sub, email, role, exp, ...) are refused,
+/// Claims an administrator sets on a group or directly on a user. A user gets the claims of all
+/// their groups plus their own; they are added to the access token, the ID token and userinfo.
+/// Claim types that Anubis or OpenID Connect set themselves (sub, email, role, groups, exp, ...) are refused,
 /// so a custom claim can never replace or fake one of them.
 /// </summary>
 public static partial class CustomClaims
@@ -29,7 +31,7 @@ public static partial class CustomClaims
         "sub", "iss", "aud", "exp", "iat", "nbf", "jti", "auth_time", "nonce", "acr", "amr", "azp", "at_hash", "c_hash", "sid",
         "client_id", "scope", "scp", "cnf", "typ", "htm", "htu", "act", "may_act", "events", "sub_jwk",
         // Set by Anubis
-        "name", "preferred_username", "picture", "email", "email_verified", "phone_number", "phone_number_verified", "role", "roles",
+        "name", "preferred_username", "picture", "email", "email_verified", "phone_number", "phone_number_verified", "role", "roles", "groups",
         "given_name", "family_name", "middle_name", "nickname", "profile", "website", "gender", "birthdate", "zoneinfo", "locale", "address", "updated_at",
         // ASP.NET Core Identity (sign-in cookie)
         "AspNet.Identity.SecurityStamp", "amr",
@@ -111,25 +113,25 @@ public static partial class CustomClaims
                  .Select(claim => new ClaimEntry { Type = claim.Type, Value = claim.Value })
                  .ToList();
 
-    /// <summary>Claims of the given roles (role name, claim), for showing what a user inherits.</summary>
-    public static async Task<List<(string Role, Claim Claim)>> OfRolesAsync(RoleManager<Role> roles, IEnumerable<string> roleNames)
+    /// <summary>Claims of the given groups (group name, claim), for showing what a user inherits.</summary>
+    public static async Task<List<(string Group, Claim Claim)>> OfGroupsAsync(RoleManager<Group> groups, IEnumerable<string> groupNames)
     {
         var result = new List<(string, Claim)>();
-        foreach (var name in roleNames.Order(StringComparer.OrdinalIgnoreCase))
+        foreach (var name in groupNames.Order(StringComparer.OrdinalIgnoreCase))
         {
-            if (await roles.FindByNameAsync(name) is { } role)
+            if (await groups.FindByNameAsync(name) is { } group)
             {
-                result.AddRange((await roles.GetClaimsAsync(role)).Where(claim => !IsReserved(claim.Type)).Select(claim => (name, claim)));
+                result.AddRange((await groups.GetClaimsAsync(group)).Where(claim => !IsReserved(claim.Type)).Select(claim => (name, claim)));
             }
         }
 
         return result;
     }
 
-    /// <summary>All custom claims of a user (from roles and their own), without duplicates, grouped by type.</summary>
-    public static async Task<IReadOnlyDictionary<string, List<string>>> ForUserAsync(UserManager<User> users, RoleManager<Role> roles, User user)
+    /// <summary>All custom claims of a user (from groups and their own), without duplicates, grouped by type.</summary>
+    public static async Task<IReadOnlyDictionary<string, List<string>>> ForUserAsync(UserManager<User> users, RoleManager<Group> groups, User user)
     {
-        var all = (await OfRolesAsync(roles, await users.GetRolesAsync(user))).Select(item => item.Claim)
+        var all = (await OfGroupsAsync(groups, await users.GetRolesAsync(user))).Select(item => item.Claim)
             .Concat((await users.GetClaimsAsync(user)).Where(claim => !IsReserved(claim.Type)));
 
         var grouped = new Dictionary<string, List<string>>(StringComparer.Ordinal);

@@ -1,5 +1,4 @@
-@page "/account/passkeys"
-@page "/account/security"
+@page "/passkeys"
 @attribute [Authorize]
 
 @using System.Buffers.Text
@@ -49,7 +48,7 @@
                         <td>@(passkey.IsBackedUp ? Translations.Common_Yes : Translations.Common_No)</td>
                         <td data-align="end">
                             <Menu Label="@Translations.Common_Actions" data-row-menu>
-                                <MenuItem Href="@($"/account/security/passkeys/{id}")" Icon="@AppIcons.Edit">@Translations.Common_Rename</MenuItem>
+                                <MenuItem Href="@($"/passkeys/{id}")" Icon="@AppIcons.Edit">@Translations.Common_Rename</MenuItem>
                                 <form method="post" @formname="@($"delete-passkey-{id}")" @onsubmit="DeletePasskeyAsync">
                                     <AntiforgeryToken />
                                     <input type="hidden" name="CredentialId" value="@id" />
@@ -158,7 +157,7 @@
 
         // Ask for a name right away so passkeys are easy to tell apart.
         var id = Base64Url.EncodeToString(attestation.Passkey.CredentialId);
-        Navigation.NavigateTo($"/account/security/passkeys/{id}?new=1", forceLoad: true);
+        Navigation.NavigateTo($"/passkeys/{id}?new=1", forceLoad: true);
     }
 
     private async Task DeletePasskeyAsync()
@@ -175,14 +174,14 @@
         }
         catch (FormatException)
         {
-            Navigation.NavigateTo("/account/security?status=passkey-not-found", forceLoad: true);
+            Navigation.NavigateTo("/passkeys?status=passkey-not-found", forceLoad: true);
             return;
         }
 
         // RemovePasskeyAsync only touches passkeys of this user.
         var result = await UserManager.RemovePasskeyAsync(user, credentialId);
         Navigation.NavigateTo(
-            result.Succeeded ? "/account/security?status=passkey-deleted" : "/account/security?status=passkey-not-found",
+            result.Succeeded ? "/passkeys?status=passkey-deleted" : "/passkeys?status=passkey-not-found",
             forceLoad: true);
     }
 }

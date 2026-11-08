@@ -1,7 +1,7 @@
 @using k6labs.Anubis.Models
 @namespace k6labs.Anubis.Components.Shared
 
-@* Type / value rows of custom claims (of a role or a user), plus read-only inherited ones. *@
+@* Type / value rows of custom claims (of a group or a user), plus read-only inherited ones. *@
 <Stack Gap="Gap.Small" data-claims-editor>
     <Stack Gap="Gap.XSmall">
         <Typography Variant="TextVariant.Subtitle" As="TextElement.H3">@Translations.Claims_Title</Typography>
@@ -14,10 +14,10 @@
     @if (Inherited is { Count: > 0 })
     {
         <Stack Direction="Direction.Row" Wrap="true" Align="Align.Center" Gap="Gap.XSmall">
-            <Typography Variant="TextVariant.Caption" Tone="Tone.Muted">@Translations.Claims_FromRoles</Typography>
-            @foreach (var (role, claim) in Inherited)
+            <Typography Variant="TextVariant.Caption" Tone="Tone.Muted">@Translations.Claims_FromGroups</Typography>
+            @foreach (var (group, claim) in Inherited)
             {
-                <Badge title="@role"><code>@claim.Type</code>&nbsp;=&nbsp;@claim.Value</Badge>
+                <Badge title="@group"><code>@claim.Type</code>&nbsp;=&nbsp;@claim.Value</Badge>
             }
         </Stack>
     }
@@ -57,9 +57,9 @@
     [Parameter, EditorRequired]
     public List<ClaimEntry> Claims { get; set; } = default!;
 
-    /// <summary>Claims that come from roles (role name, claim): shown, not editable here.</summary>
+    /// <summary>Claims that come from groups (group name, claim): shown, not editable here.</summary>
     [Parameter]
-    public IReadOnlyList<(string Role, System.Security.Claims.Claim Claim)>? Inherited { get; set; }
+    public IReadOnlyList<(string Group, System.Security.Claims.Claim Claim)>? Inherited { get; set; }
 
     /// <summary>Errors from <c>CustomClaims.Validate</c> ("Claims[i]" per row, "Claims" for the list).</summary>
     [Parameter]

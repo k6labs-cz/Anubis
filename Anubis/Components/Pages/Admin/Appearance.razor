@@ -1,6 +1,6 @@
-@page "/admin/appearance"
+@page "/options-appearance"
 @rendermode InteractiveServer
-@attribute [Authorize(Roles = "Admin")]
+@attribute [Authorize(Roles = DatabaseInitializer.AdminGroup)]
 
 @using k6labs.Anubis.Options
 @using k6labs.Anubis.Services
@@ -299,6 +299,6 @@
         }
 
         // Full reload, so the new theme, font and favicon apply to the whole page.
-        Navigation.NavigateTo("/admin/appearance?saved=true", forceLoad: true);
+        Navigation.NavigateTo("/options-appearance?saved=true", forceLoad: true);
     }
 }

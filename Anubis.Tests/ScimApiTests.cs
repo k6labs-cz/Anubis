@@ -8,7 +8,7 @@ namespace Anubis.Tests;
 
 /// <summary>
 /// The SCIM 2.0 provisioning API under /api/ (RFC 7643 / 7644): bearer token from /token with the
-/// "anubis-api" scope manages users, groups (roles) and custom claims; errors follow RFC 7644.
+/// "anubis-api" scope manages users, groups and custom claims; errors follow RFC 7644.
 /// </summary>
 [Collection(AnubisCollection.Name)]
 public class ScimApiTests
@@ -139,8 +139,8 @@ public class ScimApiTests
         Assert.True(created.RootElement.GetProperty("active").GetBoolean());
         Assert.Equal("sales", created.RootElement.GetProperty("urn:ietf:params:scim:schemas:extension:anubis:2.0:User").GetProperty("claims")[0].GetProperty("value").GetString());
         Assert.DoesNotContain("password", created.RootElement.ToString());
-        var userRole = created.RootElement.GetProperty("groups").EnumerateArray().Single(g => g.GetProperty("display").GetString() == "User");
-        var userRoleId = userRole.GetProperty("value").GetString()!;
+        var userGroup = created.RootElement.GetProperty("groups").EnumerateArray().Single(g => g.GetProperty("display").GetString() == "Users");
+        var userGroupId = userGroup.GetProperty("value").GetString()!;
 
         // GET /api/Users/{id}
         using var getResponse = await client.GetAsync($"/api/Users/{id}");
@@ -178,14 +178,14 @@ public class ScimApiTests
         Assert.Contains("department", claims);
         Assert.Contains("level", claims);
 
-        // PATCH: remove the role, reactivate
+        // PATCH: remove the group, reactivate
         using var patch2 = await client.SendAsync(new HttpRequestMessage(HttpMethod.Patch, $"/api/Users/{id}")
         {
             Content = Scim($$"""
             {
                 "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchRequest"],
                 "Operations": [
-                    { "op": "remove", "path": "groups[value eq \"{{userRoleId}}\"]" },
+                    { "op": "remove", "path": "groups[value eq \"{{userGroupId}}\"]" },
                     { "op": "replace", "path": "active", "value": true }
                 ]
             }
@@ -302,11 +302,11 @@ public class ScimApiTests
     }
 
     [Fact]
-    public async Task Groups_FullLifecycle_AndBuiltInRoleIsProtected()
+    public async Task Groups_FullLifecycle_AndBuiltInGroupIsProtected()
     {
         using var anonymous = _factory.CreateAnonymousClient();
         using var client = ApiClient(await ServiceTokenAsync(anonymous));
-        var roleName = $"scim-role-{Guid.NewGuid():N}";
+        var groupName = $"scim-group-{Guid.NewGuid():N}";
 
         // A user to add as a member.
         using var createUser = await client.PostAsync("/api/Users", Scim($$"""{ "userName": "scim-member-{{Guid.NewGuid():N}}@test.local" }"""));
@@ -315,12 +315,12 @@ public class ScimApiTests
 
         // POST /api/Groups
         using var createResponse = await client.PostAsync("/api/Groups", Scim($$"""
-        { "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"], "displayName": "{{roleName}}" }
+        { "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"], "displayName": "{{groupName}}" }
         """));
         Assert.Equal(HttpStatusCode.Created, createResponse.StatusCode);
         using var created = JsonDocument.Parse(await createResponse.Content.ReadAsStringAsync());
         var groupId = created.RootElement.GetProperty("id").GetString()!;
-        Assert.Equal(roleName, created.RootElement.GetProperty("displayName").GetString());
+        Assert.Equal(groupName, created.RootElement.GetProperty("displayName").GetString());
 
         // PATCH: add a member
         using var addMember = await client.SendAsync(new HttpRequestMessage(HttpMethod.Patch, $"/api/Groups/{groupId}")
@@ -353,8 +353,8 @@ public class ScimApiTests
         });
         Assert.Equal(HttpStatusCode.OK, removeMember.StatusCode);
 
-        // The built-in Admin role cannot be deleted.
-        using var admins = await client.GetFromJsonAsync<JsonDocument>("/api/Groups?filter=" + Uri.EscapeDataString("displayName eq \"Admin\""));
+        // The built-in Admins group cannot be deleted.
+        using var admins = await client.GetFromJsonAsync<JsonDocument>("/api/Groups?filter=" + Uri.EscapeDataString("displayName eq \"Admins\""));
         Assert.NotNull(admins);
         var adminGroupId = admins.RootElement.GetProperty("Resources")[0].GetProperty("id").GetString()!;
         using var deleteBuiltIn = await client.DeleteAsync($"/api/Groups/{adminGroupId}");
@@ -370,14 +370,14 @@ public class ScimApiTests
     }
 
     [Fact]
-    public async Task PatchUser_RemovingAdminRoleFromLastAdmin_Is400()
+    public async Task PatchUser_RemovingAdminGroupFromLastAdmin_Is400()
     {
         using var anonymous = _factory.CreateAnonymousClient();
         using var client = ApiClient(await ServiceTokenAsync(anonymous));
 
-        using var admins = await client.GetFromJsonAsync<JsonDocument>("/api/Groups?filter=" + Uri.EscapeDataString("displayName eq \"Admin\""));
+        using var admins = await client.GetFromJsonAsync<JsonDocument>("/api/Groups?filter=" + Uri.EscapeDataString("displayName eq \"Admins\""));
         Assert.NotNull(admins);
-        var adminRoleId = admins.RootElement.GetProperty("Resources")[0].GetProperty("id").GetString()!;
+        var adminGroupId = admins.RootElement.GetProperty("Resources")[0].GetProperty("id").GetString()!;
         using var users = await client.GetFromJsonAsync<JsonDocument>("/api/Users?filter=" + Uri.EscapeDataString($"userName eq \"{AnubisFactory.AdminEmail}\""));
         Assert.NotNull(users);
         var adminUserId = users.RootElement.GetProperty("Resources")[0].GetProperty("id").GetString()!;
@@ -387,7 +387,7 @@ public class ScimApiTests
             Content = Scim($$"""
             {
                 "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchRequest"],
-                "Operations": [{ "op": "remove", "path": "groups[value eq \"{{adminRoleId}}\"]" }]
+                "Operations": [{ "op": "remove", "path": "groups[value eq \"{{adminGroupId}}\"]" }]
             }
             """),
         });

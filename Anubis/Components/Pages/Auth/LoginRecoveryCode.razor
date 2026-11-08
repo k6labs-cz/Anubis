@@ -1,4 +1,4 @@
-@page "/login/recovery-code"
+@page "/login-recovery-code"
 
 @using k6labs.Anubis.Localization
 
@@ -37,7 +37,7 @@
                         </Stack>
                     </EditForm>
 
-                    <Typography Tone="Tone.Muted" Align="TextAlign.Center"><a href="@("/login/2fa?returnUrl=" + Uri.EscapeDataString(SafeReturnUrl))">@Translations.Recovery_BackToCode</a></Typography>
+                    <Typography Tone="Tone.Muted" Align="TextAlign.Center"><a href="@("/login-2fa?returnUrl=" + Uri.EscapeDataString(SafeReturnUrl))">@Translations.Recovery_BackToCode</a></Typography>
                 </Stack>
             </ChildContent>
         </Card>

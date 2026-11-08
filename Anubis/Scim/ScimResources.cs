@@ -11,21 +11,21 @@ namespace k6labs.Anubis.Scim;
 /// </summary>
 public static class ScimResources
 {
-    public static JsonObject UserResource(User user, IEnumerable<string> roles, IReadOnlyDictionary<string, string> roleIds, IEnumerable<Claim> ownClaims, string baseUri)
+    public static JsonObject UserResource(User user, IEnumerable<string> groupNames, IReadOnlyDictionary<string, string> groupIds, IEnumerable<Claim> ownClaims, string baseUri)
     {
         var groups = new JsonArray();
-        foreach (var role in roles.OrderBy(r => r, StringComparer.OrdinalIgnoreCase))
+        foreach (var group in groupNames.OrderBy(r => r, StringComparer.OrdinalIgnoreCase))
         {
-            if (!roleIds.TryGetValue(role, out var roleId))
+            if (!groupIds.TryGetValue(group, out var groupId))
             {
                 continue;
             }
 
             groups.Add(new JsonObject
             {
-                ["value"] = roleId,
-                ["display"] = role,
-                ["$ref"] = $"{baseUri}/api/Groups/{roleId}",
+                ["value"] = groupId,
+                ["display"] = group,
+                ["$ref"] = $"{baseUri}/api/Groups/{groupId}",
             });
         }
 
@@ -64,7 +64,7 @@ public static class ScimResources
         };
     }
 
-    public static JsonObject GroupResource(Role role, IReadOnlyList<(string Id, string? Display)> members, string baseUri)
+    public static JsonObject GroupResource(Group group, IReadOnlyList<(string Id, string? Display)> members, string baseUri)
     {
         var memberArray = new JsonArray();
         foreach (var member in members.OrderBy(m => m.Display, StringComparer.OrdinalIgnoreCase))
@@ -80,13 +80,13 @@ public static class ScimResources
         return new JsonObject
         {
             ["schemas"] = new JsonArray(ScimConstants.GroupSchema),
-            ["id"] = role.Id,
-            ["displayName"] = role.Name ?? string.Empty,
+            ["id"] = group.Id,
+            ["displayName"] = group.Name ?? string.Empty,
             ["members"] = memberArray,
             ["meta"] = new JsonObject
             {
                 ["resourceType"] = "Group",
-                ["location"] = $"{baseUri}/api/Groups/{role.Id}",
+                ["location"] = $"{baseUri}/api/Groups/{group.Id}",
             },
         };
     }

@@ -2,6 +2,7 @@ using System.Collections.Immutable;
 using System.Security.Claims;
 
 using k6labs.Anubis.Data.Entities;
+using k6labs.Anubis.Identity;
 using k6labs.Anubis.Services;
 using k6labs.Anubis.Services.Avatar;
 
@@ -32,7 +33,7 @@ public class AuthorizationController : Controller
     private readonly SignInManager<User> _signInManager;
     private readonly UserManager<User> _userManager;
     private readonly IConsentService _consentService;
-    private readonly RoleManager<Role> _roleManager;
+    private readonly RoleManager<Group> _groupManager;
 
     public AuthorizationController(
         IOpenIddictApplicationManager applicationManager,
@@ -40,9 +41,9 @@ public class AuthorizationController : Controller
         SignInManager<User> signInManager,
         UserManager<User> userManager,
         IConsentService consentService,
-        RoleManager<Role> roleManager)
+        RoleManager<Group> groupManager)
     {
-        _roleManager = roleManager;
+        _groupManager = groupManager;
         _applicationManager = applicationManager;
         _scopeManager = scopeManager;
         _signInManager = signInManager;
@@ -155,7 +156,7 @@ public class AuthorizationController : Controller
                     }));
             }
 
-            // Rebuild the principal with fresh claims (roles or profile may have changed since the code was issued).
+            // Rebuild the principal with fresh claims (groups or profile may have changed since the code was issued).
             var principal = await CreatePrincipalAsync(user, request.GetScopes());
 
             CountIssued(request.GrantType, request.ClientId);
@@ -170,7 +171,7 @@ public class AuthorizationController : Controller
             var identity = new ClaimsIdentity(
                 authenticationType: TokenValidationParameters.DefaultAuthenticationType,
                 nameType: Claims.Name,
-                roleType: Claims.Role);
+                roleType: GroupClaims.Claim);
 
             identity.SetClaim(Claims.Subject, await _applicationManager.GetClientIdAsync(application));
             identity.SetClaim(Claims.ClientId, await _applicationManager.GetClientIdAsync(application));
@@ -225,13 +226,13 @@ public class AuthorizationController : Controller
             claims[Claims.EmailVerified] = user.EmailConfirmed;
         }
 
-        if (User.HasScope(Scopes.Roles))
+        if (User.HasScope(GroupClaims.Scope))
         {
-            claims[Claims.Role] = await _userManager.GetRolesAsync(user);
+            claims[GroupClaims.Claim] = await _userManager.GetRolesAsync(user);
         }
 
-        // Claims set by an administrator on the user's roles and on the user.
-        foreach (var (type, values) in await CustomClaims.ForUserAsync(_userManager, _roleManager, user))
+        // Claims set by an administrator on the user's groups and on the user.
+        foreach (var (type, values) in await CustomClaims.ForUserAsync(_userManager, _groupManager, user))
         {
             claims.TryAdd(type, values.Count == 1 ? values[0] : values);
         }
@@ -262,17 +263,17 @@ public class AuthorizationController : Controller
         var identity = new ClaimsIdentity(
             authenticationType: TokenValidationParameters.DefaultAuthenticationType,
             nameType: Claims.Name,
-            roleType: Claims.Role);
+            roleType: GroupClaims.Claim);
 
         identity.SetClaim(Claims.Subject, await _userManager.GetUserIdAsync(user))
                 .SetClaim(Claims.Email, await _userManager.GetEmailAsync(user))
                 .SetClaim(Claims.Name, user.DisplayName ?? await _userManager.GetUserNameAsync(user))
                 .SetClaim(Claims.PreferredUsername, await _userManager.GetUserNameAsync(user))
                 .SetClaim(Claims.Picture, AvatarUrl.For(user))
-                .SetClaims(Claims.Role, (await _userManager.GetRolesAsync(user)).ToImmutableArray());
+                .SetClaims(GroupClaims.Claim, (await _userManager.GetRolesAsync(user)).ToImmutableArray());
 
-        // Claims set by an administrator on the user's roles and on the user (reserved types are refused when saving).
-        foreach (var (type, values) in await CustomClaims.ForUserAsync(_userManager, _roleManager, user))
+        // Claims set by an administrator on the user's groups and on the user (reserved types are refused when saving).
+        foreach (var (type, values) in await CustomClaims.ForUserAsync(_userManager, _groupManager, user))
         {
             identity.SetClaims(type, values.ToImmutableArray());
         }
@@ -321,8 +322,8 @@ public class AuthorizationController : Controller
 
                 yield break;
 
-            case Claims.Role:
-                if (identity.HasScope(Scopes.Roles))
+            case GroupClaims.Claim:
+                if (identity.HasScope(GroupClaims.Scope))
                 {
                     yield return Destinations.IdentityToken;
                 }

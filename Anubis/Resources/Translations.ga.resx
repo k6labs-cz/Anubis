@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Cruthaithe</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Socrú an bhrabhsálaí</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Eochracha pasfhocail</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Róil</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Grúpaí</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Seol ríomhphost deimhnithe</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Ilfhachtóireach</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>Cliaint OIDC</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>D'athraigh duine eile an taifead. Athlódáil agus bain triail eile as.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>Tharla earráid anaithnid.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>Tá an ríomhphost '{0}' in úsáid cheana.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Tá an t-ainm róil '{0}' in úsáid cheana.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Tá an t-ainm grúpa '{0}' in úsáid cheana.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Tá an t-ainm úsáideora '{0}' in úsáid cheana.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>Tá an ríomhphost '{0}' neamhbhailí.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Tá an t-ainm róil '{0}' neamhbhailí.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Tá an t-ainm grúpa '{0}' neamhbhailí.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Comhartha neamhbhailí.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>Tá an t-ainm úsáideora '{0}' neamhbhailí.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Tá úsáideoir leis an síniú isteach seo ann cheana.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Caithfidh pasfhocail a bheith {0} charachtar ar fhad ar a laghad.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Níorbh fhéidir an cód aisghabhála a úsáid.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Tá pasfhocal ag an úsáideoir cheana.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Tá an ról '{0}' ag an úsáideoir cheana.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Is ball den ghrúpa '{0}' é an t-úsáideoir cheana.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Níl glasáil cumasaithe don úsáideoir seo.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Níl an ról '{0}' ag an úsáideoir.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Ní ball den ghrúpa '{0}' é an t-úsáideoir.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Cuntas</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Teanga</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Rochtain a choinneáil agus tú as láthair (refresh tokens)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>A dheimhniú cé thú</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>D'ainm agus do phróifíl a fheiceáil</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Do róil a fheiceáil</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>Do ghrúpaí a fheiceáil</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Cruthaigh scóip</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>Is féidir le cliaint scóip shaincheaptha a iarraidh, ceangailte le hacmhainní (audiences).</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Mo API</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>Comhad íomhá neamhbhailí nó gan tacaíocht.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Tá an comhad íomhá rómhór (10 MB ar a mhéad).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Socruithe</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Róil</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Grúpaí</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Cuma</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Cuntais ar féidir leo síniú isteach in Anubis.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>Seoltar róil chuig feidhmchláir chliaint san éileamh roles.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>Seoltar grúpaí chuig feidhmchláir chliaint san éileamh groups.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Ceadanna is féidir le feidhmchláir chliaint a iarraidh.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Feidhmchláir a shíníonn úsáideoirí isteach trí Anubis.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>Ríomhphost amach le haghaidh deimhniú seoltaí agus athshocrú pasfhocal.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Tánaisteach</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Cúlra</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Téacs</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Cruthaigh ról</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>Níl aon bhaill ag ról nua; cuir leis iad sa liosta thíos.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Baill</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Ionsuite</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Scrios ról</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>An ról {0} a scriosadh? Caillfidh a bhaill go léir é.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>Baill de {0}</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Cuir leis</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Bain</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>Gan bhaill fós.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>Ní féidir an riarthóir deireanach a bhaint.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Cuir isteach ainm róil.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Cruthaigh grúpa</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>Níl aon bhaill ag grúpa nua; cuir leis iad sa liosta thíos.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Baill</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Ionsuite</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Scrios an grúpa</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>An grúpa {0} a scriosadh? Bainfear a bhaill go léir as.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>Baill de {0}</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Cuir leis</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Bain</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>Gan bhaill fós.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>Ní féidir an riarthóir deireanach a bhaint.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Cuir isteach ainm grúpa.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Cuir isteach dath mar #RRGGBB, nó fág folamh é.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>Ní cheadaítear ; { } &lt; &gt; ná \.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Cuir isteach URL https:// iomlán.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>Seoladh ríomhphoist deimhnithe</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Sábháiltear uimhir athraithe mar uimhir neamhfhíoraithe.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>Tá cuntas eile ag úsáid an tseolta ríomhphoist seo cheana.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Ní féidir leat an ról Admin a bhaint de do chuntas féin.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Ní féidir leat do chuntas féin a bhaint den ghrúpa Admins.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>Sábháladh na hathruithe ar {0}.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>Seoladh ríomhphoist athraithe</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Ról curtha leis</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Ról bainte</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Curtha le grúpa</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Bainte de ghrúpa</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Tar éis sábhála, seoltar ríomhphost deimhnithe chuig an seoladh nua.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>Seoladh ríomhphost deimhnithe chuig {0}.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Tosaigh le litir, ansin litreacha, digití agus - _ . : / ({0} carachtar ar a mhéad).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>{0} carachtar ar a mhéad.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Tá an claim seo liostaithe faoi dhó.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>{0} claim ar a mhéad.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>Níor aimsíodh an ról.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>Ní féidir róil ionsuite a athainmniú.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Tá ról leis an ainm seo ann cheana.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>Cuir an ról {0} in eagar</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>Sábháladh an ról {0}.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Cuir ról leis</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>Níor aimsíodh an grúpa.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>Ní féidir grúpaí ionsuite a athainmniú.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Tá grúpa leis an ainm seo ann cheana.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>Cuir an grúpa {0} in eagar</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>Sábháladh an grúpa {0}.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Cuir grúpa leis</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Cuirtear leis an access token, leis an ID token agus le userinfo iad, mar aon le claims róil an úsáideora.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Cuirtear le comharthaí gach comhalta den ról seo iad.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Cuirtear leis an gcomhartha rochtana, leis an gcomhartha ID agus le userinfo iad, mar aon le héilimh ghrúpaí an úsáideora.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Cuirtear le comharthaí gach baill den ghrúpa seo iad.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Cineál</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Luach</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Cuir claim leis</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Bain an claim</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Níl aon claims fós.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Ó róil</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Ó ghrúpaí</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Athraigh an t-abhatár</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Á lódáil…</value></data>
 </root>

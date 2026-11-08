@@ -128,9 +128,9 @@ public class SettingsTests
     }
 
     [Theory]
-    [InlineData("/admin/general", "id=\"publicUrl\"")]
-    [InlineData("/admin/security", "Minimum length")]
-    [InlineData("/admin/tokens", "Access token (minutes)")]
+    [InlineData("/options-general", "id=\"publicUrl\"")]
+    [InlineData("/options-security", "Minimum length")]
+    [InlineData("/options-tokens", "Access token (minutes)")]
     public async Task SettingsPages_ShowTheirOptions(string path, string expected)
     {
         using var client = new FormClient(_factory);
@@ -140,12 +140,12 @@ public class SettingsTests
     }
 
     [Theory]
-    [InlineData("/admin/general")]
-    [InlineData("/admin/security")]
-    [InlineData("/admin/tokens")]
-    [InlineData("/admin/appearance")]
-    [InlineData("/admin/email")]
-    [InlineData("/account")]
+    [InlineData("/options-general")]
+    [InlineData("/options-security")]
+    [InlineData("/options-tokens")]
+    [InlineData("/options-appearance")]
+    [InlineData("/options-email")]
+    [InlineData("/profile")]
     public async Task SettingsPages_HaveOneSaveButtonAtTheBottom_DisabledUntilSomethingChanges(string path)
     {
         using var client = new FormClient(_factory);

@@ -1,0 +1,85 @@
+@namespace k6labs.Anubis.Components.Shared
+
+@* Groups as chips (× removes one) + a search field to add more; scales to many groups.
+   The built-in "Users" group is always there and cannot be removed. *@
+<Stack Gap="Gap.Small" data-group-picker>
+    <Typography Variant="TextVariant.Subtitle" As="TextElement.H3">@Translations.Account_Groups</Typography>
+    <Stack Direction="Direction.Row" Wrap="true" Align="Align.Center" Gap="Gap.XSmall">
+        @foreach (var group in Ordered)
+        {
+            @if (IsUserGroup(group))
+            {
+                <Badge Tone="Tone.Primary" data-group-chip="@group">@group</Badge>
+            }
+            else
+            {
+                <Button Variant="ButtonVariant.Ghost" Icon="@AppIcons.Close" OnClick="() => Remove(group)" title="@Translations.Claims_Remove" data-group-chip="@group">@group</Button>
+            }
+        }
+    </Stack>
+    @if (Available.Any())
+    {
+        <Field Label="@Translations.Groups_AddGroup" For="@InputId">
+            <SelectPicker TValue="string" Value="@selectedGroup" ValueChanged="AddAsync" ValueExpression="() => selectedGroup"
+                          Options="@Options"
+                          Label="@Translations.Groups_AddGroup" SearchLabel="@Translations.Groups_AddGroup"
+                          EmptyText="@Translations.Claims_None" ClearText="@Translations.Common_Close"
+                          AllowClear="false" id="@InputId" />
+        </Field>
+    }
+    @if (Error is not null)
+    {
+        <Typography Variant="TextVariant.Caption" Tone="Tone.Danger">@Error</Typography>
+    }
+</Stack>
+
+@code {
+    /// <summary>The selected groups (changed in place).</summary>
+    [Parameter, EditorRequired]
+    public HashSet<string> Selected { get; set; } = default!;
+
+    /// <summary>All existing groups.</summary>
+    [Parameter, EditorRequired]
+    public IReadOnlyCollection<string> Groups { get; set; } = [];
+
+    [Parameter]
+    public string? Error { get; set; }
+
+    [Parameter]
+    public string InputId { get; set; } = "groupSearch";
+
+    [Parameter]
+    public EventCallback Changed { get; set; }
+
+    private string? selectedGroup;
+
+    private static bool IsUserGroup(string group) => string.Equals(group, DatabaseInitializer.UserGroup, StringComparison.OrdinalIgnoreCase);
+
+    private IEnumerable<string> Ordered
+        => Selected.Append(DatabaseInitializer.UserGroup).Distinct(StringComparer.OrdinalIgnoreCase)
+                   .OrderBy(group => IsUserGroup(group) ? 0 : 1).ThenBy(group => group, StringComparer.OrdinalIgnoreCase);
+
+    private SelectOption<string>[] Options => Available.Select(group => new SelectOption<string>(group, group)).ToArray();
+
+    private IEnumerable<string> Available
+        => Groups.Where(group => !IsUserGroup(group) && !Selected.Contains(group)).Order(StringComparer.OrdinalIgnoreCase);
+
+    private async Task AddAsync(string? group)
+    {
+        if (string.IsNullOrEmpty(group) || !Groups.Contains(group))
+        {
+            return;
+        }
+
+        Selected.Add(group);
+        selectedGroup = null;
+
+        await Changed.InvokeAsync();
+    }
+
+    private async Task Remove(string group)
+    {
+        Selected.Remove(group);
+        await Changed.InvokeAsync();
+    }
+}

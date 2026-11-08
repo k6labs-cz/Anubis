@@ -17,7 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Anubis.Tests;
 
 /// <summary>
-/// Custom claims on roles and users: validated (reserved types refused), saved, and issued
+/// Custom claims on groups and users: validated (reserved types refused), saved, and issued
 /// in the ID token and userinfo of the users that have them.
 /// </summary>
 [Collection(AnubisCollection.Name)]
@@ -63,48 +63,48 @@ public class ClaimsTests
     }
 
     [Fact]
-    public async Task RoleEdit_RenamesAndSavesClaims_ButNotForBuiltInRoles()
+    public async Task GroupEdit_RenamesAndSavesClaims_ButNotForBuiltInGroups()
     {
         using var scope = _factory.Services.CreateScope();
-        var roles = scope.ServiceProvider.GetRequiredService<RoleManager<Role>>();
-        var administration = scope.ServiceProvider.GetRequiredService<RoleAdministration>();
+        var groups = scope.ServiceProvider.GetRequiredService<RoleManager<Group>>();
+        var administration = scope.ServiceProvider.GetRequiredService<GroupAdministration>();
         var name = $"team-{Guid.NewGuid():N}"[..20];
-        Assert.True((await roles.CreateAsync(new Role(name))).Succeeded);
-        var role = (await roles.FindByNameAsync(name))!;
+        Assert.True((await groups.CreateAsync(new Group(name))).Succeeded);
+        var group = (await groups.FindByNameAsync(name))!;
 
-        var model = (await administration.LoadAsync(role.Id))!;
+        var model = (await administration.LoadAsync(group.Id))!;
         model.Name = name + "-x";
         model.Claims.Add(new ClaimEntry { Type = "department", Value = "sales" });
         Assert.Empty(await administration.UpdateAsync(model));
 
-        var saved = (await roles.FindByIdAsync(role.Id))!;
+        var saved = (await groups.FindByIdAsync(group.Id))!;
         Assert.Equal(name + "-x", saved.Name);
-        Assert.Equal("sales", Assert.Single(await roles.GetClaimsAsync(saved)).Value);
+        Assert.Equal("sales", Assert.Single(await groups.GetClaimsAsync(saved)).Value);
 
-        var admin = (await administration.LoadAsync((await roles.FindByNameAsync("Admin"))!.Id))!;
-        admin.Name = "Admins";
-        Assert.True((await administration.UpdateAsync(admin)).ContainsKey(nameof(RoleEditModel.Name)));
+        var admin = (await administration.LoadAsync((await groups.FindByNameAsync("Admins"))!.Id))!;
+        admin.Name = "Administrators";
+        Assert.True((await administration.UpdateAsync(admin)).ContainsKey(nameof(GroupEditModel.Name)));
 
-        model = (await administration.LoadAsync(role.Id))!;
-        model.Name = "User";   // taken by a built-in role
-        Assert.True((await administration.UpdateAsync(model)).ContainsKey(nameof(RoleEditModel.Name)));
+        model = (await administration.LoadAsync(group.Id))!;
+        model.Name = "Users";   // taken by a built-in group
+        Assert.True((await administration.UpdateAsync(model)).ContainsKey(nameof(GroupEditModel.Name)));
     }
 
     [Fact]
-    public async Task RoleAndUserClaims_AreInTheIdToken_AndUserinfo()
+    public async Task GroupAndUserClaims_AreInTheIdToken_AndUserinfo()
     {
         using var client = new FormClient(_factory);
         var (user, password) = await client.CreateUserAsync();
-        var roleName = $"claims-{Guid.NewGuid():N}"[..20];
+        var groupName = $"claims-{Guid.NewGuid():N}"[..20];
         using (var scope = _factory.Services.CreateScope())
         {
-            var roles = scope.ServiceProvider.GetRequiredService<RoleManager<Role>>();
-            Assert.True((await roles.CreateAsync(new Role(roleName))).Succeeded);
-            await roles.AddClaimAsync((await roles.FindByNameAsync(roleName))!, new Claim("department", "sales"));
+            var groups = scope.ServiceProvider.GetRequiredService<RoleManager<Group>>();
+            Assert.True((await groups.CreateAsync(new Group(groupName))).Succeeded);
+            await groups.AddClaimAsync((await groups.FindByNameAsync(groupName))!, new Claim("department", "sales"));
 
             var administration = scope.ServiceProvider.GetRequiredService<UserAdministration>();
             var model = (await administration.LoadAsync(user.Id))!;
-            model.Roles.Add(roleName);
+            model.Groups.Add(groupName);
             model.Claims.Add(new ClaimEntry { Type = "employee_id", Value = "E-42" });
             model.Claims.Add(new ClaimEntry { Type = "department", Value = "support" });
             Assert.True((await administration.UpdateAsync(model, actingUserId: null)).Succeeded);

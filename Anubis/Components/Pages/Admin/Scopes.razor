@@ -1,6 +1,6 @@
-@page "/admin/scopes"
+@page "/scopes"
 @rendermode InteractiveServer
-@attribute [Authorize(Roles = "Admin")]
+@attribute [Authorize(Roles = DatabaseInitializer.AdminGroup)]
 
 @using Microsoft.AspNetCore.Authorization
 @using k6labs.Anubis.Models

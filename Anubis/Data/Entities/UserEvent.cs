@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace k6labs.Anubis.Data.Entities;
 
-/// <summary>One entry of an account's history (shown on /account/history).</summary>
+/// <summary>One entry of an account's history (shown on /history).</summary>
 public class UserEvent
 {
     public long Id { get; set; }

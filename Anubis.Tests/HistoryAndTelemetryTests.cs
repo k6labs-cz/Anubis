@@ -17,7 +17,7 @@ using OpenTelemetry.Trace;
 
 namespace Anubis.Tests;
 
-/// <summary>Account history (/account/history) and the OpenTelemetry signals.</summary>
+/// <summary>Account history (/history) and the OpenTelemetry signals.</summary>
 [Collection(AnubisCollection.Name)]
 public class HistoryAndTelemetryTests
 {
@@ -37,12 +37,12 @@ public class HistoryAndTelemetryTests
         (await client.PasswordLoginAsync(user.Email!, "wrong-password-123!")).Dispose();
         (await client.PasswordLoginAsync(user.Email!, password)).Dispose();
 
-        var html = await client.Http.GetStringAsync("/account/history");
+        var html = await client.Http.GetStringAsync("/history");
         Assert.Contains("Signed in", html);
         Assert.Contains("Failed sign-in attempt", html);
         Assert.Contains("password", html);
         Assert.Contains("data-local-time", html);
-        Assert.Contains("href=\"/account/history\"", await client.Http.GetStringAsync("/account"));   // navigation
+        Assert.Contains("href=\"/history\"", await client.Http.GetStringAsync("/profile"));   // navigation
 
         await client.SignOutAsync();
 
@@ -119,15 +119,15 @@ public class HistoryAndTelemetryTests
 
         (await client.PasswordLoginAsync(user.Email!, password)).Dispose();
 
-        var first = await client.Http.GetStringAsync("/account/history");
+        var first = await client.Http.GetStringAsync("/history");
         Assert.Equal(25, System.Text.RegularExpressions.Regex.Matches(first, "data-history-entry=").Count);
-        Assert.Contains("href=\"/account/history?page=2\"", first);
+        Assert.Contains("href=\"/history?page=2\"", first);
         Assert.Contains("Firefox · Windows", first);
         Assert.DoesNotContain("someone-elses-passkey", first);
 
-        var second = await client.Http.GetStringAsync("/account/history?page=2");
+        var second = await client.Http.GetStringAsync("/history?page=2");
         Assert.Equal(7, System.Text.RegularExpressions.Regex.Matches(second, "data-history-entry=").Count);   // 30 + created + signed in - 25
-        Assert.Contains("href=\"/account/history\"", second);
+        Assert.Contains("href=\"/history\"", second);
     }
 
     [Theory]

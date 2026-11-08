@@ -159,11 +159,11 @@ public partial class LocalizationTests
         using var client = new FormClient(_factory, "en");
         var (user, password) = await client.CreateUserAsync();
         await client.PasswordLoginAsync(user.Email!, password);
-        Assert.Contains("<html lang=\"en\"", await client.Http.GetStringAsync("/account"));
+        Assert.Contains("<html lang=\"en\"", await client.Http.GetStringAsync("/profile"));
 
         await SetLanguageAsync(user.Id, "cs");
 
-        Assert.Contains("<html lang=\"cs\"", await client.Http.GetStringAsync("/account"));
+        Assert.Contains("<html lang=\"cs\"", await client.Http.GetStringAsync("/profile"));
     }
 
     [Fact]
@@ -175,7 +175,7 @@ public partial class LocalizationTests
 
         await client.PasswordLoginAsync(user.Email!, password);
 
-        Assert.Contains("<html lang=\"cs\"", await client.Http.GetStringAsync("/account"));
+        Assert.Contains("<html lang=\"cs\"", await client.Http.GetStringAsync("/profile"));
     }
 
     [Fact]
@@ -255,7 +255,7 @@ public partial class LocalizationTests
         using var client = new FormClient(_factory);
         (await client.PasswordLoginAsync(AnubisFactory.AdminEmail, AnubisFactory.AdminPassword)).Dispose();
         client.Http.DefaultRequestHeaders.AcceptLanguage.ParseAdd("cs");
-        var html = await client.Http.GetStringAsync("/admin/users");
+        var html = await client.Http.GetStringAsync("/users");
         Assert.Contains($"aria-label=\"{InCzech(nameof(Translations.Common_Close))}\"", System.Net.WebUtility.HtmlDecode(html));
     }
 

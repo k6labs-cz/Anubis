@@ -11,13 +11,13 @@ using OpenIddict.Abstractions;
 namespace k6labs.Anubis.Data;
 
 /// <summary>
-/// Applies EF Core migrations and seeds the baseline data (roles, admin user,
+/// Applies EF Core migrations and seeds the baseline data (groups, admin user,
 /// API scope, configured clients) on startup. Seeding is idempotent.
 /// </summary>
 public static class DatabaseInitializer
 {
-    public const string AdminRole = "Admin";
-    public const string UserRole = "User";
+    public const string AdminGroup = "Admins";
+    public const string UserGroup = "Users";
 
     public static async Task InitializeAsync(IServiceProvider services, CancellationToken cancellationToken = default)
     {
@@ -30,21 +30,21 @@ public static class DatabaseInitializer
         var logger = provider.GetRequiredService<ILoggerFactory>().CreateLogger(nameof(DatabaseInitializer));
         var options = provider.GetRequiredService<IOptions<AnubisOptions>>().Value;
 
-        await EnsureRolesAsync(provider);
+        await EnsureGroupsAsync(provider);
         await EnsureAdminUserAsync(provider, options, logger);
         await EnsureApiScopeAsync(provider, options);
         await EnsureClientsAsync(provider, options);
     }
 
-    private static async Task EnsureRolesAsync(IServiceProvider provider)
+    private static async Task EnsureGroupsAsync(IServiceProvider provider)
     {
-        var roleManager = provider.GetRequiredService<RoleManager<Role>>();
+        var groupManager = provider.GetRequiredService<RoleManager<Group>>();
 
-        foreach (var role in new[] { AdminRole, UserRole })
+        foreach (var group in new[] { AdminGroup, UserGroup })
         {
-            if (!await roleManager.RoleExistsAsync(role))
+            if (!await groupManager.RoleExistsAsync(group))
             {
-                await roleManager.CreateAsync(new Role(role));
+                await groupManager.CreateAsync(new Group(group));
             }
         }
     }
@@ -80,9 +80,9 @@ public static class DatabaseInitializer
                 "Failed to create the admin user: " + string.Join(", ", result.Errors.Select(error => error.Description)));
         }
 
-        if (!await userManager.IsInRoleAsync(admin, AdminRole))
+        if (!await userManager.IsInRoleAsync(admin, AdminGroup))
         {
-            await userManager.AddToRoleAsync(admin, AdminRole);
+            await userManager.AddToRoleAsync(admin, AdminGroup);
         }
     }
 

@@ -39,16 +39,16 @@ public class DatabaseMigrationTests
         {
             while (await reader.ReadAsync()) tables.Add(reader.GetString(0));
         }
-        foreach (var table in new[] { "Roles", "Users", "UserRoles", "UserPasskeys", "UserAvatars", "UserEvents", "Applications", "Scopes", "Authorizations", "Tokens" })
+        foreach (var table in new[] { "Groups", "Users", "UserGroups", "GroupClaims", "UserPasskeys", "UserAvatars", "UserEvents", "Applications", "Scopes", "Authorizations", "Tokens" })
         {
             Assert.Contains(table, tables);
         }
 
-        context.Roles.Add(new Role { Name = "Existing role", NormalizedName = "EXISTING ROLE" });
+        context.Roles.Add(new Group { Name = "Existing group", NormalizedName = "EXISTING GROUP" });
         await context.SaveChangesAsync();
 
         await context.Database.MigrateAsync();
 
-        Assert.Equal("Existing role", (await context.Roles.SingleAsync()).Name);
+        Assert.Equal("Existing group", (await context.Roles.SingleAsync()).Name);
     }
 }

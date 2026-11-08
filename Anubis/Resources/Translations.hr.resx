@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Stvoreno</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Postavka preglednika</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Pristupni ključevi</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Uloge</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Grupe</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Pošalji e-poruku za potvrdu</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Višefaktorska</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>OIDC klijenti</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Zapis je promijenio netko drugi. Ponovno učitajte i pokušajte opet.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>Došlo je do nepoznate pogreške.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>E-pošta '{0}' već je zauzeta.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Naziv uloge '{0}' već je zauzet.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Naziv grupe '{0}' već je zauzet.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Korisničko ime '{0}' već je zauzeto.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>E-pošta '{0}' nije valjana.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Naziv uloge '{0}' nije valjan.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Naziv grupe '{0}' nije valjan.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Nevaljan token.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>Korisničko ime '{0}' nije valjano.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Korisnik s ovom prijavom već postoji.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Lozinka mora imati najmanje {0} znakova.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Kôd za oporavak nije bilo moguće iskoristiti.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Korisnik već ima lozinku.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Korisnik već ima ulogu '{0}'.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Korisnik je već član grupe '{0}'.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Zaključavanje nije omogućeno za ovog korisnika.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Korisnik nema ulogu '{0}'.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Korisnik nije član grupe '{0}'.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Račun</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Jezik</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Zadržati pristup dok niste prisutni (refresh tokeni)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>Potvrditi tko ste</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>Vidjeti vaše ime i profil</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Vidjeti vaše uloge</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>Pregled vaših grupa</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Stvori scope</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>Klijenti mogu tražiti prilagođene scopeove povezane s resursima (audiences).</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Moj API</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>Nevaljana ili nepodržana slikovna datoteka.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Slikovna datoteka je prevelika (najviše 10 MB).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Postavke</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Uloge</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Grupe</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Izgled</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Računi koji se mogu prijaviti u Anubis.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>Uloge se klijentskim aplikacijama šalju u claimu roles.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>Grupe se klijentskim aplikacijama prosljeđuju u claimu groups.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Dopuštenja koja klijentske aplikacije mogu tražiti.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Aplikacije koje prijavljuju korisnike putem Anubisa.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>Odlazna e-pošta za potvrdu adrese i ponovno postavljanje lozinke.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Sekundarna</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Pozadina</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Tekst</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Stvori ulogu</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>Nova uloga nema članova; dodajte ih na popisu u nastavku.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Članovi</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Ugrađena</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Izbriši ulogu</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Izbrisati ulogu {0}? Svi njezini članovi će je izgubiti.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>Članovi uloge {0}</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Dodaj</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Ukloni</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>Još nema članova.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>Posljednjeg administratora nije moguće ukloniti.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Unesite naziv uloge.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Stvori grupu</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>Nova grupa nema članova; dodajte ih na popisu ispod.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Članovi</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Ugrađena</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Izbriši grupu</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>Izbrisati grupu {0}? Svi njezini članovi bit će uklonjeni iz nje.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>Članovi grupe {0}</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Dodaj</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Ukloni</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>Još nema članova.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>Posljednjeg administratora nije moguće ukloniti.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Unesite naziv grupe.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Unesite boju kao #RRGGBB ili ostavite polje prazno.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>Ne smije sadržavati ; { } &lt; &gt; ili \.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Unesite apsolutnu https:// adresu.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>Adresa e-pošte potvrđena</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Promijenjeni broj sprema se kao nepotvrđen.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>Ovu adresu e-pošte već koristi drugi račun.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Ne možete ukloniti ulogu Admin sa svog računa.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Ne možete ukloniti vlastiti račun iz grupe Admins.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>Promjene računa {0} su spremljene.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>Adresa e-pošte promijenjena</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Uloga dodana</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Uloga uklonjena</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Dodan u grupu</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Uklonjen iz grupe</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Nakon spremanja na novu adresu šalje se e-poruka za potvrdu.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>E-poruka za potvrdu poslana je na {0}.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Počnite slovom, zatim slova, znamenke i - _ . : / (najviše {0} znakova).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Najviše {0} znakova.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Ovaj claim naveden je dvaput.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Najviše {0} claimova.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>Uloga nije pronađena.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>Ugrađene uloge ne mogu se preimenovati.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Uloga s tim nazivom već postoji.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>Uredi ulogu {0}</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>Uloga {0} spremljena.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Dodaj ulogu</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>Grupa nije pronađena.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>Ugrađene grupe ne mogu se preimenovati.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Grupa s tim nazivom već postoji.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>Uredi grupu {0}</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>Grupa {0} je spremljena.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Dodaj grupu</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claimovi</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Dodaju se u pristupni token, ID token i userinfo, zajedno s claimovima korisnikovih uloga.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Dodaju se u tokene svih članova ove uloge.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Dodaju se u pristupni token, ID token i userinfo, zajedno s claimovima korisnikovih grupa.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Dodaju se u tokene svih članova ove grupe.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Vrsta</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Vrijednost</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Dodaj claim</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Ukloni claim</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Još nema claimova.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Iz uloga</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Iz grupa</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Promijeni avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Učitavanje…</value></data>
 </root>

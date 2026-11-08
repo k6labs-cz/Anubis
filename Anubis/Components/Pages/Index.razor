@@ -11,6 +11,6 @@
         var state = AuthenticationState is not null
             ? await AuthenticationState
             : new AuthenticationState(new System.Security.Claims.ClaimsPrincipal());
-        Navigation.NavigateTo(state.User.Identity?.IsAuthenticated == true ? "/account" : "/login");
+        Navigation.NavigateTo(state.User.Identity?.IsAuthenticated == true ? "/profile" : "/login");
     }
 }

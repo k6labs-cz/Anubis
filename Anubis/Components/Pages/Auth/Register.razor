@@ -36,7 +36,7 @@
                         <Alert Severity="AlertSeverity.Success" Title="@Translations.Common_CheckInbox">
                             @Translations.Register_ConfirmationSent.Format(model.Email)
                         </Alert>
-                        <Typography Tone="Tone.Muted" Align="TextAlign.Center">@Translations.Register_NoEmail <a href="/confirm-email/resend">@Translations.Register_SendAgain</a></Typography>
+                        <Typography Tone="Tone.Muted" Align="TextAlign.Center">@Translations.Register_NoEmail <a href="/confirm-email-resend">@Translations.Register_SendAgain</a></Typography>
                     }
                     else
                     {
@@ -112,14 +112,14 @@
             return;
         }
 
-        if (!await UserManager.IsInRoleAsync(user, DatabaseInitializer.UserRole))
+        if (!await UserManager.IsInRoleAsync(user, DatabaseInitializer.UserGroup))
         {
-            await UserManager.AddToRoleAsync(user, DatabaseInitializer.UserRole);
+            await UserManager.AddToRoleAsync(user, DatabaseInitializer.UserGroup);
         }
 
-        if (isFirstUser && !await UserManager.IsInRoleAsync(user, DatabaseInitializer.AdminRole))
+        if (isFirstUser && !await UserManager.IsInRoleAsync(user, DatabaseInitializer.AdminGroup))
         {
-            await UserManager.AddToRoleAsync(user, DatabaseInitializer.AdminRole);
+            await UserManager.AddToRoleAsync(user, DatabaseInitializer.AdminGroup);
         }
 
         await AccountEmails.SendConfirmationAsync(user, Navigation.BaseUri);

@@ -53,7 +53,7 @@ public sealed class DiscoveryController : ScimControllerBase
         => ScimJson(ScimResources.ListResponse(2, 1, new List<JsonObject>
         {
             ResourceType("User", "/api/Users", ScimConstants.UserSchema, "An Anubis account (the e-mail address is the userName)."),
-            ResourceType("Group", "/api/Groups", ScimConstants.GroupSchema, "An Anubis role; its members are the users in the role."),
+            ResourceType("Group", "/api/Groups", ScimConstants.GroupSchema, "An Anubis group; its members are the users in the group."),
         }));
 
     [HttpGet("ResourceTypes/{id}")]
@@ -62,7 +62,7 @@ public sealed class DiscoveryController : ScimControllerBase
         var resource = id.Equals("User", StringComparison.OrdinalIgnoreCase)
             ? ResourceType("User", "/api/Users", ScimConstants.UserSchema, "An Anubis account (the e-mail address is the userName).")
             : id.Equals("Group", StringComparison.OrdinalIgnoreCase)
-                ? ResourceType("Group", "/api/Groups", ScimConstants.GroupSchema, "An Anubis role; its members are the users in the role.")
+                ? ResourceType("Group", "/api/Groups", ScimConstants.GroupSchema, "An Anubis group; its members are the users in the group.")
                 : null;
         return resource is null
             ? ScimJson(ScimResources.Error(StatusCodes.Status404NotFound, null, $"Resource type \"{id}\" was not found."), StatusCodes.Status404NotFound)
@@ -122,7 +122,7 @@ public sealed class DiscoveryController : ScimControllerBase
             ["schemas"] = new JsonArray(ScimConstants.SchemaSchema),
             ["id"] = ScimConstants.UserSchema,
             ["name"] = "User",
-            ["description"] = "An Anubis account. userName is the e-mail address (also the sign-in name); active maps to the account lockout; groups are the user's roles; custom claims live in the Anubis extension schema.",
+            ["description"] = "An Anubis account. userName is the e-mail address (also the sign-in name); active maps to the account lockout; groups are the user's groups; custom claims live in the Anubis extension schema.",
             ["attributes"] = new JsonArray(
                 Attribute("id", "string", description: "Server-generated identifier."),
                 Attribute("userName", "string", required: true, description: "The e-mail address, also the sign-in name."),
@@ -132,7 +132,7 @@ public sealed class DiscoveryController : ScimControllerBase
                 Attribute("password", "string", description: "Write-only; set on create or via PATCH/PUT."),
                 Attribute("emails", "complex", multiValued: true, description: "The primary e-mail is the account e-mail."),
                 Attribute("phoneNumbers", "complex", multiValued: true),
-                Attribute("groups", "complex", multiValued: true, description: "The user's roles: value = role id, display = role name."),
+                Attribute("groups", "complex", multiValued: true, description: "The user's groups: value = group id, display = group name."),
                 Attribute("meta", "complex"),
                 Attribute(ScimConstants.UserExtensionSchema, "complex", description: "Anubis extension: claims (custom claims) and emailConfirmed.")),
             ["meta"] = new JsonObject { ["resourceType"] = "Schema", ["location"] = $"{BaseUri}/api/Schemas/{ScimConstants.UserSchema}" },
@@ -144,10 +144,10 @@ public sealed class DiscoveryController : ScimControllerBase
             ["schemas"] = new JsonArray(ScimConstants.SchemaSchema),
             ["id"] = ScimConstants.GroupSchema,
             ["name"] = "Group",
-            ["description"] = "An Anubis role; members are the users in the role (value = user id, display = e-mail).",
+            ["description"] = "An Anubis group; members are the users in the group (value = user id, display = e-mail).",
             ["attributes"] = new JsonArray(
                 Attribute("id", "string"),
-                Attribute("displayName", "string", required: true, description: "The role name."),
+                Attribute("displayName", "string", required: true, description: "The group name."),
                 Attribute("members", "complex", multiValued: true),
                 Attribute("meta", "complex")),
             ["meta"] = new JsonObject { ["resourceType"] = "Schema", ["location"] = $"{BaseUri}/api/Schemas/{ScimConstants.GroupSchema}" },

@@ -39,7 +39,7 @@ public partial class MfaTests
         using var response = await PasskeyLoginAsync(client, authenticator);
 
         Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
-        Assert.Equal("/account", RedirectPath(response));
+        Assert.Equal("/profile", RedirectPath(response));
         Assert.True(await client.IsSignedInAsync());
     }
 
@@ -55,7 +55,7 @@ public partial class MfaTests
         // Password sign-in now needs a code; the passkey is added from that session.
         using (var login = await client.PasswordLoginAsync(user.Email!, password))
         {
-            Assert.StartsWith("/login/2fa", RedirectPath(login));
+            Assert.StartsWith("/login-2fa", RedirectPath(login));
         }
 
         await CompleteTwoFactorAsync(client, user);
@@ -64,7 +64,7 @@ public partial class MfaTests
 
         using var response = await PasskeyLoginAsync(client, authenticator);
 
-        Assert.Equal("/account", RedirectPath(response));
+        Assert.Equal("/profile", RedirectPath(response));
         Assert.True(await client.IsSignedInAsync());
     }
 
@@ -109,12 +109,12 @@ public partial class MfaTests
         var (user, password) = await client.CreateUserAsync();
         await RegisterPasskeyAsync(client, authenticator, user, password);
 
-        using var response = await client.PostFormAsync("/account/security", $"delete-passkey-{authenticator.CredentialId}", new Dictionary<string, string>
+        using var response = await client.PostFormAsync("/passkeys", $"delete-passkey-{authenticator.CredentialId}", new Dictionary<string, string>
         {
             ["CredentialId"] = authenticator.CredentialId,
         });
 
-        Assert.Equal("/account/security?status=passkey-deleted", RedirectPath(response));
+        Assert.Equal("/passkeys?status=passkey-deleted", RedirectPath(response));
         Assert.Empty(await GetPasskeysAsync(user));
     }
 
@@ -150,17 +150,17 @@ public partial class MfaTests
         var (user, password) = await client.CreateUserAsync();
         await client.PasswordLoginAsync(user.Email!, password);
 
-        var page = await client.Http.GetStringAsync("/account/security/authenticator");
+        var page = await client.Http.GetStringAsync("/mfa/authenticator");
         Assert.Contains("data:image/png;base64,", page);
         var key = KeyRegex().Match(page).Groups[1].Value.Replace(" ", string.Empty);
 
-        using var wrong = await client.PostFormAsync("/account/security/authenticator", "verify-authenticator", new Dictionary<string, string>
+        using var wrong = await client.PostFormAsync("/mfa/authenticator", "verify-authenticator", new Dictionary<string, string>
         {
             ["model.Code"] = "000000",
         });
         Assert.Contains("The code is invalid", await wrong.Content.ReadAsStringAsync());
 
-        using var right = await client.PostFormAsync("/account/security/authenticator", "verify-authenticator", new Dictionary<string, string>
+        using var right = await client.PostFormAsync("/mfa/authenticator", "verify-authenticator", new Dictionary<string, string>
         {
             ["model.Code"] = Totp(key),
         });
@@ -181,7 +181,7 @@ public partial class MfaTests
         var key = await EnableAuthenticatorAsync(user);
 
         using var login = await client.PasswordLoginAsync(user.Email!, password);
-        Assert.Equal("/login/2fa?returnUrl=%2Faccount", RedirectPath(login));
+        Assert.Equal("/login-2fa?returnUrl=%2Fprofile", RedirectPath(login));
         Assert.False(await client.IsSignedInAsync());
 
         using var wrong = await PostTwoFactorCodeAsync(client, "123456" == Totp(key) ? "654321" : "123456");
@@ -189,7 +189,7 @@ public partial class MfaTests
         Assert.False(await client.IsSignedInAsync());
 
         using var right = await PostTwoFactorCodeAsync(client, Totp(key));
-        Assert.Equal("/account", RedirectPath(right));
+        Assert.Equal("/profile", RedirectPath(right));
         Assert.True(await client.IsSignedInAsync());
     }
 
@@ -198,7 +198,7 @@ public partial class MfaTests
     {
         using var client = new FormClient(_factory);
 
-        using var response = await client.Http.GetAsync("/login/2fa?returnUrl=/account");
+        using var response = await client.Http.GetAsync("/login-2fa?returnUrl=/profile");
 
         Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
         Assert.StartsWith("/login", RedirectPath(response));
@@ -215,7 +215,7 @@ public partial class MfaTests
         await client.PasswordLoginAsync(user.Email!, password);
         using (var first = await PostRecoveryCodeAsync(client, code))
         {
-            Assert.Equal("/account", RedirectPath(first));
+            Assert.Equal("/profile", RedirectPath(first));
         }
 
         Assert.True(await client.IsSignedInAsync());
@@ -236,14 +236,14 @@ public partial class MfaTests
         await client.PasswordLoginAsync(user.Email!, password);
         await CompleteTwoFactorAsync(client, user);
 
-        using var disable = await client.PostFormAsync("/account/security/disable", "disable-2fa", new Dictionary<string, string>());
-        Assert.Equal("/account/security?status=mfa-disabled", RedirectPath(disable));
+        using var disable = await client.PostFormAsync("/mfa/disable", "disable-2fa", new Dictionary<string, string>());
+        Assert.Equal("/passkeys?status=mfa-disabled", RedirectPath(disable));
         Assert.False(await IsTwoFactorEnabledAsync(user));
         Assert.True(await client.IsSignedInAsync());
 
         await client.SignOutAsync();
         using var login = await client.PasswordLoginAsync(user.Email!, password);
-        Assert.Equal("/account", RedirectPath(login));
+        Assert.Equal("/profile", RedirectPath(login));
     }
 
     // ---------------------------------------------------------------- helpers
@@ -258,7 +258,7 @@ public partial class MfaTests
     {
         using (var login = await client.PasswordLoginAsync(user.Email!, password))
         {
-            Assert.Equal("/account", RedirectPath(login));
+            Assert.Equal("/profile", RedirectPath(login));
         }
 
         await AddPasskeyAsync(client, authenticator);
@@ -267,17 +267,17 @@ public partial class MfaTests
 
     private static async Task AddPasskeyAsync(FormClient client, SoftwareAuthenticator authenticator)
     {
-        using var options = await PostOptionsAsync(client, "/auth/passkey/creation-options", "/account/security");
+        using var options = await PostOptionsAsync(client, "/auth/passkey/creation-options", "/passkeys");
         Assert.Equal(HttpStatusCode.OK, options.StatusCode);
         var credentialJson = authenticator.Create(await options.Content.ReadAsStringAsync());
 
-        using var response = await client.PostFormAsync("/account/security", "add-passkey", new Dictionary<string, string>
+        using var response = await client.PostFormAsync("/passkeys", "add-passkey", new Dictionary<string, string>
         {
             ["AddPasskey.CredentialJson"] = credentialJson,
         });
 
         Assert.True(response.StatusCode == HttpStatusCode.Redirect, await response.Content.ReadAsStringAsync());
-        Assert.StartsWith("/account/security/passkeys/", RedirectPath(response));
+        Assert.StartsWith("/passkeys/", RedirectPath(response));
     }
 
     private static async Task<HttpResponseMessage> PasskeyLoginAsync(FormClient client, SoftwareAuthenticator authenticator, Func<byte[], byte[]>? tamper = null)
@@ -285,7 +285,7 @@ public partial class MfaTests
         using var options = await PostOptionsAsync(client, "/auth/passkey/request-options", "/login");
         var credentialJson = authenticator.Get(await options.Content.ReadAsStringAsync(), tamper);
 
-        return await client.PostFormAsync("/login?returnUrl=%2Faccount", "login", new Dictionary<string, string>
+        return await client.PostFormAsync("/login?returnUrl=%2Fprofile", "login", new Dictionary<string, string>
         {
             ["model.Passkey.CredentialJson"] = credentialJson,
         });
@@ -300,13 +300,13 @@ public partial class MfaTests
     }
 
     private static Task<HttpResponseMessage> PostTwoFactorCodeAsync(FormClient client, string code)
-        => client.PostFormAsync("/login/2fa?returnUrl=%2Faccount", "login-2fa", new Dictionary<string, string>
+        => client.PostFormAsync("/login-2fa?returnUrl=%2Fprofile", "login-2fa", new Dictionary<string, string>
         {
             ["model.Code"] = code,
         });
 
     private static Task<HttpResponseMessage> PostRecoveryCodeAsync(FormClient client, string code)
-        => client.PostFormAsync("/login/recovery-code?returnUrl=%2Faccount", "login-recovery", new Dictionary<string, string>
+        => client.PostFormAsync("/login-recovery-code?returnUrl=%2Fprofile", "login-recovery", new Dictionary<string, string>
         {
             ["model.RecoveryCode"] = code,
         });
@@ -314,7 +314,7 @@ public partial class MfaTests
     private async Task CompleteTwoFactorAsync(FormClient client, User user)
     {
         using var response = await PostTwoFactorCodeAsync(client, Totp(await GetAuthenticatorKeyAsync(user)));
-        Assert.Equal("/account", RedirectPath(response));
+        Assert.Equal("/profile", RedirectPath(response));
     }
 
     private async Task<string> EnableAuthenticatorAsync(User user)

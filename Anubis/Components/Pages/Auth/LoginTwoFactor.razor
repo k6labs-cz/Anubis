@@ -1,4 +1,4 @@
-@page "/login/2fa"
+@page "/login-2fa"
 
 @using k6labs.Anubis.Localization
 
@@ -62,7 +62,7 @@
 
     private string SafeReturnUrl => LocalUrl.IsLocal(ReturnUrl) ? ReturnUrl! : "/";
 
-    private string RecoveryUrl => "/login/recovery-code?returnUrl=" + Uri.EscapeDataString(SafeReturnUrl);
+    private string RecoveryUrl => "/login-recovery-code?returnUrl=" + Uri.EscapeDataString(SafeReturnUrl);
 
     protected override async Task OnInitializedAsync()
     {

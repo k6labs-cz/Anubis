@@ -13,8 +13,8 @@ public static class UserEventTypes
     public const string PasswordReset = "password.reset";
     public const string EmailConfirmed = "email.confirmed";
     public const string EmailChanged = "email.changed";
-    public const string RoleAdded = "role.added";
-    public const string RoleRemoved = "role.removed";
+    public const string GroupAdded = "group.added";
+    public const string GroupRemoved = "group.removed";
     public const string TwoFactorEnabled = "two_factor.enabled";
     public const string TwoFactorDisabled = "two_factor.disabled";
     public const string RecoveryCodesGenerated = "recovery_codes.generated";

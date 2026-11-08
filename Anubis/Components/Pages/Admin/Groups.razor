@@ -1,54 +1,54 @@
-@page "/admin/roles"
+@page "/groups"
 @rendermode InteractiveServer
-@attribute [Authorize(Roles = "Admin")]
+@attribute [Authorize(Roles = DatabaseInitializer.AdminGroup)]
 
 @using k6labs.Anubis.Localization
 @using Microsoft.AspNetCore.Authorization
 
-@inject RoleManager<Role> RoleManager
+@inject RoleManager<Group> RoleManager
 @inject UserManager<User> UserManager
 @* Notifications belong to this page and its interactive circuit. *@
-@inject Services.RoleAdministration Administration
+@inject Services.GroupAdministration Administration
 
-<AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_Roles))" />
+<AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_Groups))" />
 
 <NotificationList State="Notifications" />
 
 <Stack Gap="Gap.Large">
-    <PageHeader Title="@Translations.Admin_Roles" Description="@Translations.Admin_RolesDescription"
-                CreateLabel="@Translations.Roles_Create" OnCreate="OpenCreate" />
+    <PageHeader Title="@Translations.Admin_Groups" Description="@Translations.Admin_GroupsDescription"
+                CreateLabel="@Translations.Groups_Create" OnCreate="OpenCreate" />
 
-    <Table Label="@Translations.Admin_Roles">
+    <Table Label="@Translations.Admin_Groups">
         <thead>
             <tr>
                 <th>@Translations.Common_Name</th>
-                <th>@Translations.Roles_Members</th>
+                <th>@Translations.Groups_Members</th>
                 <th>@Translations.Claims_Title</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var role in roles)
+            @foreach (var group in groups)
             {
                 <tr>
                     <td>
-                        <code>@role.Name</code>
-                        @if (IsBuiltIn(role))
+                        <code>@group.Name</code>
+                        @if (IsBuiltIn(group))
                         {
-                            <Badge>@Translations.Roles_BuiltIn</Badge>
+                            <Badge>@Translations.Groups_BuiltIn</Badge>
                         }
                     </td>
-                    <td>@members[role.Id].Count</td>
-                    <td>@claimCounts.GetValueOrDefault(role.Id)</td>
+                    <td>@members[group.Id].Count</td>
+                    <td>@claimCounts.GetValueOrDefault(group.Id)</td>
                     <td data-align="end">
                         <RowMenu>
-                            <MenuItem Icon="@AppIcons.Edit" OnClick="() => OpenEditAsync(role)" data-popup-option>@Translations.Common_Edit</MenuItem>
+                            <MenuItem Icon="@AppIcons.Edit" OnClick="() => OpenEditAsync(group)" data-popup-option>@Translations.Common_Edit</MenuItem>
                             <Divider />
-                            <MenuItem Icon="@AppIcons.Group" OnClick="() => OpenMembers(role)" data-popup-option>@Translations.Roles_Members</MenuItem>
-                            @if (!IsBuiltIn(role))
+                            <MenuItem Icon="@AppIcons.Group" OnClick="() => OpenMembers(group)" data-popup-option>@Translations.Groups_Members</MenuItem>
+                            @if (!IsBuiltIn(group))
                             {
                                 <Divider />
-                                <MenuItem Icon="@AppIcons.Delete" OnClick="() => AskDelete(role)" data-popup-option Danger="true">@Translations.Common_Delete</MenuItem>
+                                <MenuItem Icon="@AppIcons.Delete" OnClick="() => AskDelete(group)" data-popup-option Danger="true">@Translations.Common_Delete</MenuItem>
                             }
                         </RowMenu>
                     </td>
@@ -58,13 +58,13 @@
     </Table>
 </Stack>
 
-<AppModal Title="@Translations.Roles_Create" @bind-Open="createOpen">
+<AppModal Title="@Translations.Groups_Create" @bind-Open="createOpen">
     <ChildContent>
-        <EditForm Model="createModel" OnValidSubmit="CreateAsync" FormName="createRole" id="createRoleForm">
+        <EditForm Model="createModel" OnValidSubmit="CreateAsync" FormName="createGroup" id="createGroupForm">
             <Stack Gap="Gap.Medium">
                 <DataAnnotationsValidator />
-                <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Roles_CreateDescription</Typography>
-                <FormText @bind-Value="createModel.Name" Label="@Translations.Common_Name" Placeholder="@("editors")" Id="roleName" />
+                <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Groups_CreateDescription</Typography>
+                <FormText @bind-Value="createModel.Name" Label="@Translations.Common_Name" Placeholder="@("editors")" Id="groupName" />
                 @if (createError is not null)
                 {
                     <Alert Severity="AlertSeverity.Danger">@createError</Alert>
@@ -74,19 +74,19 @@
     </ChildContent>
     <Footer>
         <Button Variant="ButtonVariant.Text" OnClick="() => createOpen = false">@Translations.Common_Cancel</Button>
-        <Button form="createRoleForm" Disabled="busy" Type="submit">@Translations.Roles_Create</Button>
+        <Button form="createGroupForm" Disabled="busy" Type="submit">@Translations.Groups_Create</Button>
     </Footer>
 </AppModal>
 
-<AppModal Title="@Translations.Roles_EditTitle.F(editingName)" @bind-Open="editOpen">
+<AppModal Title="@Translations.Groups_EditTitle.F(editingName)" @bind-Open="editOpen">
     <ChildContent>
         @if (editModel is not null)
         {
-            <EditForm Model="editModel" OnSubmit="SaveEditAsync" FormName="editRole" id="editRoleForm">
+            <EditForm Model="editModel" OnSubmit="SaveEditAsync" FormName="editGroup" id="editGroupForm">
                 <Stack Gap="Gap.Medium">
-                    <FormText @bind-Value="editModel.Name" Label="@Translations.Common_Name" Disabled="editModel.BuiltIn" Error="@editErrors.ContainsKey("Name")" ErrorText="@editErrors.GetValueOrDefault("Name")" Id="editRoleName" Hint="@(editModel.BuiltIn ? Translations.Roles_BuiltInName : null)" maxlength="@Services.RoleAdministration.NameMaxLength" />
+                    <FormText @bind-Value="editModel.Name" Label="@Translations.Common_Name" Disabled="editModel.BuiltIn" Error="@editErrors.ContainsKey("Name")" ErrorText="@editErrors.GetValueOrDefault("Name")" Id="editGroupName" Hint="@(editModel.BuiltIn ? Translations.Groups_BuiltInName : null)" maxlength="@Services.GroupAdministration.NameMaxLength" />
                     <Divider />
-                    <ClaimsEditor Claims="editModel.Claims" Errors="editErrors" Hint="@Translations.Claims_RoleHint" IdPrefix="roleClaim" />
+                    <ClaimsEditor Claims="editModel.Claims" Errors="editErrors" Hint="@Translations.Claims_GroupHint" IdPrefix="groupClaim" />
                     @if (editErrors.GetValueOrDefault(string.Empty) is { } formError)
                     {
                         <Alert Severity="AlertSeverity.Danger">@formError</Alert>
@@ -97,11 +97,11 @@
     </ChildContent>
     <Footer>
         <Button Variant="ButtonVariant.Text" OnClick="() => editOpen = false">@Translations.Common_Cancel</Button>
-        <Button form="editRoleForm" Disabled="@(busy || !editSnapshot.IsDirty(editModel))" Type="submit">@Translations.Common_Save</Button>
+        <Button form="editGroupForm" Disabled="@(busy || !editSnapshot.IsDirty(editModel))" Type="submit">@Translations.Common_Save</Button>
     </Footer>
 </AppModal>
 
-<AppModal Title="@Translations.Roles_MembersTitle.F(selectedRole?.Name)" @bind-Open="membersDialogOpen">
+<AppModal Title="@Translations.Groups_MembersTitle.F(selectedGroup?.Name)" @bind-Open="membersDialogOpen">
     <ChildContent>
         <Stack Gap="Gap.Medium">
             @if (memberError is not null)
@@ -114,22 +114,22 @@
                     <FormText @bind-Value="newMemberEmail" Label="@Translations.Common_Email" Placeholder="@Translations.Common_EmailPlaceholder" Id="memberEmail" Type="email" />
                 </Stack>
                 <Button OnClick="AddMemberAsync" Icon="@AppIcons.PersonAdd">
-                    @Translations.Roles_AddMember
+                    @Translations.Groups_AddMember
                 </Button>
             </Stack>
 
-            @if (selectedRole is not null && members[selectedRole.Id].Count > 0)
+            @if (selectedGroup is not null && members[selectedGroup.Id].Count > 0)
             {
-                <Table Label="@Translations.Roles_Members" Dense="true">
+                <Table Label="@Translations.Groups_Members" Dense="true">
                     <tbody>
-                        @foreach (var member in members[selectedRole.Id])
+                        @foreach (var member in members[selectedGroup.Id])
                         {
                             <tr>
                                 <td>@member.Email</td>
                                 <td>@member.DisplayName</td>
                                 <td data-align="end">
                                     <RowMenu>
-                                        <MenuItem Icon="@AppIcons.PersonRemove" OnClick="() => RemoveMemberAsync(member)" data-popup-option Danger="true">@Translations.Roles_RemoveMember</MenuItem>
+                                        <MenuItem Icon="@AppIcons.PersonRemove" OnClick="() => RemoveMemberAsync(member)" data-popup-option Danger="true">@Translations.Groups_RemoveMember</MenuItem>
                                     </RowMenu>
                                 </td>
                             </tr>
@@ -139,7 +139,7 @@
             }
             else
             {
-                <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Roles_NoMembers</Typography>
+                <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Groups_NoMembers</Typography>
             }
         </Stack>
     </ChildContent>
@@ -148,9 +148,9 @@
     </Footer>
 </AppModal>
 
-<AppModal Title="@Translations.Roles_DeleteTitle" @bind-Open="deleteDialogOpen">
+<AppModal Title="@Translations.Groups_DeleteTitle" @bind-Open="deleteDialogOpen">
     <ChildContent>
-        <Typography>@Translations.Roles_DeleteConfirm.F(roleToDelete?.Name)</Typography>
+        <Typography>@Translations.Groups_DeleteConfirm.F(groupToDelete?.Name)</Typography>
     </ChildContent>
     <Footer>
         <Button Variant="ButtonVariant.Ghost" OnClick="() => deleteDialogOpen = false">@Translations.Common_Cancel</Button>
@@ -160,20 +160,20 @@
 
 @code {
     private readonly NotificationState Notifications = new();
-    private RoleFormModel createModel = new();
+    private GroupFormModel createModel = new();
     private bool createOpen;
     private string? createError;
-    private List<Role> roles = new();
+    private List<Group> groups = new();
     private Dictionary<string, List<User>> members = new();
-    private Role? selectedRole;
+    private Group? selectedGroup;
     private bool membersDialogOpen;
     private string? newMemberEmail;
     private string? memberError;
-    private Role? roleToDelete;
+    private Group? groupToDelete;
     private bool deleteDialogOpen;
     private bool busy;
     private Dictionary<string, int> claimCounts = new();
-    private Models.RoleEditModel? editModel;
+    private Models.GroupEditModel? editModel;
     private string? editingName;
     private bool editOpen;
     private readonly FormSnapshot editSnapshot = new();
@@ -181,29 +181,29 @@
 
     protected override async Task OnInitializedAsync() => await LoadAsync();
 
-    private static bool IsBuiltIn(Role role)
-        => role.Name is DatabaseInitializer.AdminRole or DatabaseInitializer.UserRole;
+    private static bool IsBuiltIn(Group group)
+        => group.Name is DatabaseInitializer.AdminGroup or DatabaseInitializer.UserGroup;
 
     private async Task LoadAsync()
     {
-        roles = await RoleManager.Roles.OrderBy(r => r.Name).ToListAsync();
+        groups = await RoleManager.Roles.OrderBy(r => r.Name).ToListAsync();
         members = new Dictionary<string, List<User>>();
         claimCounts = new Dictionary<string, int>();
-        foreach (var role in roles)
+        foreach (var group in groups)
         {
-            claimCounts[role.Id] = (await RoleManager.GetClaimsAsync(role)).Count(claim => !Services.CustomClaims.IsReserved(claim.Type));
-            members[role.Id] = (await UserManager.GetUsersInRoleAsync(role.Name!)).OrderBy(u => u.Email).ToList();
+            claimCounts[group.Id] = (await RoleManager.GetClaimsAsync(group)).Count(claim => !Services.CustomClaims.IsReserved(claim.Type));
+            members[group.Id] = (await UserManager.GetUsersInRoleAsync(group.Name!)).OrderBy(u => u.Email).ToList();
         }
 
-        if (selectedRole is not null)
+        if (selectedGroup is not null)
         {
-            selectedRole = roles.FirstOrDefault(r => r.Id == selectedRole.Id);
+            selectedGroup = groups.FirstOrDefault(r => r.Id == selectedGroup.Id);
         }
     }
 
     private void OpenCreate()
     {
-        createModel = new RoleFormModel();
+        createModel = new GroupFormModel();
         createError = null;
         createOpen = true;
     }
@@ -214,7 +214,7 @@
         createError = null;
 
         var name = createModel.Name.Trim();
-        var result = await RoleManager.CreateAsync(new Role(name));
+        var result = await RoleManager.CreateAsync(new Group(name));
         busy = false;
 
         if (!result.Succeeded)
@@ -228,12 +228,12 @@
         await LoadAsync();
     }
 
-    private async Task OpenEditAsync(Role role)
+    private async Task OpenEditAsync(Group group)
     {
-        editModel = await Administration.LoadAsync(role.Id);
+        editModel = await Administration.LoadAsync(group.Id);
         if (editModel is null)
         {
-            Notifications.Add(Translations.Roles_NotFound, AlertSeverity.Danger);
+            Notifications.Add(Translations.Groups_NotFound, AlertSeverity.Danger);
             await LoadAsync();
             return;
         }
@@ -260,13 +260,13 @@
         }
 
         editOpen = false;
-        Notifications.Add(Translations.Roles_Saved.F(editModel.Name.Trim()), AlertSeverity.Success);
+        Notifications.Add(Translations.Groups_Saved.F(editModel.Name.Trim()), AlertSeverity.Success);
         await LoadAsync();
     }
 
-    private void OpenMembers(Role role)
+    private void OpenMembers(Group group)
     {
-        selectedRole = role;
+        selectedGroup = group;
         newMemberEmail = null;
         memberError = null;
         membersDialogOpen = true;
@@ -275,7 +275,7 @@
     private async Task AddMemberAsync()
     {
         memberError = null;
-        if (selectedRole is null || string.IsNullOrWhiteSpace(newMemberEmail))
+        if (selectedGroup is null || string.IsNullOrWhiteSpace(newMemberEmail))
         {
             return;
         }
@@ -287,9 +287,9 @@
             return;
         }
 
-        if (!await UserManager.IsInRoleAsync(user, selectedRole.Name!))
+        if (!await UserManager.IsInRoleAsync(user, selectedGroup.Name!))
         {
-            var result = await UserManager.AddToRoleAsync(user, selectedRole.Name!);
+            var result = await UserManager.AddToRoleAsync(user, selectedGroup.Name!);
             if (!result.Succeeded)
             {
                 memberError = string.Join(" ", result.Errors.Select(e => e.Description));
@@ -304,63 +304,63 @@
     private async Task RemoveMemberAsync(User user)
     {
         memberError = null;
-        if (selectedRole is null)
+        if (selectedGroup is null)
         {
             return;
         }
 
         // Never lock everybody out of the admin section.
-        if (selectedRole.Name == DatabaseInitializer.AdminRole && members[selectedRole.Id].Count <= 1)
+        if (selectedGroup.Name == DatabaseInitializer.AdminGroup && members[selectedGroup.Id].Count <= 1)
         {
-            memberError = Translations.Roles_LastAdmin;
+            memberError = Translations.Groups_LastAdmin;
             return;
         }
 
-        var result = await UserManager.RemoveFromRoleAsync(user, selectedRole.Name!);
+        var result = await UserManager.RemoveFromRoleAsync(user, selectedGroup.Name!);
         if (!result.Succeeded)
         {
             memberError = string.Join(" ", result.Errors.Select(e => e.Description));
             return;
         }
 
-        // Role changes take effect on the user's next sign-in / token refresh.
+        // Group changes take effect on the user's next sign-in / token refresh.
         await UserManager.UpdateSecurityStampAsync(user);
         await LoadAsync();
     }
 
-    private void AskDelete(Role role)
+    private void AskDelete(Group group)
     {
-        roleToDelete = role;
+        groupToDelete = group;
         deleteDialogOpen = true;
     }
 
     private async Task DeleteAsync()
     {
-        if (roleToDelete is null || IsBuiltIn(roleToDelete))
+        if (groupToDelete is null || IsBuiltIn(groupToDelete))
         {
             deleteDialogOpen = false;
             return;
         }
 
-        var result = await RoleManager.DeleteAsync(roleToDelete);
+        var result = await RoleManager.DeleteAsync(groupToDelete);
         deleteDialogOpen = false;
 
         if (result.Succeeded)
         {
-            Notifications.Add(Translations.Users_DeletedText.F(roleToDelete.Name), AlertSeverity.Success);
+            Notifications.Add(Translations.Users_DeletedText.F(groupToDelete.Name), AlertSeverity.Success);
         }
         else
         {
             Notifications.Add(string.Join(" ", result.Errors.Select(e => e.Description)), AlertSeverity.Danger);
         }
 
-        roleToDelete = null;
+        groupToDelete = null;
         await LoadAsync();
     }
 
-    private sealed class RoleFormModel
+    private sealed class GroupFormModel
     {
-        [LRequired(nameof(Translations.Validation_RoleNameRequired))]
+        [LRequired(nameof(Translations.Validation_GroupNameRequired))]
         [LRegularExpression(@"^[a-zA-Z0-9\-_\.]+$", nameof(Translations.Validation_Identifier))]
         [LStringLength(100, nameof(Translations.Validation_NameTooLong))]
         public string Name { get; set; } = string.Empty;

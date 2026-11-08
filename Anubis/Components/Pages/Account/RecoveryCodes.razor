@@ -1,4 +1,4 @@
-@page "/account/security/recovery-codes"
+@page "/mfa/recovery-codes"
 @attribute [Authorize]
 
 @using Microsoft.AspNetCore.Authorization
@@ -15,7 +15,7 @@
         @if (codes is not null)
         {
             <RecoveryCodesList Codes="codes" />
-            <Button Href="/account/mfa">@Translations.RecoveryCodes_Saved</Button>
+            <Button Href="/mfa">@Translations.RecoveryCodes_Saved</Button>
         }
         else
         {
@@ -26,7 +26,7 @@
                     <Button Type="submit" Icon="@AppIcons.Refresh">
                         @Translations.RecoveryCodes_Generate
                     </Button>
-                    <Button Variant="ButtonVariant.Ghost" Href="/account/mfa">@Translations.Common_Cancel</Button>
+                    <Button Variant="ButtonVariant.Ghost" Href="/mfa">@Translations.Common_Cancel</Button>
                 </Stack>
             </form>
         }
@@ -45,7 +45,7 @@
         user = await UserManager.GetUserAsync(HttpContext.User);
         if (user is null || !await UserManager.GetTwoFactorEnabledAsync(user))
         {
-            Navigation.NavigateTo("/account/security?status=mfa-required-for-codes", forceLoad: true);
+            Navigation.NavigateTo("/passkeys?status=mfa-required-for-codes", forceLoad: true);
         }
     }
 

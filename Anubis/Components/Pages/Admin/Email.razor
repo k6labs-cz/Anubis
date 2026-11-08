@@ -1,6 +1,6 @@
-@page "/admin/email"
+@page "/options-email"
 @rendermode InteractiveServer
-@attribute [Authorize(Roles = "Admin")]
+@attribute [Authorize(Roles = DatabaseInitializer.AdminGroup)]
 
 @using k6labs.Anubis.Localization
 @using k6labs.Anubis.Services

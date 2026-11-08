@@ -85,9 +85,9 @@ services.AddDbContext<AnubisDbContext>((provider, options) =>
 });
 
 // ---------------------------------------------------------------------------
-// Identity: users, roles, cookie authentication, Argon2id password hashing
+// Identity: users, groups, cookie authentication, Argon2id password hashing
 // ---------------------------------------------------------------------------
-services.AddIdentity<User, Role>(options =>
+services.AddIdentity<User, Group>(options =>
     {
         // Password policy and lockout: see the "Anubis:Security" block below (admin "Security" page).
         options.User.RequireUniqueEmail = true;
@@ -217,7 +217,7 @@ services.AddOpenIddict()
                .SetIntrospectionEndpointUris("/introspect")
                .SetRevocationEndpointUris("/revocation");
 
-        options.RegisterScopes(Scopes.OpenId, Scopes.Profile, Scopes.Email, Scopes.Roles, Scopes.OfflineAccess, anubisOptions.ApiScope);
+        options.RegisterScopes(Scopes.OpenId, Scopes.Profile, Scopes.Email, GroupClaims.Scope, Scopes.OfflineAccess, anubisOptions.ApiScope);
 
         options.AllowAuthorizationCodeFlow()
                .AllowRefreshTokenFlow()
@@ -291,7 +291,7 @@ services.AddRateLimiter(limiterOptions =>
 // ---------------------------------------------------------------------------
 // SCIM 2.0 provisioning API under /api/ (RFC 7643 / 7644): a bearer access token
 // with the API scope (client credentials grant on /token) may manage users,
-// groups (roles) and claims.
+// groups and claims.
 // ---------------------------------------------------------------------------
 services.AddAuthorization(options =>
 {
@@ -334,7 +334,7 @@ services.AddScoped<IConsentService>(provider => new ConsentService(
     provider.GetRequiredService<IOptionsSnapshot<AnubisOptions>>()));
 services.AddScoped<AvatarService>();
 services.AddScoped<UserAdministration>();
-services.AddScoped<RoleAdministration>();
+services.AddScoped<GroupAdministration>();
 services.AddScoped<ScimService>();
 services.AddSingleton<ScimExceptionFilter>();
 
@@ -347,7 +347,7 @@ services.AddScoped<OidcClientService>();
 services.AddScoped<OidcScopeService>();
 services.AddHostedService<TokenPruningService>();
 
-// Account history (/account/history): who did what, when, from where.
+// Account history (/history): who did what, when, from where.
 services.AddScoped<ClientInfo>();
 services.AddScoped<AccountActivity>();
 services.AddScoped<Microsoft.AspNetCore.Components.Server.Circuits.CircuitHandler, ClientInfoCircuitHandler>();

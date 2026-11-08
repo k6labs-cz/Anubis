@@ -11,7 +11,7 @@ namespace k6labs.Anubis.Identity;
 
 /// <summary>
 /// Custom <see cref="UserManager{TUser}"/>: the very first account gets the
-/// <see cref="DatabaseInitializer.AdminRole"/> role, and every security-relevant change
+/// <see cref="DatabaseInitializer.AdminGroup"/> group, and every security-relevant change
 /// (password, MFA, passkeys, phone, email, lockout) is written to the account history,
 /// whichever page or endpoint made it.
 /// </summary>
@@ -56,14 +56,14 @@ public sealed class UserManager : UserManager<User>
 
         if (result.Succeeded && isFirstUser)
         {
-            if (!await IsInRoleAsync(user, DatabaseInitializer.UserRole))
+            if (!await IsInRoleAsync(user, DatabaseInitializer.UserGroup))
             {
-                await AddToRoleAsync(user, DatabaseInitializer.UserRole);
+                await AddToRoleAsync(user, DatabaseInitializer.UserGroup);
             }
 
-            if (!await IsInRoleAsync(user, DatabaseInitializer.AdminRole))
+            if (!await IsInRoleAsync(user, DatabaseInitializer.AdminGroup))
             {
-                await AddToRoleAsync(user, DatabaseInitializer.AdminRole);
+                await AddToRoleAsync(user, DatabaseInitializer.AdminGroup);
             }
         }
 
@@ -150,32 +150,32 @@ public sealed class UserManager : UserManager<User>
         return previous == email ? result : await RecordIfSucceeded(result, user, UserEventTypes.EmailChanged, email);
     }
 
-    // Role changes (admin edit, role members). The built-in "User" role every account gets is not recorded.
-    public override async Task<IdentityResult> AddToRoleAsync(User user, string role)
-        => await RecordRolesIfSucceeded(await base.AddToRoleAsync(user, role), user, UserEventTypes.RoleAdded, [role]);
+    // Group changes (admin edit, group members). The built-in "Users" group every account gets is not recorded.
+    public override async Task<IdentityResult> AddToRoleAsync(User user, string group)
+        => await RecordGroupsIfSucceeded(await base.AddToRoleAsync(user, group), user, UserEventTypes.GroupAdded, [group]);
 
-    public override async Task<IdentityResult> AddToRolesAsync(User user, IEnumerable<string> roles)
+    public override async Task<IdentityResult> AddToRolesAsync(User user, IEnumerable<string> groups)
     {
-        var list = roles.ToList();
-        return await RecordRolesIfSucceeded(await base.AddToRolesAsync(user, list), user, UserEventTypes.RoleAdded, list);
+        var list = groups.ToList();
+        return await RecordGroupsIfSucceeded(await base.AddToRolesAsync(user, list), user, UserEventTypes.GroupAdded, list);
     }
 
-    public override async Task<IdentityResult> RemoveFromRoleAsync(User user, string role)
-        => await RecordRolesIfSucceeded(await base.RemoveFromRoleAsync(user, role), user, UserEventTypes.RoleRemoved, [role]);
+    public override async Task<IdentityResult> RemoveFromRoleAsync(User user, string group)
+        => await RecordGroupsIfSucceeded(await base.RemoveFromRoleAsync(user, group), user, UserEventTypes.GroupRemoved, [group]);
 
-    public override async Task<IdentityResult> RemoveFromRolesAsync(User user, IEnumerable<string> roles)
+    public override async Task<IdentityResult> RemoveFromRolesAsync(User user, IEnumerable<string> groups)
     {
-        var list = roles.ToList();
-        return await RecordRolesIfSucceeded(await base.RemoveFromRolesAsync(user, list), user, UserEventTypes.RoleRemoved, list);
+        var list = groups.ToList();
+        return await RecordGroupsIfSucceeded(await base.RemoveFromRolesAsync(user, list), user, UserEventTypes.GroupRemoved, list);
     }
 
-    private async Task<IdentityResult> RecordRolesIfSucceeded(IdentityResult result, User user, string type, IEnumerable<string> roles)
+    private async Task<IdentityResult> RecordGroupsIfSucceeded(IdentityResult result, User user, string type, IEnumerable<string> groups)
     {
         if (result.Succeeded)
         {
-            foreach (var role in roles.Where(r => !string.Equals(r, DatabaseInitializer.UserRole, StringComparison.OrdinalIgnoreCase)))
+            foreach (var group in groups.Where(r => !string.Equals(r, DatabaseInitializer.UserGroup, StringComparison.OrdinalIgnoreCase)))
             {
-                await RecordAsync(user, type, role);
+                await RecordAsync(user, type, group);
             }
         }
 

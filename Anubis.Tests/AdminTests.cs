@@ -21,7 +21,7 @@ namespace Anubis.Tests;
 public class AdminTests
 {
     private static readonly string[] NavLinks =
-        ["/admin/users", "/admin/roles", "/admin/scopes", "/admin/clients", "/admin/general", "/admin/security", "/admin/tokens", "/admin/appearance", "/admin/email"];
+        ["/users", "/groups", "/scopes", "/clients", "/options-general", "/options-security", "/options-tokens", "/options-appearance", "/options-email"];
 
     private readonly AnubisFactory _factory;
 
@@ -31,15 +31,15 @@ public class AdminTests
     }
 
     [Theory]
-    [InlineData("/admin/users")]
-    [InlineData("/admin/roles")]
-    [InlineData("/admin/scopes")]
-    [InlineData("/admin/clients")]
-    [InlineData("/admin/general")]
-    [InlineData("/admin/security")]
-    [InlineData("/admin/tokens")]
-    [InlineData("/admin/appearance")]
-    [InlineData("/admin/email")]
+    [InlineData("/users")]
+    [InlineData("/groups")]
+    [InlineData("/scopes")]
+    [InlineData("/clients")]
+    [InlineData("/options-general")]
+    [InlineData("/options-security")]
+    [InlineData("/options-tokens")]
+    [InlineData("/options-appearance")]
+    [InlineData("/options-email")]
     public async Task AdminPages_UseTheSharedAppLayout(string path)
     {
         using var client = await AdminClientAsync();
@@ -52,7 +52,7 @@ public class AdminTests
         Assert.Contains("class=\"app-shell\"", html);
         Assert.Equal(2, Regex.Matches(html, "<nav [^>]*aria-label=\"Management\"").Count);
         Assert.Equal(2, Regex.Matches(html, "<nav [^>]*aria-label=\"Account\"").Count);
-        Assert.Contains("href=\"/account\"", html);
+        Assert.Contains("href=\"/profile\"", html);
         Assert.Contains("href=\"/logout\"", html);
         Assert.Contains("Management", html);
         foreach (var link in NavLinks)
@@ -62,10 +62,10 @@ public class AdminTests
     }
 
     [Theory]
-    [InlineData("/admin/users")]
-    [InlineData("/admin/roles")]
-    [InlineData("/admin/scopes")]
-    [InlineData("/admin/clients")]
+    [InlineData("/users")]
+    [InlineData("/groups")]
+    [InlineData("/scopes")]
+    [InlineData("/clients")]
     public async Task ManagementLists_HaveRowMenus_AndACreateButton_ButNoInlineForms(string path)
     {
         using var client = await AdminClientAsync();
@@ -82,7 +82,7 @@ public class AdminTests
     {
         using var client = await AdminClientAsync();
 
-        using var response = await client.Http.GetAsync("/admin/clients/new");
+        using var response = await client.Http.GetAsync("/clients/new");
 
         Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
@@ -111,7 +111,7 @@ public class AdminTests
             Assert.Contains("<title>Sign in — Contoso ID</title>", await anonymous.GetStringAsync("/login"));
 
             using var admin = await AdminClientAsync();
-            foreach (var path in new[] { "/account", "/admin/users" })
+            foreach (var path in new[] { "/profile", "/users" })
             {
                 var html = await admin.Http.GetStringAsync(path);
                 Assert.Matches("data-server-name[^>]*>Contoso ID<", html);   // top left above the panel
@@ -120,23 +120,12 @@ public class AdminTests
                 Assert.Contains("— Contoso ID</title>", html);
             }
 
-            Assert.Contains("value=\"Contoso ID\"", await admin.Http.GetStringAsync("/admin/general"));
+            Assert.Contains("value=\"Contoso ID\"", await admin.Http.GetStringAsync("/options-general"));
         }
         finally
         {
             await settings.SaveSectionAsync(GeneralOptions.SectionName, new JsonObject());
         }
-    }
-
-    [Fact]
-    public async Task AdminRoot_RedirectsToUsers()
-    {
-        using var client = await AdminClientAsync();
-
-        using var response = await client.Http.GetAsync("/admin");
-
-        Assert.Equal(HttpStatusCode.Redirect, response.StatusCode);
-        Assert.EndsWith("/admin/users", response.Headers.Location?.OriginalString);
     }
 
     [Fact]
@@ -146,7 +135,7 @@ public class AdminTests
         var (user, password) = await client.CreateUserAsync();
         (await client.PasswordLoginAsync(user.Email!, password)).Dispose();
 
-        using var response = await client.Http.GetAsync("/admin/appearance");
+        using var response = await client.Http.GetAsync("/options-appearance");
 
         Assert.NotEqual(HttpStatusCode.OK, response.StatusCode);
     }

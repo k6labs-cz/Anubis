@@ -12,24 +12,26 @@ using k6labs.Anubis.Services.Sms;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
+using Group = k6labs.Anubis.Data.Entities.Group;
+
 namespace k6labs.Anubis.Services;
 
 /// <summary>
-/// The SCIM 2.0 provisioning API (RFC 7643 / 7644) under /api/: users and groups (roles) with their
-/// custom claims. All changes go through the same <see cref="UserManager{User}"/> / <see cref="RoleManager{Role}"/>
+/// The SCIM 2.0 provisioning API (RFC 7643 / 7644) under /api/: users and groups with their
+/// custom claims. All changes go through the same <see cref="UserManager{User}"/> / <see cref="RoleManager{Group}"/>
 /// as the admin UI (validation, account history, security stamps), inside one database transaction.
 /// Failures are thrown as <see cref="ScimException"/> and rendered as SCIM errors by the controllers.
 /// </summary>
 public sealed partial class ScimService
 {
     private readonly UserManager<User> _users;
-    private readonly RoleManager<Role> _roles;
+    private readonly RoleManager<Group> _groups;
     private readonly AnubisDbContext _db;
 
-    public ScimService(UserManager<User> users, RoleManager<Role> roles, AnubisDbContext db)
+    public ScimService(UserManager<User> users, RoleManager<Group> groups, AnubisDbContext db)
     {
         _users = users;
-        _roles = roles;
+        _groups = groups;
         _db = db;
     }
 
@@ -39,11 +41,11 @@ public sealed partial class ScimService
 
     public async Task<JsonObject> ListUsersAsync(string? filter, string? sortBy, string? sortOrder, int startIndex, int count, string? attributes, string? excludedAttributes, string baseUri)
     {
-        var roleIds = await RoleIdMapAsync();
+        var groupIds = await GroupIdMapAsync();
         var resources = new List<JsonObject>();
         foreach (var user in await _users.Users.ToListAsync())
         {
-            resources.Add(await ToUserJsonAsync(user, roleIds, baseUri));
+            resources.Add(await ToUserJsonAsync(user, groupIds, baseUri));
         }
 
         var terms = ScimFilter.Parse(filter);
@@ -62,7 +64,7 @@ public sealed partial class ScimService
     public async Task<JsonObject> GetUserAsync(string id, string? attributes, string? excludedAttributes, string baseUri)
     {
         var user = await FindUserAsync(id);
-        var resource = await ToUserJsonAsync(user, await RoleIdMapAsync(), baseUri);
+        var resource = await ToUserJsonAsync(user, await GroupIdMapAsync(), baseUri);
         ScimResources.ApplySelection(resource, attributes, excludedAttributes);
         return resource;
     }
@@ -79,8 +81,8 @@ public sealed partial class ScimService
         var displayName = DisplayNameOf(resource, email);
         var phone = PhoneOf(resource);
         var claims = ValidateClaims(resource.Extension?.Claims);
-        var roles = await ResolveRolesAsync(resource.Groups);
-        roles.Add(DatabaseInitializer.UserRole);
+        var groups = await ResolveGroupsAsync(resource.Groups);
+        groups.Add(DatabaseInitializer.UserGroup);
 
         var user = new User
         {
@@ -101,11 +103,11 @@ public sealed partial class ScimService
             throw ScimException.InvalidValue(string.Join(" ", created.Errors.Select(e => e.Description)));
         }
 
-        var currentRoles = await _users.GetRolesAsync(user);   // the very first account already got Admin
-        var missing = roles.Where(role => !currentRoles.Contains(role, StringComparer.OrdinalIgnoreCase)).ToList();
+        var currentGroups = await _users.GetRolesAsync(user);   // the very first account already got Admin
+        var missing = groups.Where(group => !currentGroups.Contains(group, StringComparer.OrdinalIgnoreCase)).ToList();
         if (missing.Count > 0 && !(await _users.AddToRolesAsync(user, missing)).Succeeded)
         {
-            throw ScimException.InvalidValue($"Could not assign the roles: {string.Join(", ", missing)}.");
+            throw ScimException.InvalidValue($"Could not assign the groups: {string.Join(", ", missing)}.");
         }
 
         if (claims.Count > 0 && !(await _users.AddClaimsAsync(user, claims)).Succeeded)
@@ -119,7 +121,7 @@ public sealed partial class ScimService
         }
 
         await transaction.CommitAsync();
-        return await ToUserJsonAsync(user, await RoleIdMapAsync(), baseUri);
+        return await ToUserJsonAsync(user, await GroupIdMapAsync(), baseUri);
     }
 
     /// <summary>PUT: full replace. Attributes that are absent are reset to their defaults (RFC 7644 section 3.5.1);
@@ -135,10 +137,10 @@ public sealed partial class ScimService
         var displayName = DisplayNameOf(resource, email);
         var phone = PhoneOf(resource);
         var claims = ValidateClaims(resource.Extension?.Claims);
-        var roles = resource.Groups is null
-            ? new List<string> { DatabaseInitializer.UserRole }
-            : (await ResolveRolesAsync(resource.Groups)).Append(DatabaseInitializer.UserRole).ToList();
-        await EnsureNotLastAdminAsync(user, await _users.GetRolesAsync(user), roles);
+        var groups = resource.Groups is null
+            ? new List<string> { DatabaseInitializer.UserGroup }
+            : (await ResolveGroupsAsync(resource.Groups)).Append(DatabaseInitializer.UserGroup).ToList();
+        await EnsureNotLastAdminAsync(user, await _users.GetRolesAsync(user), groups);
 
         await using var transaction = await _db.Database.BeginTransactionAsync();
         var changed = false;
@@ -170,17 +172,17 @@ public sealed partial class ScimService
             throw ScimException.InvalidValue("The account could not be saved.");
         }
 
-        var currentRoles = await _users.GetRolesAsync(user);
-        var toRemove = currentRoles.Where(role => !roles.Contains(role, StringComparer.OrdinalIgnoreCase)).ToList();
-        var toAdd = roles.Where(role => !currentRoles.Contains(role, StringComparer.OrdinalIgnoreCase)).ToList();
+        var currentGroups = await _users.GetRolesAsync(user);
+        var toRemove = currentGroups.Where(group => !groups.Contains(group, StringComparer.OrdinalIgnoreCase)).ToList();
+        var toAdd = groups.Where(group => !currentGroups.Contains(group, StringComparer.OrdinalIgnoreCase)).ToList();
         if (toRemove.Count > 0 && !(await _users.RemoveFromRolesAsync(user, toRemove)).Succeeded)
         {
-            throw ScimException.InvalidValue($"Could not remove the roles: {string.Join(", ", toRemove)}.");
+            throw ScimException.InvalidValue($"Could not remove the groups: {string.Join(", ", toRemove)}.");
         }
 
         if (toAdd.Count > 0 && !(await _users.AddToRolesAsync(user, toAdd)).Succeeded)
         {
-            throw ScimException.InvalidValue($"Could not assign the roles: {string.Join(", ", toAdd)}.");
+            throw ScimException.InvalidValue($"Could not assign the groups: {string.Join(", ", toAdd)}.");
         }
 
         changed |= toRemove.Count > 0 || toAdd.Count > 0;
@@ -216,7 +218,7 @@ public sealed partial class ScimService
         }
 
         await transaction.CommitAsync();
-        return await ToUserJsonAsync(user, await RoleIdMapAsync(), baseUri);
+        return await ToUserJsonAsync(user, await GroupIdMapAsync(), baseUri);
     }
 
     /// <summary>PATCH: applies the operations of RFC 7644 section 3.5.2 one by one, in one transaction.</summary>
@@ -261,7 +263,7 @@ public sealed partial class ScimService
         }
 
         await transaction.CommitAsync();
-        return await ToUserJsonAsync(user, await RoleIdMapAsync(), baseUri);
+        return await ToUserJsonAsync(user, await GroupIdMapAsync(), baseUri);
     }
 
     public async Task DeleteUserAsync(string id)
@@ -275,15 +277,15 @@ public sealed partial class ScimService
     }
 
     // ---------------------------------------------------------------------------
-    // Groups (roles): list / get
+    // Groups (groups): list / get
     // ---------------------------------------------------------------------------
 
     public async Task<JsonObject> ListGroupsAsync(string? filter, string? sortBy, string? sortOrder, int startIndex, int count, string? attributes, string? excludedAttributes, string baseUri)
     {
         var resources = new List<JsonObject>();
-        foreach (var role in await _roles.Roles.ToListAsync())
+        foreach (var group in await _groups.Roles.ToListAsync())
         {
-            resources.Add(await ToGroupJsonAsync(role, baseUri));
+            resources.Add(await ToGroupJsonAsync(group, baseUri));
         }
 
         var terms = ScimFilter.Parse(filter);
@@ -301,65 +303,65 @@ public sealed partial class ScimService
 
     public async Task<JsonObject> GetGroupAsync(string id, string? attributes, string? excludedAttributes, string baseUri)
     {
-        var role = await FindRoleAsync(id);
-        var resource = await ToGroupJsonAsync(role, baseUri);
+        var group = await FindGroupAsync(id);
+        var resource = await ToGroupJsonAsync(group, baseUri);
         ScimResources.ApplySelection(resource, attributes, excludedAttributes);
         return resource;
     }
 
     // ---------------------------------------------------------------------------
-    // Groups (roles): create / replace / patch / delete
+    // Groups (groups): create / replace / patch / delete
     // ---------------------------------------------------------------------------
 
     public async Task<JsonObject> CreateGroupAsync(ScimGroupResource resource, string baseUri)
     {
-        var name = await ValidateRoleNameAsync(resource.DisplayName, roleId: null);
+        var name = await ValidateGroupNameAsync(resource.DisplayName, groupId: null);
         var members = await ResolveMembersAsync(resource.Members);
 
-        var role = new Role(name);
+        var group = new Group(name);
         await using var transaction = await _db.Database.BeginTransactionAsync();
-        if (!(await _roles.CreateAsync(role)).Succeeded)
+        if (!(await _groups.CreateAsync(group)).Succeeded)
         {
-            throw ScimException.InvalidValue($"The role \"{name}\" could not be created.");
+            throw ScimException.InvalidValue($"The group \"{name}\" could not be created.");
         }
 
         foreach (var member in members)
         {
             if (!(await _users.AddToRoleAsync(member, name)).Succeeded)
             {
-                throw ScimException.InvalidValue($"Could not add {member.Email} to the role \"{name}\".");
+                throw ScimException.InvalidValue($"Could not add {member.Email} to the group \"{name}\".");
             }
         }
 
         await transaction.CommitAsync();
-        return await ToGroupJsonAsync(role, baseUri);
+        return await ToGroupJsonAsync(group, baseUri);
     }
 
     public async Task<JsonObject> ReplaceGroupAsync(string id, ScimGroupResource resource, string baseUri)
     {
-        var role = await FindRoleAsync(id);
-        await _db.Entry(role).ReloadAsync();
+        var group = await FindGroupAsync(id);
+        await _db.Entry(group).ReloadAsync();
 
-        var name = await ValidateRoleNameAsync(resource.DisplayName, role.Id, currentName: role.Name);
+        var name = await ValidateGroupNameAsync(resource.DisplayName, group.Id, currentName: group.Name);
         var members = resource.Members is null ? new List<User>() : await ResolveMembersAsync(resource.Members);
 
         await using var transaction = await _db.Database.BeginTransactionAsync();
-        if (!string.Equals(name, role.Name, StringComparison.Ordinal) && !(await _roles.SetRoleNameAsync(role, name)).Succeeded)
+        if (!string.Equals(name, group.Name, StringComparison.Ordinal) && !(await _groups.SetRoleNameAsync(group, name)).Succeeded)
         {
-            throw ScimException.InvalidValue($"The role could not be renamed to \"{name}\".");
+            throw ScimException.InvalidValue($"The group could not be renamed to \"{name}\".");
         }
 
-        if (!(await _roles.UpdateAsync(role)).Succeeded)
+        if (!(await _groups.UpdateAsync(group)).Succeeded)
         {
-            throw ScimException.InvalidValue("The role could not be saved.");
+            throw ScimException.InvalidValue("The group could not be saved.");
         }
 
-        var currentMembers = await _users.GetUsersInRoleAsync(role.Name!);
+        var currentMembers = await _users.GetUsersInRoleAsync(group.Name!);
         var toRemove = currentMembers.Where(u => !members.Any(m => m.Id == u.Id)).ToList();
         var toAdd = members.Where(m => !currentMembers.Any(u => u.Id == m.Id)).ToList();
         foreach (var member in toRemove)
         {
-            await _users.RemoveFromRoleAsync(member, role.Name!);
+            await _users.RemoveFromRoleAsync(member, group.Name!);
         }
 
         foreach (var member in toAdd)
@@ -367,7 +369,7 @@ public sealed partial class ScimService
             await _users.AddToRoleAsync(member, name);
         }
 
-        if (toRemove.Count > 0 || toAdd.Count > 0 || !string.Equals(name, role.Name, StringComparison.Ordinal))
+        if (toRemove.Count > 0 || toAdd.Count > 0 || !string.Equals(name, group.Name, StringComparison.Ordinal))
         {
             foreach (var member in await _users.GetUsersInRoleAsync(name))
             {
@@ -376,7 +378,7 @@ public sealed partial class ScimService
         }
 
         await transaction.CommitAsync();
-        return await ToGroupJsonAsync(role, baseUri);
+        return await ToGroupJsonAsync(group, baseUri);
     }
 
     public async Task<JsonObject> PatchGroupAsync(string id, ScimPatchRequest patch, string baseUri)
@@ -391,8 +393,8 @@ public sealed partial class ScimService
             throw ScimException.InvalidSyntax($"The schemas must contain \"{ScimConstants.PatchRequestSchema}\".");
         }
 
-        var role = await FindRoleAsync(id);
-        await _db.Entry(role).ReloadAsync();
+        var group = await FindGroupAsync(id);
+        await _db.Entry(group).ReloadAsync();
 
         await using var transaction = await _db.Database.BeginTransactionAsync();
         var changed = false;
@@ -404,10 +406,10 @@ public sealed partial class ScimService
             switch (op)
             {
                 case "add" or "replace" when path is not null:
-                    changed |= await ApplyGroupValueAsync(role, op, path, operation.Value);
+                    changed |= await ApplyGroupValueAsync(group, op, path, operation.Value);
                     break;
                 case "remove" when path is not null:
-                    changed |= await RemoveGroupValueAsync(role, path);
+                    changed |= await RemoveGroupValueAsync(group, path);
                     break;
                 default:
                     throw ScimException.InvalidSyntax($"The operation \"{operation.Op}\" on path \"{operation.Path}\" is not supported.");
@@ -416,26 +418,26 @@ public sealed partial class ScimService
 
         if (changed)
         {
-            foreach (var member in await _users.GetUsersInRoleAsync(role.Name!))
+            foreach (var member in await _users.GetUsersInRoleAsync(group.Name!))
             {
                 await _users.UpdateSecurityStampAsync(member);
             }
         }
 
         await transaction.CommitAsync();
-        return await ToGroupJsonAsync(role, baseUri);
+        return await ToGroupJsonAsync(group, baseUri);
     }
 
     public async Task DeleteGroupAsync(string id)
     {
-        var role = await FindRoleAsync(id);
-        if (RoleAdministration.IsBuiltIn(role.Name))
+        var group = await FindGroupAsync(id);
+        if (GroupAdministration.IsBuiltIn(group.Name))
         {
             throw new ScimException(StatusCodes.Status400BadRequest, ScimConstants.ScimTypes.Mutability,
-                $"The built-in role \"{role.Name}\" cannot be deleted.");
+                $"The built-in group \"{group.Name}\" cannot be deleted.");
         }
 
-        var result = await _roles.DeleteAsync(role);
+        var result = await _groups.DeleteAsync(group);
         if (!result.Succeeded)
         {
             throw ScimException.InvalidValue(string.Join(" ", result.Errors.Select(e => e.Description)));
@@ -483,13 +485,13 @@ public sealed partial class ScimService
                 return true;
             case "groups":
                 var refs = GroupRefsValue(value);
-                var roles = await ResolveRolesAsync(refs);
+                var groups = await ResolveGroupsAsync(refs);
                 var current = await _users.GetRolesAsync(user);
-                var missing = roles.Where(r => !current.Contains(r, StringComparer.OrdinalIgnoreCase)).ToList();
+                var missing = groups.Where(r => !current.Contains(r, StringComparer.OrdinalIgnoreCase)).ToList();
                 await EnsureNotLastAdminAsync(user, current, current.Concat(missing).ToList());
                 if (missing.Count > 0 && !(await _users.AddToRolesAsync(user, missing)).Succeeded)
                 {
-                    throw ScimException.InvalidValue($"Could not assign the roles: {string.Join(", ", missing)}.");
+                    throw ScimException.InvalidValue($"Could not assign the groups: {string.Join(", ", missing)}.");
                 }
 
                 return missing.Count > 0;
@@ -666,25 +668,25 @@ public sealed partial class ScimService
         List<string> toRemove;
         if (filter is { } f)
         {
-            var role = f.Attr == "display"
-                ? await _roles.FindByNameAsync(f.Value)
-                : await _roles.FindByIdAsync(f.Value);
-            if (role?.Name is null)
+            var group = f.Attr == "display"
+                ? await _groups.FindByNameAsync(f.Value)
+                : await _groups.FindByIdAsync(f.Value);
+            if (group?.Name is null)
             {
                 throw new ScimException(StatusCodes.Status400BadRequest, ScimConstants.ScimTypes.NoTarget, $"No group matches \"{f.Attr} eq \\\"{f.Value}\\\"\".");
             }
 
-            toRemove = current.Where(r => r.Equals(role.Name, StringComparison.OrdinalIgnoreCase)).ToList();
+            toRemove = current.Where(r => r.Equals(group.Name, StringComparison.OrdinalIgnoreCase)).ToList();
         }
         else
         {
-            toRemove = current.Where(r => !RoleAdministration.IsBuiltIn(r)).ToList();
+            toRemove = current.Where(r => !GroupAdministration.IsBuiltIn(r)).ToList();
         }
 
         await EnsureNotLastAdminAsync(user, current, current.Where(r => !toRemove.Contains(r, StringComparer.OrdinalIgnoreCase)).ToList());
         if (toRemove.Count > 0 && !(await _users.RemoveFromRolesAsync(user, toRemove)).Succeeded)
         {
-            throw ScimException.InvalidValue($"Could not remove the roles: {string.Join(", ", toRemove)}.");
+            throw ScimException.InvalidValue($"Could not remove the groups: {string.Join(", ", toRemove)}.");
         }
 
         return toRemove.Count > 0;
@@ -694,17 +696,17 @@ public sealed partial class ScimService
     // PATCH helpers: groups
     // ---------------------------------------------------------------------------
 
-    private async Task<bool> ApplyGroupValueAsync(Role role, string op, string path, JsonNode? value)
+    private async Task<bool> ApplyGroupValueAsync(Group group, string op, string path, JsonNode? value)
     {
         switch (path.ToLowerInvariant())
         {
             case "displayname":
-                var name = await ValidateRoleNameAsync(StringValue(value), role.Id, currentName: role.Name);
-                if (!string.Equals(name, role.Name, StringComparison.Ordinal))
+                var name = await ValidateGroupNameAsync(StringValue(value), group.Id, currentName: group.Name);
+                if (!string.Equals(name, group.Name, StringComparison.Ordinal))
                 {
-                    if (!(await _roles.SetRoleNameAsync(role, name)).Succeeded || !(await _roles.UpdateAsync(role)).Succeeded)
+                    if (!(await _groups.SetRoleNameAsync(group, name)).Succeeded || !(await _groups.UpdateAsync(group)).Succeeded)
                     {
-                        throw ScimException.InvalidValue($"The role could not be renamed to \"{name}\".");
+                        throw ScimException.InvalidValue($"The group could not be renamed to \"{name}\".");
                     }
 
                     return true;
@@ -715,9 +717,9 @@ public sealed partial class ScimService
                 var members = await ResolveMembersAsync(MembersOf(value));
                 foreach (var member in members)
                 {
-                    if (!(await _users.AddToRoleAsync(member, role.Name!)).Succeeded)
+                    if (!(await _users.AddToRoleAsync(member, group.Name!)).Succeeded)
                     {
-                        throw ScimException.InvalidValue($"Could not add {member.Email} to the role \"{role.Name}\".");
+                        throw ScimException.InvalidValue($"Could not add {member.Email} to the group \"{group.Name}\".");
                     }
                 }
 
@@ -727,14 +729,14 @@ public sealed partial class ScimService
         }
     }
 
-    private async Task<bool> RemoveGroupValueAsync(Role role, string path)
+    private async Task<bool> RemoveGroupValueAsync(Group group, string path)
     {
         if (path.Equals("members", StringComparison.OrdinalIgnoreCase))
         {
             var removed = false;
-            foreach (var member in await _users.GetUsersInRoleAsync(role.Name!))
+            foreach (var member in await _users.GetUsersInRoleAsync(group.Name!))
             {
-                if ((await _users.RemoveFromRoleAsync(member, role.Name!)).Succeeded)
+                if ((await _users.RemoveFromRoleAsync(member, group.Name!)).Succeeded)
                 {
                     removed = true;
                 }
@@ -747,9 +749,9 @@ public sealed partial class ScimService
         if (match.Success)
         {
             var user = await FindUserAsync(match.Groups["id"].Value);
-            if (!(await _users.RemoveFromRoleAsync(user, role.Name!)).Succeeded)
+            if (!(await _users.RemoveFromRoleAsync(user, group.Name!)).Succeeded)
             {
-                throw ScimException.InvalidValue($"Could not remove {user.Email} from the role \"{role.Name}\".");
+                throw ScimException.InvalidValue($"Could not remove {user.Email} from the group \"{group.Name}\".");
             }
 
             return true;
@@ -762,29 +764,29 @@ public sealed partial class ScimService
     // Mapping and shared validation
     // ---------------------------------------------------------------------------
 
-    private async Task<JsonObject> ToUserJsonAsync(User user, IReadOnlyDictionary<string, string> roleIds, string baseUri)
+    private async Task<JsonObject> ToUserJsonAsync(User user, IReadOnlyDictionary<string, string> groupIds, string baseUri)
     {
-        var roles = await _users.GetRolesAsync(user);
+        var groups = await _users.GetRolesAsync(user);
         var claims = (await _users.GetClaimsAsync(user)).Where(c => !CustomClaims.IsReserved(c.Type)).ToList();
-        return ScimResources.UserResource(user, roles, roleIds, claims, baseUri);
+        return ScimResources.UserResource(user, groups, groupIds, claims, baseUri);
     }
 
-    private async Task<JsonObject> ToGroupJsonAsync(Role role, string baseUri)
+    private async Task<JsonObject> ToGroupJsonAsync(Group group, string baseUri)
     {
-        var members = (await _users.GetUsersInRoleAsync(role.Name!))
+        var members = (await _users.GetUsersInRoleAsync(group.Name!))
             .Select(u => (u.Id, (string?)u.Email ?? u.UserName))
             .ToList();
-        return ScimResources.GroupResource(role, members, baseUri);
+        return ScimResources.GroupResource(group, members, baseUri);
     }
 
-    private async Task<Dictionary<string, string>> RoleIdMapAsync()
-        => await _roles.Roles.ToDictionaryAsync(r => r.Name!, r => r.Id, StringComparer.OrdinalIgnoreCase);
+    private async Task<Dictionary<string, string>> GroupIdMapAsync()
+        => await _groups.Roles.ToDictionaryAsync(r => r.Name!, r => r.Id, StringComparer.OrdinalIgnoreCase);
 
     private async Task<User> FindUserAsync(string id)
         => await _users.FindByIdAsync(id) ?? throw ScimException.NotFound("User", id);
 
-    private async Task<Role> FindRoleAsync(string id)
-        => await _roles.FindByIdAsync(id) ?? throw ScimException.NotFound("Group", id);
+    private async Task<Group> FindGroupAsync(string id)
+        => await _groups.FindByIdAsync(id) ?? throw ScimException.NotFound("Group", id);
 
     private static List<JsonObject> SortResources(List<JsonObject> resources, string? sortBy, string? sortOrder, string defaultKey, string[] allowed)
     {
@@ -973,40 +975,40 @@ public sealed partial class ScimService
         return validated;
     }
 
-    private async Task<List<string>> ResolveRolesAsync(List<ScimGroupRef>? refs)
+    private async Task<List<string>> ResolveGroupsAsync(List<ScimGroupRef>? refs)
     {
-        var roles = new List<string>();
+        var groups = new List<string>();
         if (refs is null)
         {
-            return roles;
+            return groups;
         }
 
         foreach (var reference in refs)
         {
-            Role? role = null;
+            Group? group = null;
             if (!string.IsNullOrWhiteSpace(reference.Value))
             {
-                role = await _roles.FindByIdAsync(reference.Value);
+                group = await _groups.FindByIdAsync(reference.Value);
             }
 
-            if (role is null && !string.IsNullOrWhiteSpace(reference.Display))
+            if (group is null && !string.IsNullOrWhiteSpace(reference.Display))
             {
-                role = await _roles.FindByNameAsync(reference.Display);
+                group = await _groups.FindByNameAsync(reference.Display);
             }
 
-            if (role?.Name is null)
+            if (group?.Name is null)
             {
                 throw new ScimException(StatusCodes.Status400BadRequest, ScimConstants.ScimTypes.NoTarget,
                     $"No group matches value \"{reference.Value}\" / display \"{reference.Display}\".");
             }
 
-            if (!roles.Contains(role.Name, StringComparer.OrdinalIgnoreCase))
+            if (!groups.Contains(group.Name, StringComparer.OrdinalIgnoreCase))
             {
-                roles.Add(role.Name);
+                groups.Add(group.Name);
             }
         }
 
-        return roles;
+        return groups;
     }
 
     private async Task<List<User>> ResolveMembersAsync(List<ScimMember>? members)
@@ -1030,7 +1032,7 @@ public sealed partial class ScimService
         return result;
     }
 
-    private async Task<string> ValidateRoleNameAsync(string? name, string? roleId, string? currentName = null)
+    private async Task<string> ValidateGroupNameAsync(string? name, string? groupId, string? currentName = null)
     {
         name = name?.Trim() ?? string.Empty;
         if (name.Length == 0)
@@ -1038,36 +1040,36 @@ public sealed partial class ScimService
             throw ScimException.InvalidValue("The group displayName is required.");
         }
 
-        if (RoleAdministration.IsBuiltIn(currentName) && !string.Equals(name, currentName, StringComparison.Ordinal))
+        if (GroupAdministration.IsBuiltIn(currentName) && !string.Equals(name, currentName, StringComparison.Ordinal))
         {
-            throw new ScimException(StatusCodes.Status400BadRequest, ScimConstants.ScimTypes.Mutability, $"The built-in role \"{currentName}\" cannot be renamed.");
+            throw new ScimException(StatusCodes.Status400BadRequest, ScimConstants.ScimTypes.Mutability, $"The built-in group \"{currentName}\" cannot be renamed.");
         }
 
-        if (name.Length > RoleAdministration.NameMaxLength)
+        if (name.Length > GroupAdministration.NameMaxLength)
         {
-            throw ScimException.InvalidValue($"The name is longer than {RoleAdministration.NameMaxLength} characters.");
+            throw ScimException.InvalidValue($"The name is longer than {GroupAdministration.NameMaxLength} characters.");
         }
 
-        if (!RoleAdministration.IsValidName(name))
+        if (!GroupAdministration.IsValidName(name))
         {
-            throw ScimException.InvalidValue($"\"{name}\" is not a valid role name (letters, digits, '-', '_', '.').");
+            throw ScimException.InvalidValue($"\"{name}\" is not a valid group name (letters, digits, '-', '_', '.').");
         }
 
-        if (RoleAdministration.IsBuiltIn(name) || (await _roles.FindByNameAsync(name)) is { } other && other.Id != roleId)
+        if (GroupAdministration.IsBuiltIn(name) || (await _groups.FindByNameAsync(name)) is { } other && other.Id != groupId)
         {
-            throw new ScimException(StatusCodes.Status409Conflict, ScimConstants.ScimTypes.Uniqueness, $"The role \"{name}\" already exists.");
+            throw new ScimException(StatusCodes.Status409Conflict, ScimConstants.ScimTypes.Uniqueness, $"The group \"{name}\" already exists.");
         }
 
         return name;
     }
 
-    private async Task EnsureNotLastAdminAsync(User user, IEnumerable<string> currentRoles, IEnumerable<string> newRoles)
+    private async Task EnsureNotLastAdminAsync(User user, IEnumerable<string> currentGroups, IEnumerable<string> newGroups)
     {
-        var isAdmin = currentRoles.Contains(DatabaseInitializer.AdminRole, StringComparer.OrdinalIgnoreCase);
-        var staysAdmin = newRoles.Contains(DatabaseInitializer.AdminRole, StringComparer.OrdinalIgnoreCase);
-        if (isAdmin && !staysAdmin && (await _users.GetUsersInRoleAsync(DatabaseInitializer.AdminRole)).Count <= 1)
+        var isAdmin = currentGroups.Contains(DatabaseInitializer.AdminGroup, StringComparer.OrdinalIgnoreCase);
+        var staysAdmin = newGroups.Contains(DatabaseInitializer.AdminGroup, StringComparer.OrdinalIgnoreCase);
+        if (isAdmin && !staysAdmin && (await _users.GetUsersInRoleAsync(DatabaseInitializer.AdminGroup)).Count <= 1)
         {
-            throw new ScimException(StatusCodes.Status400BadRequest, ScimConstants.ScimTypes.Mutability, "The Admin role cannot be removed from the last administrator.");
+            throw new ScimException(StatusCodes.Status400BadRequest, ScimConstants.ScimTypes.Mutability, "The Admins group cannot be removed from the last administrator.");
         }
     }
 }

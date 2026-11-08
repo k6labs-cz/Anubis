@@ -31,13 +31,14 @@ namespace k6labs.Anubis.Data.Migrations
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("GroupId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("RoleClaims", (string)null);
+                    b.ToTable("GroupClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -110,13 +111,14 @@ namespace k6labs.Anubis.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("GroupId");
 
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("UserRoles", (string)null);
+                    b.ToTable("UserGroups", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -250,7 +252,7 @@ namespace k6labs.Anubis.Data.Migrations
                     b.ToTable("Applications", (string)null);
                 });
 
-            modelBuilder.Entity("k6labs.Anubis.Data.Entities.Role", b =>
+            modelBuilder.Entity("k6labs.Anubis.Data.Entities.Group", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -271,9 +273,9 @@ namespace k6labs.Anubis.Data.Migrations
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex");
+                        .HasDatabaseName("GroupNameIndex");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Groups", (string)null);
                 });
 
             modelBuilder.Entity("k6labs.Anubis.Data.Entities.Scope", b =>
@@ -535,7 +537,7 @@ namespace k6labs.Anubis.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("k6labs.Anubis.Data.Entities.Role", null)
+                    b.HasOne("k6labs.Anubis.Data.Entities.Group", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -613,7 +615,7 @@ namespace k6labs.Anubis.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("k6labs.Anubis.Data.Entities.Role", null)
+                    b.HasOne("k6labs.Anubis.Data.Entities.Group", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -1,4 +1,4 @@
-@page "/account"
+@page "/profile"
 @rendermode InteractiveServer
 @attribute [Authorize]
 
@@ -157,7 +157,7 @@
 
     protected override void OnAfterRender(bool firstRender)
     {
-        // Results of the non-JavaScript form posts (/account/profile, /account/avatar).
+        // Results of the non-JavaScript form posts (/auth/profile, /auth/avatar).
         if (firstRender && QueryStatus() is { } status)
         {
             Notifications.Add(status.Message, status.AlertSeverity);
@@ -286,7 +286,7 @@
             if (languageChanged)
             {
                 // A full reload, so the whole page is rendered in the new language.
-                Navigation.NavigateTo("/account?status=profile-updated", forceLoad: true);
+                Navigation.NavigateTo("/profile?status=profile-updated", forceLoad: true);
                 return;
             }
 

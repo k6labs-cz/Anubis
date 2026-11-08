@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Creat</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Setarea browserului</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Chei de acces</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Roluri</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Grupuri</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Trimite e-mailul de confirmare</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Multifactor</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>Clienți OIDC</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Înregistrarea a fost modificată de altcineva. Reîncărcați și încercați din nou.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>A apărut o eroare necunoscută.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>E-mailul '{0}' este deja folosit.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Numele de rol '{0}' este deja folosit.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Numele de grup '{0}' este deja folosit.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Numele de utilizator '{0}' este deja folosit.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>E-mailul '{0}' nu este valid.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Numele de rol '{0}' nu este valid.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Numele de grup '{0}' nu este valid.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Token nevalid.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>Numele de utilizator '{0}' nu este valid.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Există deja un utilizator cu această autentificare.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Parolele trebuie să aibă cel puțin {0} caractere.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Codul de recuperare nu a putut fi folosit.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Utilizatorul are deja o parolă.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Utilizatorul are deja rolul '{0}'.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Utilizatorul este deja membru al grupului '{0}'.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Blocarea nu este activată pentru acest utilizator.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Utilizatorul nu are rolul '{0}'.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Utilizatorul nu este membru al grupului '{0}'.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Cont</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Limbă</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Să păstreze accesul cât sunteți plecat (refresh tokens)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>Să confirme cine sunteți</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>Să vadă numele și profilul dvs.</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Să vadă rolurile dvs.</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>Vedeți grupurile dvs.</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Creează scope</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>Clienții pot solicita scope-uri personalizate, asociate cu resurse (audiences).</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>API-ul meu</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>Fișier imagine nevalid sau neacceptat.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Fișierul imagine este prea mare (max. 10 MB).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Setări</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Roluri</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Grupuri</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Aspect</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Conturi care se pot conecta la Anubis.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>Rolurile sunt transmise aplicațiilor client în claimul roles.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>Grupurile sunt transmise aplicațiilor client în claimul groups.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Permisiuni pe care le pot solicita aplicațiile client.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Aplicații care conectează utilizatorii prin Anubis.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>E-mailuri trimise pentru confirmarea adresei și resetarea parolei.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Secundară</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Fundal</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Text</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Creează rol</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>Un rol nou nu are membri; adăugați-i în lista de mai jos.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Membri</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Predefinit</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Șterge rolul</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Ștergeți rolul {0}? Toți membrii îl vor pierde.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>Membrii rolului {0}</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Adaugă</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Elimină</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>Încă nu există membri.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>Ultimul administrator nu poate fi eliminat.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Introduceți numele rolului.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Creați un grup</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>Un grup nou nu are membri; adăugați-i în lista de mai jos.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Membri</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Predefinit</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Ștergeți grupul</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>Ștergeți grupul {0}? Toți membrii vor fi eliminați din el.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>Membrii grupului {0}</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Adaugă</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Elimină</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>Încă nu există membri.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>Ultimul administrator nu poate fi eliminat.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Introduceți un nume de grup.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Introduceți o culoare ca #RRGGBB sau lăsați câmpul gol.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>Nu poate conține ; { } &lt; &gt; sau \.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Introduceți un URL https:// absolut.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>Adresă de e-mail confirmată</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Un număr schimbat este salvat ca neverificat.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>Această adresă de e-mail este deja folosită de alt cont.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Nu vă puteți elimina rolul Admin din propriul cont.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Nu vă puteți elimina propriul cont din grupul Admins.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>Modificările pentru {0} au fost salvate.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>Adresă de e-mail schimbată</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Rol adăugat</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Rol eliminat</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Adăugat într-un grup</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Eliminat dintr-un grup</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>După salvare, se trimite un e-mail de confirmare la noua adresă.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>A fost trimis un e-mail de confirmare la {0}.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Începeți cu o literă, apoi litere, cifre și - _ . : / (cel mult {0} caractere).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Cel mult {0} caractere.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Acest claim apare de două ori.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Cel mult {0} claimuri.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>Rolul nu a fost găsit.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>Rolurile predefinite nu pot fi redenumite.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Există deja un rol cu acest nume.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>Editați rolul {0}</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>Rolul {0} a fost salvat.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Adăugați rol</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>Grupul nu a fost găsit.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>Grupurile predefinite nu pot fi redenumite.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Există deja un grup cu acest nume.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>Editați grupul {0}</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>Grupul {0} a fost salvat.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Adăugați un grup</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claimuri</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Se adaugă în tokenul de acces, tokenul ID și userinfo, împreună cu claimurile rolurilor utilizatorului.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Se adaugă în tokenurile tuturor membrilor acestui rol.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Se adaugă la tokenul de acces, tokenul ID și userinfo, împreună cu claimurile grupurilor utilizatorului.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Se adaugă la tokenurile tuturor membrilor acestui grup.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Tip</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Valoare</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Adăugați claim</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Eliminați claimul</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Încă nu există claimuri.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Din roluri</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Din grupuri</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Schimbați avatarul</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Se încarcă…</value></data>
 </root>

@@ -28,7 +28,7 @@ public class PasswordAndIdentityTests
         var admin = await userManager.FindByEmailAsync(AnubisFactory.AdminEmail);
 
         Assert.NotNull(admin);
-        Assert.True(await userManager.IsInRoleAsync(admin, DatabaseInitializer.AdminRole));
+        Assert.True(await userManager.IsInRoleAsync(admin, DatabaseInitializer.AdminGroup));
 
         var result = await signInManager.CheckPasswordSignInAsync(admin, AnubisFactory.AdminPassword, lockoutOnFailure: false);
 
@@ -86,10 +86,10 @@ public class PasswordAndIdentityTests
 
             Assert.NotNull(firstUser);
             Assert.NotNull(secondUser);
-            Assert.True(await userManager.IsInRoleAsync(firstUser, DatabaseInitializer.AdminRole));
-            Assert.True(await userManager.IsInRoleAsync(firstUser, DatabaseInitializer.UserRole));
-            Assert.False(await userManager.IsInRoleAsync(secondUser, DatabaseInitializer.AdminRole));
-            Assert.True(await userManager.IsInRoleAsync(secondUser, DatabaseInitializer.UserRole));
+            Assert.True(await userManager.IsInRoleAsync(firstUser, DatabaseInitializer.AdminGroup));
+            Assert.True(await userManager.IsInRoleAsync(firstUser, DatabaseInitializer.UserGroup));
+            Assert.False(await userManager.IsInRoleAsync(secondUser, DatabaseInitializer.AdminGroup));
+            Assert.True(await userManager.IsInRoleAsync(secondUser, DatabaseInitializer.UserGroup));
         }
         finally
         {

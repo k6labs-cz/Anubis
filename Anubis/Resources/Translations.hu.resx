@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Létrehozva</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Böngésző beállítása</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Jelkulcsok</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Szerepkörök</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Csoportok</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Megerősítő e-mail küldése</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Többtényezős</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>OIDC-kliensek</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>A rekordot valaki más módosította. Töltse újra az oldalt, és próbálja újra.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>Ismeretlen hiba történt.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>A(z) '{0}' e-mail-cím már foglalt.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>A(z) '{0}' szerepkörnév már foglalt.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>A(z) '{0}' csoportnév már foglalt.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>A(z) '{0}' felhasználónév már foglalt.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>A(z) '{0}' e-mail-cím érvénytelen.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>A(z) '{0}' szerepkörnév érvénytelen.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>A(z) '{0}' csoportnév érvénytelen.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Érvénytelen token.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>A(z) '{0}' felhasználónév érvénytelen.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Már létezik felhasználó ezzel a bejelentkezéssel.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>A jelszónak legalább {0} karakter hosszúnak kell lennie.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>A helyreállító kódot nem sikerült felhasználni.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>A felhasználónak már van jelszava.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>A felhasználó már rendelkezik a(z) '{0}' szerepkörrel.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>A felhasználó már tagja a(z) '{0}' csoportnak.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Ennél a felhasználónál nincs engedélyezve a zárolás.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>A felhasználó nem rendelkezik a(z) '{0}' szerepkörrel.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>A felhasználó nem tagja a(z) '{0}' csoportnak.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Fiók</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Nyelv</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Megtartani a hozzáférést, amíg Ön nincs jelen (refresh tokenek)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>Megerősíteni, hogy ki Ön</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>Látni a nevét és a profilját</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Látni a szerepköreit</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>A csoportjai megtekintése</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Scope létrehozása</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>A kliensek egyéni scope-okat kérhetnek, amelyek erőforrásokhoz (audience) rendelhetők.</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Saját API</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>Érvénytelen vagy nem támogatott képfájl.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>A képfájl túl nagy (legfeljebb 10 MB).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Beállítások</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Szerepkörök</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Csoportok</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Megjelenés</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Fiókok, amelyek bejelentkezhetnek az Anubisba.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>A szerepkörök a roles claimben jutnak el a kliensalkalmazásokhoz.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>A csoportokat az ügyfélalkalmazások a groups claimben kapják meg.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Jogosultságok, amelyeket a kliensalkalmazások kérhetnek.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Alkalmazások, amelyek az Anubison keresztül jelentkeztetik be a felhasználókat.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>Kimenő e-mailek a cím megerősítéséhez és a jelszó visszaállításához.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Másodlagos</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Háttér</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Szöveg</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Szerepkör létrehozása</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>Az új szerepkörnek nincsenek tagjai; adja hozzá őket az alábbi listában.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Tagok</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Beépített</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Szerepkör törlése</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Törli a(z) {0} szerepkört? Minden tagja elveszíti.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>{0} tagjai</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Hozzáadás</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Eltávolítás</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>Még nincsenek tagok.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>Az utolsó rendszergazda nem távolítható el.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Adja meg a szerepkör nevét.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Csoport létrehozása</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>Az új csoportnak nincsenek tagjai; az alábbi listában adhatja hozzá őket.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Tagok</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Beépített</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Csoport törlése</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>Törli a(z) {0} csoportot? Minden tagja kikerül belőle.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>A(z) {0} tagjai</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Hozzáadás</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Eltávolítás</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>Még nincsenek tagok.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>Az utolsó rendszergazda nem távolítható el.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Adja meg a csoport nevét.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Adjon meg egy színt #RRGGBB formában, vagy hagyja üresen.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>Nem tartalmazhat ; { } &lt; &gt; vagy \ karaktert.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Adjon meg abszolút https:// URL-t.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-mail-cím megerősítve</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>A módosított szám nem megerősítettként kerül mentésre.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>Ezt az e-mail-címet már egy másik fiók használja.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>A saját fiókjától nem veheti el az Admin szerepkört.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>A saját fiókját nem távolíthatja el az Admins csoportból.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>A(z) {0} módosításai mentve.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>E-mail-cím módosítva</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Szerepkör hozzáadva</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Szerepkör eltávolítva</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Csoporthoz adva</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Csoportból eltávolítva</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Mentés után megerősítő e-mailt küldünk az új címre.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>Megerősítő e-mailt küldtünk ide: {0}.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Betűvel kezdődjön, utána betűk, számjegyek és - _ . : / (legfeljebb {0} karakter).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Legfeljebb {0} karakter.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Ez a claim kétszer szerepel.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Legfeljebb {0} claim.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>A szerepkör nem található.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>A beépített szerepkörök nem nevezhetők át.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Már létezik ilyen nevű szerepkör.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>{0} szerepkör szerkesztése</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>A(z) {0} szerepkör mentve.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Szerepkör hozzáadása</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>A csoport nem található.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>A beépített csoportok nem nevezhetők át.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Már létezik ilyen nevű csoport.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>A(z) {0} csoport szerkesztése</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>A(z) {0} csoport mentve.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Csoport hozzáadása</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claimek</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Hozzáadódnak a hozzáférési tokenhez, az ID tokenhez és a userinfóhoz, a felhasználó szerepköreinek claimjeivel együtt.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Hozzáadódnak a szerepkör összes tagjának tokenjeihez.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Bekerülnek a hozzáférési tokenbe, az ID tokenbe és a userinfóba, a felhasználó csoportjainak claimjeivel együtt.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Bekerülnek a csoport minden tagjának tokenjeibe.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Típus</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Érték</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Claim hozzáadása</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Claim eltávolítása</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Még nincsenek claimek.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Szerepkörökből</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Csoportokból</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Avatar módosítása</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Betöltés…</value></data>
 </root>

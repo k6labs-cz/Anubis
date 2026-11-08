@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Aangemaakt</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Browserinstelling</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Passkeys</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Rollen</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Groepen</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Bevestigingsmail versturen</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Meervoudige verificatie</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>OIDC-clients</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Het record is door iemand anders gewijzigd. Laad opnieuw en probeer het nogmaals.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>Er is een onbekende fout opgetreden.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>Het e-mailadres '{0}' is al in gebruik.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>De rolnaam '{0}' is al in gebruik.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>De groepsnaam '{0}' is al in gebruik.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>De gebruikersnaam '{0}' is al in gebruik.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>Het e-mailadres '{0}' is ongeldig.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>De rolnaam '{0}' is ongeldig.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>De groepsnaam '{0}' is ongeldig.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Ongeldig token.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>De gebruikersnaam '{0}' is ongeldig.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Er bestaat al een gebruiker met deze login.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Wachtwoorden moeten minimaal {0} tekens lang zijn.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>De herstelcode kon niet worden gebruikt.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>De gebruiker heeft al een wachtwoord.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>De gebruiker heeft de rol '{0}' al.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>De gebruiker is al lid van de groep '{0}'.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Blokkeren is niet ingeschakeld voor deze gebruiker.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>De gebruiker heeft de rol '{0}' niet.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>De gebruiker is geen lid van de groep '{0}'.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Account</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Taal</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Toegang behouden als je er niet bent (refresh tokens)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>Bevestigen wie je bent</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>Je naam en profiel zien</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Je rollen zien</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>Uw groepen bekijken</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Scope aanmaken</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>Clients kunnen eigen scopes aanvragen, gekoppeld aan resources (audiences).</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Mijn API</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>Ongeldig of niet-ondersteund afbeeldingsbestand.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Het afbeeldingsbestand is te groot (max. 10 MB).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Instellingen</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Rollen</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Groepen</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Uiterlijk</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Accounts die kunnen inloggen bij Anubis.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>Rollen worden aan clientapplicaties doorgegeven in de claim roles.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>Groepen worden aan clienttoepassingen doorgegeven in de claim groups.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Rechten die clientapplicaties kunnen aanvragen.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Applicaties die gebruikers via Anubis laten inloggen.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>Uitgaande e-mail voor adresbevestiging en wachtwoordherstel.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Secundair</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Achtergrond</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Tekst</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Rol aanmaken</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>Een nieuwe rol heeft geen leden; voeg ze toe in de lijst hieronder.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Leden</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Ingebouwd</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Rol verwijderen</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>De rol {0} verwijderen? Alle leden verliezen deze rol.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>Leden van {0}</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Toevoegen</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Verwijderen</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>Nog geen leden.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>De laatste beheerder kan niet worden verwijderd.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Voer een rolnaam in.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Groep maken</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>Een nieuwe groep heeft geen leden; voeg ze toe in de lijst hieronder.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Leden</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Ingebouwd</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Groep verwijderen</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>De groep {0} verwijderen? Alle leden worden eruit verwijderd.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>Leden van {0}</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Toevoegen</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Verwijderen</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>Nog geen leden.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>De laatste beheerder kan niet worden verwijderd.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Voer een groepsnaam in.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Voer een kleur in als #RRGGBB of laat het veld leeg.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>Mag geen ; { } &lt; &gt; of \ bevatten.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Voer een absolute https://-URL in.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-mailadres bevestigd</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Een gewijzigd nummer wordt opgeslagen als niet geverifieerd.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>Dit e-mailadres wordt al door een ander account gebruikt.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Je kunt de rol Admin niet van je eigen account verwijderen.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>U kunt uw eigen account niet uit de groep Admins verwijderen.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>Wijzigingen aan {0} zijn opgeslagen.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>E-mailadres gewijzigd</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Rol toegevoegd</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Rol verwijderd</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Aan een groep toegevoegd</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Uit een groep verwijderd</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Na het opslaan wordt een bevestigingsmail naar het nieuwe adres gestuurd.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>Er is een bevestigingsmail naar {0} gestuurd.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Begin met een letter, daarna letters, cijfers en - _ . : / (maximaal {0} tekens).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Maximaal {0} tekens.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Deze claim staat er twee keer.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Maximaal {0} claims.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>Rol niet gevonden.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>Ingebouwde rollen kunnen niet worden hernoemd.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Er bestaat al een rol met deze naam.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>Rol {0} bewerken</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>Rol {0} opgeslagen.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Rol toevoegen</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>Groep niet gevonden.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>Ingebouwde groepen kunnen niet worden hernoemd.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Er bestaat al een groep met deze naam.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>Groep {0} bewerken</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>Groep {0} opgeslagen.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Groep toevoegen</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Worden toegevoegd aan het access token, het ID-token en userinfo, samen met de claims van de rollen van de gebruiker.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Worden toegevoegd aan de tokens van alle leden van deze rol.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Toegevoegd aan het access token, het ID-token en userinfo, samen met de claims van de groepen van de gebruiker.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Toegevoegd aan de tokens van elk lid van deze groep.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Type</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Waarde</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Claim toevoegen</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Claim verwijderen</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Nog geen claims.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Uit rollen</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Van groepen</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Avatar wijzigen</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Laden…</value></data>
 </root>

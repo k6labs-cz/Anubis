@@ -1,4 +1,4 @@
-@page "/account/security/disable"
+@page "/mfa/disable"
 @attribute [Authorize]
 
 @using Microsoft.AspNetCore.Authorization
@@ -17,7 +17,7 @@
             <Button Variant="ButtonVariant.Danger" Type="submit" Icon="@AppIcons.RemoveModerator">
                 @Translations.Security_TurnOff
             </Button>
-            <Button Variant="ButtonVariant.Ghost" Href="/account/mfa">@Translations.Common_Cancel</Button>
+            <Button Variant="ButtonVariant.Ghost" Href="/mfa">@Translations.Common_Cancel</Button>
         </Stack>
     </form>
 </Stack>
@@ -39,6 +39,6 @@
         // New key, so a later setup doesn't silently reuse the old app entry.
         await UserManager.ResetAuthenticatorKeyAsync(user);
         await SignInManager.RefreshSignInAsync(user);
-        Navigation.NavigateTo("/account/security?status=mfa-disabled", forceLoad: true);
+        Navigation.NavigateTo("/passkeys?status=mfa-disabled", forceLoad: true);
     }
 }

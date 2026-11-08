@@ -74,7 +74,7 @@ public sealed class SeedClientOptions
     /// <summary>Subset of: authorization_code, refresh_token, client_credentials.</summary>
     public List<string> GrantTypes { get; set; } = new();
 
-    /// <summary>Scopes the client is allowed to request (e.g. openid, profile, email, roles, offline_access).</summary>
+    /// <summary>Scopes the client is allowed to request (e.g. openid, profile, email, groups, offline_access).</summary>
     public List<string> Scopes { get; set; } = new();
 
     public bool RequireConsent { get; set; } = true;

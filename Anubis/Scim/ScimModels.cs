@@ -73,7 +73,7 @@ public sealed class ScimUserResource
     [JsonPropertyName(ScimConstants.UserExtensionSchema)] public ScimUserExtension? Extension { get; set; }
 }
 
-/// <summary>SCIM group resource (Anubis role) as sent by clients on POST / PUT.</summary>
+/// <summary>SCIM group resource as sent by clients on POST / PUT.</summary>
 public sealed class ScimGroupResource
 {
     [JsonPropertyName("schemas")] public List<string>? Schemas { get; set; }

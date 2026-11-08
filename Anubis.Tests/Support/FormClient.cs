@@ -59,7 +59,7 @@ public sealed partial class FormClient : IDisposable
         return await Http.PostAsync(url, new FormUrlEncodedContent(content));
     }
 
-    public Task<HttpResponseMessage> PasswordLoginAsync(string email, string password, string returnUrl = "/account")
+    public Task<HttpResponseMessage> PasswordLoginAsync(string email, string password, string returnUrl = "/profile")
         => PostFormAsync($"/login?returnUrl={Uri.EscapeDataString(returnUrl)}", "login", new Dictionary<string, string>
         {
             ["model.Email"] = email,
@@ -68,7 +68,7 @@ public sealed partial class FormClient : IDisposable
 
     public async Task SignOutAsync()
     {
-        var token = await GetTokenAsync("/account");
+        var token = await GetTokenAsync("/profile");
         using var response = await Http.PostAsync("/auth/logout", new FormUrlEncodedContent(new Dictionary<string, string>
         {
             ["__RequestVerificationToken"] = token,
@@ -79,7 +79,7 @@ public sealed partial class FormClient : IDisposable
     /// <summary>True when the auth cookie lets the client open a protected page.</summary>
     public async Task<bool> IsSignedInAsync()
     {
-        using var response = await Http.GetAsync("/account");
+        using var response = await Http.GetAsync("/profile");
         return response.StatusCode == HttpStatusCode.OK;
     }
 

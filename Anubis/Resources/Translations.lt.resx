@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Sukurta</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Naršyklės nustatymas</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Prieigos raktai</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Vaidmenys</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Grupės</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Siųsti patvirtinimo laišką</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Kelių veiksnių</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>OIDC klientai</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Įrašą pakeitė kažkas kitas. Įkelkite iš naujo ir bandykite dar kartą.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>Įvyko nežinoma klaida.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>El. paštas '{0}' jau naudojamas.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Vaidmens pavadinimas '{0}' jau naudojamas.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Grupės pavadinimas '{0}' jau naudojamas.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Naudotojo vardas '{0}' jau naudojamas.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>El. paštas '{0}' neteisingas.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Vaidmens pavadinimas '{0}' neteisingas.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Grupės pavadinimas '{0}' neteisingas.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Neteisingas prieigos raktas.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>Naudotojo vardas '{0}' neteisingas.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Naudotojas su šiuo prisijungimu jau yra.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Slaptažodis turi būti bent {0} simbolių ilgio.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Atkūrimo kodo panaudoti nepavyko.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Naudotojas jau turi slaptažodį.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Naudotojas jau turi vaidmenį '{0}'.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Naudotojas jau yra grupės '{0}' narys.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Šiam naudotojui blokavimas neįjungtas.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Naudotojas neturi vaidmens '{0}'.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Naudotojas nėra grupės '{0}' narys.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Paskyra</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Kalba</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Išlaikyti prieigą, kai jūsų nėra (refresh tokens)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>Patvirtinti, kas jūs esate</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>Matyti jūsų vardą ir profilį</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Matyti jūsų vaidmenis</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>Matyti jūsų grupes</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Sukurti scope</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>Klientai gali prašyti pasirinktinių scope, susietų su ištekliais (audiences).</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Mano API</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>Netinkamas arba nepalaikomas paveikslėlio failas.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Paveikslėlio failas per didelis (daugiausia 10 MB).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Nustatymai</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Vaidmenys</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Grupės</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Išvaizda</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Paskyros, kurios gali prisijungti prie Anubis.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>Vaidmenys perduodami klientų programoms claim roles.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>Grupės kliento programoms perduodamos claim groups.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Teisės, kurių gali prašyti klientų programos.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Programos, kurios prijungia naudotojus per Anubis.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>Siunčiami laiškai adresui patvirtinti ir slaptažodžiui atkurti.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Antrinė</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Fonas</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Tekstas</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Sukurti vaidmenį</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>Naujas vaidmuo neturi narių; pridėkite juos toliau esančiame sąraše.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Nariai</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Integruotas</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Ištrinti vaidmenį</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Ištrinti vaidmenį {0}? Visi jo nariai jį praras.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>Vaidmens {0} nariai</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Pridėti</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Pašalinti</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>Narių dar nėra.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>Paskutinio administratoriaus pašalinti negalima.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Įveskite vaidmens pavadinimą.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Sukurti grupę</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>Nauja grupė neturi narių; pridėkite juos sąraše žemiau.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Nariai</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Integruota</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Ištrinti grupę</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>Ištrinti grupę {0}? Visi jos nariai bus iš jos pašalinti.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>Grupės {0} nariai</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Pridėti</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Pašalinti</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>Narių dar nėra.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>Paskutinio administratoriaus pašalinti negalima.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Įveskite grupės pavadinimą.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Įveskite spalvą kaip #RRGGBB arba palikite lauką tuščią.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>Negali būti ; { } &lt; &gt; ar \.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Įveskite absoliutų https:// adresą.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>El. pašto adresas patvirtintas</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Pakeistas numeris išsaugomas kaip nepatvirtintas.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>Šį el. pašto adresą jau naudoja kita paskyra.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Negalite pašalinti vaidmens Admin iš savo paskyros.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Negalite pašalinti savo paskyros iš grupės Admins.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>Paskyros {0} pakeitimai išsaugoti.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>El. pašto adresas pakeistas</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Vaidmuo pridėtas</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Vaidmuo pašalintas</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Pridėta prie grupės</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Pašalinta iš grupės</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Išsaugojus naujuoju adresu bus išsiųstas patvirtinimo laiškas.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>Patvirtinimo laiškas išsiųstas adresu {0}.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Pradėkite raide, toliau raidės, skaitmenys ir - _ . : / (ne daugiau kaip {0} simbolių).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Ne daugiau kaip {0} simbolių.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Šis claim nurodytas du kartus.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Ne daugiau kaip {0} claimų.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>Vaidmuo nerastas.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>Įtaisytųjų vaidmenų pervadinti negalima.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Vaidmuo tokiu pavadinimu jau yra.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>Redaguoti vaidmenį {0}</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>Vaidmuo {0} išsaugotas.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Pridėti vaidmenį</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>Grupė nerasta.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>Integruotų grupių pervadinti negalima.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Grupė tokiu pavadinimu jau yra.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>Redaguoti grupę {0}</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>Grupė {0} išsaugota.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Pridėti grupę</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claimai</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Pridedami prie prieigos žetono, ID žetono ir userinfo kartu su naudotojo vaidmenų claimais.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Pridedami prie visų šio vaidmens narių žetonų.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Pridedami prie prieigos žetono, ID žetono ir userinfo kartu su naudotojo grupių claim.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Pridedami prie visų šios grupės narių žetonų.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Tipas</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Reikšmė</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Pridėti claim</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Pašalinti claim</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Claimų dar nėra.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Iš vaidmenų</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Iš grupių</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Keisti avatarą</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Įkeliama…</value></data>
 </root>

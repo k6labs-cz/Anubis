@@ -1,13 +1,13 @@
-@page "/admin/users"
+@page "/users"
 @rendermode InteractiveServer
-@attribute [Authorize(Roles = "Admin")]
+@attribute [Authorize(Roles = DatabaseInitializer.AdminGroup)]
 
 @using Microsoft.AspNetCore.Authorization
 @using k6labs.Anubis.Models
 @using k6labs.Anubis.Services.Avatar
 
 @inject UserManager<User> UserManager
-@inject RoleManager<Role> RoleManager
+@inject RoleManager<Group> RoleManager
 @inject ILogger<Users> Logger
 @inject Services.UserAdministration Administration
 @inject NavigationManager Navigation
@@ -27,7 +27,7 @@
             <tr>
                 <th>@Translations.Common_Email</th>
                 <th>@Translations.Common_DisplayName</th>
-                <th>@Translations.Account_Roles</th>
+                <th>@Translations.Account_Groups</th>
                 <th>@Translations.Users_Status</th>
                 <th>@Translations.Users_Mfa</th>
                 <th>@Translations.Account_Created</th>
@@ -42,7 +42,7 @@
                 <tr>
                     <td>@user.Email</td>
                     <td>@user.DisplayName</td>
-                    <td>@string.Join(", ", userRoles[user.Id])</td>
+                    <td>@string.Join(", ", userGroups[user.Id])</td>
                     <td>
                         <Badge Tone="@(locked ? Tone.Danger : Tone.Success)">
                             @(locked ? Translations.Users_Locked : Translations.Users_Active)
@@ -93,7 +93,7 @@
                 <FormText @bind-Value="createModel.Email" Label="@Translations.Common_Email" Placeholder="@Translations.Common_EmailPlaceholder" Id="newEmail" Type="email" />
                 <FormText @bind-Value="createModel.DisplayName" Label="@Translations.Common_DisplayName" Placeholder="@Translations.Register_DisplayNamePlaceholder" Id="newDisplayName" />
                 <FormText @bind-Value="createModel.Password" Label="@Translations.Common_Password" Placeholder="@Translations.Common_NewPasswordPlaceholder.F(PasswordPolicy.MinLength)" Id="newPassword" Type="password" />
-                <RolePicker Selected="createModel.Roles" Roles="roleNames" Error="@createErrors.GetValueOrDefault("Roles")" InputId="newRoleSearch" />
+                <GroupPicker Selected="createModel.Groups" Groups="groupNames" Error="@createErrors.GetValueOrDefault("Groups")" InputId="newGroupSearch" />
                 @foreach (var error in createErrors)
                 {
                     <Alert Severity="AlertSeverity.Danger">@error.Value</Alert>
@@ -150,7 +150,7 @@
                     <FormText @bind-Value="editModel.PhoneNumber" Label="@Translations.Account_Phone" Placeholder="@("+420 123 456 789")" Error="@editErrors.ContainsKey("PhoneNumber")" ErrorText="@editErrors.GetValueOrDefault("PhoneNumber")" Id="editPhone" Type="tel" Hint="@Translations.Users_PhoneChangeNote" />
 
                     <Divider />
-                    <RolePicker Selected="editModel.Roles" Roles="roleNames" Error="@editErrors.GetValueOrDefault("Roles")" InputId="editRoleSearch" />
+                    <GroupPicker Selected="editModel.Groups" Groups="groupNames" Error="@editErrors.GetValueOrDefault("Groups")" InputId="editGroupSearch" />
 
                     <Divider />
                     <ClaimsEditor Claims="editModel.Claims" Inherited="InheritedClaims" Errors="editErrors" Hint="@Translations.Claims_UserHint" IdPrefix="userClaim" />
@@ -195,17 +195,17 @@
 
     private CreateUserModel createModel = new();
     private List<User> users = new();
-    private Dictionary<string, IList<string>> userRoles = new();
+    private Dictionary<string, IList<string>> userGroups = new();
     private Dictionary<string, int> passkeyCounts = new();
     private bool createOpen;
     private Dictionary<string, string> createErrors = new();
-    private List<string> roleNames = new();
+    private List<string> groupNames = new();
     private UserEditModel? editModel;
     private string? editingEmail;
     private bool editOpen;
     private readonly FormSnapshot editSnapshot = new();
     private Dictionary<string, string> editErrors = new();
-    private List<(string Role, System.Security.Claims.Claim Claim)> roleClaims = new();
+    private List<(string Group, System.Security.Claims.Claim Claim)> groupClaims = new();
     private string? editingAvatarUrl;   // the saved avatar (null = Gravatar)
     private string? pendingAvatarDataUrl;
 
@@ -224,18 +224,18 @@
     private async Task LoadAsync()
     {
         users = await UserManager.Users.OrderBy(u => u.Email).ToListAsync();
-        userRoles = new Dictionary<string, IList<string>>();
+        userGroups = new Dictionary<string, IList<string>>();
         passkeyCounts = new Dictionary<string, int>();
         foreach (var user in users)
         {
-            userRoles[user.Id] = await UserManager.GetRolesAsync(user);
+            userGroups[user.Id] = await UserManager.GetRolesAsync(user);
             passkeyCounts[user.Id] = (await UserManager.GetPasskeysAsync(user)).Count;
         }
     }
 
     private async Task OpenCreate()
     {
-        roleNames = await Administration.RoleNamesAsync();
+        groupNames = await Administration.GroupNamesAsync();
         createModel = new CreateUserModel();
         createErrors = new();
         createOpen = true;
@@ -259,7 +259,7 @@
 
     private async Task OpenEditAsync(User user)
     {
-        roleNames = await Administration.RoleNamesAsync();
+        groupNames = await Administration.GroupNamesAsync();
         editModel = await Administration.LoadAsync(user.Id);
         if (editModel is null)
         {
@@ -271,16 +271,16 @@
         editingEmail = editModel.Email;
         editingAvatarUrl = user.AvatarUrl;
         pendingAvatarDataUrl = null;
-        roleClaims = await Services.CustomClaims.OfRolesAsync(RoleManager, roleNames);
+        groupClaims = await Services.CustomClaims.OfGroupsAsync(RoleManager, groupNames);
         editSnapshot.Take(editModel);
         editErrors = new();
         editOpen = true;
     }
 
-    /// <summary>Claims the user gets from the roles currently selected in the form.</summary>
-    private List<(string Role, System.Security.Claims.Claim Claim)> InheritedClaims
-        => editModel is null ? new() : roleClaims.Where(item => editModel.Roles.Contains(item.Role)
-            || string.Equals(item.Role, DatabaseInitializer.UserRole, StringComparison.OrdinalIgnoreCase)).ToList();
+    /// <summary>Claims the user gets from the groups currently selected in the form.</summary>
+    private List<(string Group, System.Security.Claims.Claim Claim)> InheritedClaims
+        => editModel is null ? new() : groupClaims.Where(item => editModel.Groups.Contains(item.Group)
+            || string.Equals(item.Group, DatabaseInitializer.UserGroup, StringComparison.OrdinalIgnoreCase)).ToList();
 
     private bool HasEditAvatar => editModel?.Avatar switch
     {

@@ -13,7 +13,7 @@
   <data name="Account_Created" xml:space="preserve"><value>Skapad</value></data>
   <data name="Account_LanguageBrowser" xml:space="preserve"><value>Webbläsarens inställning</value></data>
   <data name="Account_Passkeys" xml:space="preserve"><value>Nycklar (passkeys)</value></data>
-  <data name="Account_Roles" xml:space="preserve"><value>Roller</value></data>
+  <data name="Account_Groups" xml:space="preserve"><value>Grupper</value></data>
   <data name="Account_SendConfirmation" xml:space="preserve"><value>Skicka bekräftelsemejl</value></data>
   <data name="Account_TwoFactor" xml:space="preserve"><value>Flerfaktor</value></data>
   <data name="Admin_Clients" xml:space="preserve"><value>OIDC-klienter</value></data>
@@ -152,10 +152,10 @@
   <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Posten har ändrats av någon annan. Läs in sidan igen och försök på nytt.</value></data>
   <data name="Identity_DefaultError" xml:space="preserve"><value>Ett okänt fel uppstod.</value></data>
   <data name="Identity_DuplicateEmail" xml:space="preserve"><value>E-postadressen '{0}' används redan.</value></data>
-  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Rollnamnet '{0}' används redan.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Gruppnamnet '{0}' används redan.</value></data>
   <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Användarnamnet '{0}' används redan.</value></data>
   <data name="Identity_InvalidEmail" xml:space="preserve"><value>E-postadressen '{0}' är ogiltig.</value></data>
-  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Rollnamnet '{0}' är ogiltigt.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Gruppnamnet '{0}' är ogiltigt.</value></data>
   <data name="Identity_InvalidToken" xml:space="preserve"><value>Ogiltig token.</value></data>
   <data name="Identity_InvalidUserName" xml:space="preserve"><value>Användarnamnet '{0}' är ogiltigt.</value></data>
   <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Det finns redan en användare med den här inloggningen.</value></data>
@@ -168,9 +168,9 @@
   <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Lösenord måste vara minst {0} tecken långa.</value></data>
   <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Återställningskoden kunde inte användas.</value></data>
   <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Användaren har redan ett lösenord.</value></data>
-  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Användaren har redan rollen '{0}'.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Användaren är redan medlem i gruppen '{0}'.</value></data>
   <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Utelåsning är inte aktiverad för den här användaren.</value></data>
-  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Användaren har inte rollen '{0}'.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Användaren är inte medlem i gruppen '{0}'.</value></data>
   <data name="Layout_Account" xml:space="preserve"><value>Konto</value></data>
   <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
   <data name="Layout_Language" xml:space="preserve"><value>Språk</value></data>
@@ -252,7 +252,7 @@
   <data name="Scope_OfflineAccess" xml:space="preserve"><value>Behålla åtkomsten när du inte är här (refresh tokens)</value></data>
   <data name="Scope_OpenId" xml:space="preserve"><value>Bekräfta vem du är</value></data>
   <data name="Scope_Profile" xml:space="preserve"><value>Se ditt namn och din profil</value></data>
-  <data name="Scope_Roles" xml:space="preserve"><value>Se dina roller</value></data>
+  <data name="Scope_Groups" xml:space="preserve"><value>Se dina grupper</value></data>
   <data name="Scopes_Create" xml:space="preserve"><value>Skapa scope</value></data>
   <data name="Scopes_CreateDescription" xml:space="preserve"><value>Klienter kan begära egna scopes som kopplas till resurser (audiences).</value></data>
   <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Mitt API</value></data>
@@ -350,10 +350,10 @@
   <data name="Account_AvatarInvalid" xml:space="preserve"><value>Ogiltig bildfil eller filtyp som inte stöds.</value></data>
   <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Bildfilen är för stor (högst 10 MB).</value></data>
   <data name="Admin_Settings" xml:space="preserve"><value>Inställningar</value></data>
-  <data name="Admin_Roles" xml:space="preserve"><value>Roller</value></data>
+  <data name="Admin_Groups" xml:space="preserve"><value>Grupper</value></data>
   <data name="Admin_Appearance" xml:space="preserve"><value>Utseende</value></data>
   <data name="Admin_UsersDescription" xml:space="preserve"><value>Konton som kan logga in på Anubis.</value></data>
-  <data name="Admin_RolesDescription" xml:space="preserve"><value>Roller skickas till klientapplikationer i claimet roles.</value></data>
+  <data name="Admin_GroupsDescription" xml:space="preserve"><value>Grupper skickas till klientapplikationer i claimet groups.</value></data>
   <data name="Admin_ScopesDescription" xml:space="preserve"><value>Behörigheter som klientapplikationer kan begära.</value></data>
   <data name="Admin_ClientsDescription" xml:space="preserve"><value>Applikationer som loggar in användare via Anubis.</value></data>
   <data name="Admin_EmailDescription" xml:space="preserve"><value>Utgående e-post för adressbekräftelse och lösenordsåterställning.</value></data>
@@ -388,18 +388,18 @@
   <data name="Appearance_Secondary" xml:space="preserve"><value>Sekundär</value></data>
   <data name="Appearance_Background" xml:space="preserve"><value>Bakgrund</value></data>
   <data name="Appearance_Foreground" xml:space="preserve"><value>Text</value></data>
-  <data name="Roles_Create" xml:space="preserve"><value>Skapa roll</value></data>
-  <data name="Roles_CreateDescription" xml:space="preserve"><value>En ny roll har inga medlemmar; lägg till dem i listan nedan.</value></data>
-  <data name="Roles_Members" xml:space="preserve"><value>Medlemmar</value></data>
-  <data name="Roles_BuiltIn" xml:space="preserve"><value>Inbyggd</value></data>
-  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Ta bort roll</value></data>
-  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Ta bort rollen {0}? Alla medlemmar förlorar den.</value></data>
-  <data name="Roles_MembersTitle" xml:space="preserve"><value>Medlemmar i {0}</value></data>
-  <data name="Roles_AddMember" xml:space="preserve"><value>Lägg till</value></data>
-  <data name="Roles_RemoveMember" xml:space="preserve"><value>Ta bort</value></data>
-  <data name="Roles_NoMembers" xml:space="preserve"><value>Inga medlemmar än.</value></data>
-  <data name="Roles_LastAdmin" xml:space="preserve"><value>Den sista administratören kan inte tas bort.</value></data>
-  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Ange ett rollnamn.</value></data>
+  <data name="Groups_Create" xml:space="preserve"><value>Skapa grupp</value></data>
+  <data name="Groups_CreateDescription" xml:space="preserve"><value>En ny grupp har inga medlemmar; lägg till dem i listan nedan.</value></data>
+  <data name="Groups_Members" xml:space="preserve"><value>Medlemmar</value></data>
+  <data name="Groups_BuiltIn" xml:space="preserve"><value>Inbyggd</value></data>
+  <data name="Groups_DeleteTitle" xml:space="preserve"><value>Ta bort grupp</value></data>
+  <data name="Groups_DeleteConfirm" xml:space="preserve"><value>Ta bort gruppen {0}? Alla medlemmar tas bort från den.</value></data>
+  <data name="Groups_MembersTitle" xml:space="preserve"><value>Medlemmar i {0}</value></data>
+  <data name="Groups_AddMember" xml:space="preserve"><value>Lägg till</value></data>
+  <data name="Groups_RemoveMember" xml:space="preserve"><value>Ta bort</value></data>
+  <data name="Groups_NoMembers" xml:space="preserve"><value>Inga medlemmar än.</value></data>
+  <data name="Groups_LastAdmin" xml:space="preserve"><value>Den sista administratören kan inte tas bort.</value></data>
+  <data name="Validation_GroupNameRequired" xml:space="preserve"><value>Ange ett gruppnamn.</value></data>
   <data name="Validation_HexColor" xml:space="preserve"><value>Ange en färg som #RRGGBB eller lämna fältet tomt.</value></data>
   <data name="Validation_CssValue" xml:space="preserve"><value>Får inte innehålla ; { } &lt; &gt; eller \.</value></data>
   <data name="Validation_HttpsUrl" xml:space="preserve"><value>Ange en absolut https://-URL.</value></data>
@@ -504,11 +504,11 @@
   <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-postadressen är bekräftad</value></data>
   <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Ett ändrat nummer sparas som inte verifierat.</value></data>
   <data name="Users_EmailInUse" xml:space="preserve"><value>E-postadressen används redan av ett annat konto.</value></data>
-  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Du kan inte ta bort rollen Admin från ditt eget konto.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Du kan inte ta bort ditt eget konto från gruppen Admins.</value></data>
   <data name="Users_Saved" xml:space="preserve"><value>Ändringarna för {0} har sparats.</value></data>
   <data name="History_EmailChanged" xml:space="preserve"><value>E-postadressen ändrades</value></data>
-  <data name="History_RoleAdded" xml:space="preserve"><value>Roll tillagd</value></data>
-  <data name="History_RoleRemoved" xml:space="preserve"><value>Roll borttagen</value></data>
+  <data name="History_GroupAdded" xml:space="preserve"><value>Tillagd i en grupp</value></data>
+  <data name="History_GroupRemoved" xml:space="preserve"><value>Borttagen från en grupp</value></data>
   <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>När du sparar skickas ett bekräftelsemejl till den nya adressen.</value></data>
   <data name="Users_ConfirmationSent" xml:space="preserve"><value>Ett bekräftelsemejl har skickats till {0}.</value></data>
   <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Börja med en bokstav, sedan bokstäver, siffror och - _ . : / (högst {0} tecken).</value></data>
@@ -517,21 +517,21 @@
   <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Högst {0} tecken.</value></data>
   <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Detta claim finns två gånger.</value></data>
   <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Högst {0} claims.</value></data>
-  <data name="Roles_NotFound" xml:space="preserve"><value>Rollen hittades inte.</value></data>
-  <data name="Roles_BuiltInName" xml:space="preserve"><value>Inbyggda roller kan inte byta namn.</value></data>
-  <data name="Roles_NameInUse" xml:space="preserve"><value>Det finns redan en roll med det namnet.</value></data>
-  <data name="Roles_EditTitle" xml:space="preserve"><value>Redigera rollen {0}</value></data>
-  <data name="Roles_Saved" xml:space="preserve"><value>Rollen {0} har sparats.</value></data>
-  <data name="Roles_AddRole" xml:space="preserve"><value>Lägg till roll</value></data>
+  <data name="Groups_NotFound" xml:space="preserve"><value>Gruppen hittades inte.</value></data>
+  <data name="Groups_BuiltInName" xml:space="preserve"><value>Inbyggda grupper kan inte byta namn.</value></data>
+  <data name="Groups_NameInUse" xml:space="preserve"><value>Det finns redan en grupp med det här namnet.</value></data>
+  <data name="Groups_EditTitle" xml:space="preserve"><value>Redigera gruppen {0}</value></data>
+  <data name="Groups_Saved" xml:space="preserve"><value>Gruppen {0} har sparats.</value></data>
+  <data name="Groups_AddGroup" xml:space="preserve"><value>Lägg till grupp</value></data>
   <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
-  <data name="Claims_UserHint" xml:space="preserve"><value>Läggs till i åtkomsttoken, ID-token och userinfo, tillsammans med claims från användarens roller.</value></data>
-  <data name="Claims_RoleHint" xml:space="preserve"><value>Läggs till i token för alla medlemmar i denna roll.</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Läggs till i access token, ID token och userinfo tillsammans med claims från användarens grupper.</value></data>
+  <data name="Claims_GroupHint" xml:space="preserve"><value>Läggs till i token för alla medlemmar i den här gruppen.</value></data>
   <data name="Claims_Type" xml:space="preserve"><value>Typ</value></data>
   <data name="Claims_Value" xml:space="preserve"><value>Värde</value></data>
   <data name="Claims_Add" xml:space="preserve"><value>Lägg till claim</value></data>
   <data name="Claims_Remove" xml:space="preserve"><value>Ta bort claim</value></data>
   <data name="Claims_None" xml:space="preserve"><value>Inga claims ännu.</value></data>
-  <data name="Claims_FromRoles" xml:space="preserve"><value>Från roller</value></data>
+  <data name="Claims_FromGroups" xml:space="preserve"><value>Från grupper</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Byt avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Laddar…</value></data>
 </root>
