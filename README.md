@@ -310,6 +310,9 @@ docker run -p 8080:8080 -v anubis-data:/data anubis
 
 Token pro restore se předává přes BuildKit secret a neukládá se do image.
 
+Hotový image publikuje GitHub Actions (`.github/workflows/image.yml`) po úspěšných testech při každém pushi do `main`:
+`ghcr.io/k6labs-cz/anubis` s tagy `latest`, verze z `Anubis.csproj` a `sha-<commit>`.
+
 **Kubernetes** (mikroslužba v clusteru): manifesty jsou v [`deploy/kubernetes/`](deploy/kubernetes) jako kustomize
 set — `namespace.yaml`, `pvc.yaml`, `configmap.yaml`, `secret.yaml` (placeholder hodnoty!), `deployment.yaml`,
 `service.yaml` (ClusterIP, jen pro cluster), `ingress.yaml` (TLS + veřejná adresa). Nasazení:
