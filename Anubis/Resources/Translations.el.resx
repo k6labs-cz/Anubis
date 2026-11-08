@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Ελληνικά (el). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Εφαρμογή ελέγχου ταυτότητας</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Αλλαγή κωδικού πρόσβασης</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Η αποστολή απέτυχε, δοκιμάστε αργότερα</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Στάλθηκε, ελέγξτε τα εισερχόμενά σας</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Έχει ήδη σταλεί, δοκιμάστε ξανά σε λίγα λεπτά</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Δημιουργήθηκε</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Ρύθμιση προγράμματος περιήγησης</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Κλειδιά πρόσβασης</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Ρόλοι</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Αποστολή email επιβεβαίωσης</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Πολλαπλών παραγόντων</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>Πελάτες OIDC</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scopes</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Χρήστες</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Κωδικός από την εφαρμογή</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Δημιουργία νέου κλειδιού</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>Από εδώ και πέρα θα σας ζητείται κωδικός μετά τον κωδικό πρόσβασης.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Ο κωδικός δεν είναι έγκυρος. Βεβαιωθείτε ότι το ρολόι της συσκευής σας είναι σωστό και δοκιμάστε ξανά.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Δεν μπορείτε να τον σαρώσετε; Εισαγάγετε αυτό το κλειδί χειροκίνητα:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Θα δημιουργηθεί νέο κλειδί. Η τρέχουσα εφαρμογή σας σταματά να λειτουργεί αμέσως και η σύνδεση δύο παραγόντων παραμένει απενεργοποιημένη μέχρι να ολοκληρώσετε τη ρύθμιση της νέας εφαρμογής.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Μετάβαση σε άλλη εφαρμογή ελέγχου ταυτότητας</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>Κωδικός QR για την εφαρμογή ελέγχου ταυτότητας</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Σαρώστε τον κωδικό QR με την εφαρμογή σας και, στη συνέχεια, εισαγάγετε τον κωδικό που εμφανίζει.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Επαλήθευση και ενεργοποίηση</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Τρέχων κωδικός πρόσβασης</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Επιλέξτε νέο κωδικό πρόσβασης (τουλάχιστον {0} χαρακτήρες).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Ο κωδικός πρόσβασής σας ενημερώθηκε.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Η αλλαγή κωδικού πρόσβασης απέτυχε</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Ενημέρωση κωδικού πρόσβασης</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Επιτρεπόμενα scopes</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Δημιουργία πελάτη</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>Η εφαρμογή μου</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Επεξεργασία πελάτη: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (μηχανή προς μηχανή)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (με PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>URI ανακατεύθυνσης μετά την αποσύνδεση (ένα ανά γραμμή)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>URI ανακατεύθυνσης (ένα ανά γραμμή)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Δημιουργία νέου μυστικού</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Απαίτηση ρητής συναίνεσης του χρήστη</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Αποθήκευση αλλαγών</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Μυστικό πελάτη</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Αφήστε κενό για να διατηρηθεί το τρέχον μυστικό.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Αφήστε κενό για δημόσιο πελάτη (μόνο PKCE) ή εισαγάγετε μυστικό για εμπιστευτικό πελάτη.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Τουλάχιστον 16 χαρακτήρες</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Αντιγράψτε το τώρα — εμφανίζεται μόνο μία φορά. Το OpenIddict αποθηκεύει μόνο το hash του.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>Το {0} ενημερώθηκε.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>ID πελάτη</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Συναίνεση</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Σιωπηρή</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Απαιτείται</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Θέλετε σίγουρα να διαγράψετε το {0}; Τα tokens που έχουν εκδοθεί γι' αυτό παύουν να λειτουργούν αμέσως.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Διαγραφή πελάτη</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Τύποι grant</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Νέος πελάτης</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Τύπος</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Διαχείριση</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Επιστροφή στη σύνδεση</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Ακύρωση</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Ελέγξτε τα εισερχόμενά σας</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Επιβεβαίωση νέου κωδικού πρόσβασης</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Διαγραφή</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Περιγραφή</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Εμφανιζόμενο όνομα</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Επεξεργασία</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>Email</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>eseis@paradeigma.gr</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Σφάλμα</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Ο λογαριασμός κλειδώθηκε λόγω πάρα πολλών αποτυχημένων προσπαθειών. Δοκιμάστε αργότερα.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Όνομα</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Νέος κωδικός πρόσβασης</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Τουλάχιστον {0} χαρακτήρες</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Όχι</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Κανένα</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Ανενεργό</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Ενεργό</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Κωδικός πρόσβασης</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Μετονομασία</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Αποθήκευση</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Σύνδεση</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Κάτι πήγε στραβά</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Ο χρήστης δεν βρέθηκε.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Ναι</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Συνέχεια</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Οι σύνδεσμοι επιβεβαίωσης ισχύουν για 24 ώρες. Ζητήστε νέο παρακάτω.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Ο σύνδεσμος δεν είναι έγκυρος ή έχει λήξει</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Επιβεβαίωση email</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Αποστολή νέου συνδέσμου</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Ευχαριστούμε. Η διεύθυνση email σας επιβεβαιώθηκε.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>Το email επιβεβαιώθηκε</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>Επιβεβαίωση email</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Να επιτρέπεται</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Άρνηση</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Μη έγκυρο αίτημα</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Το αίτημα εξουσιοδότησης δεν καθορίζει πελάτη.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Το αίτημα εξουσιοδότησης λείπει ή δεν είναι έγκυρο.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>ζητά πρόσβαση στον λογαριασμό σας.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Εξουσιοδότηση εφαρμογής</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>Η εφαρμογή θα μπορεί να:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Η σύνδεση με κωδικό πρόσβασης θα απαιτεί τότε μόνο τον κωδικό. Αν ο κωδικός διαρρεύσει, ο λογαριασμός σας θα υποκλαπεί πιο εύκολα. Τα κλειδιά πρόσβασης συνεχίζουν να λειτουργούν.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Απενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Απενεργοποίηση της εφαρμογής ελέγχου ταυτότητας;</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Επιβεβαίωση email</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Ο σύνδεσμος ισχύει για 24 ώρες. Αν δεν δημιουργήσατε λογαριασμό, μπορείτε να αγνοήσετε αυτό το email.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Επιβεβαιώστε τη διεύθυνση email σας</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Γεια σας {0}, επιβεβαιώστε ότι το {1} ανήκει στον λογαριασμό σας στο Anubis.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Επιλογή νέου κωδικού πρόσβασης</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Ο σύνδεσμος ισχύει για 1 ώρα και λειτουργεί μία φορά. Αν δεν το ζητήσατε, αγνοήστε αυτό το email· ο κωδικός πρόσβασής σας παραμένει ίδιος.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Επαναφέρετε τον κωδικό πρόσβασής σας</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Γεια σας {0}, κάποιος ζήτησε επαναφορά του κωδικού πρόσβασης του λογαριασμού σας στο Anubis.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Άνοιγμα του Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Λάβατε αυτό το μήνυμα επειδή ένας διαχειριστής έστειλε δοκιμαστικό email.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>Το email λειτουργεί</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Δοκιμαστικό email του Anubis</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Αυτό το δοκιμαστικό μήνυμα στάλθηκε από το Anubis μέσω {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Ρύθμιση</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Τομέας</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>χρήστη</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Οι σύνδεσμοι στα email χρησιμοποιούν τότε το όνομα κεντρικού υπολογιστή κάθε αιτήματος. Σε παραγωγή ορίστε το Anubis:Issuer στη δημόσια διεύθυνση URL σας.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Το Anubis:Issuer δεν έχει οριστεί</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Αν το κουμπί δεν λειτουργεί, ανοίξτε αυτόν τον σύνδεσμο:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Μόνο αρχείο καταγραφής (δεν έχει ρυθμιστεί)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>Τα email γράφονται μόνο στο αρχείο καταγραφής. Ορίστε το Email:Smtp:Host ή επιλέξτε άλλο Email:Provider (SendGrid, Mailgun, Postmark, Resend) στη ρύθμιση.</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>Το email δεν έχει ρυθμιστεί</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Πάροχος</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Παραλήπτης</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Η αποστολή απέτυχε</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Αποστολή δοκιμαστικού email</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Στάλθηκε</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>Το δοκιμαστικό email προς {0} έγινε δεκτό από {1}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>Το email δεν έχει ρυθμιστεί, οπότε το μήνυμα γράφτηκε μόνο στο αρχείο καταγραφής.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Ο πελάτης '{0}' δεν βρέθηκε.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Σφάλμα</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>ID αιτήματος: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>Το scope '{0}' υπάρχει ήδη.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>Το scope '{0}' δεν βρέθηκε.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Παρουσιάστηκε σφάλμα κατά την επεξεργασία του αιτήματός σας.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Θα σας στείλουμε σύνδεσμο για να επιλέξετε νέο.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Ξεχάσατε τον κωδικό</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Αποστολή συνδέσμου επαναφοράς</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Αν υπάρχει λογαριασμός με αυτή τη διεύθυνση, ο σύνδεσμος επαναφοράς είναι καθ' οδόν. Ο σύνδεσμος ισχύει για 1 ώρα.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Ξεχάσατε τον κωδικό πρόσβασής σας;</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Δημιουργία λογαριασμού</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Η εγγραφή τροποποιήθηκε από κάποιον άλλο. Φορτώστε ξανά και δοκιμάστε πάλι.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Παρουσιάστηκε άγνωστο σφάλμα.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>Το email '{0}' χρησιμοποιείται ήδη.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Το όνομα ρόλου '{0}' χρησιμοποιείται ήδη.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Το όνομα χρήστη '{0}' χρησιμοποιείται ήδη.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>Το email '{0}' δεν είναι έγκυρο.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Το όνομα ρόλου '{0}' δεν είναι έγκυρο.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Μη έγκυρο token.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>Το όνομα χρήστη '{0}' δεν είναι έγκυρο.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Υπάρχει ήδη χρήστης με αυτή τη σύνδεση.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Λάθος κωδικός πρόσβασης.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον ένα ψηφίο (0-9).</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον ένα πεζό γράμμα (a-z).</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον έναν χαρακτήρα που δεν είναι γράμμα ή ψηφίο.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Ο κωδικός πρόσβασης πρέπει να χρησιμοποιεί τουλάχιστον {0} διαφορετικούς χαρακτήρες.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον ένα κεφαλαίο γράμμα (A-Z).</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Ο κωδικός πρόσβασης πρέπει να έχει μήκος τουλάχιστον {0} χαρακτήρων.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Δεν ήταν δυνατή η χρήση του κωδικού ανάκτησης.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Ο χρήστης έχει ήδη κωδικό πρόσβασης.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Ο χρήστης έχει ήδη τον ρόλο '{0}'.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Το κλείδωμα δεν είναι ενεργοποιημένο για αυτόν τον χρήστη.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Ο χρήστης δεν έχει τον ρόλο '{0}'.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Λογαριασμός</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Γλώσσα</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Κύρια πλοήγηση</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Αποσύνδεση</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Δημιουργήστε έναν</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Χρησιμοποιήστε κλειδί πρόσβασης ή το email και τον κωδικό πρόσβασής σας.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Επιβεβαιώστε πρώτα τη διεύθυνση email σας. Θα βρείτε τον σύνδεσμο στα εισερχόμενά σας.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Η σύνδεση απέτυχε</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Ξεχάσατε τον κωδικό πρόσβασής σας;</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Λάθος email ή κωδικός πρόσβασης.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Δεν έχετε ακόμη λογαριασμό;</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Η σύνδεση δεν επιτρέπεται για αυτόν τον λογαριασμό.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>ή</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Σύνδεση</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Ο κωδικός πρόσβασής σας</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Αποστολή ξανά του email επιβεβαίωσης</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Σύνδεση στο Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Αυτό το κλειδί πρόσβασης δεν είναι καταχωρημένο στο Anubis.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Σύνδεση με κλειδί πρόσβασης</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Αυτή η συσκευή έχει ήδη κλειδί πρόσβασης για αυτόν τον λογαριασμό.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>Το αίτημα κλειδιού πρόσβασης ακυρώθηκε ή έληξε.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Δεν ήταν δυνατή η χρήση του κλειδιού πρόσβασης. Δοκιμάστε ξανά.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Ο διακομιστής δεν μπόρεσε να ξεκινήσει το αίτημα κλειδιού πρόσβασης. Δοκιμάστε ξανά.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Αυτό το πρόγραμμα περιήγησης δεν υποστηρίζει κλειδιά πρόσβασης.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Αυτό το πρόγραμμα περιήγησης δεν υποστηρίζει κλειδιά πρόσβασης. Ενημερώστε το.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Κωδικοί μίας χρήσης για σύνδεση αν χάσετε την εφαρμογή ελέγχου ταυτότητας.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Δημιουργία νέων κωδικών</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Χρησιμοποιήστε έναν από αυτούς για σύνδεση αν χάσετε την εφαρμογή ελέγχου ταυτότητας.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Εμφανίζονται μόνο μία φορά. Φυλάξτε τους σε ασφαλές μέρος, π.χ. σε διαχειριστή κωδικών πρόσβασης. Κάθε κωδικός σας συνδέει μία φορά αν χάσετε την εφαρμογή ελέγχου ταυτότητας. Οι παλιοί κωδικοί δεν λειτουργούν πλέον.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Αποθηκεύστε τώρα αυτούς τους κωδικούς ανάκτησης</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Αποθήκευσα τους κωδικούς</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Κωδικοί ανάκτησης</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Θα δημιουργηθούν {0} νέοι κωδικοί. Οι τρέχοντες κωδικοί σας παύουν να λειτουργούν.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Επιστροφή στον κωδικό ελέγχου ταυτότητας</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Κωδικός ανάκτησης</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Κάθε κωδικός ανάκτησης λειτουργεί μόνο μία φορά.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Ο κωδικός ανάκτησης δεν είναι έγκυρος ή έχει ήδη χρησιμοποιηθεί.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Κωδικός ανάκτησης</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Σύνδεση με κωδικό ανάκτησης</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Έχετε ήδη εγγραφεί;</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Επιβεβαίωση κωδικού πρόσβασης</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Επαναλάβετε τον κωδικό πρόσβασης</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Στείλαμε σύνδεσμο επιβεβαίωσης στο {0}. Επιβεβαιώστε τη διεύθυνση και μετά συνδεθείτε.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Εγγραφείτε με email και κωδικό πρόσβασης.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Η αυτόνομη εγγραφή είναι προς το παρόν απενεργοποιημένη. Επικοινωνήστε με έναν διαχειριστή.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Η εγγραφή είναι απενεργοποιημένη</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Μαρία Παπαδοπούλου</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Η εγγραφή απέτυχε</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Δεν λάβατε email;</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Δημιουργία λογαριασμού</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Αποστολή ξανά</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Δημιουργήστε τον λογαριασμό σας</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Δώστε του ένα όνομα που θα αναγνωρίζετε, π.χ. «Pixel 9» ή «MacBook Touch ID».</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Ονομάστε το κλειδί πρόσβασης</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Παράλειψη</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Μετονομασία κλειδιού πρόσβασης</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Θα σας στείλουμε νέο σύνδεσμο για την επιβεβαίωση της διεύθυνσής σας.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Επανάληψη επιβεβαίωσης</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Αποστολή συνδέσμου</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Αν η διεύθυνση ανήκει σε μη επιβεβαιωμένο λογαριασμό, ένας νέος σύνδεσμος είναι καθ' οδόν.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Αποστολή ξανά του email επιβεβαίωσης</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Μπορείτε τώρα να συνδεθείτε με τον νέο κωδικό πρόσβασης.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Ο κωδικός πρόσβασης άλλαξε</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Δεν ήταν δυνατή η επαναφορά του κωδικού πρόσβασης</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Αυτός ο σύνδεσμος επαναφοράς είναι ελλιπής. Ανοίξτε ξανά τον σύνδεσμο από το email ή ζητήστε νέο.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Μη έγκυρος σύνδεσμος</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Ο σύνδεσμος έληξε ή έχει ήδη χρησιμοποιηθεί. Ζητήστε νέο.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Επαναφορά κωδικού πρόσβασης</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Αίτηση νέου συνδέσμου</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Ορισμός νέου κωδικού πρόσβασης</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Επιλέξτε νέο κωδικό πρόσβασης</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Ο λογαριασμός σας δεν έχει πρόσβαση σε αυτή τη σελίδα.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Δεν επιτρέπεται η πρόσβαση</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Δεν βρέθηκε</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Λυπούμαστε, δεν υπάρχει τίποτα σε αυτή τη διεύθυνση.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Η σελίδα δεν βρέθηκε</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Βλέπει τη διεύθυνση email σας</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Διατηρεί την πρόσβαση όσο λείπετε (refresh tokens)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Επιβεβαιώνει ποιος είστε</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Βλέπει το όνομα και το προφίλ σας</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Βλέπει τους ρόλους σας</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Δημιουργία scope</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Οι πελάτες μπορούν να ζητούν προσαρμοσμένα scopes, συνδεδεμένα με πόρους (audiences).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Το API μου</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Πόροι (διαχωρισμένοι με κόμμα)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Πόροι</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Προσθήκη κλειδιού πρόσβασης</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>Μετά τον κωδικό πρόσβασης, εισαγάγετε έναν 6ψήφιο κωδικό από εφαρμογή όπως Aegis, 2FAS, Google Authenticator, Microsoft Authenticator ή 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Κωδικοί ανάκτησης που απομένουν: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Σκεφτείτε να δημιουργήσετε νέους κωδικούς.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Απομένουν λίγοι κωδικοί ανάκτησης ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Να ξεχαστεί αυτό το πρόγραμμα περιήγησης</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Μετάβαση σε άλλη εφαρμογή</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Δημιουργήστε νέους κωδικούς τώρα, αλλιώς μπορεί να μείνετε εκτός λογαριασμού.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Δεν απομένουν κωδικοί ανάκτησης</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Το πρόγραμμα περιήγησης δεν παρείχε κλειδί πρόσβασης.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Δεν υπάρχουν ακόμη κλειδιά πρόσβασης.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Προστέθηκε</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Μπορείτε να έχετε έως {0} κλειδιά πρόσβασης. Διαγράψτε ένα για να προσθέσετε άλλο.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Δεν ήταν δυνατή η αποθήκευση του κλειδιού πρόσβασης.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Δεν ήταν δυνατή η επαλήθευση του κλειδιού πρόσβασης. Δοκιμάστε ξανά ή χρησιμοποιήστε άλλη συσκευή.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Συγχρονισμένο</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Συνδεθείτε με δακτυλικό αποτύπωμα, πρόσωπο ή PIN της συσκευής αντί για κωδικό πρόσβασης. Το κλειδί πρόσβασης αποθηκεύεται στο τηλέφωνο, στον υπολογιστή ή σε κλειδί ασφαλείας και δεν μπορεί να υποκλαπεί με phishing.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Ρύθμιση εφαρμογής ελέγχου ταυτότητας</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Αυτό το πρόγραμμα περιήγησης</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Αυτό το πρόγραμμα περιήγησης παραλείπει τον κωδικό ελέγχου ταυτότητας κατά τη σύνδεση.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Απενεργοποίηση</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Κλειδί πρόσβασης χωρίς όνομα</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Θα σας ζητείται κωδικός από την εφαρμογή όταν συνδέεστε με κωδικό πρόσβασης.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Η εφαρμογή ελέγχου ταυτότητας ενεργοποιήθηκε</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Ρυθμίστε ξανά την εφαρμογή ελέγχου ταυτότητας με το νέο κλειδί.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Το κλειδί ελέγχου ταυτότητας επαναφέρθηκε</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Αυτό το πρόγραμμα περιήγησης θα ζητήσει ξανά κωδικό στην επόμενη σύνδεση.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Το πρόγραμμα περιήγησης ξεχάστηκε</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>Η εφαρμογή ελέγχου ταυτότητας δεν απαιτείται πλέον για σύνδεση.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Ο έλεγχος ταυτότητας δύο παραγόντων απενεργοποιήθηκε</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Ρυθμίστε εφαρμογή ελέγχου ταυτότητας πριν δημιουργήσετε κωδικούς ανάκτησης.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Μη διαθέσιμο</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Μπορείτε τώρα να συνδέεστε με αυτό το κλειδί πρόσβασης.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Το κλειδί πρόσβασης προστέθηκε</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Το κλειδί πρόσβασης δεν μπορεί πλέον να χρησιμοποιηθεί για σύνδεση.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Το κλειδί πρόσβασης διαγράφηκε</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>Το κλειδί πρόσβασης δεν υπάρχει ή ανήκει σε άλλον λογαριασμό.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Το κλειδί πρόσβασης δεν βρέθηκε</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>Το όνομα του κλειδιού πρόσβασης ενημερώθηκε.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Το κλειδί πρόσβασης μετονομάστηκε</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Κωδικός ελέγχου ταυτότητας</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Εισαγάγετε τον 6ψήφιο κωδικό από την εφαρμογή ελέγχου ταυτότητας.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Ο κωδικός δεν είναι έγκυρος ή έχει λήξει.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Χάσατε τη συσκευή σας;</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Έλεγχος ταυτότητας δύο παραγόντων</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>Να μην ξαναρωτηθώ σε αυτό το πρόγραμμα περιήγησης για 14 ημέρες</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Χρήση κωδικού ανάκτησης</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Η επαλήθευση απέτυχε</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Επαλήθευση</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Ενεργός</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Δημιουργία χρήστη</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Οι κωδικοί πρόσβασης αποθηκεύονται ως hash Argon2id.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>Το {0} δημιουργήθηκε.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Θέλετε σίγουρα να διαγράψετε το {0}; Η ενέργεια δεν αναιρείται.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Διαγραφή χρήστη</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Ο χρήστης διαγράφηκε</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>Το {0} διαγράφηκε.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Κλείδωμα</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Κλειδωμένος</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>Ο χρήστης {0} μπορεί τώρα να συνδεθεί μόνο με τον κωδικό πρόσβασης.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Κλειδιά πρόσβασης: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Επαναφορά MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Αυτό απενεργοποιεί την εφαρμογή ελέγχου ταυτότητας, διαγράφει όλα τα κλειδιά πρόσβασης του {0} και τον αποσυνδέει παντού. Χρησιμοποιήστε το όταν κάποιος έχασε τη συσκευή του. Στη συνέχεια θα μπορεί να συνδεθεί μόνο με τον κωδικό πρόσβασης και να ρυθμίσει ξανά το MFA.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Κατάσταση</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Ξεκλείδωμα</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Εισαγάγετε ID πελάτη.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Χρησιμοποιήστε τουλάχιστον 16 χαρακτήρες ή αφήστε κενό για δημόσιο πελάτη.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Ο κωδικός έχει 6 ψηφία.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Εισαγάγετε τον κωδικό από την εφαρμογή.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Επιβεβαιώστε τον κωδικό πρόσβασης.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Εισαγάγετε τον τρέχοντα κωδικό πρόσβασης.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Χρησιμοποιήστε έως 100 χαρακτήρες.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Εισαγάγετε έγκυρη διεύθυνση email.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>Το email είναι υποχρεωτικό.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Επιτρέπονται μόνο γράμματα, ψηφία, '-', '_' και '.'.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Εισαγάγετε όνομα.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Χρησιμοποιήστε έως 100 χαρακτήρες.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Ο κωδικός πρόσβασης είναι υποχρεωτικός.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Οι κωδικοί πρόσβασης δεν ταιριάζουν.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Εισαγάγετε παραλήπτη.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Εισαγάγετε κωδικό ανάκτησης.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Εισαγάγετε όνομα scope.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Μεταφόρτωση avatar</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Χρήση Gravatar</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF ή SVG. Η εικόνα σμικρύνεται έως 1024×1024 και αποθηκεύεται ως διαφανές WebP. Αν δεν οριστεί, χρησιμοποιείται το Gravatar.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Το εμφανιζόμενο όνομα αποθηκεύτηκε.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Το avatar ενημερώθηκε.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Το προσαρμοσμένο avatar αφαιρέθηκε. Χρησιμοποιείται το Gravatar.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Μη έγκυρο ή μη υποστηριζόμενο αρχείο εικόνας.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Το αρχείο εικόνας είναι πολύ μεγάλο (έως 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Ρυθμίσεις</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Ρόλοι</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Εμφάνιση</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Λογαριασμοί που μπορούν να συνδεθούν στο Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Οι ρόλοι αποστέλλονται στις εφαρμογές πελάτη στο claim roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Δικαιώματα που μπορούν να ζητήσουν οι εφαρμογές πελάτη.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Εφαρμογές που συνδέουν χρήστες μέσω του Anubis.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Εξερχόμενα email για επιβεβαίωση διεύθυνσης και επαναφορά κωδικού πρόσβασης.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Λογότυπο, γραμματοσειρά και χρώματα των σελίδων σύνδεσης και λογαριασμού.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Κλείσιμο</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Αποθηκεύεται στο {0}. Αυτές οι τιμές υπερισχύουν του appsettings.json και των μεταβλητών περιβάλλοντος.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Οι ρυθμίσεις αποθηκεύτηκαν</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Οι αλλαγές εφαρμόζονται αμέσως.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Οι ρυθμίσεις δεν αποθηκεύτηκαν</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Ορίστηκε. Αφήστε κενό για να διατηρηθεί η τρέχουσα τιμή.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Διεύθυνση αποστολέα</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Όνομα αποστολέα</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>Διακομιστής SMTP</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Θύρα</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Κρυπτογράφηση</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Χρονικό όριο (δευτερόλεπτα)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Όνομα χρήστη</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>Κλειδί API</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Token διακομιστή</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>URL του API</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Λογότυπο και εικονίδιο</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Μεταφορτώστε SVG, WebP, PNG, JPEG ή GIF (αποθηκεύεται στο αρχείο ρυθμίσεων) ή εισαγάγετε διαδρομή στο wwwroot ή διεύθυνση https://. Εκδόσεις PNG του favicon για Safari και iOS δημιουργούνται αυτόματα.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Λογότυπο</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Γραμματοσειρά</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Κενό = προεπιλεγμένη γραμματοσειρά (η σταθερού πλάτους του συστήματος). Μπορούν να χρησιμοποιηθούν μόνο γραμματοσειρές εγκατεστημένες στη συσκευή.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Οικογένεια γραμματοσειράς (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Φωτεινό θέμα</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Σκούρο θέμα</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Επιλέξτε χρώμα ή εισαγάγετέ το ως #RRGGBB. Κενό = προεπιλεγμένο χρώμα.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Κύριο</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Δευτερεύον</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Φόντο</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Κείμενο</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Δημιουργία ρόλου</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Ένας νέος ρόλος δεν έχει μέλη· προσθέστε τα στη λίστα παρακάτω.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Μέλη</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Ενσωματωμένος</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Διαγραφή ρόλου</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Διαγραφή του ρόλου {0}; Όλα τα μέλη του θα τον χάσουν.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Μέλη του {0}</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Προσθήκη</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Αφαίρεση</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Δεν υπάρχουν ακόμη μέλη.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>Ο τελευταίος διαχειριστής δεν μπορεί να αφαιρεθεί.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Εισαγάγετε όνομα ρόλου.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Εισαγάγετε χρώμα ως #RRGGBB ή αφήστε το πεδίο κενό.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Δεν πρέπει να περιέχει ; { } &lt; &gt; ή \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Εισαγάγετε απόλυτη διεύθυνση https://.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Εισαγάγετε διαδρομή που ξεκινά με /, διεύθυνση https:// ή μεταφορτώστε ένα αρχείο.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Μεταφόρτωση</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Χρήση προεπιλογής</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Μεταφορτωμένο αρχείο · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Μη υποστηριζόμενη ή κατεστραμμένη εικόνα ή SVG με εξωτερικούς συνδέσμους. Χρησιμοποιήστε SVG, WebP, PNG, JPEG ή GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Το αρχείο είναι πολύ μεγάλο (έως {0} MB, {1} KB μετά την επεξεργασία).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Επαληθευμένο</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Μη επαληθευμένο</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Αριθμός τηλεφώνου</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Διεθνής μορφή, π.χ. +30 691 234 5678.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Αποστολή κωδικού</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Κωδικός από το SMS</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Στείλαμε κωδικό στο {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Ο αριθμός τηλεφώνου επαληθεύτηκε.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Εισαγάγετε τον αριθμό σε διεθνή μορφή, π.χ. +30 691 234 5678.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Μόλις στάλθηκε κωδικός. Δοκιμάστε ξανά σε ένα λεπτό.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Ο κωδικός επαλήθευσης Anubis: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Λειτουργία χρωμάτων</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Φωτεινή</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Σκούρα</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>Συστήματος</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Δεν έχει επιλεγεί: χρησιμοποιείται η προτιμώμενη γλώσσα του προγράμματος περιήγησης.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Δεν έχει επιλεγεί: ακολουθεί τη φωτεινή ή σκούρα ρύθμιση του συστήματός σας.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Ιστορικό</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Συνδέσεις και αλλαγές στον λογαριασμό σας τους τελευταίους 12 μήνες.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Δεν υπάρχει τίποτα ακόμη.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Νεότερα</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Παλαιότερα</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>από διαχειριστή</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Άγνωστη συσκευή</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Δημιουργία λογαριασμού</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Σύνδεση</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Αποτυχημένη απόπειρα σύνδεσης</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Ο λογαριασμός κλειδώθηκε μετά από πολλές αποτυχημένες απόπειρες</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Αποσύνδεση</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Σύνδεση σε εφαρμογή</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Αλλαγή κωδικού πρόσβασης</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Επαναφορά κωδικού μέσω email</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>Επιβεβαίωση διεύθυνσης email</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Ενεργοποίηση εφαρμογής ελέγχου ταυτότητας</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Απενεργοποίηση εφαρμογής ελέγχου ταυτότητας</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Δημιουργία νέων κωδικών ανάκτησης</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Προσθήκη κλειδιού πρόσβασης</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Αφαίρεση κλειδιού πρόσβασης</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Αλλαγή αριθμού τηλεφώνου</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Επαλήθευση αριθμού τηλεφώνου</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Αφαίρεση αριθμού τηλεφώνου</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Αλλαγή εμφανιζόμενου ονόματος</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Αλλαγή avatar</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Κλείδωμα λογαριασμού</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Ξεκλείδωμα λογαριασμού</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>κωδικός πρόσβασης</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>κλειδί πρόσβασης</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>εφαρμογή ελέγχου ταυτότητας</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>κωδικός ανάκτησης</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Αποσύνδεση από το Anubis;</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Διαχείριση</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Ενέργειες</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Διαγραφή του scope {0}; Οι πελάτες δεν θα μπορούν πλέον να το ζητούν.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Γενικά</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Βασικές ρυθμίσεις αυτού του διακομιστή.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Όνομα διακομιστή</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Εμφανίζεται στον τίτλο της καρτέλας του προγράμματος περιήγησης και στο πάνω μέρος των σελίδων λογαριασμού και διαχείρισης.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Εισαγάγετε όνομα διακομιστή.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Χρησιμοποιήστε έως 60 χαρακτήρες.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Ασφάλεια</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Κανόνες κωδικών, κλείδωμα μετά από αποτυχημένες απόπειρες, διάρκεια συνεδρίας και κλειδιά πρόσβασης. Οι αλλαγές ισχύουν αμέσως.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Tokens</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Διάρκεια ισχύος των tokens και κωδικών για εφαρμογές πελάτη. Οι αλλαγές ισχύουν για νέα tokens.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Διακομιστής</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>Δημόσιο URL (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Για παράδειγμα https://id.example.com. Κενό = από κάθε αίτημα. Ισχύει μετά από επανεκκίνηση.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Εγγραφή</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Να επιτρέπεται η αυτόνομη εγγραφή</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Να απαιτείται επιβεβαιωμένο email για σύνδεση</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Απαιτεί λειτουργικές ρυθμίσεις email.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Κωδικοί πρόσβασης</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Ελάχιστο μήκος</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Να απαιτείται ψηφίο</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Να απαιτείται πεζό γράμμα</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Να απαιτείται κεφαλαίο γράμμα</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Να απαιτείται σύμβολο</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Κλείδωμα μετά από αποτυχημένες συνδέσεις</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Αποτυχημένες απόπειρες πριν το κλείδωμα</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Διάρκεια κλειδώματος (λεπτά)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Συνεδρία σύνδεσης</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Διάρκεια συνεδρίας (ώρες)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Παράταση της συνεδρίας όσο ο χρήστης είναι ενεργός</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Μέγιστος αριθμός κλειδιών πρόσβασης ανά λογαριασμό</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (λεπτά)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID token (λεπτά)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Κωδικός εξουσιοδότησης (λεπτά)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (ημέρες)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Συναίνεση (λεπτά)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Πόσο διατηρείται μια δοσμένη συναίνεση κατά τη σύνδεση.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Επιτρεπόμενο εύρος: {0} έως {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Επεξεργασία {0}</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>Η διεύθυνση email είναι και το όνομα σύνδεσης: ο χρήστης θα συνδέεται με τη νέα διεύθυνση.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>Η διεύθυνση email επιβεβαιώθηκε</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Ένας αλλαγμένος αριθμός αποθηκεύεται ως μη επαληθευμένος.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Αυτή η διεύθυνση email χρησιμοποιείται ήδη από άλλον λογαριασμό.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Δεν μπορείτε να αφαιρέσετε τον ρόλο Admin από τον δικό σας λογαριασμό.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Οι αλλαγές στο {0} αποθηκεύτηκαν.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>Αλλαγή διεύθυνσης email</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Προσθήκη ρόλου</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Αφαίρεση ρόλου</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Μετά την αποθήκευση, αποστέλλεται email επιβεβαίωσης στη νέα διεύθυνση.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Στάλθηκε email επιβεβαίωσης στο {0}.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Ξεκινήστε με γράμμα, μετά γράμματα, ψηφία και - _ . : / (έως {0} χαρακτήρες).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>Το «{0}» ορίζεται από το Anubis και δεν μπορεί να χρησιμοποιηθεί.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Εισαγάγετε μια τιμή.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Έως {0} χαρακτήρες.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Αυτό το claim εμφανίζεται δύο φορές.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Έως {0} claims.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Ο ρόλος δεν βρέθηκε.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Οι ενσωματωμένοι ρόλοι δεν μετονομάζονται.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Υπάρχει ήδη ρόλος με αυτό το όνομα.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Επεξεργασία ρόλου {0}</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Ο ρόλος {0} αποθηκεύτηκε.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Προσθήκη ρόλου</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Προστίθενται στο access token, στο ID token και στο userinfo, μαζί με τα claims των ρόλων του χρήστη.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Προστίθενται στα tokens όλων των μελών αυτού του ρόλου.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Τύπος</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Τιμή</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Προσθήκη claim</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Αφαίρεση claim</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Δεν υπάρχουν ακόμη claims.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Από ρόλους</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Αλλαγή avatar</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Φόρτωση…</value></data>
+</root>

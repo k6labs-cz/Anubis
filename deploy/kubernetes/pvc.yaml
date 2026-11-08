@@ -1,0 +1,13 @@
+# SQLite lives on this volume, so the Deployment runs exactly ONE replica with the
+# "Recreate" strategy (two pods must never open the same database file).
+# Use block storage (ReadWriteOnce); SQLite file locking is not reliable on NFS-like volumes.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: anubis-data
+spec:
+  accessModes: ["ReadWriteOnce"]
+  # storageClassName: standard-rwo        # uncomment / set to your cluster's block storage class
+  resources:
+    requests:
+      storage: 1Gi

@@ -1,0 +1,21 @@
+@namespace k6labs.Anubis.Components.Shared
+@implements IDisposable
+
+<div aria-live="polite">
+    @if (State.Items.Count > 0)
+    {
+        <Stack Gap="Gap.Small">
+            @foreach (var item in State.Items)
+            {
+                <Alert Severity="@item.Kind" OnDismiss="() => State.Dismiss(item)" DismissLabel="@Translations.Common_Close">@item.Text</Alert>
+            }
+        </Stack>
+    }
+</div>
+
+@code {
+    [Parameter, EditorRequired] public NotificationState State { get; set; } = default!;
+    protected override void OnInitialized() => State.Changed += Refresh;
+    private void Refresh() => _ = InvokeAsync(StateHasChanged);
+    public void Dispose() => State.Changed -= Refresh;
+}

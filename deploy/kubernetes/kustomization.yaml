@@ -1,0 +1,17 @@
+# Anubis as a microservice in a Kubernetes cluster.
+#
+#   kubectl apply -k deploy/kubernetes
+#   (or: kubectl kustomize deploy/kubernetes | kubectl apply -f -)
+#
+# Adapt BEFORE applying: image name, host, storage class, and the placeholder
+# values in secret.yaml / configmap.yaml.
+namespace: anubis
+
+resources:
+  - namespace.yaml
+  - pvc.yaml
+  - configmap.yaml
+  - secret.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml

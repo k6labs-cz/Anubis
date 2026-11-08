@@ -1,0 +1,29 @@
+@namespace k6labs.Anubis.Components.Shared
+
+@* The one "Save" of a settings form: at the bottom, enabled only when the form has changes.
+   A submit button, so it saves the surrounding EditForm (and Enter in a field does too). *@
+<Stack Gap="Gap.None" data-save-bar>
+    <Divider />
+    <Stack Direction="Direction.Row" Wrap="true" Align="Align.Center" Gap="Gap.Medium">
+        <Button Disabled="@(!Dirty || Busy)" data-save-button Type="submit" Icon="@AppIcons.Save">
+            @Translations.Common_Save
+        </Button>
+        @if (!string.IsNullOrEmpty(Note))
+        {
+            <Typography Variant="TextVariant.Caption" Tone="Tone.Muted">@Note</Typography>
+        }
+    </Stack>
+</Stack>
+
+@code {
+    /// <summary>The form differs from what is saved.</summary>
+    [Parameter]
+    public bool Dirty { get; set; }
+
+    [Parameter]
+    public bool Busy { get; set; }
+
+    /// <summary>Optional text right of the button (e.g. where the settings are stored).</summary>
+    [Parameter]
+    public string? Note { get; set; }
+}

@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anubis
+  labels: { app: anubis }
+spec:
+  replicas: 1                      # SQLite: exactly one replica (see pvc.yaml)
+  strategy:
+    type: Recreate                 # never two pods on the same database file
+  selector:
+    matchLabels: { app: anubis }
+  template:
+    metadata:
+      labels: { app: anubis }
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1654             # "app" user of the .NET images
+        runAsGroup: 1654
+        fsGroup: 1654               # makes the PVC writable for that user
+        seccompProfile: { type: RuntimeDefault }
+      containers:
+        - name: anubis
+          image: ghcr.io/k6labs-cz/anubis:0.1.0   # TODO: your registry/image
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: Anubis__ConfigFile
+              value: /config/appsettings.json
+            - name: Anubis__SecretsDirectory
+              value: /run/secrets/anubis
+            # OpenTelemetry (OTLP) — uncomment to export logs/traces/metrics:
+            # - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            #   value: http://otel-collector.observability:4317
+          volumeMounts:
+            - name: data
+              mountPath: /data       # SQLite DB, admin settings, Data Protection keys, OpenIddict certs
+            - name: config
+              mountPath: /config
+              readOnly: true
+            - name: secrets
+              mountPath: /run/secrets/anubis
+              readOnly: true
+            - name: tmp
+              mountPath: /tmp
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }
+          startupProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 5
+            failureThreshold: 30    # first start: migrations + key generation
+          readinessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: { path: /healthz, port: http }
+            periodSeconds: 30
+          resources:
+            requests: { cpu: 100m, memory: 256Mi }
+            limits: { memory: 512Mi }  # Argon2id uses 64 MiB per password check
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: anubis-data
+        - name: config
+          configMap:
+            name: anubis-config
+        - name: secrets
+          secret:
+            secretName: anubis-secrets
+        - name: tmp
+          emptyDir: {}

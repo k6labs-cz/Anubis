@@ -1,0 +1,127 @@
+@page "/admin/general"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = "Admin")]
+
+@using System.Text.Json.Nodes
+@using k6labs.Anubis.Localization
+@using k6labs.Anubis.Options
+@using k6labs.Anubis.Services
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Options
+
+@inject IOptionsMonitor<GeneralOptions> GeneralMonitor
+@inject IOptionsMonitor<AnubisOptions> AnubisMonitor
+@inject SettingsFile Settings
+@inject NavigationManager Navigation
+@inject ILogger<General> Logger
+
+<AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_General))" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@Translations.Admin_General" Description="@Translations.Admin_GeneralDescription" />
+
+    @if (Saved == true && error is null)
+    {
+        <Alert Severity="AlertSeverity.Success" Title="@Translations.Settings_Saved">
+            @Translations.Settings_SavedText
+        </Alert>
+    }
+
+    @if (error is not null)
+    {
+        <Alert Severity="AlertSeverity.Danger" Title="@Translations.Settings_Invalid">
+            @error
+        </Alert>
+    }
+
+    <EditForm Model="model" OnValidSubmit="SaveAsync" FormName="general-settings">
+        <Stack Gap="Gap.Large">
+            <DataAnnotationsValidator />
+
+            <Stack Gap="Gap.Medium">
+                <Typography Variant="TextVariant.Subtitle" As="TextElement.H2">@Translations.General_Server</Typography>
+                <FormText @bind-Value="model.ServerName" Label="@Translations.General_ServerName" Placeholder="@GeneralOptions.DefaultServerName" Id="serverName" Hint="@Translations.General_ServerNameHint" maxlength="@GeneralOptions.ServerNameMaxLength" />
+                <FormText @bind-Value="model.PublicUrl" Label="@Translations.General_PublicUrl" Placeholder="https://id.example.com" Error="@(publicUrlError is not null)" ErrorText="@publicUrlError" Id="publicUrl" Hint="@Translations.General_PublicUrlHint" />
+            </Stack>
+
+            <Divider />
+            <Stack Gap="Gap.Small">
+                <Typography Variant="TextVariant.Subtitle" As="TextElement.H2">@Translations.General_Registration</Typography>
+                <Switch AllowClear="false" @bind-Value="model.AllowRegistration">@Translations.General_AllowRegistration</Switch>
+                <Switch AllowClear="false" @bind-Value="model.RequireConfirmedEmail">@Translations.General_RequireConfirmedEmail</Switch>
+                <Typography Variant="TextVariant.Caption" Tone="Tone.Muted">@Translations.General_RequireConfirmedEmailHint</Typography>
+            </Stack>
+
+            <SaveBar Dirty="@snapshot.IsDirty(model)" Busy="busy" Note="@Translations.Settings_FileNote.F(Settings.Path)" />
+        </Stack>
+    </EditForm>
+</Stack>
+
+@code {
+    [SupplyParameterFromQuery]
+    public bool? Saved { get; set; }
+
+    private readonly GeneralModel model = new();
+    private bool busy;
+    private readonly FormSnapshot snapshot = new();
+    private string? error;
+    private string? publicUrlError;
+
+    protected override void OnInitialized()
+    {
+        var anubis = AnubisMonitor.CurrentValue;
+        model.ServerName = GeneralMonitor.CurrentValue.EffectiveServerName;
+        model.PublicUrl = anubis.Issuer;
+        model.AllowRegistration = anubis.AllowRegistration;
+        model.RequireConfirmedEmail = anubis.RequireConfirmedEmail;
+        snapshot.Take(model);
+    }
+
+    private async Task SaveAsync()
+    {
+        publicUrlError = null;
+        var publicUrl = model.PublicUrl?.Trim();
+        if (!string.IsNullOrEmpty(publicUrl)
+            && !(Uri.TryCreate(publicUrl, UriKind.Absolute, out var uri) && uri.Scheme is "https" or "http" && string.IsNullOrEmpty(uri.Query)))
+        {
+            publicUrlError = Translations.Validation_HttpsUrl;
+            return;
+        }
+
+        busy = true;
+        error = null;
+        try
+        {
+            await Settings.SaveSectionAsync(GeneralOptions.SectionName, SettingsFile.ToNode(new GeneralOptions { ServerName = model.ServerName.Trim() }));
+            await Settings.UpdateSectionAsync(AnubisOptions.SectionName, new JsonObject
+            {
+                [nameof(AnubisOptions.Issuer)] = publicUrl ?? string.Empty,
+                [nameof(AnubisOptions.AllowRegistration)] = model.AllowRegistration,
+                [nameof(AnubisOptions.RequireConfirmedEmail)] = model.RequireConfirmedEmail,
+            });
+        }
+        catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
+        {
+            Logger.LogWarning(exception, "Saving general settings failed.");
+            error = exception.Message;
+            busy = false;
+            return;
+        }
+
+        // Full reload, so the new name shows in the tab title and the page header right away.
+        Navigation.NavigateTo("/admin/general?saved=true", forceLoad: true);
+    }
+
+    private sealed class GeneralModel
+    {
+        [LRequired(nameof(Translations.Validation_ServerNameRequired))]
+        [LStringLength(GeneralOptions.ServerNameMaxLength, nameof(Translations.Validation_ServerNameTooLong))]
+        public string ServerName { get; set; } = string.Empty;
+
+        public string? PublicUrl { get; set; }
+
+        public bool AllowRegistration { get; set; }
+
+        public bool RequireConfirmedEmail { get; set; }
+    }
+}

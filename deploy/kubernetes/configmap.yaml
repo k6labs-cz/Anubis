@@ -1,0 +1,21 @@
+# Non-secret configuration, same format as appsettings.json (mounted as /config/appsettings.json,
+# loaded via Anubis__ConfigFile). Secrets go to secret.yaml, never here.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: anubis-config
+data:
+  appsettings.json: |
+    {
+      "Anubis": {
+        "Issuer": "https://id.example.com",
+        "AdminEmail": "admin@example.com",
+        "General": { "ServerName": "Example ID" }
+      },
+      "Email": {
+        "Provider": "Smtp",
+        "FromAddress": "id@example.com",
+        "FromName": "Example ID",
+        "Smtp": { "Host": "smtp.example.com", "Port": 587, "Username": "id@example.com" }
+      }
+    }

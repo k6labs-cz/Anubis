@@ -1,0 +1,24 @@
+@namespace k6labs.Anubis.Components.Shared
+@using System.Linq.Expressions
+
+@* Labelled Hathor ColorPicker (#RRGGBB, empty = default). Text that is not a #RRGGBB color is
+   not applied; Hathor's English parse message is replaced by the translated one. *@
+<Field Label="@Label" For="@Id" Hint="@Hint" Error="@(Error ? ErrorText : ParseError)">
+    <ColorPicker Value="@Value" ValueChanged="@ValueChanged" ValueExpression="@ValueExpression" Id="@Id"
+                 AllowClear="false" PickerLabel="@(Label ?? string.Empty)" aria-label="@Label" />
+</Field>
+
+@code {
+    [CascadingParameter] private EditContext? EditContext { get; set; }
+    [Parameter] public string? Value { get; set; }
+    [Parameter] public EventCallback<string?> ValueChanged { get; set; }
+    [Parameter, EditorRequired] public Expression<Func<string?>> ValueExpression { get; set; } = default!;
+    [Parameter] public string Id { get; set; } = $"color-{Guid.NewGuid():N}";
+    [Parameter] public string? Label { get; set; }
+    [Parameter] public string? Hint { get; set; }
+    [Parameter] public bool Error { get; set; }
+    [Parameter] public string? ErrorText { get; set; }
+
+    private string? ParseError =>
+        EditContext?.GetValidationMessages(FieldIdentifier.Create(ValueExpression)).Any() == true ? Translations.Validation_HexColor : null;
+}

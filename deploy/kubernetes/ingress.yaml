@@ -1,0 +1,22 @@
+# TLS ends here; the ingress sends X-Forwarded-Proto/-For, which Anubis trusts
+# (the image sets ASPNETCORE_FORWARDEDHEADERS_ENABLED=true). Expose the pod only
+# through this proxy. Set Anubis:Issuer (configmap.yaml) to the public URL.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: anubis
+spec:
+  ingressClassName: nginx          # TODO: your ingress controller (nginx, traefik, ...)
+  tls:
+    - hosts: ["id.example.com"]    # TODO: your host
+      secretName: anubis-tls       # TODO: cert for the host (cert-manager, ...)
+  rules:
+    - host: id.example.com         # TODO: your host
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: anubis
+                port: { name: http }

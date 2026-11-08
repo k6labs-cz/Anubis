@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Български (bg). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Приложение за удостоверяване</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Смяна на паролата</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Неуспешно изпращане, опитайте по-късно</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Изпратено, проверете входящата си поща</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Вече е изпратено, опитайте отново след няколко минути</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Създаден</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Настройка на браузъра</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Ключове за достъп</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Роли</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Изпращане на имейл за потвърждение</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Многофакторно</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>OIDC клиенти</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scopes</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Потребители</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Код от приложението</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Създаване на нов ключ</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>Отсега нататък след паролата ще ви се иска код.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Кодът е невалиден. Проверете дали часовникът на устройството ви е верен и опитайте отново.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Не можете да сканирате? Въведете този ключ ръчно:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Ще бъде създаден нов ключ. Текущото ви приложение спира да работи веднага, а двуфакторното влизане остава изключено, докато не настроите новото приложение.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Преминаване към друго приложение за удостоверяване</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>QR код за приложението ви за удостоверяване</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Сканирайте QR кода с приложението, след което въведете показания код.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Проверка и включване</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Текуща парола</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Изберете нова парола (поне {0} знака).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Паролата ви е променена.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Неуспешна смяна на паролата</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Обновяване на паролата</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Разрешени scopes</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Създаване на клиент</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>Моето приложение</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Редактиране на клиент: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (машина към машина)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (с PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>URI за пренасочване след изход (по един на ред)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>URI за пренасочване (по един на ред)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Генериране на нова тайна</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Изискване на изрично съгласие от потребителя</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Запазване на промените</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Тайна на клиента</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Оставете празно, за да запазите текущата тайна.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Оставете празно за публичен клиент (само PKCE) или въведете тайна за поверителен клиент.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Поне 16 знака</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Копирайте я сега — показва се само веднъж. OpenIddict пази само нейния хеш.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} е обновен.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>ID на клиента</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Съгласие</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Неявно</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Задължително</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Наистина ли искате да изтриете {0}? Издадените за него токени спират да работят веднага.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Изтриване на клиент</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Типове grant</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Нов клиент</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Тип</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Администрация</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Обратно към влизането</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Отказ</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Проверете входящата си поща</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Потвърдете новата парола</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Изтриване</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Описание</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Показвано име</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Редактиране</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>Имейл</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>vie@primer.bg</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Грешка</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Профилът е заключен след твърде много неуспешни опити. Опитайте по-късно.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Име</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Нова парола</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Поне {0} знака</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Не</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Няма</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Изключено</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Включено</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Парола</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Преименуване</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Запазване</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Вход</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Нещо се обърка</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Потребителят не е намерен.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Да</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Напред</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Връзките за потвърждение са валидни 24 часа. Поискайте нова по-долу.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Връзката е невалидна или е изтекла</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Потвърждаване на имейла</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Изпращане на нова връзка</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Благодарим ви. Имейл адресът ви е потвърден.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>Имейлът е потвърден</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>Потвърждаване на имейла</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Разрешаване</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Отказ</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Невалидна заявка</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Заявката за упълномощаване не посочва клиент.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Заявката за упълномощаване липсва или е невалидна.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>иска достъп до профила ви.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Упълномощаване на приложение</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>Приложението ще може да:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Тогава за влизане с парола ще е нужна само паролата. Ако паролата изтече, профилът ви ще може да бъде превзет по-лесно. Ключовете ви за достъп продължават да работят.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Изключване на двуфакторното удостоверяване</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Да се изключи ли приложението за удостоверяване?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Потвърждаване на имейла</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Връзката е валидна 24 часа. Ако не сте създавали профил, можете да пренебрегнете този имейл.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Потвърдете имейл адреса си</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Здравейте, {0}, моля, потвърдете, че {1} принадлежи на профила ви в Anubis.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Изберете нова парола</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Връзката е валидна 1 час и работи веднъж. Ако не сте поискали това, пренебрегнете имейла; паролата ви остава същата.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Нулирайте паролата си</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Здравейте, {0}, някой поиска нулиране на паролата за профила ви в Anubis.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Отваряне на Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Получавате това, защото администратор изпрати тестов имейл.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>Имейлът работи</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Тестов имейл от Anubis</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Това тестово съобщение е изпратено от Anubis чрез {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Конфигурация</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Домейн</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>потребителю</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Тогава връзките в имейлите използват името на хоста от всяка заявка. В продукционна среда задайте Anubis:Issuer на публичния си URL адрес.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Anubis:Issuer не е зададен</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Ако бутонът не работи, отворете тази връзка:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Само в журнала (не е конфигурирано)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>Имейлите се записват само в журнала. Задайте Email:Smtp:Host или изберете друг Email:Provider (SendGrid, Mailgun, Postmark, Resend) в конфигурацията.</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>Имейлът не е конфигуриран</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Доставчик</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Получател</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Неуспешно изпращане</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Изпращане на тестов имейл</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Изпратено</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>Тестовият имейл до {0} беше приет от {1}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>Имейлът не е конфигуриран, затова съобщението е само записано в журнала.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Клиентът '{0}' не е намерен.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Грешка</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>ID на заявката: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>Scope '{0}' вече съществува.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>Scope '{0}' не е намерен.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Възникна грешка при обработката на заявката ви.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Ще ви изпратим връзка, за да изберете нова.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Забравена парола</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Изпращане на връзка за нулиране</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Ако съществува профил с този адрес, връзката за нулиране е на път. Връзката е валидна 1 час.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Забравили сте паролата си?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Създаване на профил</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Записът е променен от някой друг. Презаредете и опитайте отново.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Възникна неизвестна грешка.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>Имейлът '{0}' вече е зает.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Името на ролята '{0}' вече е заето.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Потребителското име '{0}' вече е заето.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>Имейлът '{0}' е невалиден.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Името на ролята '{0}' е невалидно.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Невалиден токен.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>Потребителското име '{0}' е невалидно.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Вече съществува потребител с този вход.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Грешна парола.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Паролата трябва да съдържа поне една цифра (0-9).</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Паролата трябва да съдържа поне една малка буква (a-z).</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Паролата трябва да съдържа поне един знак, който не е буква или цифра.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Паролата трябва да съдържа поне {0} различни знака.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Паролата трябва да съдържа поне една главна буква (A-Z).</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Паролата трябва да е дълга поне {0} знака.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Кодът за възстановяване не можа да бъде използван.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Потребителят вече има парола.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Потребителят вече има ролята '{0}'.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Заключването не е включено за този потребител.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Потребителят няма ролята '{0}'.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Профил</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Език</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Основна навигация</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Изход</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Създайте такъв</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Използвайте ключ за достъп или имейл и парола.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Първо потвърдете имейл адреса си. Връзката е във входящата ви поща.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Неуспешен вход</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Забравили сте паролата си?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Грешен имейл или парола.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Още нямате профил?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Влизането в този профил не е разрешено.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>или</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Вход</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Вашата парола</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Повторно изпращане на имейла за потвърждение</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Вход в Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Този ключ за достъп не е регистриран в Anubis.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Вход с ключ за достъп</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Това устройство вече има ключ за достъп за този профил.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>Заявката за ключ за достъп беше отменена или изтече.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Ключът за достъп не можа да бъде използван. Опитайте отново.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Сървърът не можа да стартира заявката за ключ за достъп. Опитайте отново.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Този браузър не поддържа ключове за достъп.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Този браузър не поддържа ключове за достъп. Моля, обновете го.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Еднократни кодове за вход, ако загубите приложението си за удостоверяване.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Генериране на нови кодове</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Използвайте някой от тях, за да влезете, ако загубите приложението си за удостоверяване.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Показват се само веднъж. Пазете ги на сигурно място, например в мениджър на пароли. Всеки код ви позволява да влезете веднъж, ако загубите приложението си за удостоверяване. Старите кодове вече не работят.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Запазете тези кодове за възстановяване сега</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Запазих кодовете</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Кодове за възстановяване</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Ще бъдат създадени {0} нови кода. Текущите ви кодове спират да работят.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Обратно към кода за удостоверяване</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Код за възстановяване</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Всеки код за възстановяване работи само веднъж.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Кодът за възстановяване е невалиден или вече е използван.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Код за възстановяване</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Вход с код за възстановяване</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Вече сте регистрирани?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Потвърдете паролата</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Повторете паролата</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Изпратихме връзка за потвърждение до {0}. Потвърдете адреса си и след това влезте.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Регистрирайте се с имейл и парола.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Самостоятелната регистрация в момента е изключена. Свържете се с администратор.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Регистрацията е изключена</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Иван Петров</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Неуспешна регистрация</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Не сте получили имейл?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Създаване на профил</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Изпращане отново</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Създайте своя профил</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Дайте му разпознаваемо име, например „Pixel 9“ или „MacBook Touch ID“.</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Именувайте ключа за достъп</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Пропускане</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Преименуване на ключ за достъп</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Ще ви изпратим нова връзка за потвърждение на адреса.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Повторно потвърждение</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Изпращане на връзка</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Ако адресът принадлежи на непотвърден профил, нова връзка е на път.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Повторно изпращане на имейла за потвърждение</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Вече можете да влезете с новата си парола.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Паролата е сменена</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Паролата не можа да бъде нулирана</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Тази връзка за нулиране е непълна. Отворете отново връзката от имейла или поискайте нова.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Невалидна връзка</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Връзката е изтекла или вече е използвана. Поискайте нова.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Нулиране на паролата</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Поискайте нова връзка</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Задаване на нова парола</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Изберете нова парола</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Профилът ви няма достъп до тази страница.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Достъпът е отказан</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Не е намерено</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>За съжаление на този адрес няма нищо.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Страницата не е намерена</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Да вижда имейл адреса ви</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Да запази достъпа, докато ви няма (refresh tokens)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Да потвърди кои сте</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Да вижда името и профила ви</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Да вижда ролите ви</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Създаване на scope</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Клиентите могат да искат собствени scopes, свързани с ресурси (audiences).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Моят API</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Ресурси (разделени със запетая)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Ресурси</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Добавяне на ключ за достъп</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>След паролата въведете 6-цифрен код от приложение като Aegis, 2FAS, Google Authenticator, Microsoft Authenticator или 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Оставащи кодове за възстановяване: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Помислете за генериране на нови кодове.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Остават малко кодове за възстановяване ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Забравяне на този браузър</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Преминаване към друго приложение</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Генерирайте нови кодове сега, иначе може да останете без достъп.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Няма оставащи кодове за възстановяване</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Браузърът не предостави ключ за достъп.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Все още няма ключове за достъп.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Добавен</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Можете да имате най-много {0} ключа за достъп. Изтрийте един, за да добавите друг.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Ключът за достъп не можа да бъде запазен.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Ключът за достъп не можа да бъде проверен. Опитайте отново или използвайте друго устройство.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Синхронизиран</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Влизайте с пръстов отпечатък, лице или ПИН на устройството вместо с парола. Ключът за достъп се съхранява на телефона, компютъра или ключа ви за сигурност и не може да бъде откраднат чрез фишинг.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Настройване на приложение за удостоверяване</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Този браузър</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Този браузър пропуска кода за удостоверяване при влизане.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Изключване</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Ключ за достъп без име</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>При влизане с парола ще ви бъде поискан код от приложението.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Приложението за удостоверяване е включено</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Настройте отново приложението за удостоверяване с новия ключ.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Ключът за удостоверяване е нулиран</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Този браузър отново ще поиска код при следващото влизане.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Браузърът е забравен</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>Приложението за удостоверяване вече не е нужно за влизане.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Двуфакторното удостоверяване е изключено</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Настройте приложение за удостоверяване, преди да генерирате кодове за възстановяване.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Не е налично</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Вече можете да влизате с този ключ за достъп.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Ключът за достъп е добавен</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Ключът за достъп вече не може да се използва за влизане.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Ключът за достъп е изтрит</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>Ключът за достъп не съществува или принадлежи на друг профил.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Ключът за достъп не е намерен</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>Името на ключа за достъп е обновено.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Ключът за достъп е преименуван</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Код за удостоверяване</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Въведете 6-цифрения код от приложението за удостоверяване.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Кодът е невалиден или е изтекъл.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Загубили сте устройството си?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Двуфакторно удостоверяване</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>Да не се пита отново в този браузър 14 дни</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Използване на код за възстановяване</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Неуспешна проверка</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Проверка</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Активен</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Създаване на потребител</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Паролите се съхраняват като хешове Argon2id.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} е създаден.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Наистина ли искате да изтриете {0}? Това не може да бъде отменено.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Изтриване на потребител</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Потребителят е изтрит</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} е изтрит.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Заключване</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Заключен</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} вече може да влиза само с парола.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Ключове за достъп: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Нулиране на MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Това изключва приложението за удостоверяване, изтрива всички ключове за достъп на {0} и го излогва навсякъде. Използвайте го, когато някой е загубил устройството си. След това той ще може да влиза само с парола и да настрои MFA отново.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Състояние</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Отключване</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Въведете ID на клиента.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Използвайте поне 16 знака или оставете празно за публичен клиент.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Кодът има 6 цифри.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Въведете кода от приложението.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Моля, потвърдете паролата.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Въведете текущата си парола.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Използвайте най-много 100 знака.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Въведете валиден имейл адрес.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>Имейлът е задължителен.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Разрешени са само букви, цифри, '-', '_' и '.'.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Въведете име.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Използвайте най-много 100 знака.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Паролата е задължителна.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Паролите не съвпадат.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Въведете получател.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Въведете код за възстановяване.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Въведете име на scope.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Качване на аватар</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Използване на Gravatar</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF или SVG. Изображението се смалява до най-много 1024×1024 и се запазва като прозрачен WebP. Ако няма изображение, се използва Gravatar.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Показваното име е запазено.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Аватарът е обновен.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Собственият аватар е премахнат. Използва се Gravatar.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Невалиден или неподдържан файл с изображение.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Файлът с изображение е твърде голям (до 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Настройки</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Роли</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Външен вид</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Профили, които могат да влизат в Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Ролите се предават на клиентските приложения в claim roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Права, които клиентските приложения могат да искат.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Приложения, които вписват потребителите чрез Anubis.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Изходяща поща за потвърждение на адреса и нулиране на паролата.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Лого, шрифт и цветове на страниците за вход и профил.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Затваряне</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Запазва се в {0}. Тези стойности имат предимство пред appsettings.json и променливите на средата.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Настройките са запазени</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Промените влизат в сила веднага.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Настройките не са запазени</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Зададено. Оставете празно, за да запазите текущата стойност.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Адрес на подателя</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Име на подателя</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>SMTP сървър</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Порт</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Шифроване</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Време за изчакване (секунди)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Потребителско име</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>API ключ</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Сървърен токен</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>URL на API</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Лого и икона</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Качете SVG, WebP, PNG, JPEG или GIF (запазва се във файла с настройки) или въведете път в wwwroot или https:// адрес. PNG версии на иконата (favicon) за Safari и iOS се създават автоматично.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Лого</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Шрифт</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Празно = шрифтът по подразбиране (системният равноширок). Могат да се използват само шрифтове, инсталирани на устройството.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Семейство шрифтове (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Светла тема</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Тъмна тема</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Изберете цвят или го въведете като #RRGGBB. Празно = цветът по подразбиране.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Основен</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Вторичен</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Фон</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Текст</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Създаване на роля</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Новата роля няма членове; добавете ги в списъка по-долу.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Членове</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Вградена</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Изтриване на роля</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Да се изтрие ли ролята {0}? Всички нейни членове ще я загубят.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Членове на {0}</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Добавяне</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Премахване</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Все още няма членове.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>Последният администратор не може да бъде премахнат.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Въведете име на ролята.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Въведете цвят като #RRGGBB или оставете полето празно.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Не трябва да съдържа ; { } &lt; &gt; или \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Въведете абсолютен https:// адрес.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Въведете път, започващ с /, https:// адрес или качете файл.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Качване</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>По подразбиране</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Качен файл · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Неподдържано или повредено изображение или SVG с външни връзки. Използвайте SVG, WebP, PNG, JPEG или GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Файлът е твърде голям (до {0} MB, след обработка {1} KB).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Потвърден</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Непотвърден</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Телефонен номер</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Международен формат, напр. +359 88 123 4567.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Изпращане на код</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Код от SMS</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Изпратихме код на {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Телефонният номер е потвърден.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Въведете номера в международен формат, напр. +359 88 123 4567.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Току-що беше изпратен код. Опитайте отново след минута.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Вашият код за потвърждение в Anubis: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Цветови режим</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Светъл</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Тъмен</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>Според системата</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Не е избран: използва се предпочитаният език на браузъра.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Не е избран: следва светлата или тъмната настройка на системата.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>История</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Влизания и промени в профила ви през последните 12 месеца.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Все още няма нищо.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>По-нови</value></data>
+  <data name="History_Older" xml:space="preserve"><value>По-стари</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>от администратор</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Неизвестно устройство</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Профилът е създаден</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Влизане</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Неуспешен опит за влизане</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Профилът е заключен след твърде много неуспешни опити</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Изход</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Влизане в приложение</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Паролата е сменена</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Паролата е нулирана по имейл</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>Имейл адресът е потвърден</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Приложението за удостоверяване е включено</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Приложението за удостоверяване е изключено</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Генерирани нови кодове за възстановяване</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Добавен ключ за достъп</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Премахнат ключ за достъп</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Телефонният номер е сменен</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Телефонният номер е потвърден</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Телефонният номер е премахнат</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Показваното име е сменено</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Аватарът е сменен</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Профилът е заключен</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Профилът е отключен</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>парола</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>ключ за достъп</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>приложение за удостоверяване</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>код за възстановяване</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Изход от Anubis?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Управление</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Действия</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Да се изтрие ли scope {0}? Клиентите вече няма да могат да го искат.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Общи</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Основни настройки на този сървър.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Име на сървъра</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Показва се в заглавието на раздела на браузъра и в горната част на страниците на профила и администрацията.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Въведете име на сървъра.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Използвайте най-много 60 знака.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Сигурност</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Правила за пароли, заключване след неуспешни опити, продължителност на сесията и ключове за достъп. Промените важат веднага.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Токени</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Валидност на токените и кодовете за клиентски приложения. Промените важат за новите токени.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Сървър</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>Публичен URL (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Например https://id.example.com. Празно = от всяка заявка. Влиза в сила след рестарт.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Регистрация</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Разрешаване на самостоятелна регистрация</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Изискване на потвърден имейл адрес за вход</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Изисква работещи настройки за имейл.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Пароли</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Минимална дължина</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Изискване на цифра</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Изискване на малка буква</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Изискване на главна буква</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Изискване на символ</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Заключване след неуспешни влизания</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Неуспешни опити преди заключване</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Продължителност на заключването (минути)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Сесия за вход</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Продължителност на сесията (часове)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Удължаване на сесията, докато потребителят е активен</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Максимален брой ключове за достъп на профил</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (минути)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID token (минути)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Код за упълномощаване (минути)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (дни)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Съгласие (минути)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Колко дълго се помни дадено съгласие по време на вход.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Разрешен диапазон: от {0} до {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Редактиране на {0}</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>Имейл адресът е и името за вход: потребителят ще влиза с новия адрес.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>Имейл адресът е потвърден</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Промененият номер се запазва като непотвърден.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Този имейл адрес вече се използва от друг профил.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Не можете да премахнете ролята Admin от собствения си профил.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Промените в {0} са запазени.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>Имейл адресът е сменен</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Добавена роля</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Премахната роля</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>След запазване на новия адрес ще бъде изпратен имейл за потвърждение.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Изпратен е имейл за потвърждение до {0}.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Започнете с буква, след това букви, цифри и - _ . : / (най-много {0} знака).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>„{0}“ се задава от Anubis и не може да се използва.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Въведете стойност.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Най-много {0} знака.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Този claim е посочен два пъти.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Най-много {0} claim-а.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Ролята не е намерена.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Вградените роли не могат да се преименуват.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Вече съществува роля с това име.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Редактиране на роля {0}</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Ролята {0} е запазена.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Добавяне на роля</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Добавят се към токена за достъп, ID токена и userinfo заедно с claims от ролите на потребителя.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Добавят се към токените на всички членове на тази роля.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Тип</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Стойност</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Добавяне на claim</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Премахване на claim</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Все още няма claims.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>От ролите</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Смяна на аватар</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Зареждане…</value></data>
+</root>

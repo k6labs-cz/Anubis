@@ -1,0 +1,74 @@
+@page "/confirm-email/resend"
+
+@using k6labs.Anubis.Localization
+
+@inject UserManager<User> UserManager
+@inject AccountEmailService AccountEmails
+@inject NavigationManager Navigation
+
+<AppPageTitle Text="@(Translations.Resend_PageTitle)" />
+
+<Container MaxWidth="28rem">
+    <Stack Gap="Gap.Large">
+        <Card>
+            <Header>
+                <Stack Gap="Gap.XSmall">
+                    <Typography Variant="TextVariant.Title" As="TextElement.H1">@Translations.Resend_Title</Typography>
+                    <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Resend_Description</Typography>
+                </Stack>
+            </Header>
+            <ChildContent>
+                <Stack Gap="Gap.Medium">
+                    @if (submitted)
+                    {
+                        <Alert Severity="AlertSeverity.Success" Title="@Translations.Common_CheckInbox">
+                            @Translations.Resend_Sent
+                        </Alert>
+                        <Typography Tone="Tone.Muted" Align="TextAlign.Center"><a href="/login">@Translations.Common_BackToSignIn</a></Typography>
+                    }
+                    else
+                    {
+                        <EditForm Model="model" method="post" OnValidSubmit="SubmitAsync" FormName="resend-confirmation">
+                            <Stack Gap="Gap.Medium">
+                                <DataAnnotationsValidator />
+
+                                <FormText @bind-Value="model.Email" name="model.Email" Label="@Translations.Common_Email" Placeholder="@Translations.Common_EmailPlaceholder" autocomplete="username" autofocus Id="email" Type="email" />
+
+                                <Button Block="true" Type="submit" Icon="@AppIcons.Email">
+                                    @Translations.Resend_Send
+                                </Button>
+                            </Stack>
+                        </EditForm>
+                    }
+                </Stack>
+            </ChildContent>
+        </Card>
+    </Stack>
+</Container>
+
+@code {
+    [SupplyParameterFromForm(FormName = "resend-confirmation")]
+    private ResendModel model { get; set; } = default!;
+
+    private bool submitted;
+
+    protected override void OnInitialized() => model ??= new();
+
+    private async Task SubmitAsync()
+    {
+        var user = await UserManager.FindByEmailAsync(model.Email);
+        if (user is { EmailConfirmed: false })
+        {
+            await AccountEmails.SendConfirmationAsync(user, Navigation.BaseUri);
+        }
+
+        submitted = true;
+    }
+
+    public sealed class ResendModel
+    {
+        [LRequired(nameof(Translations.Validation_EmailRequired))]
+        [LEmailAddress]
+        public string Email { get; set; } = string.Empty;
+    }
+}

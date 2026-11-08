@@ -1,0 +1,101 @@
+@page "/account/security/passkeys/{Id}"
+@attribute [Authorize]
+
+@using System.Buffers.Text
+@using k6labs.Anubis.Localization
+@using Microsoft.AspNetCore.Authorization
+
+@inject UserManager<User> UserManager
+@inject NavigationManager Navigation
+
+<AppPageTitle Text="@(Translations.RenamePasskey_PageTitle)" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@(IsNew ? Translations.Status_PasskeyAddedTitle : Translations.RenamePasskey_Title)" Description="@Translations.RenamePasskey_Description" />
+
+    <EditForm Model="model" method="post" OnValidSubmit="SaveAsync" FormName="rename-passkey">
+        <Stack Gap="Gap.Medium">
+            <DataAnnotationsValidator />
+
+            <FormText @bind-Value="model!.Name" Label="@Translations.Common_Name" name="model.Name" autocomplete="off" autofocus Id="passkeyName" Type="text" />
+
+            <Stack Direction="Direction.Row" Gap="Gap.Medium" Align="Align.Center" Wrap="true">
+                <Button Type="submit" Icon="@AppIcons.Check">
+                    @Translations.Common_Save
+                </Button>
+                <Button Variant="ButtonVariant.Ghost" Href="@(IsNew ? "/account/security?status=passkey-added" : "/account/passkeys")">
+                    @(IsNew ? Translations.RenamePasskey_Skip : Translations.Common_Cancel)
+                </Button>
+            </Stack>
+        </Stack>
+    </EditForm>
+</Stack>
+
+@code {
+    [Parameter]
+    public string Id { get; set; } = string.Empty;
+
+    [SupplyParameterFromQuery(Name = "new")]
+    public int? New { get; set; }
+
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    [SupplyParameterFromForm(FormName = "rename-passkey")]
+    private RenameModel model { get; set; } = default!;
+
+    private User? user;
+    private UserPasskeyInfo? passkey;
+
+    private bool IsNew => New == 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var isPost = model is not null;
+        model ??= new();
+
+        user = await UserManager.GetUserAsync(HttpContext.User);
+        if (user is not null)
+        {
+            try
+            {
+                // Looked up per user, so another user's passkey ID is never found.
+                passkey = await UserManager.GetPasskeyAsync(user, Base64Url.DecodeFromChars(Id));
+            }
+            catch (FormatException)
+            {
+                passkey = null;
+            }
+        }
+
+        if (passkey is null)
+        {
+            Navigation.NavigateTo("/account/security?status=passkey-not-found", forceLoad: true);
+            return;
+        }
+
+        if (!isPost)
+        {
+            model.Name = passkey.Name ?? string.Empty;
+        }
+    }
+
+    private async Task SaveAsync()
+    {
+        if (user is null || passkey is null)
+        {
+            return;
+        }
+
+        passkey.Name = model!.Name.Trim();
+        await UserManager.AddOrUpdatePasskeyAsync(user, passkey);
+        Navigation.NavigateTo(IsNew ? "/account/security?status=passkey-added" : "/account/security?status=passkey-renamed", forceLoad: true);
+    }
+
+    public sealed class RenameModel
+    {
+        [LRequired(nameof(Translations.Validation_NameRequired))]
+        [LStringLength(100, nameof(Translations.Validation_NameTooLong))]
+        public string Name { get; set; } = string.Empty;
+    }
+}

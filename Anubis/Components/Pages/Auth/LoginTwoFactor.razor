@@ -1,0 +1,100 @@
+@page "/login/2fa"
+
+@using k6labs.Anubis.Localization
+
+@inject SignInManager<User> SignInManager
+@inject NavigationManager Navigation
+
+<AppPageTitle Text="@(Translations.TwoFactor_PageTitle)" />
+
+<Container MaxWidth="28rem">
+    <Stack Gap="Gap.Large">
+        <Card>
+            <Header>
+                <Stack Gap="Gap.XSmall">
+                    <Typography Variant="TextVariant.Title" As="TextElement.H1">@Translations.TwoFactor_PageTitle</Typography>
+                    <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.TwoFactor_Description</Typography>
+                </Stack>
+            </Header>
+            <ChildContent>
+                <Stack Gap="Gap.Medium">
+                    <EditForm Model="model" method="post" OnValidSubmit="SubmitAsync" FormName="login-2fa">
+                        <Stack Gap="Gap.Medium">
+                            <DataAnnotationsValidator />
+
+                            @if (!string.IsNullOrEmpty(error))
+                            {
+                                <Alert Severity="AlertSeverity.Danger" Title="@Translations.TwoFactor_VerificationFailed">
+                                    @error
+                                </Alert>
+                            }
+
+                            <FormText @bind-Value="model.Code" name="model.Code" Label="@Translations.TwoFactor_CodeLabel" Placeholder="123456" autocomplete="one-time-code" autofocus Id="code" Type="text" inputmode="numeric" />
+
+                            <label>
+                                <InputCheckbox @bind-Value="model.RememberBrowser" />
+                                @Translations.TwoFactor_RememberBrowser
+                            </label>
+
+                            <Button Block="true" Type="submit" Icon="@AppIcons.VerifiedUser">
+                                @Translations.TwoFactor_Verify
+                            </Button>
+                        </Stack>
+                    </EditForm>
+
+                    <Typography Tone="Tone.Muted" Align="TextAlign.Center">
+                        @Translations.TwoFactor_LostDevice <a href="@RecoveryUrl">@Translations.TwoFactor_UseRecoveryCode</a>
+                    </Typography>
+                </Stack>
+            </ChildContent>
+        </Card>
+    </Stack>
+</Container>
+
+@code {
+    [SupplyParameterFromQuery(Name = "returnUrl")]
+    public string? ReturnUrl { get; set; }
+
+    [SupplyParameterFromForm(FormName = "login-2fa")]
+    private TwoFactorModel model { get; set; } = default!;
+
+    private string? error;
+
+    private string SafeReturnUrl => LocalUrl.IsLocal(ReturnUrl) ? ReturnUrl! : "/";
+
+    private string RecoveryUrl => "/login/recovery-code?returnUrl=" + Uri.EscapeDataString(SafeReturnUrl);
+
+    protected override async Task OnInitializedAsync()
+    {
+        model ??= new();
+
+        // The password step stores the pending user in a short-lived cookie.
+        if (await SignInManager.GetTwoFactorAuthenticationUserAsync() is null)
+        {
+            Navigation.NavigateTo("/login?returnUrl=" + Uri.EscapeDataString(SafeReturnUrl), forceLoad: true);
+        }
+    }
+
+    private async Task SubmitAsync()
+    {
+        var code = model.Code.Replace(" ", string.Empty).Replace("-", string.Empty);
+        var result = await SignInManager.TwoFactorAuthenticatorSignInAsync(code, isPersistent: true, rememberClient: model.RememberBrowser);
+
+        if (result.Succeeded)
+        {
+            Navigation.NavigateTo(SafeReturnUrl, forceLoad: true);
+            return;
+        }
+
+        error = result.IsLockedOut ? Translations.Common_LockedOut : Translations.TwoFactor_InvalidCode;
+    }
+
+    public sealed class TwoFactorModel
+    {
+        [LRequired(nameof(Translations.Validation_CodeRequired))]
+        [LStringLength(7, nameof(Translations.Validation_CodeLength), MinimumLength = 6)]
+        public string Code { get; set; } = string.Empty;
+
+        public bool RememberBrowser { get; set; }
+    }
+}

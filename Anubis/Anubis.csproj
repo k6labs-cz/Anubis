@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>k6labs.Anubis</AssemblyName>
+    <RootNamespace>k6labs.Anubis</RootNamespace>
+    <Title>Anubis</Title>
+    <Description>Anubis - minimalistic free open-source OIDC identity provider</Description>
+    <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="k6labs.Hathor" Version="0.3.0" />
+    <PackageReference Include="k6labs.Hathor.Lucide" Version="0.3.0" />
+    <PackageReference Include="MailKit" Version="4.18.2" />
+    <PackageReference Include="OpenIddict.AspNetCore" Version="7.8.0" />
+    <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="7.8.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Isopoh.Cryptography.Argon2" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="10.0.14" />
+    <PackageReference Include="QRCoder" Version="1.8.1" />
+    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.20.1" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.20.1" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.20.1" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.EntityFrameworkCore" Version="1.20.1-beta.1" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.20.1" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" Version="1.20.1" />
+    <PackageReference Include="SkiaSharp" Version="3.119.2" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="3.119.2" />
+    <PackageReference Include="Svg.Skia" Version="5.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Developer template with sample passwords: never part of the build output or the image. -->
+    <Content Update="appsettings.Development.example.json" CopyToOutputDirectory="Never" CopyToPublishDirectory="Never" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Translations.resx">
+      <StronglyTypedLanguage>CSharp</StronglyTypedLanguage>
+      <StronglyTypedNamespace>k6labs.Anubis.Resources</StronglyTypedNamespace>
+      <StronglyTypedClassName>Translations</StronglyTypedClassName>
+      <StronglyTypedFileName>$(IntermediateOutputPath)Translations.Designer.cs</StronglyTypedFileName>
+      <PublicClass>true</PublicClass>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

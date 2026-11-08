@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Latviešu (lv). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Autentifikācijas lietotne</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Mainīt paroli</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Neizdevās nosūtīt, mēģiniet vēlāk</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Nosūtīts, pārbaudiet iesūtni</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Jau nosūtīts, mēģiniet vēlreiz pēc dažām minūtēm</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Izveidots</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Pārlūka iestatījums</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Piekļuves atslēgas</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Lomas</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Nosūtīt apstiprinājuma e-pastu</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Daudzfaktoru</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>OIDC klienti</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scope</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Lietotāji</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Kods no lietotnes</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Izveidot jaunu atslēgu</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>Turpmāk pēc paroles jums tiks prasīts kods.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Kods nav derīgs. Pārbaudiet, vai ierīces pulkstenis ir pareizs, un mēģiniet vēlreiz.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Nevarat noskenēt? Ievadiet šo atslēgu manuāli:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Tiks izveidota jauna atslēga. Pašreizējā lietotne nekavējoties pārstās darboties, un divfaktoru pieteikšanās paliks izslēgta, līdz pabeigsiet jaunās lietotnes iestatīšanu.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Pāriet uz citu autentifikācijas lietotni</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>QR kods jūsu autentifikācijas lietotnei</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Noskenējiet QR kodu ar lietotni un pēc tam ievadiet parādīto kodu.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Pārbaudīt un ieslēgt</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Pašreizējā parole</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Izvēlieties jaunu paroli (vismaz {0} rakstzīmes).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Jūsu parole ir atjaunināta.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Paroles maiņa neizdevās</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Atjaunināt paroli</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Atļautie scope</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Izveidot klientu</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>Mana lietotne</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Rediģēt klientu: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (mašīna–mašīna)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (ar PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>Pāradresācijas URI pēc izrakstīšanās (pa vienam rindā)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>Pāradresācijas URI (pa vienam rindā)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Ģenerēt jaunu noslēpumu</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Pieprasīt lietotāja tiešu piekrišanu</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Saglabāt izmaiņas</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Klienta noslēpums</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Atstājiet tukšu, lai saglabātu pašreizējo noslēpumu.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Atstājiet tukšu publiskam klientam (tikai PKCE) vai ievadiet noslēpumu konfidenciālam klientam.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Vismaz 16 rakstzīmes</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Nokopējiet to tagad — tas tiek parādīts tikai vienreiz. OpenIddict glabā tikai tā jaucējvērtību.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} ir atjaunināts.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>Klienta ID</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Piekrišana</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Netieša</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Obligāta</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Vai tiešām dzēst {0}? Tam izsniegtie tokeni nekavējoties pārstās darboties.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Dzēst klientu</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Grant veidi</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Jauns klients</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Veids</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Administrēšana</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Atpakaļ uz pieteikšanos</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Atcelt</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Pārbaudiet iesūtni</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Apstipriniet jauno paroli</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Dzēst</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Apraksts</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Parādāmais vārds</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Rediģēt</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>E-pasts</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>jus@piemers.lv</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Kļūda</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Šis konts ir bloķēts pārāk daudzu neveiksmīgu mēģinājumu dēļ. Mēģiniet vēlāk.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Nosaukums</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Jaunā parole</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Vismaz {0} rakstzīmes</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Nē</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Nav</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Izslēgts</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Ieslēgts</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Parole</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Pārdēvēt</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Saglabāt</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Pieteikties</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Kaut kas nogāja greizi</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Lietotājs nav atrasts.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Jā</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Turpināt</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Apstiprinājuma saites ir derīgas 24 stundas. Pieprasiet jaunu zemāk.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Saite nav derīga vai tai ir beidzies derīguma termiņš</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Apstiprināt e-pastu</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Nosūtīt jaunu saiti</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Paldies. Jūsu e-pasta adrese ir apstiprināta.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>E-pasts apstiprināts</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>E-pasta apstiprināšana</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Atļaut</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Noraidīt</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Nederīgs pieprasījums</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Autorizācijas pieprasījumā nav norādīts klients.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Autorizācijas pieprasījuma nav vai tas nav derīgs.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>pieprasa piekļuvi jūsu kontam.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Autorizēt lietotni</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>Lietotne varēs:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Pieteikšanās ar paroli tad prasīs tikai paroli. Ja parole noplūdīs, jūsu kontu būs vieglāk pārņemt. Jūsu piekļuves atslēgas turpinās darboties.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Izslēgt divfaktoru autentifikāciju</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Vai izslēgt autentifikācijas lietotni?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Apstiprināt e-pastu</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Saite ir derīga 24 stundas. Ja neesat izveidojis kontu, varat šo e-pastu ignorēt.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Apstipriniet savu e-pasta adresi</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Sveiki, {0}! Lūdzu, apstipriniet, ka {1} pieder jūsu Anubis kontam.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Izvēlēties jaunu paroli</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Saite ir derīga 1 stundu un darbojas vienreiz. Ja to nepieprasījāt, ignorējiet šo e-pastu; jūsu parole paliek nemainīga.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Atiestatiet paroli</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Sveiki, {0}! Kāds pieprasīja atiestatīt jūsu Anubis konta paroli.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Atvērt Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Jūs saņēmāt šo ziņu, jo administrators nosūtīja testa e-pastu.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>E-pasts darbojas</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Anubis testa e-pasts</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Šo testa ziņojumu Anubis nosūtīja, izmantojot {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Konfigurācija</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Domēns</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>lietotāj</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Saitēs e-pastos tad tiek izmantots katra pieprasījuma resursdatora nosaukums. Ražošanā iestatiet Anubis:Issuer uz savu publisko URL.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Anubis:Issuer nav iestatīts</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Ja poga nedarbojas, atveriet šo saiti:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Tikai žurnāls (nav konfigurēts)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>E-pasti tiek tikai ierakstīti žurnālā. Iestatiet Email:Smtp:Host vai konfigurācijā izvēlieties citu Email:Provider (SendGrid, Mailgun, Postmark, Resend).</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>E-pasts nav konfigurēts</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Pakalpojumu sniedzējs</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Saņēmējs</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Sūtīšana neizdevās</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Nosūtīt testa e-pastu</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Nosūtīts</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>{1} pieņēma testa e-pastu adresātam {0}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>E-pasts nav konfigurēts, tāpēc ziņojums tika tikai ierakstīts žurnālā.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Klients '{0}' netika atrasts.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Kļūda</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>Pieprasījuma ID: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>Scope '{0}' jau pastāv.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>Scope '{0}' netika atrasts.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Apstrādājot pieprasījumu, radās kļūda.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Mēs nosūtīsim saiti jaunas paroles izvēlei.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Aizmirsta parole</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Nosūtīt atiestatīšanas saiti</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Ja šai adresei ir konts, atiestatīšanas saite jau ceļā. Saite ir derīga 1 stundu.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Aizmirsāt paroli?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Izveidot kontu</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Ierakstu mainīja kāds cits. Pārlādējiet un mēģiniet vēlreiz.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Radās nezināma kļūda.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>E-pasts '{0}' jau ir aizņemts.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Lomas nosaukums '{0}' jau ir aizņemts.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Lietotājvārds '{0}' jau ir aizņemts.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>E-pasts '{0}' nav derīgs.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Lomas nosaukums '{0}' nav derīgs.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Nederīgs tokens.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>Lietotājvārds '{0}' nav derīgs.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Lietotājs ar šo pieteikšanos jau pastāv.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Nepareiza parole.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Parolē jābūt vismaz vienam ciparam (0-9).</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Parolē jābūt vismaz vienam mazajam burtam (a-z).</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Parolē jābūt vismaz vienai rakstzīmei, kas nav burts vai cipars.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Parolē jāizmanto vismaz {0} dažādas rakstzīmes.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Parolē jābūt vismaz vienam lielajam burtam (A-Z).</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Parolei jābūt vismaz {0} rakstzīmes garai.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Atkopšanas kodu nevarēja izmantot.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Lietotājam jau ir parole.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Lietotājam jau ir loma '{0}'.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Šim lietotājam bloķēšana nav iespējota.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Lietotājam nav lomas '{0}'.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Konts</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Valoda</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Galvenā navigācija</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Izrakstīties</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Izveidojiet to</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Izmantojiet piekļuves atslēgu vai e-pastu un paroli.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Vispirms apstipriniet e-pasta adresi. Saiti atradīsiet iesūtnē.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Pieteikšanās neizdevās</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Aizmirsāt paroli?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Nepareizs e-pasts vai parole.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Vēl nav konta?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Pieteikšanās šim kontam nav atļauta.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>vai</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Pieteikties</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Jūsu parole</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Vēlreiz nosūtīt apstiprinājuma e-pastu</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Pieteikties Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Šī piekļuves atslēga nav reģistrēta Anubis.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Pieteikties ar piekļuves atslēgu</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Šai ierīcei jau ir piekļuves atslēga šim kontam.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>Piekļuves atslēgas pieprasījums tika atcelts vai tam beidzās laiks.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Piekļuves atslēgu nevarēja izmantot. Mēģiniet vēlreiz.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Serveris nevarēja sākt piekļuves atslēgas pieprasījumu. Mēģiniet vēlreiz.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Šis pārlūks neatbalsta piekļuves atslēgas.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Šis pārlūks neatbalsta piekļuves atslēgas. Lūdzu, atjauniniet to.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Vienreizēji kodi pieteikšanās gadījumam, ja pazaudējat autentifikācijas lietotni.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Ģenerēt jaunus kodus</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Izmantojiet kādu no tiem, lai pieteiktos, ja pazaudējat autentifikācijas lietotni.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Tie tiek parādīti tikai vienreiz. Glabājiet tos drošā vietā, piemēram, paroļu pārvaldniekā. Katrs kods ļauj pieteikties vienu reizi, ja pazaudējat autentifikācijas lietotni. Vecie kodi vairs nedarbojas.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Saglabājiet šos atkopšanas kodus tagad</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Esmu saglabājis kodus</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Atkopšanas kodi</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Tiks izveidoti {0} jauni kodi. Pašreizējie kodi pārstās darboties.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Atpakaļ uz autentifikācijas kodu</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Atkopšanas kods</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Katrs atkopšanas kods darbojas tikai vienreiz.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Atkopšanas kods nav derīgs vai jau ir izmantots.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Atkopšanas kods</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Pieteikties ar atkopšanas kodu</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Jau esat reģistrējies?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Apstipriniet paroli</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Atkārtojiet paroli</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Mēs nosūtījām apstiprinājuma saiti uz {0}. Apstipriniet adresi un pēc tam piesakieties.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Reģistrējieties ar e-pastu un paroli.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Pašreģistrācija pašlaik ir izslēgta. Sazinieties ar administratoru.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Reģistrācija izslēgta</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Jānis Bērziņš</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Reģistrācija neizdevās</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Nesaņēmāt e-pastu?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Izveidot kontu</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Sūtīt vēlreiz</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Izveidojiet savu kontu</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Piešķiriet tai atpazīstamu nosaukumu, piemēram, “Pixel 9” vai “MacBook Touch ID”.</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Nosauciet piekļuves atslēgu</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Izlaist</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Pārdēvēt piekļuves atslēgu</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Mēs nosūtīsim jaunu saiti adreses apstiprināšanai.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Atkārtoti nosūtīt apstiprinājumu</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Nosūtīt saiti</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Ja adrese pieder neapstiprinātam kontam, jauna saite jau ceļā.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Atkārtoti nosūtīt apstiprinājuma e-pastu</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Tagad varat pieteikties ar jauno paroli.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Parole nomainīta</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Neizdevās atiestatīt paroli</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Šī atiestatīšanas saite ir nepilnīga. Vēlreiz atveriet saiti no e-pasta vai pieprasiet jaunu.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Nederīga saite</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Saitei ir beidzies derīguma termiņš vai tā jau ir izmantota. Pieprasiet jaunu.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Atiestatīt paroli</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Pieprasīt jaunu saiti</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Iestatīt jaunu paroli</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Izvēlieties jaunu paroli</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Jūsu kontam nav piekļuves šai lapai.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Piekļuve liegta</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Nav atrasts</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Diemžēl šajā adresē nekā nav.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Lapa nav atrasta</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Redzēt jūsu e-pasta adresi</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Saglabāt piekļuvi, kamēr jūs neesat klāt (refresh tokens)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Apstiprināt, kas jūs esat</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Redzēt jūsu vārdu un profilu</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Redzēt jūsu lomas</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Izveidot scope</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Klienti var pieprasīt pielāgotus scope, kas saistīti ar resursiem (audiences).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Mans API</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Resursi (atdalīti ar komatiem)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Resursi</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Pievienot piekļuves atslēgu</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>Pēc paroles ievadiet 6 ciparu kodu no lietotnes, piemēram, Aegis, 2FAS, Google Authenticator, Microsoft Authenticator vai 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Atlikušie atkopšanas kodi: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Apsveriet jaunu kodu ģenerēšanu.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Atlicis maz atkopšanas kodu ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Aizmirst šo pārlūku</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Pāriet uz citu lietotni</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Ģenerējiet jaunus kodus tūlīt, citādi varat zaudēt piekļuvi.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Atkopšanas kodu vairs nav</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Pārlūks nesniedza piekļuves atslēgu.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Vēl nav piekļuves atslēgu.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Pievienota</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Jums var būt ne vairāk kā {0} piekļuves atslēgas. Izdzēsiet vienu, lai pievienotu citu.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Piekļuves atslēgu neizdevās saglabāt.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Piekļuves atslēgu neizdevās pārbaudīt. Mēģiniet vēlreiz vai izmantojiet citu ierīci.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Sinhronizēta</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Piesakieties ar pirksta nospiedumu, seju vai ierīces PIN paroles vietā. Piekļuves atslēga tiek glabāta jūsu tālrunī, datorā vai drošības atslēgā, un to nevar izkrāpt ar pikšķerēšanu.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Iestatīt autentifikācijas lietotni</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Šis pārlūks</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Šis pārlūks pieteikšanās laikā izlaiž autentifikācijas kodu.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Izslēgt</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Piekļuves atslēga bez nosaukuma</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Piesakoties ar paroli, jums tiks prasīts kods no lietotnes.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Autentifikācijas lietotne ieslēgta</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Vēlreiz iestatiet autentifikācijas lietotni ar jauno atslēgu.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Autentifikācijas atslēga atiestatīta</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Šis pārlūks nākamajā pieteikšanās reizē atkal prasīs kodu.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Pārlūks aizmirsts</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>Autentifikācijas lietotne pieteikšanās laikā vairs nav nepieciešama.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Divfaktoru autentifikācija izslēgta</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Pirms atkopšanas kodu ģenerēšanas iestatiet autentifikācijas lietotni.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Nav pieejams</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Tagad varat pieteikties ar šo piekļuves atslēgu.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Piekļuves atslēga pievienota</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Ar šo piekļuves atslēgu vairs nevar pieteikties.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Piekļuves atslēga dzēsta</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>Piekļuves atslēga nepastāv vai pieder citam kontam.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Piekļuves atslēga nav atrasta</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>Piekļuves atslēgas nosaukums ir atjaunināts.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Piekļuves atslēga pārdēvēta</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Autentifikācijas kods</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Ievadiet 6 ciparu kodu no autentifikācijas lietotnes.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Kods nav derīgs vai tam ir beidzies derīguma termiņš.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Pazaudējāt ierīci?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Divfaktoru autentifikācija</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>Šajā pārlūkā 14 dienas vairs nejautāt</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Izmantot atkopšanas kodu</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Pārbaude neizdevās</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Pārbaudīt</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Aktīvs</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Izveidot lietotāju</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Paroles tiek glabātas kā Argon2id jaucējvērtības.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} ir izveidots.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Vai tiešām dzēst {0}? To nevar atsaukt.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Dzēst lietotāju</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Lietotājs dzēsts</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} ir dzēsts.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Bloķēt</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Bloķēts</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} tagad var pieteikties tikai ar paroli.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Piekļuves atslēgas: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Atiestatīt MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Tas izslēdz autentifikācijas lietotni, dzēš visas lietotāja {0} piekļuves atslēgas un izraksta viņu visur. Izmantojiet, ja kāds ir pazaudējis ierīci. Pēc tam viņš varēs pieteikties tikai ar paroli un vēlreiz iestatīt MFA.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Statuss</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Atbloķēt</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Ievadiet klienta ID.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Izmantojiet vismaz 16 rakstzīmes vai atstājiet tukšu publiskam klientam.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Kodā ir 6 cipari.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Ievadiet kodu no lietotnes.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Lūdzu, apstipriniet paroli.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Ievadiet pašreizējo paroli.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Izmantojiet ne vairāk kā 100 rakstzīmes.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Ievadiet derīgu e-pasta adresi.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>E-pasts ir obligāts.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Atļauti tikai burti, cipari, '-', '_' un '.'.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Ievadiet nosaukumu.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Izmantojiet ne vairāk kā 100 rakstzīmes.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Parole ir obligāta.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Paroles nesakrīt.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Ievadiet saņēmēju.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Ievadiet atkopšanas kodu.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Ievadiet scope nosaukumu.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Augšupielādēt avatāru</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Izmantot Gravatar</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF vai SVG. Attēls tiek samazināts līdz maks. 1024×1024 un saglabāts kā caurspīdīgs WebP. Ja attēla nav, tiek izmantots Gravatar.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Parādāmais vārds saglabāts.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Avatārs atjaunināts.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Pielāgotais avatārs noņemts. Tiek izmantots Gravatar.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Nederīgs vai neatbalstīts attēla fails.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Attēla fails ir pārāk liels (maks. 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Iestatījumi</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Lomas</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Izskats</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Konti, kas var pieteikties Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Lomas klientu lietotnēm tiek nodotas claim roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Atļaujas, ko klientu lietotnes var pieprasīt.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Lietotnes, kas piesaka lietotājus, izmantojot Anubis.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Izejošais e-pasts adreses apstiprināšanai un paroles atiestatīšanai.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Pieteikšanās un konta lapu logotips, fonts un krāsas.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Aizvērt</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Saglabāts failā {0}. Šīm vērtībām ir prioritāte pār appsettings.json un vides mainīgajiem.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Iestatījumi saglabāti</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Izmaiņas stājas spēkā nekavējoties.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Iestatījumi netika saglabāti</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Iestatīts. Atstājiet tukšu, lai saglabātu pašreizējo vērtību.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Sūtītāja adrese</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Sūtītāja vārds</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>SMTP serveris</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Ports</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Šifrēšana</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Noildze (sekundes)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Lietotājvārds</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>API atslēga</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Servera tokens</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>API URL</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Logotips un ikona</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Augšupielādējiet SVG, WebP, PNG, JPEG vai GIF (tiek saglabāts iestatījumu failā) vai ievadiet ceļu mapē wwwroot vai https:// adresi. Favicon PNG versijas Safari un iOS tiek izveidotas automātiski.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Logotips</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Fonts</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Tukšs = noklusējuma fonts (sistēmas vienplatuma). Var izmantot tikai ierīcē instalētus fontus.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Fontu saime (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Gaišais motīvs</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Tumšais motīvs</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Izvēlieties krāsu vai ievadiet to kā #RRGGBB. Tukšs = noklusējuma krāsa.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Primārā</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Sekundārā</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Fons</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Teksts</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Izveidot lomu</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Jaunai lomai nav dalībnieku; pievienojiet tos sarakstā zemāk.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Dalībnieki</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Iebūvēta</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Dzēst lomu</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Vai dzēst lomu {0}? Visi tās dalībnieki to zaudēs.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Lomas {0} dalībnieki</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Pievienot</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Noņemt</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Vēl nav dalībnieku.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>Pēdējo administratoru nevar noņemt.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Ievadiet lomas nosaukumu.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Ievadiet krāsu kā #RRGGBB vai atstājiet lauku tukšu.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Nedrīkst saturēt ; { } &lt; &gt; vai \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Ievadiet absolūtu https:// adresi.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Ievadiet ceļu, kas sākas ar /, https:// adresi vai augšupielādējiet failu.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Augšupielādēt</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Izmantot noklusējumu</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Augšupielādēts fails · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Neatbalstīts vai bojāts attēls vai SVG ar ārējām saitēm. Izmantojiet SVG, WebP, PNG, JPEG vai GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Fails ir pārāk liels (maks. {0} MB, pēc apstrādes {1} KB).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Apstiprināts</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Nav apstiprināts</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Tālruņa numurs</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Starptautiskais formāts, piem., +371 2123 4567.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Sūtīt kodu</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Kods no SMS</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Mēs nosūtījām kodu uz {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Tālruņa numurs ir apstiprināts.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Ievadiet numuru starptautiskajā formātā, piem., +371 2123 4567.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Kods tikko tika nosūtīts. Mēģiniet vēlreiz pēc minūtes.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Jūsu Anubis apstiprinājuma kods: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Krāsu režīms</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Gaišs</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Tumšs</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>Sistēmas</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Nav izvēlēta: tiek izmantota pārlūka vēlamā valoda.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Nav izvēlēts: atbilst jūsu sistēmas gaišajam vai tumšajam iestatījumam.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Vēsture</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Pieteikšanās un konta izmaiņas pēdējo 12 mēnešu laikā.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Šeit vēl nekā nav.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Jaunāki</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Vecāki</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>veica administrators</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Nezināma ierīce</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Konts izveidots</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Pieteicās</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Neveiksmīgs pieteikšanās mēģinājums</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Konts bloķēts pēc pārāk daudziem neveiksmīgiem mēģinājumiem</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Izrakstījās</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Pieteicās lietotnē</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Parole nomainīta</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Parole atiestatīta ar e-pastu</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>E-pasta adrese apstiprināta</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Autentifikācijas lietotne ieslēgta</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Autentifikācijas lietotne izslēgta</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Ģenerēti jauni atkopšanas kodi</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Piekļuves atslēga pievienota</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Piekļuves atslēga noņemta</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Tālruņa numurs mainīts</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Tālruņa numurs apstiprināts</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Tālruņa numurs noņemts</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Parādāmais vārds mainīts</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Avatārs mainīts</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Konts bloķēts</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Konts atbloķēts</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>parole</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>piekļuves atslēga</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>autentifikācijas lietotne</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>atkopšanas kods</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Izrakstīties no Anubis?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Pārvaldība</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Darbības</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Vai dzēst scope {0}? Klienti to vairs nevarēs pieprasīt.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Vispārīgi</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Šī servera pamatiestatījumi.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Servera nosaukums</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Tiek rādīts pārlūka cilnes virsrakstā un konta un administrēšanas lapu augšdaļā.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Ievadiet servera nosaukumu.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Izmantojiet ne vairāk kā 60 rakstzīmes.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Drošība</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Paroļu noteikumi, bloķēšana pēc neveiksmīgiem mēģinājumiem, sesijas ilgums un piekļuves atslēgas. Izmaiņas stājas spēkā uzreiz.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Tokeni</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Klientu lietotnēm izsniegto tokenu un kodu derīgums. Izmaiņas attiecas uz jauniem tokeniem.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Serveris</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>Publiskais URL (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Piemēram, https://id.example.com. Tukšs = no katra pieprasījuma. Stājas spēkā pēc restartēšanas.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Reģistrācija</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Atļaut pašreģistrāciju</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Pieprasīt apstiprinātu e-pasta adresi pieteikšanās laikā</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Nepieciešami darbojoši e-pasta iestatījumi.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Paroles</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Minimālais garums</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Pieprasīt ciparu</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Pieprasīt mazo burtu</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Pieprasīt lielo burtu</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Pieprasīt simbolu</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Bloķēšana pēc neveiksmīgām pieteikšanās reizēm</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Neveiksmīgi mēģinājumi pirms bloķēšanas</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Bloķēšanas ilgums (minūtes)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Pieteikšanās sesija</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Sesijas ilgums (stundas)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Pagarināt sesiju, kamēr lietotājs ir aktīvs</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Maksimālais piekļuves atslēgu skaits kontam</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (minūtes)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID token (minūtes)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Autorizācijas kods (minūtes)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (dienas)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Piekrišana (minūtes)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Cik ilgi piešķirtā piekrišana tiek atcerēta pieteikšanās laikā.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Atļautais diapazons: {0} līdz {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Rediģēt {0}</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>E-pasta adrese ir arī pieteikšanās vārds: lietotājs pieteiksies ar jauno adresi.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-pasta adrese apstiprināta</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Mainīts numurs tiek saglabāts kā neapstiprināts.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Šo e-pasta adresi jau izmanto cits konts.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Jūs nevarat noņemt lomu Admin savam kontam.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Konta {0} izmaiņas ir saglabātas.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>E-pasta adrese mainīta</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Loma pievienota</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Loma noņemta</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Pēc saglabāšanas uz jauno adresi tiks nosūtīts apstiprinājuma e-pasts.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Uz {0} tika nosūtīts apstiprinājuma e-pasts.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Sāciet ar burtu, tad burti, cipari un - _ . : / (ne vairāk kā {0} rakstzīmes).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>“{0}” iestata Anubis, un to nevar izmantot.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Ievadiet vērtību.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Ne vairāk kā {0} rakstzīmes.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Šis claim ir norādīts divreiz.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Ne vairāk kā {0} claimi.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Loma nav atrasta.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Iebūvētās lomas nevar pārdēvēt.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Loma ar šādu nosaukumu jau pastāv.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Rediģēt lomu {0}</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Loma {0} saglabāta.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Pievienot lomu</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claimi</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Tiek pievienoti piekļuves tokenam, ID tokenam un userinfo kopā ar lietotāja lomu claimiem.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Tiek pievienoti visu šīs lomas dalībnieku tokeniem.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Tips</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Vērtība</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Pievienot claim</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Noņemt claim</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Vēl nav claimu.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>No lomām</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Mainīt avatāru</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Notiek ielāde…</value></data>
+</root>

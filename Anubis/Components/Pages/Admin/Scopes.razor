@@ -1,0 +1,150 @@
+@page "/admin/scopes"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = "Admin")]
+
+@using Microsoft.AspNetCore.Authorization
+@using k6labs.Anubis.Models
+@using k6labs.Anubis.Services
+
+@inject OidcScopeService ScopeService
+@* Notifications belong to this page and its interactive circuit. *@
+
+<AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_Scopes))" />
+
+<NotificationList State="Notifications" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@Translations.Admin_Scopes" Description="@Translations.Admin_ScopesDescription"
+                CreateLabel="@Translations.Scopes_Create" OnCreate="OpenCreate" />
+
+    <Table Label="@Translations.Admin_Scopes">
+        <thead>
+            <tr>
+                <th>@Translations.Common_Name</th>
+                <th>@Translations.Common_DisplayName</th>
+                <th>@Translations.Common_Description</th>
+                <th>@Translations.Scopes_ResourcesHeader</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var scope in scopes)
+            {
+                <tr>
+                    <td><code>@scope.Name</code></td>
+                    <td>@scope.DisplayName</td>
+                    <td>@scope.Description</td>
+                    <td>@string.Join(", ", scope.Resources)</td>
+                    <td data-align="end">
+                        <RowMenu>
+                            <MenuItem Icon="@AppIcons.Delete" OnClick="() => AskDelete(scope)" data-popup-option Danger="true">@Translations.Common_Delete</MenuItem>
+                        </RowMenu>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </Table>
+</Stack>
+
+<AppModal Title="@Translations.Scopes_Create" @bind-Open="createOpen">
+    <ChildContent>
+        <EditForm Model="createModel" OnValidSubmit="CreateAsync" FormName="createScope" id="createScopeForm">
+            <Stack Gap="Gap.Medium">
+                <DataAnnotationsValidator />
+                <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Scopes_CreateDescription</Typography>
+                <FormText @bind-Value="createModel.Name" Label="@Translations.Common_Name" Placeholder="my-api" Id="scopeName" />
+                <FormText @bind-Value="createModel.DisplayName" Label="@Translations.Common_DisplayName" Placeholder="@Translations.Scopes_DisplayNamePlaceholder" Id="scopeDisplayName" />
+                <FormText @bind-Value="createModel.Description" Label="@Translations.Common_Description" Id="scopeDescription" />
+                <FormText @bind-Value="createModel.ResourcesText" Label="@Translations.Scopes_Resources" Placeholder="my-api" Id="scopeResources" />
+                @if (createError is not null)
+                {
+                    <Alert Severity="AlertSeverity.Danger">@createError</Alert>
+                }
+            </Stack>
+        </EditForm>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => createOpen = false">@Translations.Common_Cancel</Button>
+        <Button form="createScopeForm" Disabled="busy" Type="submit">@Translations.Scopes_Create</Button>
+    </Footer>
+</AppModal>
+
+<AppModal Title="@Translations.Common_Delete" @bind-Open="deleteOpen">
+    <ChildContent>
+        <Typography>@Translations.Scopes_DeleteConfirm.F(scopeToDelete?.Name)</Typography>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => deleteOpen = false">@Translations.Common_Cancel</Button>
+        <Button Variant="ButtonVariant.Danger" OnClick="DeleteAsync">@Translations.Common_Delete</Button>
+    </Footer>
+</AppModal>
+
+@code {
+    private readonly NotificationState Notifications = new();
+    private ScopeFormModel createModel = new();
+    private List<ScopeSummary> scopes = new();
+    private bool createOpen;
+    private string? createError;
+    private ScopeSummary? scopeToDelete;
+    private bool deleteOpen;
+    private bool busy;
+
+    protected override async Task OnInitializedAsync() => scopes = await ScopeService.ListAsync();
+
+    private void OpenCreate()
+    {
+        createModel = new ScopeFormModel();
+        createError = null;
+        createOpen = true;
+    }
+
+    private async Task CreateAsync()
+    {
+        busy = true;
+        createError = null;
+
+        try
+        {
+            await ScopeService.CreateAsync(createModel);
+            createOpen = false;
+            Notifications.Add(Translations.Users_CreatedText.F(createModel.Name), AlertSeverity.Success);
+            scopes = await ScopeService.ListAsync();
+        }
+        catch (Exception exception)
+        {
+            createError = exception.Message;
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    private void AskDelete(ScopeSummary scope)
+    {
+        scopeToDelete = scope;
+        deleteOpen = true;
+    }
+
+    private async Task DeleteAsync()
+    {
+        if (scopeToDelete is null)
+        {
+            return;
+        }
+
+        deleteOpen = false;
+        try
+        {
+            await ScopeService.DeleteAsync(scopeToDelete.Name);
+            Notifications.Add(Translations.Users_DeletedText.F(scopeToDelete.Name), AlertSeverity.Success);
+            scopes = await ScopeService.ListAsync();
+        }
+        catch (Exception exception)
+        {
+            Notifications.Add(exception.Message, AlertSeverity.Danger);
+        }
+
+        scopeToDelete = null;
+    }
+}

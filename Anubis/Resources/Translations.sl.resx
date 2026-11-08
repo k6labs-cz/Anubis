@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Slovenščina (sl). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Aplikacija za preverjanje pristnosti</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Spremeni geslo</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Pošiljanje ni uspelo, poskusite pozneje</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Poslano, preverite prejeto pošto</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Že poslano, poskusite znova čez nekaj minut</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Ustvarjeno</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Nastavitev brskalnika</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Ključi za dostop</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Vloge</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Pošlji potrditveno e-pošto</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Večfaktorsko</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>Odjemalci OIDC</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scopi</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Uporabniki</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Koda iz aplikacije</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Ustvari nov ključ</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>Odslej boste po geslu morali vnesti še kodo.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Koda ni veljavna. Preverite, ali je ura v napravi pravilna, in poskusite znova.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Ne morete skenirati? Ključ vnesite ročno:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Ustvarjen bo nov ključ. Trenutna aplikacija takoj preneha delovati, dvofaktorska prijava pa ostane izklopljena, dokler ne nastavite nove aplikacije.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Preklopi na drugo aplikacijo za preverjanje pristnosti</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>Koda QR za vašo aplikacijo za preverjanje pristnosti</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Kodo QR skenirajte z aplikacijo in nato vnesite kodo, ki jo prikaže.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Preveri in vklopi</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Trenutno geslo</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Izberite novo geslo (vsaj {0} znakov).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Vaše geslo je posodobljeno.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Sprememba gesla ni uspela</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Posodobi geslo</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Dovoljeni scopi</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Ustvari odjemalca</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>Moja aplikacija</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Uredi odjemalca: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (stroj–stroj)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (s PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>URI-ji za preusmeritev po odjavi (en na vrstico)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>URI-ji za preusmeritev (en na vrstico)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Ustvari novo skrivnost</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Zahtevaj izrecno soglasje uporabnika</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Shrani spremembe</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Skrivnost odjemalca</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Pustite prazno, če želite obdržati trenutno skrivnost.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Pustite prazno za javnega odjemalca (samo PKCE) ali vnesite skrivnost za zaupnega odjemalca.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Vsaj 16 znakov</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Kopirajte jo zdaj — prikaže se samo enkrat. OpenIddict shrani samo njen hash.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} je posodobljen.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>ID odjemalca</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Soglasje</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Implicitno</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Obvezno</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Ali res želite izbrisati {0}? Žetoni, izdani zanj, takoj prenehajo delovati.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Izbriši odjemalca</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Vrste grantov</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Nov odjemalec</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Vrsta</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Skrbništvo</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Nazaj na prijavo</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Prekliči</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Preverite prejeto pošto</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Potrdite novo geslo</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Izbriši</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Opis</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Prikazno ime</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Uredi</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>E-pošta</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>vi@primer.si</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Napaka</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Račun je zaklenjen zaradi preveč neuspešnih poskusov. Poskusite pozneje.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Ime</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Novo geslo</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Vsaj {0} znakov</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Ne</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Brez</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Izklopljeno</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Vklopljeno</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Geslo</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Preimenuj</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Shrani</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Prijava</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Prišlo je do napake</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Uporabnika ni mogoče najti.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Da</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Nadaljuj</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Potrditvene povezave veljajo 24 ur. Spodaj zahtevajte novo.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Povezava ni veljavna ali je potekla</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Potrdi e-pošto</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Pošlji novo povezavo</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Hvala. Vaš e-poštni naslov je potrjen.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>E-pošta potrjena</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>Potrditev e-pošte</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Dovoli</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Zavrni</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Neveljavna zahteva</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Zahteva za avtorizacijo ne navaja odjemalca.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Zahteva za avtorizacijo manjka ali ni veljavna.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>zahteva dostop do vašega računa.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Avtoriziraj aplikacijo</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>Aplikacija bo lahko:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Za prijavo z geslom bo nato dovolj samo geslo. Če geslo uide, bo vaš račun lažje prevzeti. Vaši ključi za dostop še naprej delujejo.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Izklopi dvofaktorsko preverjanje pristnosti</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Izklopim aplikacijo za preverjanje pristnosti?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Potrdi e-pošto</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Povezava velja 24 ur. Če niste ustvarili računa, to sporočilo prezrite.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Potrdite svoj e-poštni naslov</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Pozdravljeni, {0}, potrdite, da {1} pripada vašemu računu Anubis.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Izberite novo geslo</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Povezava velja 1 uro in deluje enkrat. Če tega niste zahtevali, sporočilo prezrite; vaše geslo ostane nespremenjeno.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Ponastavite geslo</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Pozdravljeni, {0}, nekdo je zahteval ponastavitev gesla za vaš račun Anubis.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Odpri Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>To sporočilo ste prejeli, ker je skrbnik poslal preizkusno e-pošto.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>E-pošta deluje</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Preizkusna e-pošta Anubis</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>To preizkusno sporočilo je Anubis poslal prek {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Konfiguracija</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Domena</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>uporabnik</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Povezave v e-pošti nato uporabljajo ime gostitelja iz vsake zahteve. V produkciji nastavite Anubis:Issuer na svoj javni URL.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Anubis:Issuer ni nastavljen</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Če gumb ne deluje, odprite to povezavo:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Samo dnevnik (ni konfigurirano)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>E-pošta se samo zapisuje v dnevnik. Nastavite Email:Smtp:Host ali v konfiguraciji izberite drug Email:Provider (SendGrid, Mailgun, Postmark, Resend).</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>E-pošta ni konfigurirana</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Ponudnik</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Prejemnik</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Pošiljanje ni uspelo</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Pošlji preizkusno e-pošto</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Poslano</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>Preizkusno e-pošto za {0} je sprejel {1}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>E-pošta ni konfigurirana, zato je bilo sporočilo samo zapisano v dnevnik.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Odjemalca '{0}' ni mogoče najti.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Napaka</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>ID zahteve: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>Scope '{0}' že obstaja.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>Scopa '{0}' ni mogoče najti.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Pri obdelavi zahteve je prišlo do napake.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Poslali vam bomo povezavo za izbiro novega.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Pozabljeno geslo</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Pošlji povezavo za ponastavitev</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Če za ta naslov obstaja račun, je povezava za ponastavitev na poti. Povezava velja 1 uro.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Ste pozabili geslo?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Ustvari račun</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Zapis je spremenil nekdo drug. Znova naložite stran in poskusite še enkrat.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Prišlo je do neznane napake.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>E-pošta '{0}' je že zasedena.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Ime vloge '{0}' je že zasedeno.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Uporabniško ime '{0}' je že zasedeno.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>E-pošta '{0}' ni veljavna.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Ime vloge '{0}' ni veljavno.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Neveljaven žeton.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>Uporabniško ime '{0}' ni veljavno.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Uporabnik s to prijavo že obstaja.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Napačno geslo.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Geslo mora vsebovati vsaj eno števko (0-9).</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Geslo mora vsebovati vsaj eno malo črko (a-z).</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Geslo mora vsebovati vsaj en znak, ki ni črka ali števka.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Geslo mora vsebovati vsaj {0} različnih znakov.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Geslo mora vsebovati vsaj eno veliko črko (A-Z).</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Geslo mora imeti vsaj {0} znakov.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Obnovitvene kode ni bilo mogoče uporabiti.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Uporabnik že ima geslo.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Uporabnik že ima vlogo '{0}'.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Zaklepanje za tega uporabnika ni omogočeno.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Uporabnik nima vloge '{0}'.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Račun</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Jezik</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Glavna navigacija</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Odjava</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Ustvarite ga</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Uporabite ključ za dostop ali e-pošto in geslo.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Najprej potrdite e-poštni naslov. Povezavo najdete v prejeti pošti.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Prijava ni uspela</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Ste pozabili geslo?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Napačna e-pošta ali geslo.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Še nimate računa?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Prijava v ta račun ni dovoljena.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>ali</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Prijava</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Vaše geslo</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Znova pošlji potrditveno e-pošto</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Prijava v Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Ta ključ za dostop ni registriran v Anubisu.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Prijava s ključem za dostop</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Ta naprava že ima ključ za dostop do tega računa.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>Poziv za ključ za dostop je bil preklican ali je potekel.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Ključa za dostop ni bilo mogoče uporabiti. Poskusite znova.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Strežnik ni mogel začeti zahteve za ključ za dostop. Poskusite znova.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Ta brskalnik ne podpira ključev za dostop.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Ta brskalnik ne podpira ključev za dostop. Posodobite ga.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Enkratne kode za prijavo, če izgubite aplikacijo za preverjanje pristnosti.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Ustvari nove kode</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Z eno od njih se prijavite, če izgubite aplikacijo za preverjanje pristnosti.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Prikažejo se samo enkrat. Shranite jih na varno mesto, na primer v upravitelja gesel. Vsaka koda vas enkrat prijavi, če izgubite aplikacijo za preverjanje pristnosti. Stare kode ne delujejo več.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Shranite te obnovitvene kode zdaj</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Kode sem shranil</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Obnovitvene kode</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Ustvarjenih bo {0} novih kod. Trenutne kode prenehajo delovati.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Nazaj na kodo za preverjanje pristnosti</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Obnovitvena koda</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Vsaka obnovitvena koda deluje samo enkrat.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Obnovitvena koda ni veljavna ali je že bila uporabljena.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Obnovitvena koda</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Prijava z obnovitveno kodo</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Ste že registrirani?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Potrdite geslo</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Ponovite geslo</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Na {0} smo poslali potrditveno povezavo. Potrdite naslov in se nato prijavite.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Registrirajte se z e-pošto in geslom.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Samostojna registracija je trenutno izklopljena. Obrnite se na skrbnika.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Registracija izklopljena</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Ana Novak</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Registracija ni uspela</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Niste prejeli e-pošte?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Ustvari račun</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Pošlji znova</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Ustvarite svoj račun</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Dajte mu prepoznavno ime, na primer »Pixel 9« ali »MacBook Touch ID«.</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Poimenujte ključ za dostop</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Preskoči</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Preimenuj ključ za dostop</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Poslali bomo novo povezavo za potrditev naslova.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Znova pošlji potrditev</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Pošlji povezavo</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Če naslov pripada nepotrjenemu računu, je nova povezava na poti.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Znova pošlji potrditveno e-pošto</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Zdaj se lahko prijavite z novim geslom.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Geslo spremenjeno</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Gesla ni bilo mogoče ponastaviti</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Ta povezava za ponastavitev ni popolna. Znova odprite povezavo iz e-pošte ali zahtevajte novo.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Neveljavna povezava</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Povezava je potekla ali je že bila uporabljena. Zahtevajte novo.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Ponastavitev gesla</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Zahtevaj novo povezavo</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Nastavi novo geslo</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Izberite novo geslo</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Vaš račun nima dostopa do te strani.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Dostop zavrnjen</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Ni najdeno</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Na tem naslovu žal ni ničesar.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Strani ni mogoče najti</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Videti vaš e-poštni naslov</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Ohraniti dostop, ko vas ni (refresh tokens)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Potrditi, kdo ste</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Videti vaše ime in profil</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Videti vaše vloge</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Ustvari scope</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Odjemalci lahko zahtevajo scope po meri, povezane z viri (audiences).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Moj API</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Viri (ločeni z vejico)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Viri</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Dodaj ključ za dostop</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>Po geslu vnesite 6-mestno kodo iz aplikacije, kot so Aegis, 2FAS, Google Authenticator, Microsoft Authenticator ali 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Preostale obnovitvene kode: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Razmislite o ustvarjanju novih kod.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Ostalo je malo obnovitvenih kod ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Pozabi ta brskalnik</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Preklopi na drugo aplikacijo</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Ustvarite nove kode zdaj, sicer lahko izgubite dostop.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Ni več obnovitvenih kod</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Brskalnik ni posredoval ključa za dostop.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Ključev za dostop še ni.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Dodano</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Imate lahko največ {0} ključev za dostop. Izbrišite enega, če želite dodati drugega.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Ključa za dostop ni bilo mogoče shraniti.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Ključa za dostop ni bilo mogoče preveriti. Poskusite znova ali uporabite drugo napravo.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Sinhroniziran</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Prijavite se s prstnim odtisom, obrazom ali kodo PIN naprave namesto z geslom. Ključ za dostop je shranjen v telefonu, računalniku ali varnostnem ključu in ga ni mogoče izvabiti z lažnim predstavljanjem (phishingom).</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Nastavi aplikacijo za preverjanje pristnosti</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Ta brskalnik</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Ta brskalnik pri prijavi preskoči kodo za preverjanje pristnosti.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Izklopi</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Neimenovan ključ za dostop</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Pri prijavi z geslom boste morali vnesti kodo iz aplikacije.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Aplikacija za preverjanje pristnosti vklopljena</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Znova nastavite aplikacijo za preverjanje pristnosti z novim ključem.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Ključ za preverjanje pristnosti ponastavljen</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Ta brskalnik bo ob naslednji prijavi znova zahteval kodo.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Brskalnik pozabljen</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>Aplikacija za preverjanje pristnosti za prijavo ni več potrebna.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Dvofaktorsko preverjanje pristnosti izklopljeno</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Pred ustvarjanjem obnovitvenih kod nastavite aplikacijo za preverjanje pristnosti.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Ni na voljo</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Zdaj se lahko prijavite s tem ključem za dostop.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Ključ za dostop dodan</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>S tem ključem za dostop se ni več mogoče prijaviti.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Ključ za dostop izbrisan</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>Ključ za dostop ne obstaja ali pripada drugemu računu.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Ključa za dostop ni mogoče najti</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>Ime ključa za dostop je posodobljeno.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Ključ za dostop preimenovan</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Koda za preverjanje pristnosti</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Vnesite 6-mestno kodo iz aplikacije za preverjanje pristnosti.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Koda ni veljavna ali je potekla.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Ste izgubili napravo?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Dvofaktorsko preverjanje pristnosti</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>V tem brskalniku 14 dni ne sprašuj več</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Uporabi obnovitveno kodo</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Preverjanje ni uspelo</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Preveri</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Aktiven</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Ustvari uporabnika</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Gesla se shranjujejo kot hashi Argon2id.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} je ustvarjen.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Ali res želite izbrisati {0}? Tega ni mogoče razveljaviti.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Izbriši uporabnika</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Uporabnik izbrisan</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} je izbrisan.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Zakleni</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Zaklenjen</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} se lahko zdaj prijavi samo z geslom.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Ključi za dostop: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Ponastavi MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>S tem se izklopi aplikacija za preverjanje pristnosti, izbrišejo se vsi ključi za dostop uporabnika {0} in povsod se ga odjavi. Uporabite, ko je nekdo izgubil napravo. Nato se bo lahko prijavil samo z geslom in znova nastavil MFA.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Stanje</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Odkleni</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Vnesite ID odjemalca.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Uporabite vsaj 16 znakov ali pustite prazno za javnega odjemalca.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Koda ima 6 števk.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Vnesite kodo iz aplikacije.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Potrdite geslo.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Vnesite trenutno geslo.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Uporabite največ 100 znakov.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Vnesite veljaven e-poštni naslov.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>E-pošta je obvezna.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Dovoljene so samo črke, števke, '-', '_' in '.'.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Vnesite ime.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Uporabite največ 100 znakov.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Geslo je obvezno.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Gesli se ne ujemata.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Vnesite prejemnika.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Vnesite obnovitveno kodo.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Vnesite ime scopa.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Naloži avatar</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Uporabi Gravatar</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF ali SVG. Slika se pomanjša na največ 1024×1024 in shrani kot prosojen WebP. Če slika ni nastavljena, se uporabi Gravatar.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Prikazno ime shranjeno.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Avatar posodobljen.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Lastni avatar odstranjen. Uporablja se Gravatar.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Neveljavna ali nepodprta slikovna datoteka.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Slikovna datoteka je prevelika (največ 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Nastavitve</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Vloge</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Videz</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Računi, ki se lahko prijavijo v Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Vloge se odjemalskim aplikacijam posredujejo v claimu roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Dovoljenja, ki jih lahko zahtevajo odjemalske aplikacije.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Aplikacije, ki prijavljajo uporabnike prek Anubisa.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Odhodna e-pošta za potrditev naslova in ponastavitev gesla.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Logotip, pisava in barve strani za prijavo in račun.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Zapri</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Shranjeno v {0}. Te vrednosti imajo prednost pred appsettings.json in okoljskimi spremenljivkami.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Nastavitve shranjene</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Spremembe veljajo takoj.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Nastavitve niso shranjene</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Nastavljeno. Pustite prazno, če želite obdržati trenutno vrednost.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Naslov pošiljatelja</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Ime pošiljatelja</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>Strežnik SMTP</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Vrata</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Šifriranje</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Časovna omejitev (sekunde)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Uporabniško ime</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>Ključ API</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Žeton strežnika</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>URL API-ja</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Logotip in ikona</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Naložite SVG, WebP, PNG, JPEG ali GIF (shrani se v datoteko z nastavitvami) ali vnesite pot v wwwroot ali naslov https://. Različice favicona PNG za Safari in iOS se ustvarijo samodejno.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Logotip</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Pisava</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Prazno = privzeta pisava (sistemska enakomerna). Uporabiti je mogoče le pisave, nameščene v napravi.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Družina pisav (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Svetla tema</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Temna tema</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Izberite barvo ali jo vnesite kot #RRGGBB. Prazno = privzeta barva.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Primarna</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Sekundarna</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Ozadje</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Besedilo</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Ustvari vlogo</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Nova vloga nima članov; dodajte jih na spodnjem seznamu.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Člani</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Vgrajena</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Izbriši vlogo</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Izbrišem vlogo {0}? Vsi njeni člani jo bodo izgubili.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Člani vloge {0}</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Dodaj</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Odstrani</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Članov še ni.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>Zadnjega skrbnika ni mogoče odstraniti.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Vnesite ime vloge.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Vnesite barvo kot #RRGGBB ali pustite polje prazno.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Ne sme vsebovati ; { } &lt; &gt; ali \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Vnesite absolutni naslov https://.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Vnesite pot, ki se začne z /, naslov https:// ali naložite datoteko.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Naloži</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Uporabi privzeto</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Naložena datoteka · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Nepodprta ali poškodovana slika ali SVG z zunanjimi povezavami. Uporabite SVG, WebP, PNG, JPEG ali GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Datoteka je prevelika (največ {0} MB, po obdelavi {1} KB).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Preverjeno</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Ni preverjeno</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Telefonska številka</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Mednarodna oblika, npr. +386 41 234 567.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Pošlji kodo</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Koda iz SMS-a</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Kodo smo poslali na {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Telefonska številka je preverjena.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Vnesite številko v mednarodni obliki, npr. +386 41 234 567.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Koda je bila pravkar poslana. Poskusite znova čez minuto.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Vaša koda za preverjanje Anubis: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Barvni način</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Svetel</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Temen</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>Sistemski</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Ni izbrano: uporabi se jezik, ki ga ima brskalnik za prednostnega.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Ni izbrano: sledi svetli ali temni nastavitvi vašega sistema.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Zgodovina</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Prijave in spremembe vašega računa v zadnjih 12 mesecih.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Tu še ni ničesar.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Novejše</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Starejše</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>izvedel skrbnik</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Neznana naprava</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Račun ustvarjen</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Prijava</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Neuspešen poskus prijave</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Račun zaklenjen po preveč neuspešnih poskusih</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Odjava</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Prijava v aplikacijo</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Geslo spremenjeno</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Geslo ponastavljeno prek e-pošte</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>E-poštni naslov potrjen</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Aplikacija za preverjanje pristnosti vklopljena</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Aplikacija za preverjanje pristnosti izklopljena</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Ustvarjene nove obnovitvene kode</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Ključ za dostop dodan</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Ključ za dostop odstranjen</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Telefonska številka spremenjena</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Telefonska številka preverjena</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Telefonska številka odstranjena</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Prikazno ime spremenjeno</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Avatar spremenjen</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Račun zaklenjen</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Račun odklenjen</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>geslo</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>ključ za dostop</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>aplikacija za preverjanje pristnosti</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>obnovitvena koda</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Se želite odjaviti iz Anubisa?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Upravljanje</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Dejanja</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Izbrišem scope {0}? Odjemalci ga ne bodo več mogli zahtevati.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Splošno</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Osnovne nastavitve tega strežnika.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Ime strežnika</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Prikazano v naslovu zavihka brskalnika ter na vrhu strani računa in skrbništva.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Vnesite ime strežnika.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Uporabite največ 60 znakov.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Varnost</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Pravila gesel, zaklepanje po neuspešnih poskusih, trajanje seje in ključi za dostop. Spremembe veljajo takoj.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Žetoni</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Veljavnost žetonov in kod, izdanih odjemalskim aplikacijam. Spremembe veljajo za nove žetone.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Strežnik</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>Javni URL (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Na primer https://id.example.com. Prazno = iz vsake zahteve. Velja po ponovnem zagonu.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Registracija</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Dovoli samostojno registracijo</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Za prijavo zahtevaj potrjen e-poštni naslov</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Potrebne so delujoče nastavitve e-pošte.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Gesla</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Najmanjša dolžina</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Zahtevaj števko</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Zahtevaj malo črko</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Zahtevaj veliko črko</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Zahtevaj simbol</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Zaklepanje po neuspešnih prijavah</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Neuspešni poskusi pred zaklepanjem</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Trajanje zaklepanja (minute)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Seja prijave</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Trajanje seje (ure)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Podaljšuj sejo, dokler je uporabnik aktiven</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Največje število ključev za dostop na račun</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (minute)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID token (minute)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Avtorizacijska koda (minute)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (dnevi)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Soglasje (minute)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Kako dolgo se med prijavo zapomni dano soglasje.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Dovoljen razpon: od {0} do {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Uredi {0}</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>E-poštni naslov je tudi uporabniško ime: uporabnik se bo prijavljal z novim naslovom.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-poštni naslov je potrjen</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Spremenjena številka se shrani kot nepreverjena.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Ta e-poštni naslov že uporablja drug račun.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Svojemu računu ne morete odstraniti vloge Admin.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Spremembe računa {0} so shranjene.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>E-poštni naslov spremenjen</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Vloga dodana</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Vloga odstranjena</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Po shranjevanju se na nov naslov pošlje potrditveno e-sporočilo.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Potrditveno e-sporočilo je bilo poslano na {0}.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Začnite s črko, nato črke, števke in - _ . : / (največ {0} znakov).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>»{0}« nastavi Anubis in ga ni mogoče uporabiti.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Vnesite vrednost.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Največ {0} znakov.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Ta claim je naveden dvakrat.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Največ {0} claimov.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Vloge ni mogoče najti.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Vgrajenih vlog ni mogoče preimenovati.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Vloga s tem imenom že obstaja.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Uredi vlogo {0}</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Vloga {0} je shranjena.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Dodaj vlogo</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claimi</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Dodajo se v žeton za dostop, ID žeton in userinfo, skupaj s claimi uporabnikovih vlog.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Dodajo se v žetone vseh članov te vloge.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Vrsta</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Vrednost</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Dodaj claim</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Odstrani claim</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Še ni claimov.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Iz vlog</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Spremeni avatar</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Nalaganje…</value></data>
+</root>

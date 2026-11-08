@@ -1,0 +1,23 @@
+@page "/error"
+
+<AppPageTitle Text="@(Translations.Error_PageTitle)" />
+
+<Container MaxWidth="28rem">
+    <Stack Gap="Gap.Large">
+        <Alert Severity="AlertSeverity.Danger" Title="@Translations.Common_SomethingWentWrong">
+            @Translations.Error_Text
+            @if (!string.IsNullOrEmpty(RequestId))
+            {
+                <br />
+                <code>@Translations.Error_RequestId.Format(RequestId)</code>
+            }
+        </Alert>
+    </Stack>
+</Container>
+
+@code {
+    [CascadingParameter]
+    private HttpContext? HttpContext { get; set; }
+
+    private string? RequestId => HttpContext?.TraceIdentifier;
+}

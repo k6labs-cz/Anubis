@@ -1,0 +1,11 @@
+@namespace k6labs.Anubis.Components.Layout
+
+@* Sign out as a regular navigation item. Signing out must be a POST with an antiforgery
+   token (a plain link could be triggered by any other site), so js/theme.js turns a click on
+   this link into a submit of the hidden form in AppLayout. Without JavaScript the link opens
+   /logout, which asks to confirm with the same POST. *@
+<Navigation Label="@Translations.Layout_SignOut" Vertical="true" Collapsible="false">
+    <NavigationLink Href="/logout" Match="NavLinkMatch.All"><Icon Name="@AppIcons.Logout" Size="18" />
+        @Translations.Layout_SignOut
+    </NavigationLink>
+</Navigation>

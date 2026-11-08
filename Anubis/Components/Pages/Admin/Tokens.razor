@@ -1,0 +1,114 @@
+@page "/admin/tokens"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = "Admin")]
+
+@using System.Text.Json.Nodes
+@using k6labs.Anubis.Options
+@using k6labs.Anubis.Services
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Options
+
+@inject IOptionsMonitor<AnubisOptions> AnubisMonitor
+@inject SettingsFile Settings
+@* Notifications belong to this page and its interactive circuit. *@
+@inject ILogger<Tokens> Logger
+
+@* Lifetimes are set on every issued token (AuthorizationController), so changes apply to the next token. *@
+
+<AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_Tokens))" />
+
+<NotificationList State="Notifications" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@Translations.Admin_Tokens" Description="@Translations.Admin_TokensDescription" />
+
+    <EditForm Model="model" OnSubmit="SaveAsync" FormName="token-settings">
+        <Stack Gap="Gap.Large">
+            <Grid Gap="Gap.Medium">
+                @foreach (var field in Fields)
+                {
+                    <GridItem Sm="6">
+                        <FormNumber Value="@field.Get()" ValueChanged="@(value => field.Set(value))" Label="@field.Label" Min="field.Min" Max="field.Max" Hint="@field.Hint" />
+                    </GridItem>
+                }
+            </Grid>
+
+            <SaveBar Dirty="@snapshot.IsDirty(model)" Busy="busy" Note="@Translations.Settings_FileNote.F(Settings.Path)" />
+        </Stack>
+    </EditForm>
+</Stack>
+
+@code {
+    private readonly NotificationState Notifications = new();
+    private TokenModel model = new();
+    private bool busy;
+    private readonly FormSnapshot snapshot = new();
+
+    private sealed record Field(string Key, string Label, string Hint, int Min, int Max, Func<int> Get, Action<int> Set);
+
+    private IEnumerable<Field> Fields =>
+    [
+        new(nameof(AnubisOptions.AccessTokenLifetimeMinutes), Translations.Tokens_AccessToken, Range(1, 1440), 1, 1440,
+            () => model.AccessToken, v => model.AccessToken = v),
+        new(nameof(AnubisOptions.IdentityTokenLifetimeMinutes), Translations.Tokens_IdentityToken, Range(1, 1440), 1, 1440,
+            () => model.IdentityToken, v => model.IdentityToken = v),
+        new(nameof(AnubisOptions.AuthorizationCodeLifetimeMinutes), Translations.Tokens_AuthorizationCode, Range(1, 60), 1, 60,
+            () => model.AuthorizationCode, v => model.AuthorizationCode = v),
+        new(nameof(AnubisOptions.RefreshTokenLifetimeDays), Translations.Tokens_RefreshToken, Range(1, 365), 1, 365,
+            () => model.RefreshToken, v => model.RefreshToken = v),
+        new(nameof(AnubisOptions.ConsentCookieLifetimeMinutes), Translations.Tokens_Consent, $"{Translations.Tokens_ConsentHint} {Range(1, 60)}", 1, 60,
+            () => model.Consent, v => model.Consent = v),
+    ];
+
+    private static string Range(int min, int max) => Translations.Validation_Range.F(min, max);
+
+    protected override void OnInitialized()
+    {
+        var options = AnubisMonitor.CurrentValue;
+        model = new TokenModel
+        {
+            AccessToken = options.AccessTokenLifetimeMinutes,
+            IdentityToken = options.IdentityTokenLifetimeMinutes,
+            AuthorizationCode = options.AuthorizationCodeLifetimeMinutes,
+            RefreshToken = options.RefreshTokenLifetimeDays,
+            Consent = options.ConsentCookieLifetimeMinutes,
+        };
+        snapshot.Take(model);
+    }
+
+    private async Task SaveAsync()
+    {
+        var values = new JsonObject();
+        foreach (var field in Fields)
+        {
+            values[field.Key] = Math.Clamp(field.Get(), field.Min, field.Max);
+        }
+
+        busy = true;
+        try
+        {
+            // Only these keys of "Anubis" (other settings and sub-sections stay as they are).
+            await Settings.UpdateSectionAsync(AnubisOptions.SectionName, values);
+            snapshot.Take(model);
+            Notifications.Add(Translations.Settings_SavedText, AlertSeverity.Success);
+        }
+        catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
+        {
+            Logger.LogWarning(exception, "Saving token settings failed.");
+            Notifications.Add(exception.Message, AlertSeverity.Danger);
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    private sealed class TokenModel
+    {
+        public int AccessToken { get; set; }
+        public int IdentityToken { get; set; }
+        public int AuthorizationCode { get; set; }
+        public int RefreshToken { get; set; }
+        public int Consent { get; set; }
+    }
+}

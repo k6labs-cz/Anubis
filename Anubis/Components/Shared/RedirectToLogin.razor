@@ -1,0 +1,11 @@
+@namespace k6labs.Anubis.Components.Shared
+
+@inject NavigationManager Navigation
+
+@code {
+    protected override void OnInitialized()
+    {
+        var returnUrl = Uri.EscapeDataString(Navigation.Uri);
+        Navigation.NavigateTo($"login?returnUrl={returnUrl}", forceLoad: true);
+    }
+}

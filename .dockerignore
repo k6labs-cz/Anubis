@@ -1,0 +1,16 @@
+**/bin/
+**/obj/
+.git/
+.vs/
+.vscode/
+Anubis.Tests/
+deploy/
+.devcontainer/
+# Local state and developer configuration never go into the image
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/anubis.settings.json
+**/keys/
+**/appsettings.Development.json
+**/appsettings.Development.example.json

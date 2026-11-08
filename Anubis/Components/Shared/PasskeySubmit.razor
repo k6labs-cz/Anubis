@@ -1,0 +1,51 @@
+@namespace k6labs.Anubis.Components.Shared
+@using Microsoft.AspNetCore.Antiforgery
+@inject IAntiforgery Antiforgery
+
+@* Starts a WebAuthn ceremony and posts the result with the parent form.
+   Only works on statically rendered pages (needs HttpContext). See wwwroot/js/passkey.js. *@
+
+<Button Variant="@Variant" Block="@Block" name="__passkeySubmit" Type="submit" Icon="@Icon">@ChildContent</Button>
+<passkey-submit operation="@(Operation == PasskeyOperation.Create ? "Create" : "Request")"
+                name="@Name"
+                token-name="@tokens?.HeaderName"
+                token-value="@tokens?.RequestToken"
+                data-msg-cancelled="@Translations.Passkey_Cancelled"
+                data-msg-exists="@Translations.Passkey_AlreadyRegistered"
+                data-msg-unsupported="@Translations.Passkey_UpdateBrowser"
+                data-msg-server="@Translations.Passkey_ServerError"
+                data-msg-failed="@Translations.Passkey_Failed"></passkey-submit>
+
+@code {
+    private AntiforgeryTokenSet? tokens;
+
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    [Parameter, EditorRequired]
+    public PasskeyOperation Operation { get; set; }
+
+    /// <summary>Form field prefix of the <see cref="Anubis.Models.PasskeyInputModel"/>.</summary>
+    [Parameter, EditorRequired]
+    public string Name { get; set; } = default!;
+
+    [Parameter]
+    public ButtonVariant Variant { get; set; } = ButtonVariant.Primary;
+
+    [Parameter]
+    public string? Icon { get; set; }
+
+    [Parameter]
+    public bool Block { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    protected override void OnInitialized() => tokens = Antiforgery.GetTokens(HttpContext);
+
+    public enum PasskeyOperation
+    {
+        Create,
+        Request,
+    }
+}

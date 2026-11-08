@@ -1,0 +1,325 @@
+@page "/admin/email"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = "Admin")]
+
+@using k6labs.Anubis.Localization
+@using k6labs.Anubis.Services
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Options
+@using k6labs.Anubis.Options
+
+@inject IServiceProvider Services
+@inject IOptionsMonitor<EmailOptions> EmailOptions
+@inject IOptionsMonitor<AnubisOptions> AnubisOptions
+@inject SettingsFile Settings
+@inject NavigationManager Navigation
+@inject ILogger<Email> Logger
+
+<AppPageTitle Text="@(Translations.Common_AdminPageTitle.Format(Translations.Common_Email))" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@Translations.Common_Email" Description="@Translations.Admin_EmailDescription"
+                CreateLabel="@Translations.Email_SendTest" CreateIcon="@AppIcons.Send" OnCreate="OpenTest" />
+
+    @if (!EmailOptions.CurrentValue.IsConfigured)
+    {
+        <Alert Severity="AlertSeverity.Warning" Title="@Translations.Email_NotConfiguredTitle">
+            @Translations.Email_NotConfiguredText
+        </Alert>
+    }
+
+    @if (string.IsNullOrWhiteSpace(AnubisOptions.CurrentValue.Issuer))
+    {
+        <Alert Severity="AlertSeverity.Warning" Title="@Translations.Email_IssuerNotSetTitle">
+            @Translations.Email_IssuerNotSetText
+        </Alert>
+    }
+
+    <Divider />
+    <Stack Gap="Gap.Medium">
+        <Typography Variant="TextVariant.Subtitle" As="TextElement.H2">@Translations.Email_Configuration</Typography>
+
+        @if (saveMessage is not null)
+        {
+            <Alert Severity="@(saveSuccess ? AlertSeverity.Success : AlertSeverity.Danger)" Title="@(saveSuccess ? Translations.Settings_Saved : Translations.Settings_Invalid)">
+                @saveMessage
+            </Alert>
+        }
+
+        <EditForm Model="model" OnValidSubmit="SaveAsync" FormName="email-settings">
+            <Stack Gap="Gap.Medium">
+                <Grid Gap="Gap.Medium">
+                    <GridItem Sm="6">
+                        <FormSelect @bind-Value="model.Provider" Label="@Translations.Email_Provider" TValue="EmailProvider">
+                            @foreach (var provider in Enum.GetValues<EmailProvider>())
+                            {
+                                <option value="@provider">@provider</option>
+                            }
+                        </FormSelect>
+                    </GridItem>
+                    <GridItem Sm="6"></GridItem>
+                    <GridItem Sm="6">
+                        <FormText @bind-Value="model.FromAddress" Label="@Translations.Email_FromAddress" Placeholder="@("noreply@example.com")" Id="fromAddress" Type="email" />
+                    </GridItem>
+                    <GridItem Sm="6">
+                        <FormText @bind-Value="model.FromName" Label="@Translations.Email_FromName" Id="fromName" />
+                    </GridItem>
+
+                    @switch (model.Provider)
+                    {
+                        case EmailProvider.Smtp:
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="model.Smtp.Host" Label="@Translations.Email_Host" Placeholder="@("smtp.example.com")" Id="smtpHost" />
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <FormNumber @bind-Value="model.Smtp.Port" Label="@Translations.Email_Port" Min="1" Max="65535" />
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <FormSelect @bind-Value="model.Smtp.Security" Label="@Translations.Email_Security" TValue="SmtpSecurity">
+                                @foreach (var security in Enum.GetValues<SmtpSecurity>())
+                                {
+                                    <option value="@security">@security</option>
+                                }
+                            </FormSelect>
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <FormNumber @bind-Value="model.Smtp.TimeoutSeconds" Label="@Translations.Email_TimeoutSeconds" Min="1" Max="600" />
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="model.Smtp.Username" Label="@Translations.Email_Username" autocomplete="off" Id="smtpUsername" />
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="secrets.SmtpPassword" Label="@Translations.Common_Password" autocomplete="new-password" Id="smtpPassword" Type="password" Hint="@SecretHint(current.Smtp.Password)" />
+                        </GridItem>
+                        break;
+
+                        case EmailProvider.SendGrid:
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="secrets.SendGridApiKey" Label="@Translations.Email_ApiKey" autocomplete="new-password" Id="sendGridApiKey" Type="password" Hint="@SecretHint(current.SendGrid.ApiKey)" />
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="model.SendGrid.BaseUrl" Label="@Translations.Email_BaseUrl" Id="sendGridBaseUrl" />
+                        </GridItem>
+                        break;
+
+                        case EmailProvider.Mailgun:
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="secrets.MailgunApiKey" Label="@Translations.Email_ApiKey" autocomplete="new-password" Id="mailgunApiKey" Type="password" Hint="@SecretHint(current.Mailgun.ApiKey)" />
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="model.Mailgun.Domain" Label="@Translations.Email_Domain" Placeholder="@("mg.example.com")" Id="mailgunDomain" />
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="model.Mailgun.BaseUrl" Label="@Translations.Email_BaseUrl" Id="mailgunBaseUrl" />
+                        </GridItem>
+                        break;
+
+                        case EmailProvider.Postmark:
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="secrets.PostmarkServerToken" Label="@Translations.Email_ServerToken" autocomplete="new-password" Id="postmarkServerToken" Type="password" Hint="@SecretHint(current.Postmark.ServerToken)" />
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="model.Postmark.MessageStream" Label="@Translations.Email_MessageStream" Id="postmarkStream" />
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="model.Postmark.BaseUrl" Label="@Translations.Email_BaseUrl" Id="postmarkBaseUrl" />
+                        </GridItem>
+                        break;
+
+                        case EmailProvider.Resend:
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="secrets.ResendApiKey" Label="@Translations.Email_ApiKey" autocomplete="new-password" Id="resendApiKey" Type="password" Hint="@SecretHint(current.Resend.ApiKey)" />
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="model.Resend.BaseUrl" Label="@Translations.Email_BaseUrl" Id="resendBaseUrl" />
+                        </GridItem>
+                        break;
+                    }
+                </Grid>
+                <SaveBar Dirty="@IsDirty" Busy="busy" Note="@Translations.Settings_FileNote.Format(Settings.Path)" />
+            </Stack>
+        </EditForm>
+    </Stack>
+</Stack>
+
+<AppModal Title="@Translations.Email_SendTest" @bind-Open="testOpen">
+    <ChildContent>
+        <EditForm Model="testModel" OnValidSubmit="SendAsync" FormName="test-email" id="testEmailForm">
+            <Stack Gap="Gap.Medium">
+                <DataAnnotationsValidator />
+
+                @if (resultMessage is not null)
+                {
+                    <Alert Severity="@(resultSuccess ? AlertSeverity.Success : AlertSeverity.Danger)" Title="@(resultSuccess ? Translations.Email_Sent : Translations.Email_SendFailed)">
+                        @resultMessage
+                    </Alert>
+                }
+
+                <FormText @bind-Value="testModel.To" Label="@Translations.Email_Recipient" Placeholder="@Translations.Common_EmailPlaceholder" Id="testTo" Type="email" />
+            </Stack>
+        </EditForm>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="@(() => testOpen = false)">@Translations.Common_Cancel</Button>
+        <Button form="testEmailForm" Disabled="busy" Type="submit" Icon="@AppIcons.Send">
+            @Translations.Email_SendTest
+        </Button>
+    </Footer>
+</AppModal>
+
+@code {
+    private const string Section = Anubis.Options.EmailOptions.SectionName;
+
+    private readonly TestEmailModel testModel = new();
+    private EmailOptions current = default!;
+    private EmailOptions model = default!;
+    private SecretInputs secrets = new();
+    private bool busy;
+    private bool testOpen;
+    private readonly FormSnapshot snapshot = new();
+    private bool saveSuccess;
+    private string? saveMessage;
+    private bool resultSuccess;
+    private string? resultMessage;
+
+    protected override void OnInitialized() => Load();
+
+    private void Load()
+    {
+        current = EmailOptions.CurrentValue;
+        model = SettingsFile.Clone(current);
+        secrets = new SecretInputs();
+        snapshot.Take(model);
+    }
+
+    /// <summary>Changed settings, or a newly typed secret.</summary>
+    private bool IsDirty => snapshot.IsDirty(model)
+        || !string.IsNullOrEmpty(secrets.SmtpPassword) || !string.IsNullOrEmpty(secrets.SendGridApiKey)
+        || !string.IsNullOrEmpty(secrets.MailgunApiKey) || !string.IsNullOrEmpty(secrets.PostmarkServerToken)
+        || !string.IsNullOrEmpty(secrets.ResendApiKey);
+
+    private void OpenTest()
+    {
+        resultMessage = null;
+        testOpen = true;
+    }
+
+    private string? SecretHint(string? currentValue)
+        => string.IsNullOrEmpty(currentValue) ? null : Translations.Settings_SecretKeep;
+
+    private async Task SaveAsync()
+    {
+        busy = true;
+        saveMessage = null;
+
+        try
+        {
+            // Secrets are never shown: an empty input keeps the current value.
+            var candidate = SettingsFile.Clone(model);
+            candidate.Smtp.Password = Pick(secrets.SmtpPassword, current.Smtp.Password);
+            candidate.SendGrid.ApiKey = Pick(secrets.SendGridApiKey, current.SendGrid.ApiKey);
+            candidate.Mailgun.ApiKey = Pick(secrets.MailgunApiKey, current.Mailgun.ApiKey);
+            candidate.Postmark.ServerToken = Pick(secrets.PostmarkServerToken, current.Postmark.ServerToken);
+            candidate.Resend.ApiKey = Pick(secrets.ResendApiKey, current.Resend.ApiKey);
+
+            var validation = new EmailOptionsValidator().Validate(null, candidate);
+            if (validation.Failed)
+            {
+                saveSuccess = false;
+                saveMessage = string.Join(" ", validation.Failures);
+                return;
+            }
+
+            // Untouched secrets are not copied into the file: a value from the environment
+            // stays there; a value already in the file is kept as it is.
+            var node = SettingsFile.ToNode(candidate);
+            var existing = await Settings.ReadSectionAsync(Section);
+            KeepSecret(node, existing, "Smtp", "Password", secrets.SmtpPassword);
+            KeepSecret(node, existing, "SendGrid", "ApiKey", secrets.SendGridApiKey);
+            KeepSecret(node, existing, "Mailgun", "ApiKey", secrets.MailgunApiKey);
+            KeepSecret(node, existing, "Postmark", "ServerToken", secrets.PostmarkServerToken);
+            KeepSecret(node, existing, "Resend", "ApiKey", secrets.ResendApiKey);
+
+            await Settings.SaveSectionAsync(Section, node);
+
+            Load();
+            saveSuccess = true;
+            saveMessage = Translations.Settings_SavedText;
+        }
+        catch (Exception exception) when (exception is IOException or UnauthorizedAccessException or OptionsValidationException)
+        {
+            Logger.LogWarning(exception, "Saving email settings failed.");
+            saveSuccess = false;
+            saveMessage = exception.Message;
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    private static string? Pick(string? typed, string? currentValue)
+        => string.IsNullOrEmpty(typed) ? currentValue : typed;
+
+    private static void KeepSecret(System.Text.Json.Nodes.JsonObject node, System.Text.Json.Nodes.JsonObject? existing, string provider, string key, string? typed)
+    {
+        if (!string.IsNullOrEmpty(typed) || node[provider] is not System.Text.Json.Nodes.JsonObject target)
+        {
+            return;
+        }
+
+        var previous = existing?[provider]?[key];
+        if (previous is null)
+        {
+            target.Remove(key);
+        }
+        else
+        {
+            target[key] = previous.DeepClone();
+        }
+    }
+
+    private async Task SendAsync()
+    {
+        busy = true;
+        resultMessage = null;
+
+        try
+        {
+            // Resolved now, so a test right after saving uses the new settings.
+            var transport = Services.GetRequiredService<IEmailTransport>();
+            var appUrl = PublicUrl.Combine(AnubisOptions.CurrentValue.Issuer, Navigation.BaseUri, "/");
+            await transport.SendAsync(AccountEmailSender.TestMessage(testModel.To, transport.Name, appUrl, System.Globalization.CultureInfo.CurrentUICulture));
+            resultSuccess = true;
+            resultMessage = EmailOptions.CurrentValue.IsConfigured
+                ? Translations.Email_TestAccepted.Format(testModel.To, transport.Name)
+                : Translations.Email_TestLogged;
+        }
+        catch (EmailDeliveryException exception)
+        {
+            Logger.LogWarning(exception, "Test email failed.");
+            resultSuccess = false;
+            resultMessage = exception.Message;
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    private sealed class SecretInputs
+    {
+        public string? SmtpPassword { get; set; }
+        public string? SendGridApiKey { get; set; }
+        public string? MailgunApiKey { get; set; }
+        public string? PostmarkServerToken { get; set; }
+        public string? ResendApiKey { get; set; }
+    }
+
+    private sealed class TestEmailModel
+    {
+        [LRequired(nameof(Translations.Validation_RecipientRequired))]
+        [LEmailAddress]
+        public string To { get; set; } = string.Empty;
+    }
+}

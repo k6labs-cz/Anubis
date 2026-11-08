@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Nederlands (nl). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Authenticator-app</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Wachtwoord wijzigen</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Verzenden mislukt, probeer het later opnieuw</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Verzonden, kijk in je inbox</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Al verzonden, probeer het over een paar minuten opnieuw</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Aangemaakt</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Browserinstelling</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Passkeys</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Rollen</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Bevestigingsmail versturen</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Meervoudige verificatie</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>OIDC-clients</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scopes</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Gebruikers</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Code uit de app</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Nieuwe sleutel maken</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>Voortaan wordt na je wachtwoord om een code gevraagd.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>De code is ongeldig. Controleer of de klok van je apparaat goed staat en probeer het opnieuw.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Lukt scannen niet? Voer deze sleutel handmatig in:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Hiermee wordt een nieuwe sleutel gemaakt. Je huidige app werkt direct niet meer, en inloggen met twee factoren blijft uit totdat je de nieuwe app hebt ingesteld.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Overstappen naar een andere authenticator-app</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>QR-code voor je authenticator-app</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Scan de QR-code met je app en voer daarna de getoonde code in.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Controleren en inschakelen</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Huidig wachtwoord</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Kies een nieuw wachtwoord (minimaal {0} tekens).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Je wachtwoord is gewijzigd.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Wachtwoord wijzigen mislukt</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Wachtwoord bijwerken</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Toegestane scopes</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Client aanmaken</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>Mijn applicatie</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Client bewerken: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (machine-to-machine)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (met PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>Redirect-URI's na uitloggen (één per regel)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>Redirect-URI's (één per regel)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Secret opnieuw genereren</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Uitdrukkelijke toestemming van de gebruiker vereisen</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Wijzigingen opslaan</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Client-secret</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Laat leeg om het huidige secret te behouden.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Laat leeg voor een openbare client (alleen PKCE), of voer een secret in voor een vertrouwelijke client.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Minimaal 16 tekens</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Kopieer het nu — het wordt maar één keer getoond. OpenIddict bewaart alleen de hash.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} is bijgewerkt.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>Client-ID</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Toestemming</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Impliciet</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Vereist</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Weet je zeker dat je {0} wilt verwijderen? Tokens die ervoor zijn uitgegeven, werken direct niet meer.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Client verwijderen</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Grant-types</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Nieuwe client</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Beheer</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Terug naar inloggen</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Annuleren</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Kijk in je inbox</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Nieuw wachtwoord bevestigen</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Verwijderen</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Beschrijving</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Weergavenaam</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Bewerken</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>E-mail</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>jij@voorbeeld.nl</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Fout</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Dit account is geblokkeerd na te veel mislukte pogingen. Probeer het later opnieuw.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Naam</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Nieuw wachtwoord</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Minimaal {0} tekens</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Nee</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Geen</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Uit</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Aan</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Wachtwoord</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Naam wijzigen</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Opslaan</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Inloggen</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Er is iets misgegaan</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Gebruiker niet gevonden.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Ja</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Doorgaan</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Bevestigingslinks zijn 24 uur geldig. Vraag hieronder een nieuwe aan.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>De link is ongeldig of verlopen</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>E-mail bevestigen</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Nieuwe link versturen</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Bedankt. Je e-mailadres is bevestigd.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>E-mail bevestigd</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>E-mailbevestiging</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Toestaan</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Weigeren</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Ongeldig verzoek</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Het autorisatieverzoek vermeldt geen client.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Het autorisatieverzoek ontbreekt of is ongeldig.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>vraagt toegang tot je account.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Applicatie autoriseren</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>De applicatie kan:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Inloggen met een wachtwoord vraagt dan alleen nog het wachtwoord. Lekt het wachtwoord uit, dan is je account makkelijker over te nemen. Je passkeys blijven werken.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Tweestapsverificatie uitschakelen</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Authenticator-app uitschakelen?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>E-mail bevestigen</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>De link is 24 uur geldig. Heb je geen account aangemaakt, dan kun je deze e-mail negeren.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Bevestig je e-mailadres</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Hallo {0}, bevestig dat {1} bij je Anubis-account hoort.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Nieuw wachtwoord kiezen</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>De link is 1 uur geldig en werkt één keer. Heb je dit niet aangevraagd, negeer deze e-mail dan; je wachtwoord blijft hetzelfde.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Stel je wachtwoord opnieuw in</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Hallo {0}, iemand heeft gevraagd het wachtwoord van je Anubis-account opnieuw in te stellen.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Anubis openen</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Je ontvangt dit omdat een beheerder een testmail heeft verstuurd.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>E-mail werkt</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Testmail van Anubis</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Dit testbericht is door Anubis verzonden via {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Configuratie</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Domein</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>daar</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Links in e-mails gebruiken dan de hostnaam van elk verzoek. Stel in productie Anubis:Issuer in op je openbare URL.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Anubis:Issuer is niet ingesteld</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Werkt de knop niet? Open dan deze link:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Alleen log (niet geconfigureerd)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>E-mails worden alleen in het log geschreven. Stel Email:Smtp:Host in, of kies een andere Email:Provider (SendGrid, Mailgun, Postmark, Resend) in de configuratie.</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>E-mail is niet geconfigureerd</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Provider</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Ontvanger</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Verzenden mislukt</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Testmail versturen</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Verzonden</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>De testmail aan {0} is geaccepteerd door {1}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>E-mail is niet geconfigureerd, dus het bericht is alleen in het log geschreven.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>De client '{0}' is niet gevonden.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Fout</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>Verzoek-ID: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>De scope '{0}' bestaat al.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>De scope '{0}' is niet gevonden.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Er is een fout opgetreden bij het verwerken van je verzoek.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>We mailen je een link om een nieuw wachtwoord te kiezen.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Wachtwoord vergeten</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Herstellink versturen</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Als er een account met dat adres bestaat, is er een herstellink onderweg. De link is 1 uur geldig.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Wachtwoord vergeten?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Account aanmaken</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Het record is door iemand anders gewijzigd. Laad opnieuw en probeer het nogmaals.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Er is een onbekende fout opgetreden.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>Het e-mailadres '{0}' is al in gebruik.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>De rolnaam '{0}' is al in gebruik.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>De gebruikersnaam '{0}' is al in gebruik.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>Het e-mailadres '{0}' is ongeldig.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>De rolnaam '{0}' is ongeldig.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Ongeldig token.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>De gebruikersnaam '{0}' is ongeldig.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Er bestaat al een gebruiker met deze login.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Onjuist wachtwoord.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Wachtwoorden moeten minimaal één cijfer (0-9) bevatten.</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Wachtwoorden moeten minimaal één kleine letter (a-z) bevatten.</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Wachtwoorden moeten minimaal één teken bevatten dat geen letter of cijfer is.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Wachtwoorden moeten minimaal {0} verschillende tekens bevatten.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Wachtwoorden moeten minimaal één hoofdletter (A-Z) bevatten.</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Wachtwoorden moeten minimaal {0} tekens lang zijn.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>De herstelcode kon niet worden gebruikt.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>De gebruiker heeft al een wachtwoord.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>De gebruiker heeft de rol '{0}' al.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Blokkeren is niet ingeschakeld voor deze gebruiker.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>De gebruiker heeft de rol '{0}' niet.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Account</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Taal</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Hoofdnavigatie</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Uitloggen</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Maak er een aan</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Gebruik een passkey, of je e-mailadres en wachtwoord.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Bevestig eerst je e-mailadres. De link staat in je inbox.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Inloggen mislukt</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Wachtwoord vergeten?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Ongeldig e-mailadres of wachtwoord.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Nog geen account?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Inloggen is niet toegestaan voor dit account.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>of</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Inloggen</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Je wachtwoord</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Bevestigingsmail opnieuw versturen</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Inloggen bij Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Deze passkey is niet geregistreerd bij Anubis.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Inloggen met een passkey</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Dit apparaat heeft al een passkey voor dit account.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>Het passkeyverzoek is geannuleerd of verlopen.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>De passkey kon niet worden gebruikt. Probeer het opnieuw.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>De server kon het passkeyverzoek niet starten. Probeer het opnieuw.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Deze browser ondersteunt geen passkeys.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Deze browser ondersteunt geen passkeys. Werk hem bij.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Eenmalige codes om in te loggen als je je authenticator-app kwijt bent.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Nieuwe codes genereren</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Gebruik een van deze codes om in te loggen als je je authenticator-app kwijt bent.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Ze worden maar één keer getoond. Bewaar ze op een veilige plek, zoals een wachtwoordmanager. Met elke code kun je één keer inloggen als je je authenticator-app kwijt bent. Oude codes werken niet meer.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Sla deze herstelcodes nu op</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Ik heb de codes opgeslagen</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Herstelcodes</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Hiermee worden {0} nieuwe codes gemaakt. Je huidige codes werken niet meer.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Terug naar authenticator-code</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Herstelcode</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Elke herstelcode werkt maar één keer.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>De herstelcode is ongeldig of al gebruikt.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Herstelcode</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Inloggen met een herstelcode</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Al geregistreerd?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Wachtwoord bevestigen</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Herhaal het wachtwoord</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>We hebben een bevestigingslink naar {0} gestuurd. Bevestig je adres en log daarna in.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Registreer je met e-mailadres en wachtwoord.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Zelf registreren is momenteel uitgeschakeld. Neem contact op met een beheerder.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Registratie uitgeschakeld</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Jan Jansen</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Registratie mislukt</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Geen e-mail ontvangen?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Account aanmaken</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Opnieuw versturen</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Maak je account aan</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Geef het een herkenbare naam, zoals ‘Pixel 9’ of ‘MacBook Touch ID’.</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Geef je passkey een naam</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Overslaan</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Passkey hernoemen</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>We sturen een nieuwe link om je adres te bevestigen.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Bevestiging opnieuw versturen</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Link versturen</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Als het adres bij een onbevestigd account hoort, is er een nieuwe link onderweg.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Bevestigingsmail opnieuw versturen</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Je kunt nu inloggen met je nieuwe wachtwoord.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Wachtwoord gewijzigd</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Het wachtwoord kon niet opnieuw worden ingesteld</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Deze herstellink is onvolledig. Open de link uit de e-mail opnieuw of vraag een nieuwe aan.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Ongeldige link</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>De link is verlopen of al gebruikt. Vraag een nieuwe aan.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Wachtwoord opnieuw instellen</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Nieuwe link aanvragen</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Nieuw wachtwoord instellen</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Kies een nieuw wachtwoord</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Je account heeft geen toegang tot deze pagina.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Toegang geweigerd</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Niet gevonden</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Sorry, op dit adres staat niets.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Pagina niet gevonden</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Je e-mailadres zien</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Toegang behouden als je er niet bent (refresh tokens)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Bevestigen wie je bent</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Je naam en profiel zien</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Je rollen zien</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Scope aanmaken</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Clients kunnen eigen scopes aanvragen, gekoppeld aan resources (audiences).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Mijn API</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Resources (gescheiden door komma's)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Resources</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Passkey toevoegen</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>Voer na je wachtwoord een 6-cijferige code in uit een app zoals Aegis, 2FAS, Google Authenticator, Microsoft Authenticator of 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Resterende herstelcodes: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Overweeg nieuwe codes te genereren.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Nog maar weinig herstelcodes ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Deze browser vergeten</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Overstappen naar een andere app</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Genereer nu nieuwe codes, anders kun je buitengesloten raken.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Geen herstelcodes meer</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>De browser heeft geen passkey aangeleverd.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Nog geen passkeys.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Toegevoegd</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Je kunt maximaal {0} passkeys hebben. Verwijder er een om een nieuwe toe te voegen.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>De passkey kon niet worden opgeslagen.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>De passkey kon niet worden geverifieerd. Probeer het opnieuw of gebruik een ander apparaat.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Gesynchroniseerd</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Log in met je vingerafdruk, gezicht of apparaat-pincode in plaats van een wachtwoord. Een passkey staat op je telefoon, computer of beveiligingssleutel en kan niet worden gephisht.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Authenticator-app instellen</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Deze browser</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Deze browser slaat de authenticator-code over bij het inloggen.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Uitschakelen</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Naamloze passkey</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Bij inloggen met een wachtwoord wordt om een code uit de app gevraagd.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Authenticator-app ingeschakeld</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Stel je authenticator-app opnieuw in met de nieuwe sleutel.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Authenticator-sleutel opnieuw ingesteld</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Deze browser vraagt bij de volgende keer inloggen weer om een code.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Browser vergeten</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>Je authenticator-app is niet meer nodig om in te loggen.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Tweestapsverificatie uitgeschakeld</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Stel een authenticator-app in voordat je herstelcodes genereert.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Niet beschikbaar</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Je kunt nu inloggen met deze passkey.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Passkey toegevoegd</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Met deze passkey kan niet meer worden ingelogd.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Passkey verwijderd</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>De passkey bestaat niet of hoort bij een ander account.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Passkey niet gevonden</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>De naam van de passkey is gewijzigd.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Passkey hernoemd</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Verificatiecode</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Voer de 6-cijferige code uit je authenticator-app in.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>De code is ongeldig of verlopen.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Apparaat kwijt?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Tweestapsverificatie</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>In deze browser 14 dagen niet meer vragen</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Een herstelcode gebruiken</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Verificatie mislukt</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Verifiëren</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Actief</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Gebruiker aanmaken</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Wachtwoorden worden opgeslagen als Argon2id-hashes.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} is aangemaakt.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Weet je zeker dat je {0} wilt verwijderen? Dit kan niet ongedaan worden gemaakt.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Gebruiker verwijderen</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Gebruiker verwijderd</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} is verwijderd.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Blokkeren</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Geblokkeerd</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} kan nu inloggen met alleen het wachtwoord.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Passkeys: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>MFA opnieuw instellen</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Hiermee wordt de authenticator-app uitgeschakeld, worden alle passkeys van {0} verwijderd en wordt de gebruiker overal uitgelogd. Gebruik dit als iemand zijn apparaat kwijt is. Daarna kan diegene inloggen met alleen het wachtwoord en MFA opnieuw instellen.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Deblokkeren</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Voer een client-ID in.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Gebruik minimaal 16 tekens, of laat leeg voor een openbare client.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>De code heeft 6 cijfers.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Voer de code uit je app in.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Bevestig het wachtwoord.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Voer je huidige wachtwoord in.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Gebruik maximaal 100 tekens.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Voer een geldig e-mailadres in.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>E-mailadres is verplicht.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Alleen letters, cijfers, '-', '_' en '.' zijn toegestaan.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Voer een naam in.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Gebruik maximaal 100 tekens.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Wachtwoord is verplicht.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>De wachtwoorden komen niet overeen.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Voer een ontvanger in.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Voer een herstelcode in.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Voer een scopenaam in.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Avatar uploaden</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Gravatar gebruiken</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF of SVG. De afbeelding wordt verkleind tot max. 1024×1024 en opgeslagen als transparante WebP. Zonder eigen afbeelding wordt Gravatar gebruikt.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Weergavenaam opgeslagen.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Avatar bijgewerkt.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Eigen avatar verwijderd. Gravatar wordt gebruikt.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Ongeldig of niet-ondersteund afbeeldingsbestand.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Het afbeeldingsbestand is te groot (max. 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Instellingen</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Rollen</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Uiterlijk</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Accounts die kunnen inloggen bij Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Rollen worden aan clientapplicaties doorgegeven in de claim roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Rechten die clientapplicaties kunnen aanvragen.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Applicaties die gebruikers via Anubis laten inloggen.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Uitgaande e-mail voor adresbevestiging en wachtwoordherstel.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Logo, lettertype en kleuren van de inlog- en accountpagina's.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Sluiten</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Opgeslagen in {0}. Deze waarden gaan voor appsettings.json en omgevingsvariabelen.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Instellingen opgeslagen</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>De wijzigingen gelden direct.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Instellingen niet opgeslagen</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Ingesteld. Laat leeg om de huidige waarde te behouden.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Afzenderadres</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Afzendernaam</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>SMTP-server</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Poort</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Versleuteling</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Time-out (seconden)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Gebruikersnaam</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>API-sleutel</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Servertoken</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>API-URL</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Logo en pictogram</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Upload SVG, WebP, PNG, JPEG of GIF (opgeslagen in het instellingenbestand), of voer een pad onder wwwroot of een https://-URL in. PNG-versies van de favicon voor Safari en iOS worden automatisch gemaakt.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Logo</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Lettertype</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Leeg = standaardlettertype (het monospace-lettertype van het systeem). Alleen op het apparaat geïnstalleerde lettertypen zijn mogelijk.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Lettertypefamilie (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Licht thema</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Donker thema</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Kies een kleur of voer deze in als #RRGGBB. Leeg = standaardkleur.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Primair</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Secundair</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Achtergrond</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Tekst</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Rol aanmaken</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Een nieuwe rol heeft geen leden; voeg ze toe in de lijst hieronder.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Leden</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Ingebouwd</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Rol verwijderen</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>De rol {0} verwijderen? Alle leden verliezen deze rol.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Leden van {0}</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Toevoegen</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Verwijderen</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Nog geen leden.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>De laatste beheerder kan niet worden verwijderd.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Voer een rolnaam in.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Voer een kleur in als #RRGGBB of laat het veld leeg.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Mag geen ; { } &lt; &gt; of \ bevatten.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Voer een absolute https://-URL in.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Voer een pad in dat met / begint, een https://-URL, of upload een bestand.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Uploaden</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Standaard gebruiken</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Geüpload bestand · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Niet-ondersteunde of beschadigde afbeelding, of een SVG met externe links. Gebruik SVG, WebP, PNG, JPEG of GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Het bestand is te groot (max. {0} MB, {1} KB na verwerking).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Geverifieerd</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Niet geverifieerd</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Telefoonnummer</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Internationaal formaat, bijv. +31 6 12345678.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Code versturen</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Code uit de sms</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>We hebben een code gestuurd naar {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Telefoonnummer geverifieerd.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Voer het nummer in internationaal formaat in, bijv. +31 6 12345678.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Er is net een code verstuurd. Probeer het over een minuut opnieuw.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Je Anubis-verificatiecode: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Kleurmodus</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Licht</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Donker</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>Systeem</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Niet gekozen: de voorkeurstaal van je browser wordt gebruikt.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Niet gekozen: volgt de lichte of donkere instelling van je systeem.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Geschiedenis</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Aanmeldingen en wijzigingen aan je account in de afgelopen 12 maanden.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Nog niets.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Nieuwer</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Ouder</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>door een beheerder</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Onbekend apparaat</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Account aangemaakt</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Ingelogd</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Mislukte inlogpoging</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Account geblokkeerd na te veel mislukte pogingen</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Uitgelogd</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Ingelogd bij een applicatie</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Wachtwoord gewijzigd</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Wachtwoord via e-mail hersteld</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>E-mailadres bevestigd</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Authenticator-app ingeschakeld</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Authenticator-app uitgeschakeld</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Nieuwe herstelcodes gegenereerd</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Passkey toegevoegd</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Passkey verwijderd</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Telefoonnummer gewijzigd</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Telefoonnummer geverifieerd</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Telefoonnummer verwijderd</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Weergavenaam gewijzigd</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Avatar gewijzigd</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Account geblokkeerd</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Account gedeblokkeerd</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>wachtwoord</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>passkey</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>authenticator-app</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>herstelcode</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Uitloggen bij Anubis?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Beheer</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Acties</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>De scope {0} verwijderen? Clients kunnen hem dan niet meer aanvragen.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Algemeen</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Basisinstellingen van deze server.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Servernaam</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Wordt getoond in de titel van het browsertabblad en bovenaan de account- en beheerpagina's.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Voer een servernaam in.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Gebruik maximaal 60 tekens.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Beveiliging</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Wachtwoordregels, blokkering na mislukte pogingen, sessieduur en passkeys. Wijzigingen gelden direct.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Tokens</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Geldigheid van tokens en codes voor clientapplicaties. Wijzigingen gelden voor nieuw uitgegeven tokens.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Server</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>Openbare URL (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Bijvoorbeeld https://id.example.com. Leeg = uit elk verzoek. Werkt na een herstart.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Registratie</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Zelf registreren toestaan</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Bevestigd e-mailadres vereisen om in te loggen</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Vereist werkende e-mailinstellingen.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Wachtwoorden</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Minimale lengte</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Cijfer vereisen</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Kleine letter vereisen</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Hoofdletter vereisen</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Symbool vereisen</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Blokkering na mislukte inlogpogingen</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Mislukte pogingen voor blokkering</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Blokkeerduur (minuten)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Inlogsessie</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Sessieduur (uren)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Sessie verlengen zolang de gebruiker actief is</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Maximaal aantal passkeys per account</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (minuten)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID-token (minuten)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Autorisatiecode (minuten)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (dagen)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Toestemming (minuten)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Hoe lang een gegeven toestemming tijdens het inloggen onthouden wordt.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Toegestaan bereik: {0} tot {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>{0} bewerken</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>Het e-mailadres is ook de inlognaam: de gebruiker logt voortaan in met het nieuwe adres.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-mailadres bevestigd</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Een gewijzigd nummer wordt opgeslagen als niet geverifieerd.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Dit e-mailadres wordt al door een ander account gebruikt.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Je kunt de rol Admin niet van je eigen account verwijderen.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Wijzigingen aan {0} zijn opgeslagen.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>E-mailadres gewijzigd</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Rol toegevoegd</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Rol verwijderd</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Na het opslaan wordt een bevestigingsmail naar het nieuwe adres gestuurd.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Er is een bevestigingsmail naar {0} gestuurd.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Begin met een letter, daarna letters, cijfers en - _ . : / (maximaal {0} tekens).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>‘{0}’ wordt door Anubis ingesteld en kan niet worden gebruikt.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Voer een waarde in.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Maximaal {0} tekens.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Deze claim staat er twee keer.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Maximaal {0} claims.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Rol niet gevonden.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Ingebouwde rollen kunnen niet worden hernoemd.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Er bestaat al een rol met deze naam.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Rol {0} bewerken</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Rol {0} opgeslagen.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Rol toevoegen</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Worden toegevoegd aan het access token, het ID-token en userinfo, samen met de claims van de rollen van de gebruiker.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Worden toegevoegd aan de tokens van alle leden van deze rol.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Waarde</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Claim toevoegen</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Claim verwijderen</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Nog geen claims.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Uit rollen</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Avatar wijzigen</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Laden…</value></data>
+</root>

@@ -1,0 +1,154 @@
+@page "/register"
+
+@using System.Globalization
+@using Microsoft.Extensions.Options
+@using k6labs.Anubis.Localization
+@using k6labs.Anubis.Options
+
+@inject UserManager<User> UserManager
+@inject Identity.PasswordPolicy PasswordPolicy
+@inject SignInManager<User> SignInManager
+@inject NavigationManager Navigation
+@inject IOptionsSnapshot<AnubisOptions> Options
+@inject AccountEmailService AccountEmails
+
+<AppPageTitle Text="@(Translations.Register_PageTitle)" />
+
+<Container MaxWidth="28rem">
+    <Stack Gap="Gap.Large">
+        <Card>
+            <Header>
+                <Stack Gap="Gap.XSmall">
+                    <Typography Variant="TextVariant.Title" As="TextElement.H1">@Translations.Register_Title</Typography>
+                    <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Register_Description</Typography>
+                </Stack>
+            </Header>
+            <ChildContent>
+                <Stack Gap="Gap.Medium">
+                    @if (!Options.Value.AllowRegistration)
+                    {
+                        <Alert Severity="AlertSeverity.Warning" Title="@Translations.Register_DisabledTitle">
+                            @Translations.Register_DisabledText
+                        </Alert>
+                    }
+                    else if (awaitingConfirmation)
+                    {
+                        <Alert Severity="AlertSeverity.Success" Title="@Translations.Common_CheckInbox">
+                            @Translations.Register_ConfirmationSent.Format(model.Email)
+                        </Alert>
+                        <Typography Tone="Tone.Muted" Align="TextAlign.Center">@Translations.Register_NoEmail <a href="/confirm-email/resend">@Translations.Register_SendAgain</a></Typography>
+                    }
+                    else
+                    {
+                        <EditForm Model="model" method="post" OnValidSubmit="SubmitAsync" FormName="register">
+                            <Stack Gap="Gap.Medium">
+                                <DataAnnotationsValidator />
+
+                                @if (!string.IsNullOrEmpty(error))
+                                {
+                                    <Alert Severity="AlertSeverity.Danger" Title="@Translations.Register_Failed">
+                                        @error
+                                    </Alert>
+                                }
+
+                                <FormText @bind-Value="model.DisplayName" name="model.DisplayName" Label="@Translations.Common_DisplayName" Placeholder="@Translations.Register_DisplayNamePlaceholder" autocomplete="name" Id="displayName" Type="text" />
+
+                                <FormText @bind-Value="model.Email" name="model.Email" Label="@Translations.Common_Email" Placeholder="@Translations.Common_EmailPlaceholder" autocomplete="email" Id="email" Type="email" />
+
+                                <FormText @bind-Value="model.Password" name="model.Password" Label="@Translations.Common_Password" Placeholder="@Translations.Common_NewPasswordPlaceholder.Format(PasswordPolicy.MinLength)" autocomplete="new-password" Id="password" Type="password" />
+
+                                <FormText @bind-Value="model.ConfirmPassword" name="model.ConfirmPassword" Label="@Translations.Register_ConfirmPassword" Placeholder="@Translations.Register_ConfirmPasswordPlaceholder" autocomplete="new-password" Id="confirmPassword" Type="password" />
+
+                                <Button Block="true" Type="submit" Icon="@AppIcons.PersonAdd">
+                                    @Translations.Home_CreateAccountTitle
+                                </Button>
+                            </Stack>
+                        </EditForm>
+
+                        <Typography Tone="Tone.Muted" Align="TextAlign.Center">@Translations.Register_AlreadyRegistered <a href="/login">@Translations.Common_SignIn</a></Typography>
+                    }
+                </Stack>
+            </ChildContent>
+        </Card>
+    </Stack>
+</Container>
+
+@code {
+    [SupplyParameterFromForm(FormName = "register")]
+    private RegisterModel model { get; set; } = default!;
+
+    protected override void OnInitialized() => model ??= new();
+
+    private string? error;
+    private bool awaitingConfirmation;
+
+    private async Task SubmitAsync()
+    {
+        error = null;
+
+        // The form is hidden when registration is off, but a POST could still be sent directly.
+        if (!Options.Value.AllowRegistration)
+        {
+            return;
+        }
+
+        var isFirstUser = !await UserManager.Users.AnyAsync();
+
+        var user = new User
+        {
+            UserName = model.Email,
+            Email = model.Email,
+            DisplayName = string.IsNullOrWhiteSpace(model.DisplayName) ? model.Email : model.DisplayName,
+            CreatedAt = DateTimeOffset.UtcNow,
+            // Emails (like the confirmation below) are sent in this language.
+            Language = Cultures.Normalize(CultureInfo.CurrentUICulture.Name),
+        };
+
+        var result = await UserManager.CreateAsync(user, model.Password);
+
+        if (!result.Succeeded)
+        {
+            error = string.Join(" ", result.Errors.Select(e => e.Description));
+            return;
+        }
+
+        if (!await UserManager.IsInRoleAsync(user, DatabaseInitializer.UserRole))
+        {
+            await UserManager.AddToRoleAsync(user, DatabaseInitializer.UserRole);
+        }
+
+        if (isFirstUser && !await UserManager.IsInRoleAsync(user, DatabaseInitializer.AdminRole))
+        {
+            await UserManager.AddToRoleAsync(user, DatabaseInitializer.AdminRole);
+        }
+
+        await AccountEmails.SendConfirmationAsync(user, Navigation.BaseUri);
+
+        if (Options.Value.RequireConfirmedEmail)
+        {
+            awaitingConfirmation = true;
+            return;
+        }
+
+        await SignInManager.SignInAsync(user, isPersistent: true);
+
+        Navigation.NavigateTo("/", forceLoad: true);
+    }
+
+    public sealed class RegisterModel
+    {
+        [LStringLength(100, nameof(Translations.Validation_DisplayNameTooLong))]
+        public string? DisplayName { get; set; }
+
+        [LRequired(nameof(Translations.Validation_EmailRequired))]
+        [LEmailAddress]
+        public string Email { get; set; } = string.Empty;
+
+        [LRequired(nameof(Translations.Validation_PasswordRequired))]
+        public string Password { get; set; } = string.Empty;
+
+        [LRequired(nameof(Translations.Validation_ConfirmPasswordRequired))]
+        [LCompare(nameof(Password), nameof(Translations.Validation_PasswordsDoNotMatch))]
+        public string ConfirmPassword { get; set; } = string.Empty;
+    }
+}

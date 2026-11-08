@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Magyar (hu). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Hitelesítő alkalmazás</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Jelszó módosítása</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>A küldés nem sikerült, próbálja újra később</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Elküldve, nézze meg a beérkezett üzeneteit</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Már elküldtük, próbálja újra néhány perc múlva</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Létrehozva</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Böngésző beállítása</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Jelkulcsok</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Szerepkörök</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Megerősítő e-mail küldése</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Többtényezős</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>OIDC-kliensek</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scope-ok</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Felhasználók</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Kód az alkalmazásból</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Új kulcs létrehozása</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>Mostantól a jelszó után egy kódot is meg kell adnia.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>A kód érvénytelen. Ellenőrizze, hogy pontos-e az eszköze órája, és próbálja újra.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Nem tudja beolvasni? Adja meg kézzel ezt a kulcsot:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Új kulcs jön létre. A jelenlegi alkalmazás azonnal leáll, és a kétlépéses bejelentkezés kikapcsolva marad, amíg be nem állítja az új alkalmazást.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Áttérés másik hitelesítő alkalmazásra</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>QR-kód a hitelesítő alkalmazáshoz</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Olvassa be a QR-kódot az alkalmazással, majd adja meg a megjelenő kódot.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Ellenőrzés és bekapcsolás</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Jelenlegi jelszó</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Válasszon új jelszót (legalább {0} karakter).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>A jelszava módosult.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>A jelszó módosítása nem sikerült</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Jelszó frissítése</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Engedélyezett scope-ok</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Kliens létrehozása</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>Saját alkalmazás</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Kliens szerkesztése: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (gép–gép)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (PKCE-vel)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>Kijelentkezés utáni átirányítási URI-k (soronként egy)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>Átirányítási URI-k (soronként egy)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Titok újragenerálása</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Kifejezett felhasználói hozzájárulás megkövetelése</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Módosítások mentése</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Kliens titka</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Hagyja üresen a jelenlegi titok megtartásához.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Nyilvános klienshez (csak PKCE) hagyja üresen, bizalmas klienshez adjon meg titkot.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Legalább 16 karakter</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Másolja ki most – csak egyszer jelenik meg. Az OpenIddict csak a hash-ét tárolja.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} frissítve.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>Kliensazonosító</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Hozzájárulás</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Implicit</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Kötelező</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Biztosan törli: {0}? A neki kiadott tokenek azonnal érvénytelenné válnak.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Kliens törlése</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Grant-típusok</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Új kliens</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Típus</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Adminisztráció</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Vissza a bejelentkezéshez</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Mégse</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Nézze meg a beérkezett üzeneteit</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Új jelszó megerősítése</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Törlés</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Leírás</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Megjelenített név</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Szerkesztés</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>E-mail</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>on@pelda.hu</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Hiba</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>A fiók túl sok sikertelen kísérlet miatt zárolva van. Próbálja újra később.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Név</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Új jelszó</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Legalább {0} karakter</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Nem</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Nincs</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Ki</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Be</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Jelszó</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Átnevezés</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Mentés</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Bejelentkezés</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Hiba történt</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>A felhasználó nem található.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Igen</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Tovább</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>A megerősítő hivatkozások 24 óráig érvényesek. Alább kérhet újat.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>A hivatkozás érvénytelen vagy lejárt</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>E-mail-cím megerősítése</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Új hivatkozás küldése</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Köszönjük. Az e-mail-címe megerősítve.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>E-mail-cím megerősítve</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>E-mail-cím megerősítése</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Engedélyezés</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Elutasítás</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Érvénytelen kérés</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Az engedélyezési kérés nem határoz meg klienst.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Az engedélyezési kérés hiányzik vagy érvénytelen.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>hozzáférést kér a fiókjához.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Alkalmazás engedélyezése</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>Az alkalmazás a következőkre lesz képes:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>A jelszavas bejelentkezéshez ezután csak a jelszó kell. Ha a jelszó kiszivárog, a fiókját könnyebb lesz átvenni. A jelkulcsai továbbra is működnek.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Kétlépéses hitelesítés kikapcsolása</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Kikapcsolja a hitelesítő alkalmazást?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>E-mail-cím megerősítése</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>A hivatkozás 24 óráig érvényes. Ha nem Ön hozott létre fiókot, figyelmen kívül hagyhatja ezt az e-mailt.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Erősítse meg e-mail-címét</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Kedves {0}! Kérjük, erősítse meg, hogy a(z) {1} cím az Ön Anubis-fiókjához tartozik.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Új jelszó választása</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>A hivatkozás 1 óráig érvényes, és egyszer használható. Ha nem Ön kérte, hagyja figyelmen kívül ezt az e-mailt; a jelszava nem változik.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Állítsa vissza a jelszavát</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Kedves {0}! Valaki kérte az Anubis-fiókja jelszavának visszaállítását.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Anubis megnyitása</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Ezt az üzenetet azért kapta, mert egy rendszergazda teszt e-mailt küldött.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>Az e-mail működik</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Anubis teszt e-mail</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Ezt a tesztüzenetet az Anubis küldte a következőn keresztül: {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Konfiguráció</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Tartomány</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>Felhasználó</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Az e-mailekben lévő hivatkozások ilyenkor az adott kérés gazdagépnevét használják. Éles környezetben állítsa az Anubis:Issuer értékét a nyilvános URL-re.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Az Anubis:Issuer nincs beállítva</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Ha a gomb nem működik, nyissa meg ezt a hivatkozást:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Csak napló (nincs beállítva)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>Az e-mailek csak a naplóba kerülnek. Állítsa be az Email:Smtp:Host értékét, vagy válasszon másik Email:Provider-t (SendGrid, Mailgun, Postmark, Resend) a konfigurációban.</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>Az e-mail nincs beállítva</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Szolgáltató</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Címzett</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>A küldés nem sikerült</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Teszt e-mail küldése</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Elküldve</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>A(z) {0} címre küldött teszt e-mailt a(z) {1} elfogadta.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>Az e-mail nincs beállítva, ezért az üzenet csak a naplóba került.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>A(z) '{0}' kliens nem található.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Hiba</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>Kérésazonosító: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>A(z) '{0}' scope már létezik.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>A(z) '{0}' scope nem található.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Hiba történt a kérés feldolgozása közben.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Küldünk egy hivatkozást, amellyel újat választhat.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Elfelejtett jelszó</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Visszaállító hivatkozás küldése</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Ha ehhez a címhez tartozik fiók, a visszaállító hivatkozás úton van. A hivatkozás 1 óráig érvényes.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Elfelejtette a jelszavát?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Fiók létrehozása</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>A rekordot valaki más módosította. Töltse újra az oldalt, és próbálja újra.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Ismeretlen hiba történt.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>A(z) '{0}' e-mail-cím már foglalt.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>A(z) '{0}' szerepkörnév már foglalt.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>A(z) '{0}' felhasználónév már foglalt.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>A(z) '{0}' e-mail-cím érvénytelen.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>A(z) '{0}' szerepkörnév érvénytelen.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Érvénytelen token.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>A(z) '{0}' felhasználónév érvénytelen.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Már létezik felhasználó ezzel a bejelentkezéssel.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Helytelen jelszó.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>A jelszónak legalább egy számjegyet (0-9) kell tartalmaznia.</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>A jelszónak legalább egy kisbetűt (a-z) kell tartalmaznia.</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>A jelszónak legalább egy olyan karaktert kell tartalmaznia, amely nem betű és nem számjegy.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>A jelszónak legalább {0} különböző karaktert kell tartalmaznia.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>A jelszónak legalább egy nagybetűt (A-Z) kell tartalmaznia.</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>A jelszónak legalább {0} karakter hosszúnak kell lennie.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>A helyreállító kódot nem sikerült felhasználni.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>A felhasználónak már van jelszava.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>A felhasználó már rendelkezik a(z) '{0}' szerepkörrel.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Ennél a felhasználónál nincs engedélyezve a zárolás.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>A felhasználó nem rendelkezik a(z) '{0}' szerepkörrel.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Fiók</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Nyelv</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Fő navigáció</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Kijelentkezés</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Hozzon létre egyet</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Használjon jelkulcsot, vagy e-mail-címet és jelszót.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Előbb erősítse meg az e-mail-címét. A hivatkozást a beérkezett üzenetei között találja.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>A bejelentkezés nem sikerült</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Elfelejtette a jelszavát?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Érvénytelen e-mail-cím vagy jelszó.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Még nincs fiókja?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Ehhez a fiókhoz nem engedélyezett a bejelentkezés.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>vagy</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Bejelentkezés</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Az Ön jelszava</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Megerősítő e-mail újraküldése</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Bejelentkezés az Anubisba</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Ez a jelkulcs nincs regisztrálva az Anubisban.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Bejelentkezés jelkulccsal</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Ezen az eszközön már van jelkulcs ehhez a fiókhoz.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>A jelkulcs-kérést megszakították, vagy lejárt.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>A jelkulcsot nem sikerült használni. Próbálja újra.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>A kiszolgáló nem tudta elindítani a jelkulcs-kérést. Próbálja újra.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Ez a böngésző nem támogatja a jelkulcsokat.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Ez a böngésző nem támogatja a jelkulcsokat. Kérjük, frissítse.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Egyszer használható kódok bejelentkezéshez, ha elveszíti a hitelesítő alkalmazást.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Új kódok generálása</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Ezek egyikével jelentkezzen be, ha elveszíti a hitelesítő alkalmazást.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Csak egyszer jelennek meg. Tárolja őket biztonságos helyen, például jelszókezelőben. Mindegyik kóddal egyszer jelentkezhet be, ha elveszíti a hitelesítő alkalmazást. A régi kódok már nem működnek.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Mentse el most ezeket a helyreállító kódokat</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Elmentettem a kódokat</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Helyreállító kódok</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>{0} új kód jön létre. A jelenlegi kódjai érvénytelenné válnak.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Vissza a hitelesítő kódhoz</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Helyreállító kód</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Minden helyreállító kód csak egyszer használható.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>A helyreállító kód érvénytelen, vagy már felhasználták.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Helyreállító kód</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Bejelentkezés helyreállító kóddal</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Már regisztrált?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Jelszó megerősítése</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Írja be újra a jelszót</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Megerősítő hivatkozást küldtünk ide: {0}. Erősítse meg a címet, majd jelentkezzen be.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Regisztráljon e-mail-címmel és jelszóval.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Az önálló regisztráció jelenleg ki van kapcsolva. Forduljon egy rendszergazdához.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>A regisztráció ki van kapcsolva</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Kovács Anna</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>A regisztráció nem sikerült</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Nem kapott e-mailt?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Fiók létrehozása</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Újraküldés</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Hozza létre fiókját</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Adjon neki felismerhető nevet, például „Pixel 9” vagy „MacBook Touch ID”.</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Nevezze el a jelkulcsot</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Kihagyás</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Jelkulcs átnevezése</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Új hivatkozást küldünk a cím megerősítéséhez.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Megerősítés újraküldése</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Hivatkozás küldése</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Ha a cím meg nem erősített fiókhoz tartozik, egy új hivatkozás úton van.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Megerősítő e-mail újraküldése</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Most már bejelentkezhet az új jelszavával.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Jelszó módosítva</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>A jelszót nem sikerült visszaállítani</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Ez a visszaállító hivatkozás hiányos. Nyissa meg újra az e-mailben lévő hivatkozást, vagy kérjen újat.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Érvénytelen hivatkozás</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>A hivatkozás lejárt vagy már felhasználták. Kérjen újat.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Jelszó visszaállítása</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Új hivatkozás kérése</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Új jelszó beállítása</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Válasszon új jelszót</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Fiókja nem férhet hozzá ehhez az oldalhoz.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Hozzáférés megtagadva</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Nem található</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Sajnos ezen a címen nincs semmi.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Az oldal nem található</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Látni az e-mail-címét</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Megtartani a hozzáférést, amíg Ön nincs jelen (refresh tokenek)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Megerősíteni, hogy ki Ön</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Látni a nevét és a profilját</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Látni a szerepköreit</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Scope létrehozása</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>A kliensek egyéni scope-okat kérhetnek, amelyek erőforrásokhoz (audience) rendelhetők.</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Saját API</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Erőforrások (vesszővel elválasztva)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Erőforrások</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Jelkulcs hozzáadása</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>A jelszó után adjon meg egy 6 jegyű kódot egy alkalmazásból, például Aegis, 2FAS, Google Authenticator, Microsoft Authenticator vagy 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Hátralévő helyreállító kódok: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Érdemes új kódokat generálni.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Kevés helyreállító kód maradt ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>A böngésző elfelejtése</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Áttérés másik alkalmazásra</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Generáljon most új kódokat, különben kizárhatja magát.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Nem maradt helyreállító kód</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>A böngésző nem adott át jelkulcsot.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Még nincsenek jelkulcsok.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Hozzáadva</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Legfeljebb {0} jelkulcsa lehet. Újabb hozzáadásához töröljön egyet.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>A jelkulcsot nem sikerült menteni.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>A jelkulcsot nem sikerült ellenőrizni. Próbálja újra, vagy használjon másik eszközt.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Szinkronizált</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Jelszó helyett jelentkezzen be ujjlenyomattal, arccal vagy az eszköz PIN-kódjával. A jelkulcs a telefonján, számítógépén vagy biztonsági kulcsán tárolódik, és adathalászattal nem szerezhető meg.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Hitelesítő alkalmazás beállítása</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Ez a böngésző</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Ez a böngésző bejelentkezéskor kihagyja a hitelesítő kódot.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Kikapcsolás</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Névtelen jelkulcs</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Jelszavas bejelentkezéskor kódot kér az alkalmazásból.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Hitelesítő alkalmazás bekapcsolva</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Állítsa be újra a hitelesítő alkalmazást az új kulccsal.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Hitelesítő kulcs visszaállítva</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Ez a böngésző a következő bejelentkezéskor ismét kódot kér.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Böngésző elfelejtve</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>A bejelentkezéshez már nincs szükség a hitelesítő alkalmazásra.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Kétlépéses hitelesítés kikapcsolva</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>A helyreállító kódok generálása előtt állítson be hitelesítő alkalmazást.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Nem érhető el</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Most már bejelentkezhet ezzel a jelkulccsal.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Jelkulcs hozzáadva</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Ezzel a jelkulccsal már nem lehet bejelentkezni.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Jelkulcs törölve</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>A jelkulcs nem létezik, vagy egy másik fiókhoz tartozik.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>A jelkulcs nem található</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>A jelkulcs neve frissült.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Jelkulcs átnevezve</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Hitelesítő kód</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Adja meg a hitelesítő alkalmazás 6 jegyű kódját.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>A kód érvénytelen vagy lejárt.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Elveszítette az eszközét?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Kétlépéses hitelesítés</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>Ne kérdezze újra ebben a böngészőben 14 napig</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Helyreállító kód használata</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Az ellenőrzés nem sikerült</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Ellenőrzés</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Aktív</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Felhasználó létrehozása</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>A jelszavak Argon2id-hashként tárolódnak.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} létrehozva.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Biztosan törli: {0}? Ez nem vonható vissza.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Felhasználó törlése</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Felhasználó törölve</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} törölve.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Zárolás</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Zárolva</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} mostantól csak jelszóval jelentkezhet be.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Jelkulcsok: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>MFA visszaállítása</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Ez kikapcsolja a hitelesítő alkalmazást, törli {0} összes jelkulcsát, és mindenhol kijelentkezteti. Akkor használja, ha valaki elveszítette az eszközét. Ezután csak jelszóval jelentkezhet be, és újra beállíthatja az MFA-t.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Állapot</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Zárolás feloldása</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Adjon meg kliensazonosítót.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Legalább 16 karaktert használjon, vagy hagyja üresen nyilvános kliens esetén.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>A kód 6 számjegyből áll.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Adja meg az alkalmazásban látható kódot.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Kérjük, erősítse meg a jelszót.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Adja meg jelenlegi jelszavát.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Legfeljebb 100 karaktert használjon.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Adjon meg érvényes e-mail-címet.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>Az e-mail-cím megadása kötelező.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Csak betűk, számjegyek, '-', '_' és '.' használható.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Adjon meg nevet.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Legfeljebb 100 karaktert használjon.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>A jelszó megadása kötelező.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>A jelszavak nem egyeznek.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Adjon meg címzettet.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Adjon meg helyreállító kódot.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Adja meg a scope nevét.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Avatar feltöltése</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Gravatar használata</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF vagy SVG. A kép legfeljebb 1024×1024 méretűre kicsinyítve, átlátszó WebP formátumban tárolódik. Ha nincs kép, a Gravatar jelenik meg.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Megjelenített név mentve.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Avatar frissítve.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Saját avatar eltávolítva. A Gravatar jelenik meg.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Érvénytelen vagy nem támogatott képfájl.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>A képfájl túl nagy (legfeljebb 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Beállítások</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Szerepkörök</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Megjelenés</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Fiókok, amelyek bejelentkezhetnek az Anubisba.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>A szerepkörök a roles claimben jutnak el a kliensalkalmazásokhoz.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Jogosultságok, amelyeket a kliensalkalmazások kérhetnek.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Alkalmazások, amelyek az Anubison keresztül jelentkeztetik be a felhasználókat.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Kimenő e-mailek a cím megerősítéséhez és a jelszó visszaállításához.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>A bejelentkezési és fiókoldalak logója, betűtípusa és színei.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Bezárás</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Mentve ide: {0}. Ezek az értékek elsőbbséget élveznek az appsettings.json és a környezeti változók előtt.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Beállítások mentve</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>A módosítások azonnal érvénybe lépnek.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>A beállítások nincsenek mentve</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Beállítva. Hagyja üresen a jelenlegi érték megtartásához.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Feladó címe</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Feladó neve</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>SMTP-kiszolgáló</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Port</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Titkosítás</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Időkorlát (másodperc)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Felhasználónév</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>API-kulcs</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Kiszolgálótoken</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>API URL</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Logó és ikon</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Töltsön fel SVG, WebP, PNG, JPEG vagy GIF fájlt (a beállításfájlba kerül), vagy adjon meg wwwroot alatti elérési utat vagy https:// URL-t. A favicon Safarihoz és iOS-hez szükséges PNG-változatai automatikusan elkészülnek.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Logó</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Betűtípus</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Üres = alapértelmezett betűtípus (a rendszer fix szélességű betűtípusa). Csak az eszközön telepített betűtípusok használhatók.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Betűcsalád (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Világos téma</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Sötét téma</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Válasszon színt, vagy adja meg #RRGGBB formában. Üres = alapértelmezett szín.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Elsődleges</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Másodlagos</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Háttér</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Szöveg</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Szerepkör létrehozása</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Az új szerepkörnek nincsenek tagjai; adja hozzá őket az alábbi listában.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Tagok</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Beépített</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Szerepkör törlése</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Törli a(z) {0} szerepkört? Minden tagja elveszíti.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>{0} tagjai</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Hozzáadás</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Eltávolítás</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Még nincsenek tagok.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>Az utolsó rendszergazda nem távolítható el.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Adja meg a szerepkör nevét.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Adjon meg egy színt #RRGGBB formában, vagy hagyja üresen.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Nem tartalmazhat ; { } &lt; &gt; vagy \ karaktert.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Adjon meg abszolút https:// URL-t.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Adjon meg /-rel kezdődő elérési utat, https:// URL-t, vagy töltsön fel fájlt.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Feltöltés</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Alapértelmezett</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Feltöltött fájl · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Nem támogatott vagy sérült kép, illetve külső hivatkozásokat tartalmazó SVG. Használjon SVG, WebP, PNG, JPEG vagy GIF formátumot.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>A fájl túl nagy (legfeljebb {0} MB, feldolgozás után {1} KB).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Megerősítve</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Nincs megerősítve</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Telefonszám</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Nemzetközi formátum, pl. +36 20 123 4567.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Kód küldése</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Az SMS-ben kapott kód</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Kódot küldtünk ide: {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Telefonszám megerősítve.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Adja meg a számot nemzetközi formátumban, pl. +36 20 123 4567.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Épp most küldtünk kódot. Próbálja újra egy perc múlva.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Az Ön Anubis ellenőrző kódja: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Színmód</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Világos</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Sötét</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>Rendszer szerint</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Nincs kiválasztva: a böngésző által előnyben részesített nyelv érvényes.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Nincs kiválasztva: a rendszer világos vagy sötét beállítását követi.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Előzmények</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Bejelentkezések és a fiók változásai az elmúlt 12 hónapban.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Még nincs itt semmi.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Újabbak</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Régebbiek</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>rendszergazda végezte</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Ismeretlen eszköz</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Fiók létrehozva</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Bejelentkezés</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Sikertelen bejelentkezési kísérlet</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>A fiók zárolva túl sok sikertelen kísérlet után</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Kijelentkezés</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Bejelentkezés egy alkalmazásba</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Jelszó módosítva</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Jelszó visszaállítva e-mailben</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>E-mail-cím megerősítve</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Hitelesítő alkalmazás bekapcsolva</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Hitelesítő alkalmazás kikapcsolva</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Új helyreállító kódok generálva</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Jelkulcs hozzáadva</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Jelkulcs eltávolítva</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Telefonszám módosítva</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Telefonszám megerősítve</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Telefonszám eltávolítva</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Megjelenített név módosítva</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Avatar módosítva</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Fiók zárolva</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Fiók zárolása feloldva</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>jelszó</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>jelkulcs</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>hitelesítő alkalmazás</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>helyreállító kód</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Kijelentkezik az Anubisból?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Kezelés</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Műveletek</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Törli a(z) {0} scope-ot? A kliensek többé nem kérhetik.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Általános</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>A kiszolgáló alapbeállításai.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Kiszolgáló neve</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Megjelenik a böngészőlap címében, valamint a fiók- és adminisztrációs oldalak tetején.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Adja meg a kiszolgáló nevét.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Legfeljebb 60 karaktert használjon.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Biztonság</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Jelszószabályok, zárolás sikertelen kísérletek után, munkamenet hossza és jelkulcsok. A módosítások azonnal érvényesek.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Tokenek</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>A kliensalkalmazásoknak kiadott tokenek és kódok érvényessége. A módosítások az új tokenekre vonatkoznak.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Kiszolgáló</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>Nyilvános URL (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Például https://id.example.com. Üres = minden kérésből. Újraindítás után lép életbe.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Regisztráció</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Önálló regisztráció engedélyezése</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Megerősített e-mail-cím megkövetelése a bejelentkezéshez</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Működő e-mail-beállítások szükségesek.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Jelszavak</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Minimális hossz</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Számjegy megkövetelése</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Kisbetű megkövetelése</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Nagybetű megkövetelése</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Szimbólum megkövetelése</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Zárolás sikertelen bejelentkezések után</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Sikertelen kísérletek a zárolásig</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Zárolás időtartama (perc)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Bejelentkezési munkamenet</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Munkamenet hossza (óra)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Munkamenet meghosszabbítása, amíg a felhasználó aktív</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Jelkulcsok maximális száma fiókonként</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (perc)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID token (perc)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Engedélyezési kód (perc)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (nap)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Hozzájárulás (perc)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Mennyi ideig emlékszik a rendszer a megadott hozzájárulásra a bejelentkezés során.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Megengedett tartomány: {0}–{1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>{0} szerkesztése</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>Az e-mail-cím egyben a bejelentkezési név is: a felhasználó az új címmel jelentkezik be.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-mail-cím megerősítve</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>A módosított szám nem megerősítettként kerül mentésre.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Ezt az e-mail-címet már egy másik fiók használja.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>A saját fiókjától nem veheti el az Admin szerepkört.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>A(z) {0} módosításai mentve.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>E-mail-cím módosítva</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Szerepkör hozzáadva</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Szerepkör eltávolítva</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Mentés után megerősítő e-mailt küldünk az új címre.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Megerősítő e-mailt küldtünk ide: {0}.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Betűvel kezdődjön, utána betűk, számjegyek és - _ . : / (legfeljebb {0} karakter).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>A(z) „{0}” értéket az Anubis állítja be, nem használható.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Adjon meg egy értéket.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Legfeljebb {0} karakter.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Ez a claim kétszer szerepel.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Legfeljebb {0} claim.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>A szerepkör nem található.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>A beépített szerepkörök nem nevezhetők át.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Már létezik ilyen nevű szerepkör.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>{0} szerepkör szerkesztése</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>A(z) {0} szerepkör mentve.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Szerepkör hozzáadása</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claimek</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Hozzáadódnak a hozzáférési tokenhez, az ID tokenhez és a userinfóhoz, a felhasználó szerepköreinek claimjeivel együtt.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Hozzáadódnak a szerepkör összes tagjának tokenjeihez.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Típus</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Érték</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Claim hozzáadása</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Claim eltávolítása</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Még nincsenek claimek.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Szerepkörökből</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Avatar módosítása</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Betöltés…</value></data>
+</root>

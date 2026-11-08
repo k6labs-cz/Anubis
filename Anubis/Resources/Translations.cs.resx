@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts. Czech. Keep keys in sync with the other language file (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Ověřovací aplikace</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Změnit heslo</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Odeslání se nezdařilo, zkuste to později</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Odesláno, zkontrolujte schránku</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Už odesláno, zkuste to za pár minut</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Vytvořeno</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Podle prohlížeče</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Passkeys</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Role</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Poslat potvrzovací e-mail</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Multifaktor</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>OIDC klienti</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scopes</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Uživatelé</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Kód z aplikace</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Vytvořit nový klíč</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>Od teď budete po zadání hesla žádáni o kód.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Kód je neplatný. Zkontrolujte, že má zařízení správný čas, a zkuste to znovu.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Nejde to naskenovat? Zadejte klíč ručně:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Vytvoří se nový klíč. Současná aplikace okamžitě přestane fungovat a dvoufázové přihlášení zůstane vypnuté, dokud nastavení nové aplikace nedokončíte.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Přesun do jiné ověřovací aplikace</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>QR kód pro ověřovací aplikaci</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Naskenujte QR kód aplikací a zadejte kód, který zobrazí.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Ověřit a zapnout</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Současné heslo</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Zvolte nové heslo (alespoň {0} znaků).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Vaše heslo bylo změněno.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Změna hesla se nezdařila</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Změnit heslo</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Povolené scopes</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Vytvořit klienta</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>Moje aplikace</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Úprava klienta: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (mezi službami)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (s PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>Redirect URI po odhlášení (jedno na řádek)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>Redirect URI (jedno na řádek)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Vygenerovat nový secret</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Vyžadovat výslovný souhlas uživatele</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Uložit změny</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Client secret</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Ponechte prázdné pro zachování současného secretu.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Ponechte prázdné pro veřejného klienta (jen PKCE), nebo zadejte secret pro důvěrného klienta.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Alespoň 16 znaků</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Zkopírujte si ho hned — zobrazí se jen jednou. OpenIddict ukládá pouze jeho hash.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} byl upraven.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>Client ID</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Souhlas</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Automatický</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Vyžadován</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Opravdu chcete smazat {0}? Tokeny pro něj vydané okamžitě přestanou platit.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Smazat klienta</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Grant typy</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Nový klient</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Typ</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Administrace</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Zpět na přihlášení</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Zrušit</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Zkontrolujte svou schránku</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Potvrzení nového hesla</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Smazat</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Popis</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Zobrazované jméno</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Upravit</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>E-mail</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>vy@example.com</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Chyba</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Účet je kvůli příliš mnoha neúspěšným pokusům zablokovaný. Zkuste to později.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Název</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Nové heslo</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Alespoň {0} znaků</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Ne</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Žádné</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Vypnuto</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Zapnuto</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Heslo</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Přejmenovat</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Uložit</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Přihlásit se</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Něco se pokazilo</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Uživatel nebyl nalezen.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Ano</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Pokračovat</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Potvrzovací odkazy platí 24 hodin. Níže si můžete vyžádat nový.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Odkaz je neplatný nebo vypršel</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Potvrzení e-mailu</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Poslat nový odkaz</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Děkujeme, vaše e-mailová adresa je potvrzená.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>E-mail potvrzen</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>Potvrzení e-mailu</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Povolit</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Zamítnout</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Neplatný požadavek</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Autorizační požadavek neuvádí klienta.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Autorizační požadavek chybí nebo je neplatný.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>žádá o přístup k vašemu účtu.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Povolit aplikaci</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>Aplikace bude moci:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Přihlášení heslem pak bude vyžadovat jen heslo. Pokud heslo unikne, je snazší váš účet převzít. Passkeys budou fungovat dál.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Vypnutí dvoufázového ověření</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Vypnout ověřovací aplikaci?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Potvrdit e-mail</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Odkaz platí 24 hodin. Pokud jste si účet nezakládali, tento e-mail ignorujte.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Potvrďte svou e-mailovou adresu</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Dobrý den, {0}, potvrďte prosím, že adresa {1} patří k vašemu účtu Anubis.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Zvolit nové heslo</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Odkaz platí 1 hodinu a funguje jednou. Pokud jste o obnovení nežádali, e-mail ignorujte; heslo zůstane stejné.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Obnovení hesla</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Dobrý den, {0}, někdo požádal o obnovení hesla k vašemu účtu Anubis.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Otevřít Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Tento e-mail jste dostali, protože administrátor poslal testovací zprávu.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>E-mail funguje</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Testovací e-mail z Anubis</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Tuto testovací zprávu poslal Anubis přes {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Konfigurace</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Doména</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>uživateli</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Odkazy v e-mailech pak používají host z každého požadavku. V produkci nastavte Anubis:Issuer na veřejnou URL.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Anubis:Issuer není nastavený</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Pokud tlačítko nefunguje, otevřete tento odkaz:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Jen log (nenastaveno)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>E-maily se jen zapisují do logu. V konfiguraci nastavte Email:Smtp:Host, nebo zvolte jiný Email:Provider (SendGrid, Mailgun, Postmark, Resend).</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>E-mail není nastavený</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Poskytovatel</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Příjemce</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Odeslání se nezdařilo</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Poslat testovací e-mail</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Odesláno</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>Testovací e-mail pro {0} převzal {1}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>E-mail není nastavený, zpráva se proto jen zapsala do logu.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Klient „{0}“ nebyl nalezen.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Chyba</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>ID požadavku: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>Scope „{0}“ už existuje.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>Scope „{0}“ nebyl nalezen.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Při zpracování požadavku došlo k chybě.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Pošleme vám e-mailem odkaz pro nastavení nového.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Zapomenuté heslo</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Poslat odkaz</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Pokud k této adrese existuje účet, odkaz pro obnovu hesla je na cestě. Platí 1 hodinu.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Zapomněli jste heslo?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Vytvořit účet</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Záznam mezitím změnil někdo jiný. Načtěte stránku znovu a zkuste to ještě jednou.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Došlo k neznámé chybě.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>E-mail „{0}“ už je použitý.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Název role „{0}“ už je obsazený.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Uživatelské jméno „{0}“ už je obsazené.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>E-mail „{0}“ je neplatný.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Název role „{0}“ je neplatný.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Neplatný token.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>Uživatelské jméno „{0}“ je neplatné.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Uživatel s tímto přihlášením už existuje.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Nesprávné heslo.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Heslo musí obsahovat alespoň jednu číslici (0–9).</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Heslo musí obsahovat alespoň jedno malé písmeno (a–z).</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Heslo musí obsahovat alespoň jeden znak, který není písmeno ani číslice.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Heslo musí obsahovat alespoň {0} různých znaků.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Heslo musí obsahovat alespoň jedno velké písmeno (A–Z).</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Heslo musí mít alespoň {0} znaků.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Záchranný kód se nepodařilo použít.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Uživatel už má heslo nastavené.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Uživatel už má roli „{0}“.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Blokování není u tohoto uživatele zapnuté.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Uživatel nemá roli „{0}“.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Účet</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Jazyk</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Hlavní navigace</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Odhlásit</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Vytvořte si ho</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Použijte passkey, nebo e-mail a heslo.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Nejdřív potvrďte svou e-mailovou adresu. Odkaz najdete ve schránce.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Přihlášení se nezdařilo</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Zapomněli jste heslo?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Neplatný e-mail nebo heslo.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Ještě nemáte účet?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Tento účet se nemůže přihlásit.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>nebo</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Přihlášení</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Vaše heslo</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Poslat potvrzovací e-mail znovu</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Přihlášení do Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Tato passkey není v Anubis zaregistrovaná.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Přihlásit se pomocí passkey</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Toto zařízení už má passkey pro tento účet.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>Výzva k passkey byla zrušena nebo vypršela.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Passkey se nepodařilo použít. Zkuste to znovu.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Server nemohl zahájit požadavek na passkey. Zkuste to znovu.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Tento prohlížeč passkeys nepodporuje.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Tento prohlížeč passkeys nepodporuje. Aktualizujte ho prosím.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Jednorázové kódy pro přihlášení, když přijdete o ověřovací aplikaci.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Vygenerovat nové kódy</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Použijte jeden z nich k přihlášení, když přijdete o ověřovací aplikaci.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Zobrazí se jen jednou. Uložte je na bezpečné místo, třeba do správce hesel. Každý kód vás jednou přihlásí, když přijdete o ověřovací aplikaci. Staré kódy už neplatí.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Uložte si teď tyto záchranné kódy</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Kódy mám uložené</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Záchranné kódy</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Vytvoří se {0} nových kódů. Současné kódy přestanou platit.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Zpět na kód z aplikace</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Záchranný kód</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Každý záchranný kód funguje jen jednou.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Záchranný kód je neplatný nebo už byl použit.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Záchranný kód</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Přihlášení záchranným kódem</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Už máte účet?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Potvrzení hesla</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Zopakujte heslo</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Na adresu {0} jsme poslali potvrzovací odkaz. Potvrďte adresu a pak se přihlaste.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Zaregistrujte se e-mailem a heslem.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Samoobslužná registrace je teď vypnutá. Obraťte se na administrátora.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Registrace je vypnutá</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Jana Nováková</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Registrace se nezdařila</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Žádný e-mail nepřišel?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Vytvoření účtu</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Poslat znovu</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Vytvořte si účet</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Dejte jí název, podle kterého ji poznáte, např. „Pixel 9“ nebo „MacBook Touch ID“.</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Pojmenujte passkey</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Přeskočit</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Přejmenovat passkey</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Pošleme vám nový odkaz pro potvrzení adresy.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Nový potvrzovací e-mail</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Poslat odkaz</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Pokud adresa patří k nepotvrzenému účtu, nový odkaz je na cestě.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Poslat potvrzovací e-mail znovu</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Teď se můžete přihlásit novým heslem.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Heslo změněno</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Heslo se nepodařilo obnovit</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Odkaz pro obnovu je neúplný. Otevřete ho z e-mailu znovu, nebo si vyžádejte nový.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Neplatný odkaz</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Odkaz vypršel nebo už byl použit. Vyžádejte si nový.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Obnova hesla</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Vyžádat nový odkaz</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Nastavit nové heslo</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Zvolte nové heslo</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Váš účet nemá k této stránce přístup.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Přístup odepřen</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Nenalezeno</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Na této adrese bohužel nic není.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Stránka nenalezena</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Zobrazit vaši e-mailovou adresu</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Mít přístup i ve vaší nepřítomnosti (refresh tokeny)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Ověřit, kdo jste</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Zobrazit vaše jméno a profil</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Zobrazit vaše role</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Vytvořit scope</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Vlastní scopes si mohou klienti vyžádat a lze je mapovat na resources (audience).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Moje API</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Resources (oddělené čárkou)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Resources</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Přidat passkey</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>Po zadání hesla zadáte šestimístný kód z aplikace, jako je Aegis, 2FAS, Google Authenticator, Microsoft Authenticator nebo 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Zbývající záchranné kódy: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Zvažte vygenerování nových kódů.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Zbývá málo záchranných kódů ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Zapomenout tento prohlížeč</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Přesunout do jiné aplikace</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Vygenerujte nové kódy hned, jinak se můžete zablokovat.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Nezbývají žádné záchranné kódy</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Prohlížeč neposkytl žádnou passkey.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Zatím žádné passkeys.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Přidáno</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Můžete mít nejvýše {0} passkeys. Pro přidání další jednu smažte.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Passkey se nepodařilo uložit.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Passkey se nepodařilo ověřit. Zkuste to znovu nebo použijte jiné zařízení.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Synchronizováno</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Přihlaste se otiskem prstu, obličejem nebo PINem zařízení místo hesla. Passkey je uložená v telefonu, počítači nebo bezpečnostním klíči a nedá se vylákat phishingem.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Nastavit ověřovací aplikaci</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Tento prohlížeč</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>V tomto prohlížeči se při přihlášení nevyžaduje kód z aplikace.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Vypnout</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Nepojmenovaná passkey</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Při přihlášení heslem budete žádáni o kód z aplikace.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Ověřovací aplikace zapnuta</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Nastavte ověřovací aplikaci znovu s novým klíčem.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Klíč ověřovací aplikace obnoven</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Tento prohlížeč bude při dalším přihlášení znovu chtít kód.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Prohlížeč zapomenut</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>K přihlášení už není potřeba ověřovací aplikace.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Dvoufázové ověření vypnuto</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Před vygenerováním záchranných kódů nastavte ověřovací aplikaci.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Není k dispozici</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Teď se můžete přihlásit touto passkey.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Passkey přidána</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Touto passkey se už nelze přihlásit.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Passkey smazána</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>Passkey neexistuje nebo patří jinému účtu.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Passkey nenalezena</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>Název passkey byl změněn.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Passkey přejmenována</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Ověřovací kód</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Zadejte šestimístný kód z ověřovací aplikace.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Kód je neplatný nebo vypršel.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Ztratili jste zařízení?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Dvoufázové ověření</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>V tomto prohlížeči se 14 dní neptat</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Použijte záchranný kód</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Ověření se nezdařilo</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Ověřit</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Aktivní</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Vytvořit uživatele</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Hesla se ukládají jako hashe Argon2id.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} byl vytvořen.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Opravdu chcete smazat {0}? Tuto akci nelze vrátit.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Smazat uživatele</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Uživatel smazán</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} byl smazán.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Zablokovat</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Zablokován</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} se teď může přihlásit jen heslem.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Passkeys: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Resetovat MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Vypne ověřovací aplikaci, smaže všechny passkeys uživatele {0} a všude ho odhlásí. Použijte, když někdo přišel o zařízení. Pak se přihlásí jen heslem a MFA si nastaví znovu.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Stav</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Odblokovat</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Zadejte client ID.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Použijte alespoň 16 znaků, nebo pole nechte prázdné pro veřejného klienta.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Kód má 6 číslic.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Zadejte kód z aplikace.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Potvrďte heslo.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Zadejte současné heslo.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Použijte nejvýše 100 znaků.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Zadejte platnou e-mailovou adresu.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>Zadejte e-mail.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Povolená jsou jen písmena, číslice, „-“, „_“ a „.“.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Zadejte název.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Použijte nejvýše 100 znaků.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Zadejte heslo.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Hesla se neshodují.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Zadejte příjemce.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Zadejte záchranný kód.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Zadejte název scope.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Nahrát avatar</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Použít Gravatar</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF nebo SVG. Obrázek se zmenší na max. 1024×1024 a uloží jako průhledný WebP. Pokud není nastaven, použije se Gravatar.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Zobrazované jméno bylo uloženo.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Avatar byl aktualizován.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Vlastní avatar byl odebrán. Používá se Gravatar.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Neplatný nebo nepodporovaný soubor obrázku.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Soubor obrázku je příliš velký (max. 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Nastavení</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Role</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Vzhled</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Účty, které se mohou přihlásit do Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Role se klientským aplikacím předávají v claimu roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Oprávnění, která si mohou klientské aplikace vyžádat.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Aplikace, které přihlašují uživatele přes Anubis.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Odchozí e-maily pro potvrzení adresy a obnovu hesla.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Logo, písmo a barvy přihlašovacích stránek a účtu.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Zavřít</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Ukládá se do {0}. Tyto hodnoty mají přednost před appsettings.json a proměnnými prostředí.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Nastavení uloženo</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Změny platí okamžitě.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Nastavení nebylo uloženo</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Nastaveno. Ponechte prázdné pro zachování současné hodnoty.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Adresa odesílatele</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Jméno odesílatele</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>SMTP server</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Port</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Šifrování</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Časový limit (s)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Uživatelské jméno</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>API klíč</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Serverový token</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>URL API</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Logo a ikona</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Nahrajte SVG, WebP, PNG, JPEG nebo GIF (uloží se do souboru s nastavením), nebo zadejte cestu ve wwwroot či adresu https://. PNG verze favicon pro Safari a iOS se vytvoří automaticky.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Logo</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Písmo</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Prázdné = výchozí písmo (systémové neproporcionální). Použít lze jen písma nainstalovaná v zařízení.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Rodina písma (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Světlý motiv</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Tmavý motiv</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Vyberte barvu nebo ji zadejte jako #RRGGBB. Prázdné = výchozí barva.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Primární</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Sekundární</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Pozadí</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Text</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Vytvořit roli</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Nová role nemá žádné členy; přidáte je v seznamu níže.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Členové</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Vestavěná</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Smazat roli</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Smazat roli {0}? Všichni její členové o ni přijdou.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Členové role {0}</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Přidat</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Odebrat</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Zatím žádní členové.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>Posledního administrátora nelze odebrat.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Zadejte název role.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Zadejte barvu jako #RRGGBB, nebo pole nechte prázdné.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Nesmí obsahovat ; { } &lt; &gt; ani \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Zadejte absolutní adresu https://.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Zadejte cestu začínající /, adresu https://, nebo nahrajte soubor.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Nahrát</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Výchozí</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Nahraný soubor · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Nepodporovaný nebo poškozený obrázek, případně SVG s externími odkazy. Použijte SVG, WebP, PNG, JPEG nebo GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Soubor je příliš velký (max. {0} MB, po zpracování {1} KB).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Ověřeno</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Neověřeno</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Telefonní číslo</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Mezinárodní formát, např. +420 123 456 789.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Poslat kód</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Kód z SMS</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Kód jsme poslali na {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Telefonní číslo je ověřené.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Zadejte číslo v mezinárodním formátu, např. +420 123 456 789.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Kód jsme poslali před chvílí. Zkuste to znovu za minutu.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Váš ověřovací kód Anubis: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Barevný režim</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Světlý</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Tmavý</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>Podle systému</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Nevybráno: použije se jazyk, který preferuje váš prohlížeč.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Nevybráno: řídí se světlým nebo tmavým nastavením vašeho systému.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Historie</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Přihlášení a změny vašeho účtu za posledních 12 měsíců.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Zatím tu nic není.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Novější</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Starší</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>provedl administrátor</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Neznámé zařízení</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Účet vytvořen</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Přihlášení</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Neúspěšný pokus o přihlášení</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Účet zablokován po příliš mnoha neúspěšných pokusech</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Odhlášení</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Přihlášení do aplikace</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Heslo změněno</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Heslo obnoveno přes e-mail</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>E-mailová adresa ověřena</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Ověřovací aplikace zapnuta</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Ověřovací aplikace vypnuta</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Vygenerovány nové záchranné kódy</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Passkey přidán</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Passkey odebrán</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Telefonní číslo změněno</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Telefonní číslo ověřeno</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Telefonní číslo odebráno</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Zobrazované jméno změněno</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Avatar změněn</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Účet zablokován</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Účet odblokován</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>heslo</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>passkey</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>ověřovací aplikace</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>záchranný kód</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Odhlásit se z Anubis?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Správa</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Akce</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Smazat scope {0}? Klienti si ho už nebudou moci vyžádat.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Obecné</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Základní nastavení tohoto serveru.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Název serveru</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Zobrazuje se v titulku záložky prohlížeče a nahoře na stránkách účtu a administrace.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Zadejte název serveru.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Použijte nejvýše 60 znaků.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Zabezpečení</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Pravidla hesel, zablokování po neúspěšném přihlášení, délka přihlášení a passkeys. Změny platí okamžitě.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Tokeny</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Platnost tokenů a kódů vydávaných klientským aplikacím. Změny platí pro nově vydané tokeny.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Server</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>Veřejná adresa (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Například https://id.example.com. Prázdné = podle každého požadavku. Projeví se po restartu.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Registrace</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Povolit samoobslužnou registraci</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Vyžadovat ověřenou e-mailovou adresu pro přihlášení</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Vyžaduje funkční nastavení e-mailu.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Hesla</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Minimální délka</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Vyžadovat číslici</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Vyžadovat malé písmeno</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Vyžadovat velké písmeno</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Vyžadovat symbol</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Zablokování po neúspěšném přihlášení</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Počet neúspěšných pokusů před zablokováním</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Doba zablokování (minuty)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Přihlášení</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Délka přihlášení (hodiny)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Prodlužovat přihlášení, dokud je uživatel aktivní</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Maximální počet passkeys na účet</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (minuty)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID token (minuty)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Autorizační kód (minuty)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (dny)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Souhlas (minuty)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Jak dlouho se během přihlášení pamatuje udělený souhlas.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Povolený rozsah: {0} až {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Upravit {0}</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>E-mailová adresa je zároveň přihlašovací jméno: uživatel se bude přihlašovat novou adresou.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-mailová adresa ověřena</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Změněné číslo se uloží jako neověřené.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Tuto e-mailovou adresu už používá jiný účet.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Svému vlastnímu účtu nemůžete odebrat roli Admin.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Změny účtu {0} byly uloženy.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>E-mailová adresa změněna</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Role přidána</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Role odebrána</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Po uložení přijde na novou adresu ověřovací e-mail.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Na adresu {0} byl odeslán ověřovací e-mail.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Začněte písmenem, dále písmena, číslice a - _ . : / (nejvýše {0} znaků).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>„{0}“ nastavuje Anubis a nelze ho použít.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Zadejte hodnotu.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Nejvýše {0} znaků.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Tento claim je uveden dvakrát.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Nejvýše {0} claimů.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Role nebyla nalezena.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Vestavěné role nelze přejmenovat.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Role s tímto názvem už existuje.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Upravit roli {0}</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Role {0} byla uložena.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Přidat roli</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claimy</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Přidávají se do access tokenu, ID tokenu a userinfo, spolu s claimy rolí uživatele.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Přidávají se do tokenů všech členů této role.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Typ</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Hodnota</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Přidat claim</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Odebrat claim</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Zatím žádné claimy.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Z rolí</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Změnit avatara</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Načítání…</value></data>
+</root>

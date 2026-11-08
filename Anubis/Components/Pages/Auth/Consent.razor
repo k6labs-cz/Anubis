@@ -1,0 +1,128 @@
+@page "/consent"
+@attribute [Authorize]
+
+@using System.Globalization
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.WebUtilities
+@using OpenIddict.Abstractions
+
+@inject IOpenIddictApplicationManager ApplicationManager
+@inject IOpenIddictScopeManager ScopeManager
+
+<AppPageTitle Text="@(Translations.Consent_Title)" />
+
+<Container MaxWidth="28rem">
+    <Stack Gap="Gap.Large">
+        <Card>
+            <Header>
+                <Stack Gap="Gap.XSmall">
+                    <Typography Variant="TextVariant.Title" As="TextElement.H1">@Translations.Consent_Title</Typography>
+                    <Typography Variant="TextVariant.Small" Tone="Tone.Muted">
+                        <strong>@clientDisplayName</strong> (<code>@clientId</code>) @Translations.Consent_RequestsAccess
+                    </Typography>
+                </Stack>
+            </Header>
+            <ChildContent>
+                <Stack Gap="Gap.Medium">
+                    @if (!string.IsNullOrEmpty(error))
+                    {
+                        <Alert Severity="AlertSeverity.Danger" Title="@Translations.Consent_InvalidRequest">
+                            @error
+                        </Alert>
+                    }
+                    else
+                    {
+                        <Typography>@Translations.Consent_WillBeAbleTo</Typography>
+                        <Stack Gap="Gap.Small">
+                            @foreach (var scope in scopes)
+                            {
+                                <Stack Direction="Direction.Row" Gap="Gap.Small" Align="Align.Center">
+                                    <Badge Tone="Tone.Info">@scope.Name</Badge>
+                                    @if (!string.IsNullOrWhiteSpace(scope.DisplayName) && scope.DisplayName != scope.Name)
+                                    {
+                                        <Typography As="TextElement.Span" Tone="Tone.Muted">@scope.DisplayName</Typography>
+                                    }
+                                </Stack>
+                            }
+                        </Stack>
+
+                        <form method="post" action="/auth/consent">
+                            <Stack Direction="Direction.Row" Gap="Gap.Medium" Align="Align.Center" Wrap="true">
+                                <AntiforgeryToken />
+                                <input type="hidden" name="returnUrl" value="@ReturnUrl" />
+                                <Button name="decision" value="allow" Type="submit" Icon="@AppIcons.Check">
+                                    @Translations.Consent_Allow
+                                </Button>
+                                <Button Variant="ButtonVariant.Ghost" name="decision" value="deny" Type="submit" Icon="@AppIcons.Close">
+                                    @Translations.Consent_Deny
+                                </Button>
+                            </Stack>
+                        </form>
+                    }
+                </Stack>
+            </ChildContent>
+        </Card>
+    </Stack>
+</Container>
+
+@code {
+    [SupplyParameterFromQuery(Name = "returnUrl")]
+    public string? ReturnUrl { get; set; }
+
+    private string clientId = string.Empty;
+    private string clientDisplayName = string.Empty;
+    private List<(string Name, string? DisplayName)> scopes = new();
+    private string? error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (string.IsNullOrEmpty(ReturnUrl)
+            || !ReturnUrl.StartsWith("/authorize", StringComparison.Ordinal)
+            || ReturnUrl.StartsWith("//", StringComparison.Ordinal))
+        {
+            error = Translations.Consent_RequestMissing;
+            return;
+        }
+
+        var query = QueryHelpers.ParseQuery(LocalUrl.QueryOf(ReturnUrl));
+        clientId = query["client_id"].ToString();
+
+        if (string.IsNullOrEmpty(clientId))
+        {
+            error = Translations.Consent_NoClient;
+            return;
+        }
+
+        var application = await ApplicationManager.FindByClientIdAsync(clientId);
+        clientDisplayName = application is null
+            ? clientId
+            : await ApplicationManager.GetDisplayNameAsync(application) ?? clientId;
+
+        foreach (var scopeName in query["scope"].ToString().Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+        {
+            scopes.Add((scopeName, await DescribeScopeAsync(scopeName)));
+        }
+    }
+
+    /// <summary>Standard OIDC scopes have built-in texts; custom scopes use their (localized) display name.</summary>
+    private async Task<string?> DescribeScopeAsync(string name)
+    {
+        var builtIn = name switch
+        {
+            "openid" => Translations.Scope_OpenId,
+            "profile" => Translations.Scope_Profile,
+            "email" => Translations.Scope_Email,
+            "roles" => Translations.Scope_Roles,
+            "offline_access" => Translations.Scope_OfflineAccess,
+            _ => null,
+        };
+
+        if (builtIn is not null)
+        {
+            return builtIn;
+        }
+
+        var scope = await ScopeManager.FindByNameAsync(name);
+        return scope is null ? null : await ScopeManager.GetLocalizedDisplayNameAsync(scope, CultureInfo.CurrentUICulture);
+    }
+}

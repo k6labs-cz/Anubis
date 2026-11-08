@@ -1,0 +1,42 @@
+<Router AppAssembly="typeof(Program).Assembly">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
+            <NotAuthorized>
+                @if (context.User.Identity?.IsAuthenticated == true)
+                {
+                    <Container MaxWidth="28rem">
+                        <Stack Gap="Gap.Large">
+                            <Alert Severity="AlertSeverity.Warning" Title="@Translations.Routes_AccessDeniedTitle">
+                                @Translations.Routes_AccessDeniedText
+                            </Alert>
+                        </Stack>
+                    </Container>
+                }
+                else
+                {
+                    <RedirectToLogin />
+                }
+            </NotAuthorized>
+            <Authorizing>
+                <Container MaxWidth="28rem">
+                    <Stack Gap="Gap.Large">
+                        <ProgressBar Indeterminate="true" Label="@Translations.Common_Loading" aria-busy="true" />
+                    </Stack>
+                </Container>
+            </Authorizing>
+        </AuthorizeRouteView>
+        <FocusOnNavigate RouteData="routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <AppPageTitle Text="@(Translations.Routes_NotFoundPageTitle)" />
+        <LayoutView Layout="typeof(MainLayout)">
+            <Container MaxWidth="28rem">
+                <Stack Gap="Gap.Large">
+                    <Alert Severity="AlertSeverity.Neutral" Title="@Translations.Routes_NotFoundTitle">
+                        @Translations.Routes_NotFoundText
+                    </Alert>
+                </Stack>
+            </Container>
+        </LayoutView>
+    </NotFound>
+</Router>

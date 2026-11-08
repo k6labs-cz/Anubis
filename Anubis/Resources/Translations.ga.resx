@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Gaeilge (ga). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Aip fíordheimhnithe</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Athraigh pasfhocal</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Níorbh fhéidir é a sheoladh, bain triail eile as ar ball</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Seolta, féach ar do bhosca isteach</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Seolta cheana, bain triail eile as i gceann cúpla nóiméad</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Cruthaithe</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Socrú an bhrabhsálaí</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Eochracha pasfhocail</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Róil</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Seol ríomhphost deimhnithe</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Ilfhachtóireach</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>Cliaint OIDC</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scóip</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Úsáideoirí</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Cód ón aip</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Cruthaigh eochair nua</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>As seo amach iarrfar cód ort i ndiaidh do phasfhocail.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Tá an cód neamhbhailí. Seiceáil go bhfuil clog do ghléis ceart agus bain triail eile as.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Ní féidir é a scanadh? Cuir isteach an eochair seo de láimh:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Cruthófar eochair nua. Stopfaidh d'aip reatha ag obair láithreach, agus fanfaidh síniú isteach dhá fhachtóir múchta go dtí go mbeidh an aip nua socraithe agat.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Aistrigh chuig aip fíordheimhnithe eile</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>Cód QR do d'aip fíordheimhnithe</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Scan an cód QR le d'aip, ansin cuir isteach an cód a thaispeánann sí.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Fíoraigh agus cas air</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Pasfhocal reatha</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Roghnaigh pasfhocal nua ({0} charachtar ar a laghad).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Nuashonraíodh do phasfhocal.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Theip ar athrú an phasfhocail</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Nuashonraigh pasfhocal</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Scóip cheadaithe</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Cruthaigh cliant</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>M'fheidhmchlár</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Cuir an cliant in eagar: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (meaisín go meaisín)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (le PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>URIanna atreoraithe tar éis síniú amach (ceann amháin in aghaidh na líne)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>URIanna atreoraithe (ceann amháin in aghaidh na líne)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Athghin rún</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Éiligh toiliú sainráite ón úsáideoir</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Sábháil athruithe</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Rún an chliaint</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Fág folamh chun an rún reatha a choinneáil.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Fág folamh do chliant poiblí (PKCE amháin), nó cuir isteach rún do chliant rúnda.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>16 charachtar ar a laghad</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Cóipeáil anois é — ní thaispeántar é ach uair amháin. Ní stórálann OpenIddict ach a haisc.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>Nuashonraíodh {0}.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>Aitheantas an chliaint</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Toiliú</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Intuigthe</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Riachtanach</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>An bhfuil tú cinnte gur mian leat {0} a scriosadh? Stopfaidh comharthaí a eisíodh dó ag obair láithreach.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Scrios an cliant</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Cineálacha grant</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Cliant nua</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Cineál</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Riarachán</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Ar ais chuig síniú isteach</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Cealaigh</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Féach ar do bhosca isteach</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Deimhnigh an pasfhocal nua</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Scrios</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Cur síos</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Ainm taispeána</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Cuir in eagar</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>Ríomhphost</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>tusa@sampla.ie</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Earráid</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Tá an cuntas seo faoi ghlas mar gheall ar an iomarca iarrachtaí teipthe. Bain triail eile as ar ball.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Ainm</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Pasfhocal nua</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>{0} charachtar ar a laghad</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Níl</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Dada</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>As</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Air</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Pasfhocal</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Athainmnigh</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Sábháil</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Sínigh isteach</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Chuaigh rud éigin amú</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Níor aimsíodh an t-úsáideoir.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Tá</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Lean ar aghaidh</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Bíonn naisc deimhnithe bailí ar feadh 24 uair an chloig. Iarr ceann nua thíos.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Tá an nasc neamhbhailí nó imithe in éag</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Deimhnigh ríomhphost</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Seol nasc nua</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Go raibh maith agat. Tá do sheoladh ríomhphoist deimhnithe.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>Ríomhphost deimhnithe</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>Deimhniú ríomhphoist</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Ceadaigh</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Diúltaigh</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Iarratas neamhbhailí</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Ní shonraíonn an t-iarratas údaraithe cliant.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Tá an t-iarratas údaraithe in easnamh nó neamhbhailí.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>ag iarraidh rochtain ar do chuntas.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Údaraigh feidhmchlár</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>Beidh an feidhmchlár in ann:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Ní bheidh ach an pasfhocal ag teastáil ansin chun síniú isteach le pasfhocal. Má sceitear an pasfhocal, beidh sé níos éasca do chuntas a ghabháil. Leanfaidh d'eochracha pasfhocail ag obair.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Múch fíordheimhniú dhá fhachtóir</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>An bhfuil fonn ort an aip fíordheimhnithe a mhúchadh?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Deimhnigh ríomhphost</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Tá an nasc bailí ar feadh 24 uair an chloig. Mura ndearna tú cuntas, is féidir neamhaird a dhéanamh den ríomhphost seo.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Deimhnigh do sheoladh ríomhphoist</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Dia duit {0}, deimhnigh le do thoil gur le do chuntas Anubis {1}.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Roghnaigh pasfhocal nua</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Tá an nasc bailí ar feadh uair an chloig agus oibríonn sé uair amháin. Murar iarr tú é seo, déan neamhaird den ríomhphost; ní athrófar do phasfhocal.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Athshocraigh do phasfhocal</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Dia duit {0}, d'iarr duine éigin pasfhocal do chuntais Anubis a athshocrú.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Oscail Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Fuair tú é seo mar gur sheol riarthóir ríomhphost tástála.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>Oibríonn ríomhphost</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Ríomhphost tástála Anubis</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Sheol Anubis an teachtaireacht tástála seo trí {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Cumraíocht</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Fearann</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>a chara</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Úsáideann naisc i ríomhphoist ansin ainm óstach gach iarratais. I dtáirgeadh, socraigh Anubis:Issuer chuig do URL poiblí.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Níl Anubis:Issuer socraithe</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Mura n-oibríonn an cnaipe, oscail an nasc seo:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Logáil amháin (gan chumrú)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>Ní scríobhtar ríomhphoist ach chuig an loga. Socraigh Email:Smtp:Host, nó roghnaigh Email:Provider eile (SendGrid, Mailgun, Postmark, Resend) sa chumraíocht.</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>Níl ríomhphost cumraithe</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Soláthraí</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Faighteoir</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Theip ar sheoladh</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Seol ríomhphost tástála</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Seolta</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>Ghlac {1} leis an ríomhphost tástála chuig {0}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>Níl ríomhphost cumraithe, mar sin níor scríobhadh an teachtaireacht ach chuig an loga.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Níor aimsíodh an cliant '{0}'.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Earráid</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>Aitheantas iarratais: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>Tá an scóip '{0}' ann cheana.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>Níor aimsíodh an scóip '{0}'.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Tharla earráid agus d'iarratas á phróiseáil.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Seolfaimid nasc chugat chun ceann nua a roghnú.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Pasfhocal dearmadta</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Seol nasc athshocraithe</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Má tá cuntas ann don seoladh sin, tá nasc athshocraithe ar an mbealach. Tá an nasc bailí ar feadh uair an chloig.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Ar dhearmad tú do phasfhocal?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Cruthaigh cuntas</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>D'athraigh duine eile an taifead. Athlódáil agus bain triail eile as.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Tharla earráid anaithnid.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>Tá an ríomhphost '{0}' in úsáid cheana.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Tá an t-ainm róil '{0}' in úsáid cheana.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Tá an t-ainm úsáideora '{0}' in úsáid cheana.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>Tá an ríomhphost '{0}' neamhbhailí.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Tá an t-ainm róil '{0}' neamhbhailí.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Comhartha neamhbhailí.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>Tá an t-ainm úsáideora '{0}' neamhbhailí.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Tá úsáideoir leis an síniú isteach seo ann cheana.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Pasfhocal mícheart.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Caithfidh digit amháin ar a laghad (0-9) a bheith i bpasfhocail.</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Caithfidh litir bheag amháin ar a laghad (a-z) a bheith i bpasfhocail.</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Caithfidh carachtar amháin ar a laghad nach litir ná digit é a bheith i bpasfhocail.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Caithfidh {0} charachtar éagsúla ar a laghad a bheith i bpasfhocail.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Caithfidh ceannlitir amháin ar a laghad (A-Z) a bheith i bpasfhocail.</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Caithfidh pasfhocail a bheith {0} charachtar ar fhad ar a laghad.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Níorbh fhéidir an cód aisghabhála a úsáid.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Tá pasfhocal ag an úsáideoir cheana.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Tá an ról '{0}' ag an úsáideoir cheana.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Níl glasáil cumasaithe don úsáideoir seo.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Níl an ról '{0}' ag an úsáideoir.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Cuntas</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Teanga</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Príomhnascleanúint</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Sínigh amach</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Cruthaigh ceann</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Úsáid eochair pasfhocail, nó do ríomhphost agus do phasfhocal.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Deimhnigh do sheoladh ríomhphoist ar dtús. Tá an nasc i do bhosca isteach.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Theip ar shíniú isteach</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Ar dhearmad tú do phasfhocal?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Ríomhphost nó pasfhocal neamhbhailí.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Gan chuntas fós?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Níl síniú isteach ceadaithe don chuntas seo.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>nó</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Sínigh isteach</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Do phasfhocal</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Seol an ríomhphost deimhnithe arís</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Sínigh isteach in Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Níl an eochair pasfhocail seo cláraithe le Anubis.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Sínigh isteach le heochair pasfhocail</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Tá eochair pasfhocail ag an ngléas seo don chuntas seo cheana.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>Cealaíodh an leid eochrach pasfhocail nó d'imigh an t-am.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Níorbh fhéidir an eochair pasfhocail a úsáid. Bain triail eile as.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Níorbh fhéidir leis an bhfreastalaí an t-iarratas eochrach pasfhocail a thosú. Bain triail eile as.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Ní thacaíonn an brabhsálaí seo le heochracha pasfhocail.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Ní thacaíonn an brabhsálaí seo le heochracha pasfhocail. Nuashonraigh é le do thoil.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Cóid aonuaire chun síniú isteach má chailleann tú d'aip fíordheimhnithe.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Gin cóid nua</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Úsáid ceann acu seo chun síniú isteach má chailleann tú d'aip fíordheimhnithe.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Ní thaispeántar iad ach uair amháin. Stóráil iad in áit shábháilte, mar shampla i mbainisteoir pasfhocal. Síníonn gach cód isteach thú uair amháin má chailleann tú d'aip fíordheimhnithe. Ní oibríonn seanchóid a thuilleadh.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Sábháil na cóid aisghabhála seo anois</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Tá na cóid sábháilte agam</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Cóid aisghabhála</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Cruthófar {0} chód nua. Stopfaidh do chóid reatha ag obair.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Ar ais chuig an gcód fíordheimhnithe</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Cód aisghabhála</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Ní oibríonn gach cód aisghabhála ach uair amháin.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Tá an cód aisghabhála neamhbhailí nó úsáidte cheana.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Cód aisghabhála</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Sínigh isteach le cód aisghabhála</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Cláraithe cheana?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Deimhnigh pasfhocal</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Athscríobh an pasfhocal</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Sheolamar nasc deimhnithe chuig {0}. Deimhnigh do sheoladh, ansin sínigh isteach.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Cláraigh le ríomhphost agus pasfhocal.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Tá féinchlárú díchumasaithe faoi láthair. Déan teagmháil le riarthóir.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Clárú díchumasaithe</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Máire Ní Bhriain</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Theip ar chlárú</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Gan ríomhphost?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Cruthaigh cuntas</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Seol arís</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Cruthaigh do chuntas</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Tabhair ainm air a aithneoidh tú, mar shampla "Pixel 9" nó "MacBook Touch ID".</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Ainmnigh d'eochair pasfhocail</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Scipeáil</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Athainmnigh eochair pasfhocail</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Seolfaimid nasc nua chun do sheoladh a dheimhniú.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Athsheol deimhniú</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Seol nasc</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Más le cuntas neamhdheimhnithe an seoladh, tá nasc nua ar an mbealach.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Athsheol ríomhphost deimhnithe</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Is féidir leat síniú isteach anois le do phasfhocal nua.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Pasfhocal athraithe</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Níorbh fhéidir an pasfhocal a athshocrú</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Tá an nasc athshocraithe seo neamhiomlán. Oscail an nasc ón ríomhphost arís, nó iarr ceann nua.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Nasc neamhbhailí</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Tá an nasc imithe in éag nó úsáidte cheana. Iarr ceann nua.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Athshocraigh pasfhocal</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Iarr nasc nua</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Socraigh pasfhocal nua</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Roghnaigh pasfhocal nua</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Níl cead ag do chuntas rochtain a fháil ar an leathanach seo.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Rochtain diúltaithe</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Gan aimsiú</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Ár leithscéal, níl aon rud ag an seoladh seo.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Níor aimsíodh an leathanach</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Do sheoladh ríomhphoist a fheiceáil</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Rochtain a choinneáil agus tú as láthair (refresh tokens)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>A dheimhniú cé thú</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>D'ainm agus do phróifíl a fheiceáil</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Do róil a fheiceáil</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Cruthaigh scóip</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Is féidir le cliaint scóip shaincheaptha a iarraidh, ceangailte le hacmhainní (audiences).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Mo API</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Acmhainní (scartha le camóga)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Acmhainní</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Cuir eochair pasfhocail leis</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>I ndiaidh do phasfhocail, cuir isteach cód 6 dhigit ó aip ar nós Aegis, 2FAS, Google Authenticator, Microsoft Authenticator nó 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Cóid aisghabhála fágtha: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Smaoinigh ar chóid nua a ghiniúint.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Is beag cód aisghabhála atá fágtha ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Déan dearmad ar an mbrabhsálaí seo</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Aistrigh chuig aip eile</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Gin cóid nua anois, nó d'fhéadfá a bheith faoi ghlas amuigh.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Níl aon chóid aisghabhála fágtha</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Níor sholáthair an brabhsálaí eochair pasfhocail.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Gan eochracha pasfhocail fós.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Curtha leis</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Is féidir leat {0} eochair pasfhocail ar a mhéad a bheith agat. Scrios ceann chun ceann eile a chur leis.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Níorbh fhéidir an eochair pasfhocail a shábháil.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Níorbh fhéidir an eochair pasfhocail a fhíorú. Bain triail eile as, nó úsáid gléas eile.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Sioncronaithe</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Sínigh isteach le do mhéarlorg, d'aghaidh nó UAP an ghléis in ionad pasfhocail. Stóráiltear eochair pasfhocail ar d'fhón, ar do ríomhaire nó ar eochair slándála agus ní féidir í a ghoid trí fhioscaireacht.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Socraigh aip fíordheimhnithe</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>An brabhsálaí seo</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Ní iarrann an brabhsálaí seo an cód fíordheimhnithe nuair a shíníonn tú isteach.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Múch</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Eochair pasfhocail gan ainm</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Iarrfar cód ón aip ort nuair a shíníonn tú isteach le pasfhocal.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Aip fíordheimhnithe cumasaithe</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Socraigh d'aip fíordheimhnithe arís leis an eochair nua.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Eochair fíordheimhnithe athshocraithe</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Iarrfaidh an brabhsálaí seo cód arís an chéad uair eile a shíníonn tú isteach.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Dearmad déanta ar an mbrabhsálaí</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>Níl d'aip fíordheimhnithe ag teastáil a thuilleadh chun síniú isteach.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Fíordheimhniú dhá fhachtóir díchumasaithe</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Socraigh aip fíordheimhnithe sula ngineann tú cóid aisghabhála.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Níl sé ar fáil</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Is féidir leat síniú isteach anois leis an eochair pasfhocail seo.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Eochair pasfhocail curtha leis</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Ní féidir an eochair pasfhocail a úsáid a thuilleadh chun síniú isteach.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Eochair pasfhocail scriosta</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>Níl an eochair pasfhocail ann nó is le cuntas eile í.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Níor aimsíodh an eochair pasfhocail</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>Nuashonraíodh ainm na heochrach pasfhocail.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Eochair pasfhocail athainmnithe</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Cód fíordheimhnithe</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Cuir isteach an cód 6 dhigit ó d'aip fíordheimhnithe.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Tá an cód neamhbhailí nó imithe in éag.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Ar chaill tú do ghléas?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Fíordheimhniú dhá fhachtóir</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>Ná fiafraigh arís ar an mbrabhsálaí seo ar feadh 14 lá</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Úsáid cód aisghabhála</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Theip ar fhíorú</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Fíoraigh</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Gníomhach</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Cruthaigh úsáideoir</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Stóráiltear pasfhocail mar haiseanna Argon2id.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>Cruthaíodh {0}.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>An bhfuil tú cinnte gur mian leat {0} a scriosadh? Ní féidir é seo a chealú.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Scrios úsáideoir</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Úsáideoir scriosta</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>Scriosadh {0}.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Cuir faoi ghlas</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Faoi ghlas</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>Is féidir le {0} síniú isteach anois lena p(h)asfhocal amháin.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Eochracha pasfhocail: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Athshocraigh MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Múchann sé seo an aip fíordheimhnithe, scriosann sé gach eochair pasfhocail de chuid {0}, agus síníonn sé amach iad i ngach áit. Úsáid é nuair a chaill duine a ghléas. Is féidir leo síniú isteach ansin lena bpasfhocal amháin agus MFA a shocrú arís.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Stádas</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Díghlasáil</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Cuir isteach aitheantas cliaint.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Úsáid 16 charachtar ar a laghad, nó fág folamh do chliant poiblí.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Tá 6 dhigit sa chód.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Cuir isteach an cód ó d'aip.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Deimhnigh an pasfhocal le do thoil.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Cuir isteach do phasfhocal reatha.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Úsáid 100 carachtar ar a mhéad.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Cuir isteach seoladh ríomhphoist bailí.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>Tá ríomhphost riachtanach.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Ní cheadaítear ach litreacha, digití, '-', '_' agus '.'.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Cuir isteach ainm.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Úsáid 100 carachtar ar a mhéad.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Tá pasfhocal riachtanach.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Ní hionann na pasfhocail.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Cuir isteach faighteoir.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Cuir isteach cód aisghabhála.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Cuir isteach ainm scóipe.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Uaslódáil abhatár</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Úsáid Gravatar</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF nó SVG. Laghdaítear an íomhá go 1024×1024 ar a mhéad agus sábháiltear í mar WebP trédhearcach. Mura bhfuil sé socraithe, úsáidtear Gravatar.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Ainm taispeána sábháilte.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Abhatár nuashonraithe.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Baineadh an t-abhatár saincheaptha. Gravatar in úsáid.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Comhad íomhá neamhbhailí nó gan tacaíocht.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Tá an comhad íomhá rómhór (10 MB ar a mhéad).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Socruithe</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Róil</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Cuma</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Cuntais ar féidir leo síniú isteach in Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Seoltar róil chuig feidhmchláir chliaint san éileamh roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Ceadanna is féidir le feidhmchláir chliaint a iarraidh.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Feidhmchláir a shíníonn úsáideoirí isteach trí Anubis.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Ríomhphost amach le haghaidh deimhniú seoltaí agus athshocrú pasfhocal.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Lógó, cló agus dathanna na leathanach síniú isteach agus cuntais.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Dún</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Sábháilte i {0}. Tá tosaíocht ag na luachanna seo ar appsettings.json agus ar athróga timpeallachta.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Socruithe sábháilte</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Tagann na hathruithe i bhfeidhm láithreach.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Socruithe gan sábháil</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Socraithe. Fág folamh chun an luach reatha a choinneáil.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Seoladh an tseoltóra</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Ainm an tseoltóra</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>Freastalaí SMTP</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Port</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Criptiúchán</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Teorainn ama (soicindí)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Ainm úsáideora</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>Eochair API</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Comhartha freastalaí</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>URL an API</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Lógó agus deilbhín</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Uaslódáil SVG, WebP, PNG, JPEG nó GIF (stóráilte i gcomhad na socruithe), nó cuir isteach cosán faoi wwwroot nó URL https://. Gintear leaganacha PNG den favicon do Safari agus iOS go huathoibríoch.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Lógó</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Cló</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Folamh = an cló réamhshocraithe (cló aonleithid an chórais). Ní féidir ach clónna atá suiteáilte ar an ngléas a úsáid.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Clófhoireann (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Téama geal</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Téama dorcha</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Roghnaigh dath nó cuir isteach é mar #RRGGBB. Folamh = an dath réamhshocraithe.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Príomhúil</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Tánaisteach</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Cúlra</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Téacs</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Cruthaigh ról</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Níl aon bhaill ag ról nua; cuir leis iad sa liosta thíos.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Baill</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Ionsuite</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Scrios ról</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>An ról {0} a scriosadh? Caillfidh a bhaill go léir é.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Baill de {0}</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Cuir leis</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Bain</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Gan bhaill fós.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>Ní féidir an riarthóir deireanach a bhaint.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Cuir isteach ainm róil.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Cuir isteach dath mar #RRGGBB, nó fág folamh é.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Ní cheadaítear ; { } &lt; &gt; ná \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Cuir isteach URL https:// iomlán.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Cuir isteach cosán a thosaíonn le /, URL https://, nó uaslódáil comhad.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Uaslódáil</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Úsáid an réamhshocrú</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Comhad uaslódáilte · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Íomhá gan tacaíocht nó briste, nó SVG le naisc sheachtracha. Úsáid SVG, WebP, PNG, JPEG nó GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Tá an comhad rómhór ({0} MB ar a mhéad, {1} KB tar éis próiseála).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Fíoraithe</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Gan fíorú</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Uimhir ghutháin</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Formáid idirnáisiúnta, m.sh. +353 85 123 4567.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Seol cód</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Cód ón SMS</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Sheolamar cód chuig {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Uimhir ghutháin fíoraithe.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Cuir isteach an uimhir i bhformáid idirnáisiúnta, m.sh. +353 85 123 4567.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Seoladh cód díreach anois. Bain triail eile as i gceann nóiméid.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Do chód fíoraithe Anubis: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Mód datha</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Geal</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Dorcha</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>De réir an chórais</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Gan roghnú: úsáidtear an teanga is fearr le do bhrabhsálaí.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Gan roghnú: leanann sé socrú geal nó dorcha do chórais.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Stair</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Síniú isteach agus athruithe ar do chuntas le 12 mhí anuas.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Níl aon rud anseo fós.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Níos nuaí</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Níos sine</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>ag riarthóir</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Gléas anaithnid</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Cuntas cruthaithe</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Sínithe isteach</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Iarracht theipthe síniú isteach</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Cuntas faoi ghlas tar éis an iomarca iarrachtaí teipthe</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Sínithe amach</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Sínithe isteach in aip</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Pasfhocal athraithe</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Pasfhocal athshocraithe trí ríomhphost</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>Seoladh ríomhphoist deimhnithe</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Aip fíordheimhnithe casta air</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Aip fíordheimhnithe múchta</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Cóid aisghabhála nua ginte</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Eochair pasfhocail curtha leis</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Eochair pasfhocail bainte</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Uimhir ghutháin athraithe</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Uimhir ghutháin fíoraithe</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Uimhir ghutháin bainte</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Ainm taispeána athraithe</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Abhatár athraithe</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Cuntas faoi ghlas</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Cuntas díghlasáilte</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>pasfhocal</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>eochair pasfhocail</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>aip fíordheimhnithe</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>cód aisghabhála</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Sínigh amach as Anubis?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Bainistíocht</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Gníomhartha</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>An scóip {0} a scriosadh? Ní bheidh cliaint in ann í a iarraidh a thuilleadh.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Ginearálta</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Bunsocruithe an fhreastalaí seo.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Ainm an fhreastalaí</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Taispeántar é i dteideal chluaisín an bhrabhsálaí agus ag barr leathanaigh an chuntais agus an riaracháin.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Cuir isteach ainm freastalaí.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Úsáid 60 carachtar ar a mhéad.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Slándáil</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Rialacha pasfhocal, glasáil tar éis iarrachtaí teipthe, fad an tseisiúin agus eochracha pasfhocail. Tagann athruithe i bhfeidhm láithreach.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Comharthaí</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Bailíocht na gcomharthaí agus na gcód a eisítear d'fheidhmchláir chliaint. Baineann athruithe le comharthaí nua.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Freastalaí</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>URL poiblí (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Mar shampla https://id.example.com. Folamh = ó gach iarratas. Tagann sé i bhfeidhm tar éis atosú.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Clárú</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Ceadaigh féinchlárú</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Éiligh seoladh ríomhphoist deimhnithe chun síniú isteach</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Teastaíonn socruithe ríomhphoist a oibríonn.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Pasfhocail</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Fad íosta</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Éiligh digit</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Éiligh litir bheag</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Éiligh ceannlitir</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Éiligh siombail</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Glasáil tar éis síniú isteach teipthe</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Iarrachtaí teipthe roimh ghlasáil</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Fad na glasála (nóiméid)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Seisiún síniú isteach</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Fad an tseisiúin (uaireanta)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Cuir le fad an tseisiúin fad atá an t-úsáideoir gníomhach</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Uasmhéid eochracha pasfhocail in aghaidh an chuntais</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (nóiméid)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID token (nóiméid)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Cód údaraithe (nóiméid)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (laethanta)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Toiliú (nóiméid)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Cé chomh fada is a choinnítear toiliú tugtha le linn síniú isteach.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Raon ceadaithe: {0} go {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Cuir {0} in eagar</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>Is é an seoladh ríomhphoist an t-ainm síniú isteach freisin: síneoidh an t-úsáideoir isteach leis an seoladh nua.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>Seoladh ríomhphoist deimhnithe</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Sábháiltear uimhir athraithe mar uimhir neamhfhíoraithe.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Tá cuntas eile ag úsáid an tseolta ríomhphoist seo cheana.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Ní féidir leat an ról Admin a bhaint de do chuntas féin.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Sábháladh na hathruithe ar {0}.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>Seoladh ríomhphoist athraithe</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Ról curtha leis</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Ról bainte</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Tar éis sábhála, seoltar ríomhphost deimhnithe chuig an seoladh nua.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Seoladh ríomhphost deimhnithe chuig {0}.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Tosaigh le litir, ansin litreacha, digití agus - _ . : / ({0} carachtar ar a mhéad).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>Socraíonn Anubis “{0}” agus ní féidir é a úsáid.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Cuir luach isteach.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>{0} carachtar ar a mhéad.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Tá an claim seo liostaithe faoi dhó.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>{0} claim ar a mhéad.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Níor aimsíodh an ról.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Ní féidir róil ionsuite a athainmniú.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Tá ról leis an ainm seo ann cheana.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Cuir an ról {0} in eagar</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Sábháladh an ról {0}.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Cuir ról leis</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Cuirtear leis an access token, leis an ID token agus le userinfo iad, mar aon le claims róil an úsáideora.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Cuirtear le comharthaí gach comhalta den ról seo iad.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Cineál</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Luach</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Cuir claim leis</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Bain an claim</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Níl aon claims fós.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Ó róil</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Athraigh an t-abhatár</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Á lódáil…</value></data>
+</root>

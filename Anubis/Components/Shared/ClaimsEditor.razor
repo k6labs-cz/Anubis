@@ -1,0 +1,77 @@
+@using k6labs.Anubis.Models
+@namespace k6labs.Anubis.Components.Shared
+
+@* Type / value rows of custom claims (of a role or a user), plus read-only inherited ones. *@
+<Stack Gap="Gap.Small" data-claims-editor>
+    <Stack Gap="Gap.XSmall">
+        <Typography Variant="TextVariant.Subtitle" As="TextElement.H3">@Translations.Claims_Title</Typography>
+        @if (Hint is not null)
+        {
+            <Typography Variant="TextVariant.Caption" Tone="Tone.Muted">@Hint</Typography>
+        }
+    </Stack>
+
+    @if (Inherited is { Count: > 0 })
+    {
+        <Stack Direction="Direction.Row" Wrap="true" Align="Align.Center" Gap="Gap.XSmall">
+            <Typography Variant="TextVariant.Caption" Tone="Tone.Muted">@Translations.Claims_FromRoles</Typography>
+            @foreach (var (role, claim) in Inherited)
+            {
+                <Badge title="@role"><code>@claim.Type</code>&nbsp;=&nbsp;@claim.Value</Badge>
+            }
+        </Stack>
+    }
+
+    @for (var i = 0; i < Claims.Count; i++)
+    {
+        var index = i;
+        var entry = Claims[index];
+        var error = Errors?.GetValueOrDefault($"{Services.CustomClaims.Field}[{index}]");
+        <Stack Direction="Direction.Row" Align="Align.End" Gap="Gap.Small" data-claim-row>
+            <Stack Grow="true">
+                <FormText @bind-Value="entry.Type" Label="@Translations.Claims_Type" Placeholder="@("department")" Error="@(error is not null)" ErrorText="@error" Id="@($"{IdPrefix}Type{index}")" maxlength="@Services.CustomClaims.TypeMaxLength" />
+            </Stack>
+            <Stack Grow="true">
+                <FormText @bind-Value="entry.Value" Label="@Translations.Claims_Value" Id="@($"{IdPrefix}Value{index}")" maxlength="@Services.CustomClaims.ValueMaxLength" />
+            </Stack>
+            <Button Variant="ButtonVariant.Text" Icon="@AppIcons.DeleteOutline" aria-label="@Translations.Claims_Remove" OnClick="@(() => Remove(index))" />
+        </Stack>
+    }
+
+    @if (Claims.Count == 0 && Inherited is not { Count: > 0 })
+    {
+        <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Claims_None</Typography>
+    }
+
+    <div>
+        <Button Variant="ButtonVariant.Text" OnClick="Add" Disabled="@(Claims.Count >= Services.CustomClaims.MaxCount)" Icon="@AppIcons.Add">@Translations.Claims_Add</Button>
+    </div>
+    @if (Errors?.GetValueOrDefault(Services.CustomClaims.Field) is { } listError)
+    {
+        <Typography Variant="TextVariant.Caption" Tone="Tone.Danger">@listError</Typography>
+    }
+</Stack>
+
+@code {
+    /// <summary>The editable claims (changed in place).</summary>
+    [Parameter, EditorRequired]
+    public List<ClaimEntry> Claims { get; set; } = default!;
+
+    /// <summary>Claims that come from roles (role name, claim): shown, not editable here.</summary>
+    [Parameter]
+    public IReadOnlyList<(string Role, System.Security.Claims.Claim Claim)>? Inherited { get; set; }
+
+    /// <summary>Errors from <c>CustomClaims.Validate</c> ("Claims[i]" per row, "Claims" for the list).</summary>
+    [Parameter]
+    public IReadOnlyDictionary<string, string>? Errors { get; set; }
+
+    [Parameter]
+    public string? Hint { get; set; }
+
+    [Parameter]
+    public string IdPrefix { get; set; } = "claim";
+
+    private void Add() => Claims.Add(new ClaimEntry());
+
+    private void Remove(int index) => Claims.RemoveAt(index);
+}

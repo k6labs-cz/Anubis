@@ -1,0 +1,29 @@
+@page "/logout"
+
+@inject NavigationManager Navigation
+
+@* Fallback of the "Sign out" navigation item when JavaScript is off: one button that posts
+   the sign-out form (POST + antiforgery token, never a plain GET). *@
+
+<AppPageTitle Text="@(Translations.Layout_SignOut)" />
+
+<Container MaxWidth="28rem">
+    <Stack Gap="Gap.Large">
+        <Card>
+            <Header><Typography Variant="TextVariant.Title" As="TextElement.H1">@Translations.Logout_Title</Typography></Header>
+            <ChildContent>
+                <Stack Gap="Gap.Medium">
+                    <form method="post" action="/auth/logout">
+                        <Stack Direction="Direction.Row" Gap="Gap.Medium" Align="Align.Center" Wrap="true">
+                            <AntiforgeryToken />
+                            <Button Type="submit" Icon="@AppIcons.Logout">
+                                @Translations.Layout_SignOut
+                            </Button>
+                            <Button Variant="ButtonVariant.Text" Href="/account">@Translations.Common_Cancel</Button>
+                        </Stack>
+                    </form>
+                </Stack>
+            </ChildContent>
+        </Card>
+    </Stack>
+</Container>

@@ -1,0 +1,37 @@
+@namespace k6labs.Anubis.Components.Shared
+
+@* Heading of a page: title + description on the left, an optional action button on the right. *@
+<Stack Direction="Direction.Row" Wrap="true" Align="Align.Start" Justify="Justify.SpaceBetween" Gap="Gap.Medium">
+    <Stack Gap="Gap.XSmall">
+        <Typography Variant="TextVariant.Title" As="@As">@Title</Typography>
+        @if (!string.IsNullOrEmpty(Description))
+        {
+            <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Description</Typography>
+        }
+    </Stack>
+    @if (OnCreate.HasDelegate)
+    {
+        <Button OnClick="OnCreate" Icon="@CreateIcon">@CreateLabel</Button>
+    }
+</Stack>
+
+@code {
+    [Parameter, EditorRequired]
+    public string Title { get; set; } = string.Empty;
+
+    [Parameter]
+    public string? Description { get; set; }
+
+    /// <summary>Heading element: h1 for the page; h2 for further equally prominent sections.</summary>
+    [Parameter]
+    public TextElement As { get; set; } = TextElement.H1;
+
+    [Parameter]
+    public string? CreateLabel { get; set; }
+
+    [Parameter]
+    public string CreateIcon { get; set; } = AppIcons.Add;
+
+    [Parameter]
+    public EventCallback OnCreate { get; set; }
+}

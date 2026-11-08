@@ -1,0 +1,108 @@
+@page "/admin/security"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = "Admin")]
+
+@using k6labs.Anubis.Options
+@using k6labs.Anubis.Services
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Options
+
+@inject IOptionsMonitor<SecurityOptions> SecurityMonitor
+@inject SettingsFile Settings
+@* Notifications belong to this page and its interactive circuit. *@
+@inject ILogger<SecuritySettings> Logger
+
+<AppPageTitle Text="@(Translations.Common_AdminPageTitle.Format(Translations.Admin_Security))" />
+
+<NotificationList State="Notifications" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@Translations.Admin_Security" Description="@Translations.Admin_SecurityDescription" />
+
+    <EditForm Model="model" OnSubmit="SaveAsync" FormName="security-settings">
+        <Stack Gap="Gap.Large">
+            <Stack Gap="Gap.Medium">
+                <Typography Variant="TextVariant.Subtitle" As="TextElement.H2">@Translations.SecuritySettings_Passwords</Typography>
+                <FormNumber @bind-Value="model.PasswordMinLength" Label="@Translations.SecuritySettings_PasswordMinLength" Min="SecurityOptions.Limits.PasswordMinLengthMin" Max="SecurityOptions.Limits.PasswordMinLengthMax" Hint="@Range(SecurityOptions.Limits.PasswordMinLengthMin, SecurityOptions.Limits.PasswordMinLengthMax)" />
+                <Stack Gap="Gap.Small">
+                    <Switch AllowClear="false" @bind-Value="model.PasswordRequireDigit">@Translations.SecuritySettings_RequireDigit</Switch>
+                    <Switch AllowClear="false" @bind-Value="model.PasswordRequireLowercase">@Translations.SecuritySettings_RequireLowercase</Switch>
+                    <Switch AllowClear="false" @bind-Value="model.PasswordRequireUppercase">@Translations.SecuritySettings_RequireUppercase</Switch>
+                    <Switch AllowClear="false" @bind-Value="model.PasswordRequireNonAlphanumeric">@Translations.SecuritySettings_RequireNonAlphanumeric</Switch>
+                </Stack>
+            </Stack>
+
+            <Divider />
+            <Stack Gap="Gap.Medium">
+                <Typography Variant="TextVariant.Subtitle" As="TextElement.H2">@Translations.SecuritySettings_Lockout</Typography>
+                <Grid Gap="Gap.Medium">
+                    <GridItem Sm="6">
+                        <FormNumber @bind-Value="model.LockoutMaxFailedAttempts" Label="@Translations.SecuritySettings_LockoutAttempts" Min="SecurityOptions.Limits.LockoutAttemptsMin" Max="SecurityOptions.Limits.LockoutAttemptsMax" Hint="@Range(SecurityOptions.Limits.LockoutAttemptsMin, SecurityOptions.Limits.LockoutAttemptsMax)" />
+                    </GridItem>
+                    <GridItem Sm="6">
+                        <FormNumber @bind-Value="model.LockoutMinutes" Label="@Translations.SecuritySettings_LockoutMinutes" Min="SecurityOptions.Limits.LockoutMinutesMin" Max="SecurityOptions.Limits.LockoutMinutesMax" Hint="@Range(SecurityOptions.Limits.LockoutMinutesMin, SecurityOptions.Limits.LockoutMinutesMax)" />
+                    </GridItem>
+                </Grid>
+            </Stack>
+
+            <Divider />
+            <Stack Gap="Gap.Medium">
+                <Typography Variant="TextVariant.Subtitle" As="TextElement.H2">@Translations.SecuritySettings_Session</Typography>
+                <FormNumber @bind-Value="model.SessionLifetimeHours" Label="@Translations.SecuritySettings_SessionHours" Min="SecurityOptions.Limits.SessionHoursMin" Max="SecurityOptions.Limits.SessionHoursMax" Hint="@Range(SecurityOptions.Limits.SessionHoursMin, SecurityOptions.Limits.SessionHoursMax)" />
+                <Switch AllowClear="false" @bind-Value="model.SlidingSession">@Translations.SecuritySettings_SlidingSession</Switch>
+            </Stack>
+
+            <Divider />
+            <Stack Gap="Gap.Medium">
+                <Typography Variant="TextVariant.Subtitle" As="TextElement.H2">@Translations.Account_Passkeys</Typography>
+                <FormNumber @bind-Value="model.MaxPasskeysPerUser" Label="@Translations.SecuritySettings_MaxPasskeys" Min="SecurityOptions.Limits.MaxPasskeysMin" Max="SecurityOptions.Limits.MaxPasskeysMax" Hint="@Range(SecurityOptions.Limits.MaxPasskeysMin, SecurityOptions.Limits.MaxPasskeysMax)" />
+            </Stack>
+
+            <SaveBar Dirty="@snapshot.IsDirty(model)" Busy="busy" Note="@Translations.Settings_FileNote.F(Settings.Path)" />
+        </Stack>
+    </EditForm>
+</Stack>
+
+@code {
+    private readonly NotificationState Notifications = new();
+    private SecurityOptions model = new();
+    private bool busy;
+    private readonly FormSnapshot snapshot = new();
+
+    protected override void OnInitialized()
+    {
+        model = SettingsFile.Clone(SecurityMonitor.CurrentValue);
+        snapshot.Take(model);
+    }
+
+    private static string Range(int min, int max) => Translations.Validation_Range.F(min, max);
+
+    private async Task SaveAsync()
+    {
+        // Hathor NumberField keeps values within Min/Max; clamp anyway for values typed past the limits.
+        var values = SettingsFile.Clone(model);
+        values.PasswordMinLength = Math.Clamp(values.PasswordMinLength, SecurityOptions.Limits.PasswordMinLengthMin, SecurityOptions.Limits.PasswordMinLengthMax);
+        values.LockoutMaxFailedAttempts = Math.Clamp(values.LockoutMaxFailedAttempts, SecurityOptions.Limits.LockoutAttemptsMin, SecurityOptions.Limits.LockoutAttemptsMax);
+        values.LockoutMinutes = Math.Clamp(values.LockoutMinutes, SecurityOptions.Limits.LockoutMinutesMin, SecurityOptions.Limits.LockoutMinutesMax);
+        values.SessionLifetimeHours = Math.Clamp(values.SessionLifetimeHours, SecurityOptions.Limits.SessionHoursMin, SecurityOptions.Limits.SessionHoursMax);
+        values.MaxPasskeysPerUser = Math.Clamp(values.MaxPasskeysPerUser, SecurityOptions.Limits.MaxPasskeysMin, SecurityOptions.Limits.MaxPasskeysMax);
+
+        busy = true;
+        try
+        {
+            await Settings.SaveSectionAsync(SecurityOptions.SectionName, SettingsFile.ToNode(values));
+            model = values;
+            snapshot.Take(model);
+            Notifications.Add(Translations.Settings_SavedText, AlertSeverity.Success);
+        }
+        catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
+        {
+            Logger.LogWarning(exception, "Saving security settings failed.");
+            Notifications.Add(exception.Message, AlertSeverity.Danger);
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+}

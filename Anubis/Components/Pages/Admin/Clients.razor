@@ -1,0 +1,292 @@
+@page "/admin/clients"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = "Admin")]
+
+@using Microsoft.AspNetCore.Authorization
+@using k6labs.Anubis.Models
+@using k6labs.Anubis.Services
+@using OpenIddict.Abstractions
+
+@inject OidcClientService ClientService
+@inject OidcScopeService ScopeService
+@inject IOpenIddictApplicationManager ApplicationManager
+@* Notifications belong to this page and its interactive circuit. *@
+
+<AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_Clients))" />
+
+<NotificationList State="Notifications" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@Translations.Admin_Clients" Description="@Translations.Admin_ClientsDescription"
+                CreateLabel="@Translations.Clients_New" OnCreate="OpenCreateAsync" />
+
+    <Table Label="@Translations.Admin_Clients">
+        <thead>
+            <tr>
+                <th>@Translations.Clients_ClientId</th>
+                <th>@Translations.Common_Name</th>
+                <th>@Translations.Clients_Type</th>
+                <th>@Translations.Clients_GrantTypes</th>
+                <th>@Translations.Admin_Scopes</th>
+                <th>@Translations.Clients_Consent</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var client in clients)
+            {
+                <tr>
+                    <td><code>@client.ClientId</code></td>
+                    <td>@client.DisplayName</td>
+                    <td><Badge>@client.ClientType</Badge></td>
+                    <td>@string.Join(", ", client.GrantTypes)</td>
+                    <td>@string.Join(", ", client.Scopes)</td>
+                    <td>@(client.RequireConsent ? Translations.Clients_ConsentRequired : Translations.Clients_ConsentImplicit)</td>
+                    <td data-align="end">
+                        <RowMenu>
+                            <MenuItem Icon="@AppIcons.Edit" OnClick="() => OpenEditAsync(client)" data-popup-option>@Translations.Common_Edit</MenuItem>
+                            <Divider />
+                            <MenuItem Icon="@AppIcons.Delete" OnClick="() => AskDelete(client)" data-popup-option Danger="true">@Translations.Common_Delete</MenuItem>
+                        </RowMenu>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </Table>
+</Stack>
+
+@* Create / edit *@
+<AppModal Title="@(isEdit ? Translations.ClientEditor_EditHeading.F(model.ClientId) : Translations.Clients_New)" @bind-Open="editorOpen">
+    <ChildContent>
+        @if (newSecret is not null)
+        {
+            @* Shown once, right after creating the client or regenerating its secret. *@
+            <Alert Severity="AlertSeverity.Warning" Title="@Translations.ClientEditor_Secret">
+                @Translations.ClientEditor_SecretShownOnce
+                <Card><code data-secret>@newSecret</code></Card>
+            </Alert>
+        }
+        else
+        {
+            <EditForm Model="model" OnValidSubmit="SaveAsync" FormName="clientEditor" id="clientEditorForm">
+                <Stack Gap="Gap.Medium">
+                    <DataAnnotationsValidator />
+                    <Grid Gap="Gap.Medium">
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="model.ClientId" Label="@Translations.Clients_ClientId" Disabled="@isEdit" Id="clientId" />
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <FormText @bind-Value="model.DisplayName" Label="@Translations.Common_DisplayName" Placeholder="@Translations.ClientEditor_DisplayNamePlaceholder" Id="displayName" />
+                        </GridItem>
+                    </Grid>
+
+                    <Stack Gap="Gap.Small">
+                        <FormText @bind-Value="model.ClientSecret" Label="@Translations.ClientEditor_Secret" Placeholder="@Translations.ClientEditor_SecretPlaceholder" autocomplete="off" Id="clientSecret" Type="password" Hint="@(isEdit ? Translations.ClientEditor_SecretKeep : Translations.ClientEditor_SecretNew)" />
+                        @if (isEdit)
+                        {
+                            <div>
+                                <Button Variant="ButtonVariant.Ghost" OnClick="RegenerateSecretAsync" Disabled="busy" Icon="@AppIcons.Key">
+                                    @Translations.ClientEditor_RegenerateSecret
+                                </Button>
+                            </div>
+                        }
+                    </Stack>
+
+                    <FormText @bind-Value="model.RedirectUrisText" Label="@Translations.ClientEditor_RedirectUris" Placeholder="https://app.example.com/callback" Id="redirectUris" Rows="3" />
+                    <FormText @bind-Value="model.PostLogoutRedirectUrisText" Label="@Translations.ClientEditor_PostLogoutUris" Placeholder="https://app.example.com/" Id="postLogoutUris" Rows="2" />
+
+                    <Grid Gap="Gap.Medium">
+                        <GridItem Sm="6">
+                            <Stack Gap="Gap.XSmall">
+                                <Typography Variant="TextVariant.Subtitle" As="TextElement.H3">@Translations.Clients_GrantTypes</Typography>
+                                <Checkbox AllowClear="false" @bind-Value="model.AllowAuthorizationCodeFlow">@Translations.ClientEditor_GrantCode</Checkbox>
+                                <Checkbox AllowClear="false" @bind-Value="model.AllowRefreshTokenFlow" Disabled="@(!model.AllowAuthorizationCodeFlow)">@Translations.ClientEditor_GrantRefresh</Checkbox>
+                                <Checkbox AllowClear="false" @bind-Value="model.AllowClientCredentialsFlow">@Translations.ClientEditor_GrantClientCredentials</Checkbox>
+                            </Stack>
+                        </GridItem>
+                        <GridItem Sm="6">
+                            <Stack Gap="Gap.XSmall">
+                                <Typography Variant="TextVariant.Subtitle" As="TextElement.H3">@Translations.ClientEditor_AllowedScopes</Typography>
+                                @foreach (var scope in availableScopes)
+                                {
+                                    <Checkbox AllowClear="false" Value="model.Scopes.Contains(scope)" ValueChanged="@(value => ToggleScope(scope, value))">@scope</Checkbox>
+                                }
+                            </Stack>
+                        </GridItem>
+                    </Grid>
+
+                    <Checkbox AllowClear="false" @bind-Value="model.RequireConsent">@Translations.ClientEditor_RequireConsent</Checkbox>
+
+                    @if (saveError is not null)
+                    {
+                        <Alert Severity="AlertSeverity.Danger">@saveError</Alert>
+                    }
+                </Stack>
+            </EditForm>
+        }
+    </ChildContent>
+    <Footer>
+        @if (newSecret is not null)
+        {
+            <Button OnClick="CloseEditor">@Translations.Common_Close</Button>
+        }
+        else
+        {
+            <Button Variant="ButtonVariant.Text" OnClick="CloseEditor">@Translations.Common_Cancel</Button>
+            <Button form="clientEditorForm" Disabled="@(busy || (isEdit && !editSnapshot.IsDirty(model)))" Type="submit">
+                @(isEdit ? Translations.ClientEditor_SaveChanges : Translations.ClientEditor_Create)
+            </Button>
+        }
+    </Footer>
+</AppModal>
+
+<AppModal Title="@Translations.Clients_DeleteTitle" @bind-Open="deleteDialogOpen">
+    <ChildContent>
+        <Typography>@Translations.Clients_DeleteConfirm.F(clientToDelete?.ClientId)</Typography>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => deleteDialogOpen = false">@Translations.Common_Cancel</Button>
+        <Button Variant="ButtonVariant.Danger" OnClick="DeleteAsync">@Translations.Common_Delete</Button>
+    </Footer>
+</AppModal>
+
+@code {
+    private readonly NotificationState Notifications = new();
+    private List<ClientSummary> clients = new();
+    private List<string> availableScopes = new();
+    private ClientFormModel model = new();
+    private bool editorOpen;
+    private bool isEdit;
+    private readonly FormSnapshot editSnapshot = new();
+    private string? newSecret;
+    private string? saveError;
+    private ClientSummary? clientToDelete;
+    private bool deleteDialogOpen;
+    private bool busy;
+
+    protected override async Task OnInitializedAsync() => clients = await ClientService.ListAsync();
+
+    private async Task OpenCreateAsync()
+    {
+        availableScopes = await ScopeService.ListNamesAsync();
+        model = new ClientFormModel();
+        isEdit = false;
+        newSecret = null;
+        saveError = null;
+        editorOpen = true;
+    }
+
+    private async Task OpenEditAsync(ClientSummary client)
+    {
+        var application = await ApplicationManager.FindByClientIdAsync(client.ClientId);
+        if (application is null)
+        {
+            clients = await ClientService.ListAsync();
+            return;
+        }
+
+        availableScopes = await ScopeService.ListNamesAsync();
+        model = new ClientFormModel
+        {
+            ClientId = client.ClientId,
+            DisplayName = await ApplicationManager.GetDisplayNameAsync(application),
+            RequireConsent = application is Client entity && entity.RequireConsent,
+            RedirectUrisText = string.Join('\n', (await ApplicationManager.GetRedirectUrisAsync(application)).Select(uri => uri.ToString())),
+            PostLogoutRedirectUrisText = string.Join('\n', (await ApplicationManager.GetPostLogoutRedirectUrisAsync(application)).Select(uri => uri.ToString())),
+            Scopes = client.Scopes.ToList(),
+            AllowAuthorizationCodeFlow = client.GrantTypes.Contains("authorization_code"),
+            AllowRefreshTokenFlow = client.GrantTypes.Contains("refresh_token"),
+            AllowClientCredentialsFlow = client.GrantTypes.Contains("client_credentials"),
+        };
+        isEdit = true;
+        editSnapshot.Take(model);
+        newSecret = null;
+        saveError = null;
+        editorOpen = true;
+    }
+
+    private void CloseEditor()
+    {
+        editorOpen = false;
+        newSecret = null;
+    }
+
+    private void ToggleScope(string scope, bool selected)
+    {
+        if (selected && !model.Scopes.Contains(scope))
+        {
+            model.Scopes.Add(scope);
+        }
+        else if (!selected)
+        {
+            model.Scopes.Remove(scope);
+        }
+    }
+
+    private async Task SaveAsync()
+    {
+        busy = true;
+        saveError = null;
+
+        try
+        {
+            if (isEdit)
+            {
+                await ClientService.UpdateAsync(model.ClientId, model);
+                editorOpen = false;
+                Notifications.Add(Translations.ClientEditor_UpdatedText.F(model.ClientId), AlertSeverity.Success);
+            }
+            else
+            {
+                await ClientService.CreateAsync(model);
+                Notifications.Add(Translations.Users_CreatedText.F(model.ClientId), AlertSeverity.Success);
+                if (string.IsNullOrWhiteSpace(model.ClientSecret))
+                {
+                    editorOpen = false;
+                }
+                else
+                {
+                    newSecret = model.ClientSecret;   // keep the dialog open to show it once
+                }
+            }
+
+            clients = await ClientService.ListAsync();
+        }
+        catch (Exception exception)
+        {
+            saveError = exception.Message;
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    private async Task RegenerateSecretAsync()
+    {
+        busy = true;
+        newSecret = await ClientService.RegenerateSecretAsync(model.ClientId);
+        busy = false;
+        clients = await ClientService.ListAsync();
+    }
+
+    private void AskDelete(ClientSummary client)
+    {
+        clientToDelete = client;
+        deleteDialogOpen = true;
+    }
+
+    private async Task DeleteAsync()
+    {
+        if (clientToDelete is null)
+        {
+            return;
+        }
+
+        await ClientService.DeleteAsync(clientToDelete.ClientId);
+        deleteDialogOpen = false;
+        Notifications.Add(Translations.Users_DeletedText.F(clientToDelete.ClientId), AlertSeverity.Success);
+        clientToDelete = null;
+        clients = await ClientService.ListAsync();
+    }
+}

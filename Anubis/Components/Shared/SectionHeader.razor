@@ -1,0 +1,18 @@
+@namespace k6labs.Anubis.Components.Shared
+
+@* Heading of a section within a page: subtitle + optional muted description. *@
+<Stack Gap="Gap.XSmall">
+    <Typography Variant="TextVariant.Subtitle" As="TextElement.H2">@Title</Typography>
+    @if (!string.IsNullOrEmpty(Description))
+    {
+        <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Description</Typography>
+    }
+</Stack>
+
+@code {
+    [Parameter, EditorRequired]
+    public string Title { get; set; } = string.Empty;
+
+    [Parameter]
+    public string? Description { get; set; }
+}

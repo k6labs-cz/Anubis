@@ -1,0 +1,41 @@
+@namespace k6labs.Anubis.Components.Shared
+@using System.Linq.Expressions
+
+<Field Label="@Label" For="@Id" Hint="@Hint" Error="@(Error ? ErrorText : ValidationError)">
+    @if (Rows > 1)
+    {
+        <TextArea Value="@Value" ValueChanged="@ValueChanged" ValueExpression="@Expression" Id="@Id" Rows="@Rows"
+                  Disabled="@Disabled" ReadOnly="@ReadOnly" AllowClear="false" AdditionalAttributes="@InputAttributes" />
+    }
+    else
+    {
+        <TextField Value="@Value" ValueChanged="@ValueChanged" ValueExpression="@Expression" Id="@Id" Type="@Type" Placeholder="@Placeholder"
+                   Disabled="@Disabled" ReadOnly="@ReadOnly" AllowClear="false" AdditionalAttributes="@InputAttributes" />
+    }
+</Field>
+
+@code {
+    [CascadingParameter] private EditContext? EditContext { get; set; }
+    [Parameter] public string? Value { get; set; }
+    [Parameter] public EventCallback<string?> ValueChanged { get; set; }
+    [Parameter] public Expression<Func<string?>>? ValueExpression { get; set; }
+    [Parameter] public string Id { get; set; } = $"field-{Guid.NewGuid():N}";
+    [Parameter] public string? Label { get; set; }
+    [Parameter] public string? Hint { get; set; }
+    [Parameter] public string? Placeholder { get; set; }
+    [Parameter] public string Type { get; set; } = "text";
+    [Parameter] public int Rows { get; set; } = 1;
+    [Parameter] public bool Disabled { get; set; }
+    [Parameter] public bool ReadOnly { get; set; }
+    [Parameter] public bool Error { get; set; }
+    [Parameter] public string? ErrorText { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)] public IReadOnlyDictionary<string, object>? Attributes { get; set; }
+    private Expression<Func<string?>> Expression => ValueExpression ?? (() => Value);
+    private string? ValidationError => EditContext?.GetValidationMessages(FieldIdentifier.Create(Expression)).FirstOrDefault();
+    private IReadOnlyDictionary<string, object> InputAttributes => new Dictionary<string, object>(Attributes ?? new Dictionary<string, object>())
+    {
+        ["aria-label"] = Label ?? string.Empty,
+        ["aria-invalid"] = Error || ValidationError is not null ? "true" : "false",
+        ["placeholder"] = Placeholder ?? string.Empty
+    };
+}

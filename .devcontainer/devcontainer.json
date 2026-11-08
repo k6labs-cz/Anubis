@@ -1,0 +1,37 @@
+{
+  "name": "Anubis",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csdevkit",
+        "ms-dotnettools.csharp"
+      ],
+      "settings": {
+        "dotnet.defaultSolution": "Anubis.slnx"
+      }
+    }
+  },
+  "remoteEnv": {
+    "SSL_CERT_DIR": "/home/vscode/.aspnet/dev-certs/trust:/usr/lib/ssl/certs"
+  },
+  "postCreateCommand":"dotnet tool restore && dotnet restore && bash .devcontainer/setup-dev-cert.sh",
+  "forwardPorts": [5080, 5443],
+  "portsAttributes": {
+    "5080": {
+      "label": "Anubis HTTP",
+      "protocol": "http"
+    },
+    "5443": {
+      "label": "Anubis HTTPS",
+      "protocol": "https"
+    }
+  },
+  "remoteUser": "vscode"
+}

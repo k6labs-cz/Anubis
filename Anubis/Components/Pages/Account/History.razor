@@ -1,0 +1,182 @@
+@page "/account/history"
+@attribute [Authorize]
+
+@using k6labs.Anubis.Services.Activity
+@using Microsoft.AspNetCore.Authorization
+
+@inject UserManager<User> UserManager
+@inject AnubisDbContext Db
+
+@* Statically rendered list with "newer / older" links (25 per page). Times are rendered
+   in UTC and turned into the browser's local time by js/theme.js (time[data-local-time]). *@
+
+<AppPageTitle Text="@(Translations.Account_History)" />
+
+<Stack Gap="Gap.Medium">
+    <PageHeader Title="@Translations.Account_History" Description="@Translations.History_Description" />
+
+    @if (events.Count == 0)
+    {
+        <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.History_Empty</Typography>
+    }
+    else
+    {
+        <Card>
+            @for (var i = 0; i < events.Count; i++)
+            {
+                var entry = events[i];
+                var (icon, color) = Visual(entry.Type);
+                @if (i > 0)
+                {
+                    <Divider />
+                }
+                <Stack Direction="Direction.Row" Align="Align.Start" Gap="Gap.Medium" data-history-entry="@entry.Type">
+                    <Typography As="TextElement.Span" Tone="@color"><Icon Size="18" Name="@icon" /></Typography>
+                    <Stack Gap="Gap.None" Grow="true">
+                        <Stack Direction="Direction.Row" Gap="Gap.Medium" Justify="Justify.SpaceBetween" Wrap="true">
+                            <Typography>
+                                @Title(entry.Type)
+                                @if (Detail(entry) is { } detail)
+                                {
+                                    <Typography As="TextElement.Span" Tone="Tone.Muted"> · @detail</Typography>
+                                }
+                            </Typography>
+                            <Typography Variant="TextVariant.Small" Tone="Tone.Muted">
+                                <time datetime="@entry.OccurredAtUtc.ToString("O")" data-local-time>@entry.OccurredAtUtc.ToString("g") UTC</time>
+                            </Typography>
+                        </Stack>
+                        <Typography Variant="TextVariant.Caption" Tone="Tone.Muted">
+                            @string.Join(" · ", Context(entry))
+                        </Typography>
+                    </Stack>
+                </Stack>
+            }
+        </Card>
+
+        @if (Page > 1 || hasOlder)
+        {
+            <Stack Direction="Direction.Row" Gap="Gap.None" Justify="Justify.SpaceBetween">
+                <div>
+                    @if (Page > 1)
+                    {
+                        <Button Href="@PageUrl(Page - 1)" Variant="ButtonVariant.Text" Icon="@AppIcons.ChevronLeft">@Translations.History_Newer</Button>
+                    }
+                </div>
+                <div>
+                    @if (hasOlder)
+                    {
+                        <Button Href="@PageUrl(Page + 1)" Variant="ButtonVariant.Text" Icon="@AppIcons.ChevronRight">@Translations.History_Older</Button>
+                    }
+                </div>
+            </Stack>
+        }
+    }
+</Stack>
+
+@code {
+    private const int PageSize = 25;
+
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthenticationState { get; set; }
+
+    [SupplyParameterFromQuery(Name = "page")]
+    public int Page { get; set; }
+
+    private List<UserEvent> events = new();
+    private bool hasOlder;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Page = Math.Max(1, Page);
+        if (AuthenticationState is null || UserManager.GetUserId((await AuthenticationState).User) is not { } userId)
+        {
+            return;
+        }
+
+        var page = await Db.UserEvents.AsNoTracking()
+            .Where(e => e.UserId == userId)
+            .OrderByDescending(e => e.Id)
+            .Skip((Page - 1) * PageSize)
+            .Take(PageSize + 1)
+            .ToListAsync();
+
+        hasOlder = page.Count > PageSize;
+        events = page.Take(PageSize).ToList();
+    }
+
+    private static string PageUrl(int page) => page <= 1 ? "/account/history" : $"/account/history?page={page}";
+
+    private static string Title(string type) => type switch
+    {
+        UserEventTypes.AccountCreated => Translations.History_AccountCreated,
+        UserEventTypes.SignedIn => Translations.History_SignedIn,
+        UserEventTypes.SignInFailed => Translations.History_SignInFailed,
+        UserEventTypes.LockedOut => Translations.History_LockedOut,
+        UserEventTypes.SignedOut => Translations.History_SignedOut,
+        UserEventTypes.ApplicationSignIn => Translations.History_ApplicationSignIn,
+        UserEventTypes.PasswordChanged => Translations.History_PasswordChanged,
+        UserEventTypes.PasswordReset => Translations.History_PasswordReset,
+        UserEventTypes.EmailConfirmed => Translations.History_EmailConfirmed,
+        UserEventTypes.EmailChanged => Translations.History_EmailChanged,
+        UserEventTypes.RoleAdded => Translations.History_RoleAdded,
+        UserEventTypes.RoleRemoved => Translations.History_RoleRemoved,
+        UserEventTypes.TwoFactorEnabled => Translations.History_TwoFactorEnabled,
+        UserEventTypes.TwoFactorDisabled => Translations.History_TwoFactorDisabled,
+        UserEventTypes.RecoveryCodesGenerated => Translations.History_RecoveryCodesGenerated,
+        UserEventTypes.PasskeyAdded => Translations.History_PasskeyAdded,
+        UserEventTypes.PasskeyRemoved => Translations.History_PasskeyRemoved,
+        UserEventTypes.PhoneChanged => Translations.History_PhoneChanged,
+        UserEventTypes.PhoneVerified => Translations.History_PhoneVerified,
+        UserEventTypes.PhoneRemoved => Translations.History_PhoneRemoved,
+        UserEventTypes.ProfileUpdated => Translations.History_ProfileUpdated,
+        UserEventTypes.AvatarChanged => Translations.History_AvatarChanged,
+        UserEventTypes.AccountLocked => Translations.History_AccountLocked,
+        UserEventTypes.AccountUnlocked => Translations.History_AccountUnlocked,
+        _ => type,
+    };
+
+    private static string? Detail(UserEvent entry) => entry.Type switch
+    {
+        UserEventTypes.SignedIn or UserEventTypes.SignInFailed => entry.Detail switch
+        {
+            UserEventTypes.Methods.Password => Translations.History_MethodPassword,
+            UserEventTypes.Methods.Passkey => Translations.History_MethodPasskey,
+            UserEventTypes.Methods.Authenticator => Translations.History_MethodAuthenticator,
+            UserEventTypes.Methods.RecoveryCode => Translations.History_MethodRecoveryCode,
+            _ => entry.Detail,
+        },
+        _ => string.IsNullOrWhiteSpace(entry.Detail) ? null : entry.Detail,
+    };
+
+    /// <summary>Device, IP address and "by an administrator", whichever are known.</summary>
+    private static IEnumerable<string> Context(UserEvent entry)
+    {
+        yield return UserAgentInfo.Describe(entry.UserAgent) ?? Translations.History_UnknownDevice;
+        if (!string.IsNullOrEmpty(entry.IpAddress))
+        {
+            yield return entry.IpAddress;
+        }
+
+        if (entry.ActorUserId is not null)
+        {
+            yield return Translations.History_ByAdmin;
+        }
+    }
+
+    private static (string Icon, Tone Tone) Visual(string type) => type switch
+    {
+        UserEventTypes.SignedIn or UserEventTypes.ApplicationSignIn => (AppIcons.Login, Tone.Success),
+        UserEventTypes.SignedOut => (AppIcons.Logout, Tone.Default),
+        UserEventTypes.SignInFailed => (AppIcons.ErrorOutline, Tone.Warning),
+        UserEventTypes.LockedOut or UserEventTypes.AccountLocked => (AppIcons.Lock, Tone.Danger),
+        UserEventTypes.AccountUnlocked => (AppIcons.LockOpen, Tone.Default),
+        UserEventTypes.PasswordChanged or UserEventTypes.PasswordReset => (AppIcons.Key, Tone.Primary),
+        UserEventTypes.TwoFactorEnabled or UserEventTypes.TwoFactorDisabled or UserEventTypes.RecoveryCodesGenerated
+            => (AppIcons.PhonelinkLock, Tone.Primary),
+        UserEventTypes.PasskeyAdded or UserEventTypes.PasskeyRemoved => (AppIcons.Fingerprint, Tone.Primary),
+        UserEventTypes.PhoneChanged or UserEventTypes.PhoneVerified or UserEventTypes.PhoneRemoved => (AppIcons.Phone, Tone.Default),
+        UserEventTypes.EmailConfirmed or UserEventTypes.EmailChanged => (AppIcons.MarkEmailRead, Tone.Default),
+        UserEventTypes.RoleAdded or UserEventTypes.RoleRemoved => (AppIcons.Badge, Tone.Primary),
+        _ => (AppIcons.Person, Tone.Default),
+    };
+}

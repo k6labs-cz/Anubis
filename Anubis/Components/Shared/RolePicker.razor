@@ -1,0 +1,85 @@
+@namespace k6labs.Anubis.Components.Shared
+
+@* Roles as chips (× removes one) + a search field to add more; scales to many roles.
+   The built-in "User" role is always there and cannot be removed. *@
+<Stack Gap="Gap.Small" data-role-picker>
+    <Typography Variant="TextVariant.Subtitle" As="TextElement.H3">@Translations.Account_Roles</Typography>
+    <Stack Direction="Direction.Row" Wrap="true" Align="Align.Center" Gap="Gap.XSmall">
+        @foreach (var role in Ordered)
+        {
+            @if (IsUserRole(role))
+            {
+                <Badge Tone="Tone.Primary" data-role-chip="@role">@role</Badge>
+            }
+            else
+            {
+                <Button Variant="ButtonVariant.Ghost" Icon="@AppIcons.Close" OnClick="() => Remove(role)" title="@Translations.Claims_Remove" data-role-chip="@role">@role</Button>
+            }
+        }
+    </Stack>
+    @if (Available.Any())
+    {
+        <Field Label="@Translations.Roles_AddRole" For="@InputId">
+            <SelectPicker TValue="string" Value="@selectedRole" ValueChanged="AddAsync" ValueExpression="() => selectedRole"
+                          Options="@Options"
+                          Label="@Translations.Roles_AddRole" SearchLabel="@Translations.Roles_AddRole"
+                          EmptyText="@Translations.Claims_None" ClearText="@Translations.Common_Close"
+                          AllowClear="false" id="@InputId" />
+        </Field>
+    }
+    @if (Error is not null)
+    {
+        <Typography Variant="TextVariant.Caption" Tone="Tone.Danger">@Error</Typography>
+    }
+</Stack>
+
+@code {
+    /// <summary>The selected roles (changed in place).</summary>
+    [Parameter, EditorRequired]
+    public HashSet<string> Selected { get; set; } = default!;
+
+    /// <summary>All existing roles.</summary>
+    [Parameter, EditorRequired]
+    public IReadOnlyCollection<string> Roles { get; set; } = [];
+
+    [Parameter]
+    public string? Error { get; set; }
+
+    [Parameter]
+    public string InputId { get; set; } = "roleSearch";
+
+    [Parameter]
+    public EventCallback Changed { get; set; }
+
+    private string? selectedRole;
+
+    private static bool IsUserRole(string role) => string.Equals(role, DatabaseInitializer.UserRole, StringComparison.OrdinalIgnoreCase);
+
+    private IEnumerable<string> Ordered
+        => Selected.Append(DatabaseInitializer.UserRole).Distinct(StringComparer.OrdinalIgnoreCase)
+                   .OrderBy(role => IsUserRole(role) ? 0 : 1).ThenBy(role => role, StringComparer.OrdinalIgnoreCase);
+
+    private SelectOption<string>[] Options => Available.Select(role => new SelectOption<string>(role, role)).ToArray();
+
+    private IEnumerable<string> Available
+        => Roles.Where(role => !IsUserRole(role) && !Selected.Contains(role)).Order(StringComparer.OrdinalIgnoreCase);
+
+    private async Task AddAsync(string? role)
+    {
+        if (string.IsNullOrEmpty(role) || !Roles.Contains(role))
+        {
+            return;
+        }
+
+        Selected.Add(role);
+        selectedRole = null;
+
+        await Changed.InvokeAsync();
+    }
+
+    private async Task Remove(string role)
+    {
+        Selected.Remove(role);
+        await Changed.InvokeAsync();
+    }
+}

@@ -1,0 +1,304 @@
+@page "/admin/appearance"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = "Admin")]
+
+@using k6labs.Anubis.Options
+@using k6labs.Anubis.Services
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Options
+@using System.Linq.Expressions
+@using System.Text.RegularExpressions
+
+@inject IOptionsMonitor<AppearanceOptions> AppearanceMonitor
+@inject SettingsFile Settings
+@inject NavigationManager Navigation
+@inject ILogger<Appearance> Logger
+
+<AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_Appearance))" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@Translations.Admin_Appearance" Description="@Translations.Admin_AppearanceDescription" />
+
+    @if (Saved == true && message is null)
+    {
+        <Alert Severity="AlertSeverity.Success" Title="@Translations.Settings_Saved">
+            @Translations.Settings_SavedText
+        </Alert>
+    }
+
+    @if (message is not null)
+    {
+        <Alert Severity="AlertSeverity.Danger" Title="@Translations.Settings_Invalid">
+            @message
+        </Alert>
+    }
+
+    <EditForm Model="model" OnSubmit="SaveAsync" FormName="appearance-settings">
+        <Stack Gap="Gap.Medium">
+            <Divider />
+            <Stack Gap="Gap.Medium">
+                <SectionHeader Title="@Translations.Appearance_Assets" Description="@Translations.Appearance_PathHint" />
+                <Grid Gap="Gap.Medium">
+                    @foreach (var asset in AssetFields)
+                    {
+                        <GridItem Md="6">@AssetField(asset)</GridItem>
+                    }
+                </Grid>
+            </Stack>
+
+            <Divider />
+            <Stack Gap="Gap.Medium">
+                <SectionHeader Title="@Translations.Appearance_Font" Description="@Translations.Appearance_FontHint" />
+                <Grid Gap="Gap.Medium">
+                    <GridItem Sm="6">
+                        <FormText @bind-Value="model.FontFamily" Label="@Translations.Appearance_FontFamily" Placeholder="@("\"Segoe UI\", sans-serif")" Error="@errors.ContainsKey(nameof(AppearanceOptions.FontFamily))" ErrorText="@errors.GetValueOrDefault(nameof(AppearanceOptions.FontFamily))" Id="fontFamily" />
+                    </GridItem>
+                </Grid>
+            </Stack>
+
+            @foreach (var (title, colors, prefix) in Themes)
+            {
+                <Divider />
+                <Stack Gap="Gap.Medium">
+                    <SectionHeader Title="@title" Description="@Translations.Appearance_ColorsHint" />
+                    <Grid Gap="Gap.Medium">
+                        @foreach (var (label, key, get, set, expression) in ColorFields(colors))
+                        {
+                            var field = $"{prefix}.{key}";
+                            <GridItem Sm="6">
+                                <FormColor Value="@get()" ValueChanged="@(value => set(value))" ValueExpression="expression" Label="@label" Error="@errors.ContainsKey(field)" ErrorText="@errors.GetValueOrDefault(field)" Id="@($"{prefix}{key}")" />
+                            </GridItem>
+                        }
+                    </Grid>
+                </Stack>
+            }
+
+            <SaveBar Dirty="@snapshot.IsDirty(model)" Busy="busy" Note="@Translations.Settings_FileNote.F(Settings.Path)" />
+        </Stack>
+    </EditForm>
+</Stack>
+
+@code {
+    private const string Section = AppearanceOptions.SectionName;
+
+    [SupplyParameterFromQuery]
+    public bool? Saved { get; set; }
+
+    private static readonly AppearanceOptions defaults = new();
+
+    private AppearanceOptions model = default!;
+    private Dictionary<string, string> errors = new();
+    private bool busy;
+    private readonly FormSnapshot snapshot = new();
+    private string? message;
+
+    private IEnumerable<(string Title, ThemeColors Colors, string Prefix)> Themes =>
+    [
+        (Translations.Appearance_LightTheme, model.Light, nameof(AppearanceOptions.Light)),
+        (Translations.Appearance_DarkTheme, model.Dark, nameof(AppearanceOptions.Dark)),
+    ];
+
+    private static IEnumerable<(string Label, string Key, Func<string?> Get, Action<string?> Set, Expression<Func<string?>> Expression)> ColorFields(ThemeColors colors) =>
+    [
+        (Translations.Appearance_Primary, nameof(ThemeColors.Primary), () => colors.Primary, v => colors.Primary = v, () => colors.Primary),
+        (Translations.Appearance_Secondary, nameof(ThemeColors.Secondary), () => colors.Secondary, v => colors.Secondary = v, () => colors.Secondary),
+        (Translations.Appearance_Background, nameof(ThemeColors.Background), () => colors.Background, v => colors.Background = v, () => colors.Background),
+        (Translations.Appearance_Foreground, nameof(ThemeColors.Foreground), () => colors.Foreground, v => colors.Foreground = v, () => colors.Foreground),
+    ];
+
+    private sealed record Asset(string Field, string Label, string Placeholder, Func<string> Get, Action<string> Set, int MaxDimension, string DefaultValue);
+
+    private IEnumerable<Asset> AssetFields =>
+    [
+        new(nameof(AppearanceOptions.LogoPath), Translations.Appearance_LogoPath, "https://example.com/logo.svg",
+            () => model.LogoPath, value => model.LogoPath = value, AppearanceAssets.LogoMaxDimension, defaults.LogoPath),
+        new(nameof(AppearanceOptions.FaviconPath), Translations.Appearance_FaviconPath, "https://example.com/favicon.svg",
+            () => model.FaviconPath, value => model.FaviconPath = value, AppearanceAssets.FaviconMaxDimension, defaults.FaviconPath),
+    ];
+
+    /// <summary>Preview + path field (or "uploaded file" label) + upload / reset buttons for the logo or favicon.</summary>
+    private RenderFragment AssetField(Asset asset)
+    {
+        var (field, label, placeholder, get, set, maxDimension, defaultValue) = asset;
+        return @<Stack Direction="Direction.Row" Gap="Gap.Medium" Align="Align.Start">
+            @if (!string.IsNullOrWhiteSpace(get()))
+            {
+                <Image Src="@get()" Alt="" Width="72" Height="72" DisplayWidth="4.5rem" AspectRatio="1" Fit="MediaFit.Contain" Lazy="false" aria-hidden="true" />
+            }
+            <Stack Gap="Gap.Small" Grow="true">
+                @if (AppearanceAssets.TryParseDataUrl(get(), out var type, out var data))
+                {
+                    <Typography Variant="TextVariant.Subtitle" As="TextElement.H3">@label</Typography>
+                    <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Appearance_UploadedFile.F(FormatName(type), Math.Max(1, data.Length / 1024))</Typography>
+                    @if (errors.GetValueOrDefault(field) is { } uploadError)
+                    {
+                        <Typography Variant="TextVariant.Caption" Tone="Tone.Danger">@uploadError</Typography>
+                    }
+                }
+                else
+                {
+                    <FormText Value="@get()" ValueChanged="@(value => set(value))" Label="@label" Placeholder="@placeholder" Error="@errors.ContainsKey(field)" ErrorText="@errors.GetValueOrDefault(field)" Id="@field" />
+                }
+                <Stack Direction="Direction.Row" Gap="Gap.Small" Align="Align.Center" Wrap="true">
+                    <InputFile OnChange="@(args => UploadAsync(args, field, set, maxDimension))" accept="@AcceptedTypes" id="@($"{field}Upload")" hidden />
+                    <Button Variant="ButtonVariant.Ghost" For="@($"{field}Upload")" Disabled="busy" Icon="@AppIcons.Upload">
+                        @Translations.Appearance_Upload
+                    </Button>
+                    @if (get() != defaultValue)
+                    {
+                        <Button Variant="ButtonVariant.Text" Disabled="busy" OnClick="@(() => { set(defaultValue); errors.Remove(field); })" Icon="@AppIcons.Restore">
+                            @Translations.Appearance_UseDefault
+                        </Button>
+                    }
+                </Stack>
+            </Stack>
+        </Stack>;
+    }
+
+    private const string AcceptedTypes = ".svg,.webp,.png,.jpg,.jpeg,.gif,image/svg+xml,image/webp,image/png,image/jpeg,image/gif";
+
+    private static string FormatName(string contentType) => contentType switch
+    {
+        ImageProcessing.SvgContentType => "SVG",
+        "image/jpeg" => "JPEG",
+        _ => contentType["image/".Length..].ToUpperInvariant(),
+    };
+
+    private async Task UploadAsync(InputFileChangeEventArgs args, string field, Action<string> set, int maxDimension)
+    {
+        errors.Remove(field);
+        var tooLarge = Translations.Appearance_UploadTooLarge.F(AppearanceAssets.MaxUploadBytes / (1024 * 1024), AppearanceAssets.MaxStoredBytes / 1024);
+        if (args.File.Size > AppearanceAssets.MaxUploadBytes)
+        {
+            errors[field] = tooLarge;
+            return;
+        }
+
+        busy = true;
+        try
+        {
+            using var memory = new MemoryStream();
+            await using (var stream = args.File.OpenReadStream(AppearanceAssets.MaxUploadBytes))
+            {
+                await stream.CopyToAsync(memory);
+            }
+
+            // CPU-bound (decode, resize, encode): keep it off the circuit's sync context.
+            var bytes = memory.ToArray();
+            set(await Task.Run(() => AppearanceAssets.ProcessUpload(bytes, maxDimension)));
+        }
+        catch (InvalidDataException exception)
+        {
+            Logger.LogInformation(exception, "Rejected appearance upload {File}.", args.File.Name);
+            errors[field] = exception.Message == "The image is too large." ? tooLarge : Translations.Appearance_UploadInvalid;
+        }
+        catch (IOException exception)
+        {
+            Logger.LogWarning(exception, "Reading appearance upload {File} failed.", args.File.Name);
+            errors[field] = Translations.Appearance_UploadInvalid;
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        model = SettingsFile.Clone(AppearanceMonitor.CurrentValue);
+        snapshot.Take(model);
+    }
+
+
+    private void Validate()
+    {
+        errors = new Dictionary<string, string>();
+
+        CheckPath(nameof(AppearanceOptions.LogoPath), model.LogoPath);
+        CheckPath(nameof(AppearanceOptions.FaviconPath), model.FaviconPath);
+        CheckCss(nameof(AppearanceOptions.FontFamily), model.FontFamily);
+
+        foreach (var (_, colors, prefix) in Themes)
+        {
+            foreach (var (_, key, get, _, _) in ColorFields(colors))
+            {
+                CheckColor($"{prefix}.{key}", get());
+            }
+        }
+    }
+
+    private void CheckPath(string field, string? value)
+    {
+        var ok = AppearanceAssets.TryParseDataUrl(value, out _, out _)
+            || (!string.IsNullOrWhiteSpace(value) && ((value.StartsWith('/') && !value.StartsWith("//", StringComparison.Ordinal)) || IsHttpsUrl(value)));
+        if (!ok)
+        {
+            errors[field] = Translations.Validation_PathOrUrl;
+        }
+    }
+
+    // The color picker works with #RRGGBB; empty = the default color.
+    private void CheckColor(string field, string? value)
+    {
+        if (!string.IsNullOrWhiteSpace(value) && !hexColor.IsMatch(value.Trim()))
+        {
+            errors[field] = Translations.Validation_HexColor;
+        }
+    }
+
+    private static readonly Regex hexColor = new("^#[0-9a-fA-F]{6}$", RegexOptions.CultureInvariant);
+
+    private void CheckCss(string field, string? value)
+    {
+        if (!string.IsNullOrWhiteSpace(value) && !AppearanceTheme.IsSafeCssValue(value))
+        {
+            errors[field] = Translations.Validation_CssValue;
+        }
+    }
+
+    private static bool IsHttpsUrl(string value)
+        => Uri.TryCreate(value, UriKind.Absolute, out var uri) && uri.Scheme == Uri.UriSchemeHttps;
+
+    private static string? Trimmed(string? value) => string.IsNullOrWhiteSpace(value) ? null : value.Trim();
+
+    private async Task SaveAsync()
+    {
+        message = null;
+        Validate();
+        if (errors.Count > 0)
+        {
+            return;
+        }
+
+        busy = true;
+        try
+        {
+            var values = SettingsFile.Clone(model);
+            values.LogoPath = values.LogoPath.Trim();
+            values.FaviconPath = values.FaviconPath.Trim();
+            values.FontFamily = Trimmed(values.FontFamily);
+            foreach (var colors in new[] { values.Light, values.Dark })
+            {
+                colors.Primary = Trimmed(colors.Primary);
+                colors.Secondary = Trimmed(colors.Secondary);
+                colors.Background = Trimmed(colors.Background);
+                colors.Foreground = Trimmed(colors.Foreground);
+            }
+
+            // Empty values are written too, so they also clear a value set elsewhere
+            // (appsettings.json, environment); App.razor then keeps the Hathor default.
+            var node = SettingsFile.ToNode(values);
+            await Settings.SaveSectionAsync(Section, node);
+        }
+        catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
+        {
+            Logger.LogWarning(exception, "Saving appearance settings failed.");
+            message = exception.Message;
+            busy = false;
+            return;
+        }
+
+        // Full reload, so the new theme, font and favicon apply to the whole page.
+        Navigation.NavigateTo("/admin/appearance?saved=true", forceLoad: true);
+    }
+}

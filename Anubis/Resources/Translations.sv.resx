@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Svenska (sv). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Autentiseringsapp</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Byt lösenord</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Kunde inte skicka, försök igen senare</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Skickat, kolla din inkorg</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Redan skickat, försök igen om några minuter</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Skapad</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Webbläsarens inställning</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Nycklar (passkeys)</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Roller</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Skicka bekräftelsemejl</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Flerfaktor</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>OIDC-klienter</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scopes</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Användare</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Kod från appen</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Skapa ny nyckel</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>Från och med nu får du ange en kod efter lösenordet.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Koden är ogiltig. Kontrollera att klockan på din enhet går rätt och försök igen.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Går det inte att skanna? Ange den här nyckeln manuellt:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>En ny nyckel skapas. Din nuvarande app slutar fungera direkt, och tvåfaktorsinloggningen förblir avstängd tills du har konfigurerat den nya appen.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Byt till en annan autentiseringsapp</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>QR-kod för din autentiseringsapp</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Skanna QR-koden med appen och ange sedan koden som visas.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Verifiera och aktivera</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Nuvarande lösenord</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Välj ett nytt lösenord (minst {0} tecken).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Ditt lösenord har uppdaterats.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Det gick inte att byta lösenord</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Uppdatera lösenord</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Tillåtna scopes</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Skapa klient</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>Min applikation</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Redigera klient: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (maskin till maskin)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (med PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>Omdirigerings-URI:er efter utloggning (en per rad)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>Omdirigerings-URI:er (en per rad)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Generera ny hemlighet</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Kräv uttryckligt samtycke från användaren</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Spara ändringar</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Klienthemlighet</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Lämna tomt för att behålla den nuvarande hemligheten.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Lämna tomt för en publik klient (endast PKCE), eller ange en hemlighet för en konfidentiell klient.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Minst 16 tecken</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Kopiera den nu – den visas bara en gång. OpenIddict sparar bara dess hash.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} har uppdaterats.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>Klient-ID</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Samtycke</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Implicit</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Krävs</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Vill du verkligen ta bort {0}? Token som utfärdats för den slutar fungera direkt.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Ta bort klient</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Grant-typer</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Ny klient</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Typ</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Administration</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Tillbaka till inloggningen</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Avbryt</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Kolla din inkorg</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Bekräfta nytt lösenord</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Ta bort</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Beskrivning</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Visningsnamn</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Redigera</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>E-post</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>du@exempel.se</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Fel</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Kontot är låst efter för många misslyckade försök. Försök igen senare.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Namn</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Nytt lösenord</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Minst {0} tecken</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Nej</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Ingen</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Av</value></data>
+  <data name="Common_On" xml:space="preserve"><value>På</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Lösenord</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Byt namn</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Spara</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Logga in</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Något gick fel</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Användaren hittades inte.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Ja</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Fortsätt</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Bekräftelselänkar gäller i 24 timmar. Begär en ny nedan.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Länken är ogiltig eller har gått ut</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Bekräfta e-post</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Skicka en ny länk</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Tack. Din e-postadress är bekräftad.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>E-post bekräftad</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>Bekräftelse av e-post</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Tillåt</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Neka</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Ogiltig begäran</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Auktoriseringsbegäran anger ingen klient.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Auktoriseringsbegäran saknas eller är ogiltig.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>begär åtkomst till ditt konto.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Auktorisera applikation</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>Applikationen kommer att kunna:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Inloggning med lösenord kräver då bara lösenordet. Om lösenordet läcker blir det lättare att ta över ditt konto. Dina nycklar fortsätter att fungera.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Stäng av tvåfaktorsautentisering</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Stänga av autentiseringsappen?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Bekräfta e-post</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Länken gäller i 24 timmar. Om du inte har skapat något konto kan du ignorera det här mejlet.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Bekräfta din e-postadress</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Hej {0}! Bekräfta att {1} hör till ditt Anubis-konto.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Välj ett nytt lösenord</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Länken gäller i 1 timme och fungerar en gång. Om du inte har begärt detta kan du ignorera mejlet; ditt lösenord är oförändrat.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Återställ ditt lösenord</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Hej {0}! Någon har begärt att lösenordet till ditt Anubis-konto ska återställas.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Öppna Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Du får det här mejlet eftersom en administratör har skickat ett testmejl.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>E-posten fungerar</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Testmejl från Anubis</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Det här testmeddelandet skickades av Anubis via {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Konfiguration</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Domän</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>där</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Länkar i mejl använder då värdnamnet från varje begäran. Ange Anubis:Issuer till din publika URL i produktion.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Anubis:Issuer är inte angivet</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Om knappen inte fungerar, öppna den här länken:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Endast logg (inte konfigurerat)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>Mejl skrivs bara till loggen. Ange Email:Smtp:Host, eller välj en annan Email:Provider (SendGrid, Mailgun, Postmark, Resend) i konfigurationen.</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>E-post är inte konfigurerad</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Leverantör</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Mottagare</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Det gick inte att skicka</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Skicka testmejl</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Skickat</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>Testmejlet till {0} accepterades av {1}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>E-post är inte konfigurerad, så meddelandet skrevs bara till loggen.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Klienten '{0}' hittades inte.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Fel</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>Begäran-ID: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>Scopet '{0}' finns redan.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>Scopet '{0}' hittades inte.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Ett fel uppstod när din begäran behandlades.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Vi mejlar dig en länk så att du kan välja ett nytt.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Glömt lösenord</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Skicka återställningslänk</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Om det finns ett konto med den adressen är en återställningslänk på väg. Länken gäller i 1 timme.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Glömt lösenordet?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Skapa konto</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Posten har ändrats av någon annan. Läs in sidan igen och försök på nytt.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Ett okänt fel uppstod.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>E-postadressen '{0}' används redan.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Rollnamnet '{0}' används redan.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Användarnamnet '{0}' används redan.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>E-postadressen '{0}' är ogiltig.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Rollnamnet '{0}' är ogiltigt.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Ogiltig token.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>Användarnamnet '{0}' är ogiltigt.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Det finns redan en användare med den här inloggningen.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Fel lösenord.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Lösenord måste innehålla minst en siffra (0-9).</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Lösenord måste innehålla minst en liten bokstav (a-z).</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Lösenord måste innehålla minst ett tecken som varken är en bokstav eller en siffra.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Lösenord måste innehålla minst {0} olika tecken.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Lösenord måste innehålla minst en stor bokstav (A-Z).</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Lösenord måste vara minst {0} tecken långa.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Återställningskoden kunde inte användas.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Användaren har redan ett lösenord.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Användaren har redan rollen '{0}'.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Utelåsning är inte aktiverad för den här användaren.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Användaren har inte rollen '{0}'.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Konto</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Språk</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Huvudnavigering</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Logga ut</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Skapa ett</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Använd en nyckel, eller din e-postadress och ditt lösenord.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Bekräfta din e-postadress först. Länken finns i din inkorg.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Inloggningen misslyckades</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Glömt lösenordet?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Fel e-postadress eller lösenord.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Inget konto än?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Inloggning är inte tillåten för det här kontot.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>eller</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Logga in</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Ditt lösenord</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Skicka bekräftelsemejlet igen</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Logga in på Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Den här nyckeln är inte registrerad i Anubis.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Logga in med en nyckel</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Den här enheten har redan en nyckel för det här kontot.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>Nyckelförfrågan avbröts eller tog för lång tid.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Nyckeln kunde inte användas. Försök igen.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Servern kunde inte starta nyckelförfrågan. Försök igen.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Den här webbläsaren stöder inte nycklar (passkeys).</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Den här webbläsaren stöder inte nycklar (passkeys). Uppdatera den.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Engångskoder för inloggning om du tappar bort din autentiseringsapp.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Generera nya koder</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Använd en av dessa för att logga in om du tappar bort din autentiseringsapp.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>De visas bara en gång. Förvara dem säkert, till exempel i en lösenordshanterare. Varje kod loggar in dig en gång om du tappar bort din autentiseringsapp. Gamla koder slutar fungera.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Spara de här återställningskoderna nu</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Jag har sparat koderna</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Återställningskoder</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Det här skapar {0} nya koder. Dina nuvarande koder slutar fungera.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Tillbaka till autentiseringskoden</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Återställningskod</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Varje återställningskod fungerar bara en gång.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Återställningskoden är ogiltig eller har redan använts.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Återställningskod</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Logga in med en återställningskod</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Redan registrerad?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Bekräfta lösenord</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Upprepa lösenordet</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Vi har skickat en bekräftelselänk till {0}. Bekräfta adressen och logga sedan in.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Registrera dig med e-postadress och lösenord.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Självregistrering är avstängd just nu. Kontakta en administratör.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Registrering avstängd</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Anna Andersson</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Registreringen misslyckades</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Inget mejl?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Skapa konto</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Skicka igen</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Skapa ditt konto</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Ge den ett namn du känner igen, till exempel ”Pixel 9” eller ”MacBook Touch ID”.</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Namnge din nyckel</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Hoppa över</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Byt namn på nyckel</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Vi skickar en ny länk för att bekräfta din adress.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Skicka bekräftelsen igen</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Skicka länk</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Om adressen hör till ett obekräftat konto är en ny länk på väg.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Skicka bekräftelsemejlet igen</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Nu kan du logga in med ditt nya lösenord.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Lösenordet har ändrats</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Det gick inte att återställa lösenordet</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Återställningslänken är ofullständig. Öppna länken från mejlet igen eller begär en ny.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Ogiltig länk</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Länken har gått ut eller redan använts. Begär en ny.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Återställ lösenord</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Begär en ny länk</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Ange nytt lösenord</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Välj ett nytt lösenord</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Ditt konto har inte åtkomst till den här sidan.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Åtkomst nekad</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Hittades inte</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Tyvärr finns det inget på den här adressen.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Sidan hittades inte</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Se din e-postadress</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Behålla åtkomsten när du inte är här (refresh tokens)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Bekräfta vem du är</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Se ditt namn och din profil</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Se dina roller</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Skapa scope</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Klienter kan begära egna scopes som kopplas till resurser (audiences).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Mitt API</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Resurser (kommaseparerade)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Resurser</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Lägg till en nyckel</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>Ange efter lösenordet en 6-siffrig kod från en app som Aegis, 2FAS, Google Authenticator, Microsoft Authenticator eller 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Återställningskoder kvar: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Överväg att generera nya koder.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Få återställningskoder kvar ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Glöm den här webbläsaren</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Byt till en annan app</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Generera nya koder nu, annars kan du bli utelåst.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Inga återställningskoder kvar</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Webbläsaren lämnade ingen nyckel.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Inga nycklar än.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Tillagd</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Du kan ha högst {0} nycklar. Ta bort en för att lägga till en ny.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Nyckeln kunde inte sparas.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Nyckeln kunde inte verifieras. Försök igen eller använd en annan enhet.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Synkroniserad</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Logga in med fingeravtryck, ansikte eller enhetens PIN-kod i stället för ett lösenord. En nyckel lagras på din telefon, dator eller säkerhetsnyckel och kan inte nätfiskas.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Konfigurera autentiseringsapp</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Den här webbläsaren</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Den här webbläsaren hoppar över autentiseringskoden vid inloggning.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Stäng av</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Namnlös nyckel</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Du får ange en kod från appen när du loggar in med lösenord.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Autentiseringsappen är aktiverad</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Konfigurera din autentiseringsapp igen med den nya nyckeln.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Autentiseringsnyckeln har återställts</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Den här webbläsaren frågar efter en kod igen vid nästa inloggning.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Webbläsaren har glömts</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>Din autentiseringsapp behövs inte längre för att logga in.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Tvåfaktorsautentisering avstängd</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Konfigurera en autentiseringsapp innan du genererar återställningskoder.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Inte tillgängligt</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Nu kan du logga in med den här nyckeln.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Nyckeln har lagts till</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Nyckeln kan inte längre användas för att logga in.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Nyckeln har tagits bort</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>Nyckeln finns inte eller hör till ett annat konto.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Nyckeln hittades inte</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>Nyckelns namn har uppdaterats.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Nyckeln har bytt namn</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Autentiseringskod</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Ange den 6-siffriga koden från din autentiseringsapp.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Koden är ogiltig eller har gått ut.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Tappat bort enheten?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Tvåfaktorsautentisering</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>Fråga inte igen i den här webbläsaren på 14 dagar</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Använd en återställningskod</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Verifieringen misslyckades</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Verifiera</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Aktiv</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Skapa användare</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Lösenord sparas som Argon2id-hashar.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} har skapats.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Vill du verkligen ta bort {0}? Det går inte att ångra.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Ta bort användare</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Användaren har tagits bort</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} har tagits bort.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Lås</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Låst</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} kan nu logga in med bara lösenordet.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Nycklar: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Återställ MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Det här stänger av autentiseringsappen, tar bort alla nycklar för {0} och loggar ut personen överallt. Använd det när någon har tappat bort sin enhet. Därefter kan personen logga in med bara lösenordet och konfigurera MFA igen.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Lås upp</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Ange ett klient-ID.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Använd minst 16 tecken, eller lämna tomt för en publik klient.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Koden har 6 siffror.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Ange koden från appen.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Bekräfta lösenordet.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Ange ditt nuvarande lösenord.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Använd högst 100 tecken.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Ange en giltig e-postadress.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>E-post krävs.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Endast bokstäver, siffror, '-', '_' och '.' är tillåtna.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Ange ett namn.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Använd högst 100 tecken.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Lösenord krävs.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Lösenorden stämmer inte överens.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Ange en mottagare.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Ange en återställningskod.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Ange ett scopenamn.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Ladda upp avatar</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Använd Gravatar</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF eller SVG. Bilden förminskas till högst 1024×1024 och sparas som transparent WebP. Utan egen bild används Gravatar.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Visningsnamnet har sparats.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Avataren har uppdaterats.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Den egna avataren har tagits bort. Gravatar används.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Ogiltig bildfil eller filtyp som inte stöds.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Bildfilen är för stor (högst 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Inställningar</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Roller</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Utseende</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Konton som kan logga in på Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Roller skickas till klientapplikationer i claimet roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Behörigheter som klientapplikationer kan begära.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Applikationer som loggar in användare via Anubis.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Utgående e-post för adressbekräftelse och lösenordsåterställning.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Logotyp, typsnitt och färger på inloggnings- och kontosidorna.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Stäng</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Sparas i {0}. Dessa värden har företräde framför appsettings.json och miljövariabler.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Inställningarna har sparats</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Ändringarna gäller direkt.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Inställningarna sparades inte</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Angivet. Lämna tomt för att behålla nuvarande värde.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Avsändaradress</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Avsändarnamn</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>SMTP-server</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Port</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Kryptering</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Tidsgräns (sekunder)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Användarnamn</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>API-nyckel</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Servertoken</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>API-URL</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Logotyp och ikon</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Ladda upp SVG, WebP, PNG, JPEG eller GIF (sparas i inställningsfilen), eller ange en sökväg under wwwroot eller en https://-URL. PNG-versioner av faviconen för Safari och iOS skapas automatiskt.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Logotyp</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Typsnitt</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Tomt = standardtypsnitt (systemets monospace). Endast typsnitt som är installerade på enheten kan användas.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Typsnittsfamilj (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Ljust tema</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Mörkt tema</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Välj en färg eller ange den som #RRGGBB. Tomt = standardfärg.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Primär</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Sekundär</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Bakgrund</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Text</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Skapa roll</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>En ny roll har inga medlemmar; lägg till dem i listan nedan.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Medlemmar</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Inbyggd</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Ta bort roll</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Ta bort rollen {0}? Alla medlemmar förlorar den.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Medlemmar i {0}</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Lägg till</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Ta bort</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Inga medlemmar än.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>Den sista administratören kan inte tas bort.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Ange ett rollnamn.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Ange en färg som #RRGGBB eller lämna fältet tomt.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Får inte innehålla ; { } &lt; &gt; eller \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Ange en absolut https://-URL.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Ange en sökväg som börjar med /, en https://-URL eller ladda upp en fil.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Ladda upp</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Använd standard</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Uppladdad fil · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Bilden stöds inte eller är skadad, eller så är det en SVG med externa länkar. Använd SVG, WebP, PNG, JPEG eller GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Filen är för stor (högst {0} MB, {1} KB efter bearbetning).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Verifierad</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Inte verifierad</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Telefonnummer</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Internationellt format, t.ex. +46 70 123 45 67.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Skicka kod</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Kod från sms:et</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Vi har skickat en kod till {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Telefonnumret är verifierat.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Ange numret i internationellt format, t.ex. +46 70 123 45 67.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>En kod skickades nyss. Försök igen om en minut.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Din verifieringskod för Anubis: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Färgläge</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Ljust</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Mörkt</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>System</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Inte valt: webbläsarens föredragna språk används.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Inte valt: följer systemets ljusa eller mörka inställning.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Historik</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Inloggningar och ändringar av ditt konto de senaste 12 månaderna.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Inget här ännu.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Nyare</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Äldre</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>av en administratör</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Okänd enhet</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Kontot skapades</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Inloggad</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Misslyckat inloggningsförsök</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Kontot låstes efter för många misslyckade försök</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Utloggad</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Inloggad i en applikation</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Lösenordet ändrades</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Lösenordet återställdes via e-post</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>E-postadressen bekräftades</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Autentiseringsappen aktiverades</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Autentiseringsappen stängdes av</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Nya återställningskoder skapades</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Nyckel tillagd</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Nyckel borttagen</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Telefonnumret ändrades</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Telefonnumret verifierades</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Telefonnumret togs bort</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Visningsnamnet ändrades</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Avataren ändrades</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Kontot låstes</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Kontot låstes upp</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>lösenord</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>nyckel (passkey)</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>autentiseringsapp</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>återställningskod</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Logga ut från Anubis?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Hantering</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Åtgärder</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Ta bort scopet {0}? Klienter kan då inte längre begära det.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Allmänt</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Grundinställningar för den här servern.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Servernamn</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Visas i webbläsarflikens titel och överst på konto- och administrationssidorna.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Ange ett servernamn.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Använd högst 60 tecken.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Säkerhet</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Lösenordsregler, utelåsning efter misslyckade försök, sessionslängd och nycklar. Ändringar gäller direkt.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Token</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Giltighetstid för token och koder till klientapplikationer. Ändringar gäller nya token.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Server</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>Publik URL (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Till exempel https://id.example.com. Tomt = från varje begäran. Gäller efter omstart.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Registrering</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Tillåt självregistrering</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Kräv en bekräftad e-postadress för inloggning</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Kräver fungerande e-postinställningar.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Lösenord</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Minsta längd</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Kräv en siffra</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Kräv en liten bokstav</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Kräv en stor bokstav</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Kräv en symbol</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Utelåsning efter misslyckade inloggningar</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Misslyckade försök före utelåsning</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Utelåsningstid (minuter)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Inloggningssession</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Sessionslängd (timmar)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Förläng sessionen medan användaren är aktiv</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Max antal nycklar per konto</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (minuter)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID-token (minuter)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Auktoriseringskod (minuter)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (dagar)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Samtycke (minuter)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Hur länge ett givet samtycke kommer ihåg under inloggningen.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Tillåtet intervall: {0} till {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Redigera {0}</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>E-postadressen är också inloggningsnamnet: användaren loggar in med den nya adressen.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-postadressen är bekräftad</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Ett ändrat nummer sparas som inte verifierat.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>E-postadressen används redan av ett annat konto.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Du kan inte ta bort rollen Admin från ditt eget konto.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Ändringarna för {0} har sparats.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>E-postadressen ändrades</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Roll tillagd</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Roll borttagen</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>När du sparar skickas ett bekräftelsemejl till den nya adressen.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Ett bekräftelsemejl har skickats till {0}.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Börja med en bokstav, sedan bokstäver, siffror och - _ . : / (högst {0} tecken).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>”{0}” sätts av Anubis och kan inte användas.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Ange ett värde.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Högst {0} tecken.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Detta claim finns två gånger.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Högst {0} claims.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Rollen hittades inte.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Inbyggda roller kan inte byta namn.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Det finns redan en roll med det namnet.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Redigera rollen {0}</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Rollen {0} har sparats.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Lägg till roll</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Läggs till i åtkomsttoken, ID-token och userinfo, tillsammans med claims från användarens roller.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Läggs till i token för alla medlemmar i denna roll.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Typ</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Värde</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Lägg till claim</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Ta bort claim</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Inga claims ännu.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Från roller</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Byt avatar</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Laddar…</value></data>
+</root>

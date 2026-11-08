@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Malti (mt). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>App tal-awtentikazzjoni</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Ibdel il-password</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Ma setax jintbagħat, erġa' pprova aktar tard</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Intbagħat, iċċekkja l-inbox tiegħek</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Diġà ntbagħat, erġa' pprova fi ftit minuti</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Maħluq</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Issettjar tal-browser</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Passkeys</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Rwoli</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Ibgħat email ta' konferma</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Multi-fattur</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>Klijenti OIDC</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scopes</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Utenti</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Kodiċi mill-app</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Oħloq ċavetta ġdida</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>Minn issa 'l quddiem se tintalab kodiċi wara l-password tiegħek.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Il-kodiċi mhuwiex validu. Iċċekkja li l-arloġġ tal-apparat tiegħek huwa korrett u erġa' pprova.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Ma tistax tiskennjah? Daħħal din iċ-ċavetta manwalment:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Dan joħloq ċavetta ġdida. L-app attwali tieqaf taħdem minnufih, u d-dħul b'żewġ fatturi jibqa' mitfi sakemm tlesti s-setup tal-app il-ġdida.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Mexxi għal app tal-awtentikazzjoni oħra</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>Kodiċi QR għall-app tal-awtentikazzjoni tiegħek</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Skennja l-kodiċi QR bl-app tiegħek, imbagħad daħħal il-kodiċi li turi.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Ivverifika u ixgħel</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Password attwali</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Agħżel password ġdida (mill-inqas {0}-il karattru).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Il-password tiegħek ġiet aġġornata.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>It-tibdil tal-password ma rnexxiex</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Aġġorna l-password</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Scopes permessi</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Oħloq klijent</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>L-applikazzjoni tiegħi</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Editja l-klijent: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (magna għal magna)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (b'PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>URIs ta' ridirezzjoni wara l-ħruġ (wieħed f'kull linja)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>URIs ta' ridirezzjoni (wieħed f'kull linja)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Iġġenera sigriet ġdid</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Itlob il-kunsens espliċitu tal-utent</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Issejvja l-bidliet</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Sigriet tal-klijent</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Ħallih vojt biex iżżomm is-sigriet attwali.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Ħallih vojt għal klijent pubbliku (PKCE biss), jew daħħal sigriet għal klijent kunfidenzjali.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Mill-inqas 16-il karattru</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Ikkopjah issa — jintwera darba biss. OpenIddict iżomm biss il-hash tiegħu.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} ġie aġġornat.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>ID tal-klijent</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Kunsens</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Impliċitu</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Meħtieġ</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Żgur li trid tħassar {0}? It-tokens maħruġa għalih jieqfu jaħdmu minnufih.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Ħassar il-klijent</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Tipi ta' grant</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Klijent ġdid</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Tip</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Amministrazzjoni</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Lura għad-dħul</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Ikkanċella</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Iċċekkja l-inbox tiegħek</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Ikkonferma l-password il-ġdida</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Ħassar</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Deskrizzjoni</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Isem muri</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Editja</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>Email</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>int@eżempju.mt</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Żball</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Dan il-kont huwa msakkar minħabba wisq tentattivi falluti. Erġa' pprova aktar tard.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Isem</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Password ġdida</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Mill-inqas {0}-il karattru</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Le</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Xejn</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Mitfi</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Mixgħul</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Password</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Semmi mill-ġdid</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Issejvja</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Idħol</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Xi ħaġa marret ħażin</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>L-utent ma nstabx.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Iva</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Kompli</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Il-links ta' konferma huma validi għal 24 siegħa. Itlob link ġdid hawn taħt.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Il-link mhuwiex validu jew skada</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Ikkonferma l-email</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Ibgħat link ġdid</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Grazzi. L-indirizz tal-email tiegħek huwa kkonfermat.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>Email ikkonfermata</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>Konferma tal-email</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Ippermetti</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Iċħad</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Talba invalida</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>It-talba ta' awtorizzazzjoni ma tispeċifikax klijent.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>It-talba ta' awtorizzazzjoni nieqsa jew invalida.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>qed titlob aċċess għall-kont tiegħek.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Awtorizza l-applikazzjoni</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>L-applikazzjoni se tkun tista':</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Id-dħul bil-password imbagħad jeħtieġ biss il-password. Jekk il-password toħroġ, ikun aktar faċli li jieħdulek il-kont. Il-passkeys tiegħek ikomplu jaħdmu.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Itfi l-awtentikazzjoni b'żewġ fatturi</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Titfi l-app tal-awtentikazzjoni?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Ikkonferma l-email</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Il-link huwa validu għal 24 siegħa. Jekk ma ħloqtx kont, tista' tinjora din l-email.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Ikkonferma l-indirizz tal-email tiegħek</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Bonġu {0}, jekk jogħġbok ikkonferma li {1} jappartjeni għall-kont Anubis tiegħek.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Agħżel password ġdida</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Il-link huwa validu għal siegħa u jaħdem darba. Jekk ma tlabtx dan, injora din l-email; il-password tiegħek tibqa' l-istess.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Irrisettja l-password tiegħek</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Bonġu {0}, xi ħadd talab li tiġi rrisettjata l-password tal-kont Anubis tiegħek.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Iftaħ Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Irċevejt dan għax amministratur bagħat email tat-test.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>L-email taħdem</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Email tat-test ta' Anubis</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Dan il-messaġġ tat-test intbagħat minn Anubis permezz ta' {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Konfigurazzjoni</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Dominju</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>utent</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Il-links fl-emails imbagħad jużaw l-isem tal-host minn kull talba. Fil-produzzjoni, issettja Anubis:Issuer għall-URL pubbliku tiegħek.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Anubis:Issuer mhuwiex issettjat</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Jekk il-buttuna ma taħdimx, iftaħ dan il-link:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Log biss (mhux ikkonfigurat)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>L-emails jinkitbu biss fil-log. Issettja Email:Smtp:Host, jew agħżel Email:Provider ieħor (SendGrid, Mailgun, Postmark, Resend) fil-konfigurazzjoni.</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>L-email mhijiex ikkonfigurata</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Fornitur</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Riċevitur</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Il-bgħit falla</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Ibgħat email tat-test</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Intbagħat</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>L-email tat-test lil {0} ġiet aċċettata minn {1}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>L-email mhijiex ikkonfigurata, għalhekk il-messaġġ inkiteb biss fil-log.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Il-klijent '{0}' ma nstabx.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Żball</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>ID tat-talba: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>L-iscope '{0}' diġà jeżisti.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>L-iscope '{0}' ma nstabx.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Seħħ żball waqt l-ipproċessar tat-talba tiegħek.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Nibagħtulek link biex tagħżel waħda ġdida.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Password minsija</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Ibgħat link biex tirrisettja</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Jekk jeżisti kont għal dak l-indirizz, link biex tirrisettja huwa fit-triq. Il-link huwa validu għal siegħa.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Insejt il-password tiegħek?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Oħloq kont</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Ir-rekord inbidel minn xi ħadd ieħor. Erġa' tella' l-paġna u erġa' pprova.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Seħħ żball mhux magħruf.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>L-email '{0}' diġà qed tintuża.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>L-isem tar-rwol '{0}' diġà qed jintuża.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>L-isem tal-utent '{0}' diġà qed jintuża.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>L-email '{0}' mhijiex valida.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>L-isem tar-rwol '{0}' mhuwiex validu.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Token invalidu.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>L-isem tal-utent '{0}' mhuwiex validu.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Diġà jeżisti utent b'dan id-dħul.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Password ħażina.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Il-passwords għandu jkollhom mill-inqas ċifra waħda (0-9).</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Il-passwords għandu jkollhom mill-inqas ittra żgħira waħda (a-z).</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Il-passwords għandu jkollhom mill-inqas karattru wieħed li mhuwiex ittra jew ċifra.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Il-passwords għandhom jużaw mill-inqas {0} karattri differenti.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Il-passwords għandu jkollhom mill-inqas ittra kbira waħda (A-Z).</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Il-passwords għandhom ikunu mill-inqas {0} karattri twal.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Il-kodiċi ta' rkupru ma setax jintuża.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>L-utent diġà għandu password.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>L-utent diġà għandu r-rwol '{0}'.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Is-sakkar mhuwiex attivat għal dan l-utent.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>L-utent m'għandux ir-rwol '{0}'.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Kont</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Lingwa</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Navigazzjoni ewlenija</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Oħroġ</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Oħloq wieħed</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Uża passkey, jew l-email u l-password tiegħek.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>L-ewwel ikkonferma l-indirizz tal-email tiegħek. Il-link tinsabu fl-inbox tiegħek.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Id-dħul ma rnexxiex</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Insejt il-password tiegħek?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Email jew password invalidi.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>M'għandekx kont s'issa?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Id-dħul mhuwiex permess għal dan il-kont.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>jew</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Idħol</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Il-password tiegħek</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Erġa' ibgħat l-email ta' konferma</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Idħol f'Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Dan il-passkey mhuwiex irreġistrat ma' Anubis.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Idħol b'passkey</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Dan l-apparat diġà għandu passkey għal dan il-kont.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>It-talba tal-passkey ġiet ikkanċellata jew skadiet.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Il-passkey ma setax jintuża. Erġa' pprova.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Is-server ma setax jibda t-talba tal-passkey. Erġa' pprova.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Dan il-browser ma jappoġġjax passkeys.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Dan il-browser ma jappoġġjax passkeys. Jekk jogħġbok aġġornah.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Kodiċijiet għal darba biex tidħol jekk titlef l-app tal-awtentikazzjoni tiegħek.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Iġġenera kodiċijiet ġodda</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Uża wieħed minn dawn biex tidħol jekk titlef l-app tal-awtentikazzjoni tiegħek.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Jintwerew darba biss. Żommhom f'post sigur, bħal maniġer tal-passwords. Kull kodiċi jdaħħlek darba jekk titlef l-app tal-awtentikazzjoni tiegħek. Il-kodiċijiet l-antiki ma jibqgħux jaħdmu.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Issejvja dawn il-kodiċijiet ta' rkupru issa</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Issejvjajt il-kodiċijiet</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Kodiċijiet ta' rkupru</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Dan joħloq {0} kodiċijiet ġodda. Il-kodiċijiet attwali jieqfu jaħdmu.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Lura għall-kodiċi tal-awtentikazzjoni</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Kodiċi ta' rkupru</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Kull kodiċi ta' rkupru jaħdem darba biss.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Il-kodiċi ta' rkupru mhuwiex validu jew diġà ntuża.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Kodiċi ta' rkupru</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Idħol b'kodiċi ta' rkupru</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Diġà rreġistrat?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Ikkonferma l-password</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Irrepeti l-password</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Bgħatna link ta' konferma lil {0}. Ikkonferma l-indirizz tiegħek, imbagħad idħol.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Irreġistra b'email u password.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Ir-reġistrazzjoni personali bħalissa hija mitfija. Ikkuntattja amministratur.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Ir-reġistrazzjoni mitfija</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Marija Borg</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Ir-reġistrazzjoni ma rnexxietx</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Ma rċevejtx email?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Oħloq kont</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Erġa' ibgħat</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Oħloq il-kont tiegħek</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Agħtih isem li tagħraf, bħal "Pixel 9" jew "MacBook Touch ID".</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Semmi l-passkey tiegħek</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Aqbeż</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Semmi l-passkey mill-ġdid</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Nibagħtulek link ġdid biex tikkonferma l-indirizz tiegħek.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Erġa' ibgħat il-konferma</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Ibgħat il-link</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Jekk l-indirizz jappartjeni għal kont mhux ikkonfermat, link ġdid huwa fit-triq.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Erġa' ibgħat l-email ta' konferma</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Issa tista' tidħol bil-password il-ġdida tiegħek.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Il-password inbidlet</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Il-password ma setgħetx tiġi rrisettjata</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Dan il-link biex tirrisettja mhuwiex komplut. Erġa' iftaħ il-link mill-email, jew itlob wieħed ġdid.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Link invalidu</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Il-link skada jew diġà ntuża. Itlob wieħed ġdid.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Irrisettja l-password</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Itlob link ġdid</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Issettja password ġdida</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Agħżel password ġdida</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Il-kont tiegħek mhuwiex permess jaċċessa din il-paġna.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Aċċess miċħud</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Ma nstabx</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Skużana, m'hemm xejn f'dan l-indirizz.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Il-paġna ma nstabitx</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Jara l-indirizz tal-email tiegħek</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Iżomm l-aċċess waqt li m'intix preżenti (refresh tokens)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Jikkonferma min int</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Jara ismek u l-profil tiegħek</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Jara r-rwoli tiegħek</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Oħloq scope</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Il-klijenti jistgħu jitolbu scopes personalizzati, marbuta ma' riżorsi (audiences).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>L-API tiegħi</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Riżorsi (separati b'virgola)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Riżorsi</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Żid passkey</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>Wara l-password tiegħek, daħħal kodiċi ta' 6 ċifri minn app bħal Aegis, 2FAS, Google Authenticator, Microsoft Authenticator jew 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Kodiċijiet ta' rkupru li fadal: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Ikkunsidra li tiġġenera kodiċijiet ġodda.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Fadal ftit kodiċijiet ta' rkupru ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Insa dan il-browser</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Mexxi għal app oħra</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Iġġenera kodiċijiet ġodda issa, inkella tista' tinqafel barra.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Ma fadalx kodiċijiet ta' rkupru</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Il-browser ma pprovdiex passkey.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>L-ebda passkey s'issa.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Miżjud</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Tista' jkollok massimu ta' {0} passkeys. Ħassar wieħed biex iżżid ieħor.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Il-passkey ma setax jiġi ssejvjat.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Il-passkey ma setax jiġi vverifikat. Erġa' pprova, jew uża apparat ieħor.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Sinkronizzat</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Idħol bil-marka tas-saba', il-wiċċ jew il-PIN tal-apparat minflok password. Passkey jinħażen fuq it-telefon, il-kompjuter jew ċavetta tas-sigurtà tiegħek u ma jistax jinsteraq bil-phishing.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Issettja app tal-awtentikazzjoni</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Dan il-browser</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Dan il-browser jaqbeż il-kodiċi tal-awtentikazzjoni meta tidħol.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Itfi</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Passkey mingħajr isem</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Se tintalab kodiċi mill-app meta tidħol bil-password.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>L-app tal-awtentikazzjoni ġiet attivata</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Erġa' issettja l-app tal-awtentikazzjoni biċ-ċavetta l-ġdida.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Iċ-ċavetta tal-awtentikazzjoni ġiet irrisettjata</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Dan il-browser se jerġa' jitlob kodiċi fid-dħul li jmiss.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Il-browser intesa</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>L-app tal-awtentikazzjoni ma għadhiex meħtieġa biex tidħol.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>L-awtentikazzjoni b'żewġ fatturi ġiet mitfija</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Issettja app tal-awtentikazzjoni qabel ma tiġġenera kodiċijiet ta' rkupru.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Mhux disponibbli</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Issa tista' tidħol b'dan il-passkey.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Il-passkey ġie miżjud</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Il-passkey ma jistax jibqa' jintuża biex tidħol.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Il-passkey tħassar</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>Il-passkey ma jeżistix jew jappartjeni għal kont ieħor.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Il-passkey ma nstabx</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>L-isem tal-passkey ġie aġġornat.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Il-passkey ingħata isem ġdid</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Kodiċi tal-awtentikazzjoni</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Daħħal il-kodiċi ta' 6 ċifri mill-app tal-awtentikazzjoni tiegħek.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Il-kodiċi mhuwiex validu jew skada.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Tlift l-apparat tiegħek?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Awtentikazzjoni b'żewġ fatturi</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>Terġax tistaqsi f'dan il-browser għal 14-il jum</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Uża kodiċi ta' rkupru</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Il-verifika falliet</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Ivverifika</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Attiv</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Oħloq utent</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Il-passwords jinħażnu bħala hashes Argon2id.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} inħoloq.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Żgur li trid tħassar {0}? Dan ma jistax jitreġġa' lura.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Ħassar l-utent</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>L-utent tħassar</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} tħassar.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Sakkar</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Imsakkar</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} issa jista' jidħol bil-password biss.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Passkeys: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Irrisettja l-MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Dan jitfi l-app tal-awtentikazzjoni, iħassar il-passkeys kollha ta' {0}, u joħroġhom minn kullimkien. Użah meta xi ħadd tilef l-apparat tiegħu. Imbagħad ikunu jistgħu jidħlu bil-password biss u jerġgħu jissettjaw l-MFA.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Neħħi s-sakkar</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Daħħal ID tal-klijent.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Uża mill-inqas 16-il karattru, jew ħallih vojt għal klijent pubbliku.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Il-kodiċi għandu 6 ċifri.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Daħħal il-kodiċi mill-app tiegħek.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Jekk jogħġbok ikkonferma l-password.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Daħħal il-password attwali tiegħek.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Uża massimu ta' 100 karattru.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Daħħal indirizz tal-email validu.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>L-email hija meħtieġa.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Huma permessi biss ittri, ċifri, '-', '_' u '.'.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Daħħal isem.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Uża massimu ta' 100 karattru.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Il-password hija meħtieġa.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Il-passwords ma jaqblux.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Daħħal riċevitur.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Daħħal kodiċi ta' rkupru.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Daħħal isem ta' scope.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Tella' avatar</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Uża Gravatar</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF jew SVG. L-immaġni titnaqqas għal massimu ta' 1024×1024 u tiġi ssejvjata bħala WebP trasparenti. Jekk ma tkunx issettjata, jintuża Gravatar.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>L-isem muri ġie ssejvjat.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>L-avatar ġie aġġornat.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>L-avatar personalizzat tneħħa. Qed jintuża Gravatar.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Fajl tal-immaġni invalidu jew mhux appoġġjat.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Il-fajl tal-immaġni huwa kbir wisq (massimu 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Settings</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Rwoli</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Dehra</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Kontijiet li jistgħu jidħlu f'Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Ir-rwoli jintbagħtu lill-applikazzjonijiet klijenti fil-claim roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Permessi li l-applikazzjonijiet klijenti jistgħu jitolbu.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Applikazzjonijiet li jdaħħlu lill-utenti permezz ta' Anubis.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Email ħierġa għall-konferma tal-indirizz u r-risettjar tal-password.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Logo, font u kuluri tal-paġni tad-dħul u tal-kont.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Agħlaq</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Issejvjat f'{0}. Dawn il-valuri għandhom prijorità fuq appsettings.json u l-varjabbli tal-ambjent.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Is-settings ġew issejvjati</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Il-bidliet japplikaw minnufih.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Is-settings ma ġewx issejvjati</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Issettjat. Ħallih vojt biex iżżomm il-valur attwali.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Indirizz tal-mittent</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Isem il-mittent</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>Server SMTP</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Port</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Kriptaġġ</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Timeout (sekondi)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Isem tal-utent</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>Ċavetta API</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Token tas-server</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>URL tal-API</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Logo u ikona</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Tella' SVG, WebP, PNG, JPEG jew GIF (jinħażen fil-fajl tas-settings), jew daħħal mogħdija taħt wwwroot jew URL https://. Verżjonijiet PNG tal-favicon għal Safari u iOS jinħolqu awtomatikament.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Logo</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Font</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Vojt = il-font awtomatiku (il-monospace tas-sistema). Jistgħu jintużaw biss fonts installati fuq l-apparat.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Familja tal-font (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Tema ċara</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Tema skura</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Agħżel kulur jew daħħlu bħala #RRGGBB. Vojt = il-kulur awtomatiku.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Primarju</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Sekondarju</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Sfond</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Test</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Oħloq rwol</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Rwol ġdid m'għandux membri; żidhom fil-lista hawn taħt.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Membri</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Inkorporat</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Ħassar ir-rwol</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Tħassar ir-rwol {0}? Il-membri kollha tiegħu jitilfuh.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Membri ta' {0}</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Żid</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Neħħi</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>L-ebda membru s'issa.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>L-aħħar amministratur ma jistax jitneħħa.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Daħħal isem għar-rwol.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Daħħal kulur bħala #RRGGBB, jew ħallih vojt.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>M'għandux ikun fih ; { } &lt; &gt; jew \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Daħħal URL https:// assolut.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Daħħal mogħdija li tibda b' /, URL https://, jew tella' fajl.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Tella'</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Uża l-awtomatiku</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Fajl mtella' · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Immaġni mhux appoġġjata jew bil-ħsara, jew SVG b'links esterni. Uża SVG, WebP, PNG, JPEG jew GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Il-fajl huwa kbir wisq (massimu {0} MB, {1} KB wara l-ipproċessar).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Ivverifikat</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Mhux ivverifikat</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Numru tat-telefon</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Format internazzjonali, eż. +356 7912 3456.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Ibgħat kodiċi</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Kodiċi mill-SMS</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Bgħatna kodiċi lil {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>In-numru tat-telefon ġie vverifikat.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Daħħal in-numru f'format internazzjonali, eż. +356 7912 3456.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Għadu kif intbagħat kodiċi. Erġa' pprova fi ftit minuti.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Il-kodiċi ta' verifika tiegħek ta' Anubis: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Modalità tal-kulur</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Ċar</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Skur</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>Tas-sistema</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Mhux magħżula: tintuża l-lingwa preferuta tal-browser tiegħek.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Mhux magħżul: isegwi l-issettjar ċar jew skur tas-sistema tiegħek.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Storja</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Dħul u bidliet fil-kont tiegħek fl-aħħar 12-il xahar.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Għad m'hemm xejn hawn.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Iktar ġodda</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Iktar qodma</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>minn amministratur</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Apparat mhux magħruf</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Kont maħluq</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Dħul</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Tentattiv ta' dħul fallut</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Kont imsakkar wara wisq tentattivi falluti</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Ħruġ</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Dħul f'applikazzjoni</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Password mibdula</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Password irrisettjata permezz ta' email</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>Indirizz tal-email ikkonfermat</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>App tal-awtentikazzjoni mixgħula</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>App tal-awtentikazzjoni mitfija</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Kodiċijiet ta' rkupru ġodda ġġenerati</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Passkey miżjud</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Passkey imneħħi</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Numru tat-telefon mibdul</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Numru tat-telefon ivverifikat</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Numru tat-telefon imneħħi</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Isem muri mibdul</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Avatar mibdul</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Kont imsakkar</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Kont miftuħ</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>password</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>passkey</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>app tal-awtentikazzjoni</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>kodiċi ta' rkupru</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Toħroġ minn Anubis?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Ġestjoni</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Azzjonijiet</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Tħassar l-iscope {0}? Il-klijenti ma jkunux jistgħu jitolbuh aktar.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Ġenerali</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Settings bażiċi ta' dan is-server.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Isem is-server</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Jidher fit-titlu tat-tab tal-browser u fin-naħa ta' fuq tal-paġni tal-kont u tal-amministrazzjoni.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Daħħal isem għas-server.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Uża massimu ta' 60 karattru.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Sigurtà</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Regoli tal-passwords, sakkar wara tentattivi falluti, tul tas-sessjoni u passkeys. Il-bidliet japplikaw minnufih.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Tokens</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Validità tat-tokens u l-kodiċijiet maħruġa lill-applikazzjonijiet klijenti. Il-bidliet japplikaw għal tokens ġodda.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Server</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>URL pubbliku (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Pereżempju https://id.example.com. Vojt = minn kull talba. Jidħol fis-seħħ wara restart.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Reġistrazzjoni</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Ippermetti reġistrazzjoni personali</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Itlob indirizz tal-email ikkonfermat biex tidħol</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Jeħtieġ settings tal-email li jaħdmu.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Passwords</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Tul minimu</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Itlob ċifra</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Itlob ittra żgħira</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Itlob ittra kbira</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Itlob simbolu</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Sakkar wara dħul fallut</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Tentattivi falluti qabel is-sakkar</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Tul tas-sakkar (minuti)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Sessjoni tad-dħul</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Tul tas-sessjoni (sigħat)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Estendi s-sessjoni sakemm l-utent ikun attiv</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Numru massimu ta' passkeys għal kull kont</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (minuti)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID token (minuti)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Kodiċi ta' awtorizzazzjoni (minuti)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (jiem)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Kunsens (minuti)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Kemm jiġi mfakkar kunsens mogħti waqt id-dħul.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Medda permessa: {0} sa {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Editja {0}</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>L-indirizz tal-email huwa wkoll l-isem tad-dħul: l-utent jidħol bl-indirizz il-ġdid.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>Indirizz tal-email ikkonfermat</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Numru mibdul jiġi ssejvjat bħala mhux ivverifikat.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Dan l-indirizz tal-email diġà jintuża minn kont ieħor.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Ma tistax tneħħi r-rwol Admin mill-kont tiegħek.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Il-bidliet fi {0} ġew issejvjati.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>Indirizz tal-email mibdul</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Rwol miżjud</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Rwol imneħħi</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Wara li tissejvja, tintbagħat email ta' konferma lill-indirizz il-ġdid.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Intbagħtet email ta' konferma lil {0}.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Ibda b'ittra, imbagħad ittri, ċifri u - _ . : / (massimu {0} karattru).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>“{0}” jiġi ssettjat minn Anubis u ma jistax jintuża.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Daħħal valur.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Massimu {0} karattru.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Dan il-claim jidher darbtejn.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Massimu {0} claims.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Ir-rwol ma nstabx.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Ir-rwoli integrati ma jistgħux jingħataw isem ġdid.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Diġà jeżisti rwol b'dan l-isem.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Editja r-rwol {0}</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Ir-rwol {0} ġie ssejvjat.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Żid rwol</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Jiżdiedu mal-access token, mal-ID token u ma' userinfo, flimkien mal-claims tar-rwoli tal-utent.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Jiżdiedu mat-tokens tal-membri kollha ta' dan ir-rwol.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Tip</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Valur</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Żid claim</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Neħħi l-claim</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Għad m'hemmx claims.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Mir-rwoli</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Biddel l-avatar</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Qed jitgħabba…</value></data>
+</root>

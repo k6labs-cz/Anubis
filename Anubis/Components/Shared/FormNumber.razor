@@ -1,0 +1,37 @@
+@namespace k6labs.Anubis.Components.Shared
+@inherits InputBase<int>
+@using System.Globalization
+
+<Field Label="@Label" For="@Id" Hint="@Hint" Error="@ValidationError">
+    <NumberControl Id="@Id" Value="@CurrentValueAsString" OnInput="Input" Min="@Min" Max="@Max" Step="1"
+                   AllowClear="false" Invalid="@(ValidationError is not null)" InputClass="@CssClass"
+                   Label="@Label" IncreaseLabel="@($"{Label} +1")" DecreaseLabel="@($"{Label} −1")"
+                   AdditionalAttributes="@AdditionalAttributes" />
+</Field>
+
+@code {
+    public FormNumber() => ValueExpression = () => Value;
+
+    [Parameter] public string Id { get; set; } = $"number-{Guid.NewGuid():N}";
+    [Parameter] public string? Label { get; set; }
+    [Parameter] public string? Hint { get; set; }
+    [Parameter] public decimal? Min { get; set; }
+    [Parameter] public decimal? Max { get; set; }
+
+    private string? ValidationError => EditContext?.GetValidationMessages(FieldIdentifier).FirstOrDefault();
+    private void Input(ChangeEventArgs args) => CurrentValueAsString = args.Value?.ToString();
+    protected override string FormatValueAsString(int value) => value.ToString(CultureInfo.InvariantCulture);
+
+    protected override bool TryParseValueFromString(string? value, out int result, [System.Diagnostics.CodeAnalysis.NotNullWhen(false)] out string? validationErrorMessage)
+    {
+        if (int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out result)
+            && (Min is null || result >= Min) && (Max is null || result <= Max))
+        {
+            validationErrorMessage = null;
+            return true;
+        }
+
+        validationErrorMessage = string.Format(CultureInfo.CurrentCulture, Translations.Validation_Range, Min ?? int.MinValue, Max ?? int.MaxValue);
+        return false;
+    }
+}

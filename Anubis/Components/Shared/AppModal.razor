@@ -1,0 +1,18 @@
+@namespace k6labs.Anubis.Components.Shared
+
+<Modal Open="@Open" OpenChanged="@OpenChanged" Title="@Title" CloseLabel="@Translations.Common_Close">
+    <ChildContent>
+        @if (Open) { @ChildContent }
+    </ChildContent>
+    <Footer>
+        @if (Open) { @Footer }
+    </Footer>
+</Modal>
+
+@code {
+    [Parameter] public bool Open { get; set; }
+    [Parameter] public EventCallback<bool> OpenChanged { get; set; }
+    [Parameter, EditorRequired] public string Title { get; set; } = string.Empty;
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public RenderFragment? Footer { get; set; }
+}

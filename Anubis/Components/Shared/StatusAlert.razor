@@ -1,0 +1,37 @@
+@namespace k6labs.Anubis.Components.Shared
+@inject NavigationManager Navigation
+
+@* Shows a message after a redirect, e.g. /account/security?status=passkey-added.
+   Only known keys are shown, so the URL can't inject arbitrary text. *@
+
+@if (message is not null)
+{
+    <Alert Severity="@(message.Value.Success ? AlertSeverity.Success : AlertSeverity.Danger)" Title="@message.Value.Title">
+        @message.Value.Text
+    </Alert>
+}
+
+@code {
+    private (bool Success, string Title, string Text)? message;
+
+    protected override void OnParametersSet()
+    {
+        var query = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(new Uri(Navigation.Uri).Query);
+        message = query.TryGetValue("status", out var key) ? Lookup(key.ToString()) : null;
+    }
+
+    // Looked up on each render, so the texts follow the current language.
+    private static (bool, string, string)? Lookup(string key) => key switch
+    {
+        "passkey-added" => (true, Translations.Status_PasskeyAddedTitle, Translations.Status_PasskeyAddedText),
+        "passkey-renamed" => (true, Translations.Status_PasskeyRenamedTitle, Translations.Status_PasskeyRenamedText),
+        "passkey-deleted" => (true, Translations.Status_PasskeyDeletedTitle, Translations.Status_PasskeyDeletedText),
+        "passkey-not-found" => (false, Translations.Status_PasskeyNotFoundTitle, Translations.Status_PasskeyNotFoundText),
+        "authenticator-enabled" => (true, Translations.Status_AuthenticatorEnabledTitle, Translations.Status_AuthenticatorEnabledText),
+        "mfa-disabled" => (true, Translations.Status_MfaDisabledTitle, Translations.Status_MfaDisabledText),
+        "authenticator-reset" => (true, Translations.Status_AuthenticatorResetTitle, Translations.Status_AuthenticatorResetText),
+        "browser-forgotten" => (true, Translations.Status_BrowserForgottenTitle, Translations.Status_BrowserForgottenText),
+        "mfa-required-for-codes" => (false, Translations.Status_MfaRequiredForCodesTitle, Translations.Status_MfaRequiredForCodesText),
+        _ => null,
+    };
+}

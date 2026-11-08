@@ -1,0 +1,54 @@
+@page "/confirm-email"
+
+@inject UserManager<User> UserManager
+
+<AppPageTitle Text="@(Translations.Confirm_PageTitle)" />
+
+<Container MaxWidth="28rem">
+    <Stack Gap="Gap.Large">
+        <Card>
+            <Header><Typography Variant="TextVariant.Title" As="TextElement.H1">@Translations.Confirm_Title</Typography></Header>
+            <ChildContent>
+                <Stack Gap="Gap.Medium">
+                    @if (confirmed)
+                    {
+                        <Alert Severity="AlertSeverity.Success" Title="@Translations.Confirm_SuccessTitle">
+                            @Translations.Confirm_SuccessText
+                        </Alert>
+                        <Button Href="/account" Block="true">@Translations.Confirm_Continue</Button>
+                    }
+                    else
+                    {
+                        <Alert Severity="AlertSeverity.Danger" Title="@Translations.Confirm_InvalidTitle">
+                            @Translations.Confirm_InvalidText
+                        </Alert>
+                        <Button Variant="ButtonVariant.Ghost" Href="/confirm-email/resend" Block="true">@Translations.Confirm_SendNew</Button>
+                    }
+                </Stack>
+            </ChildContent>
+        </Card>
+    </Stack>
+</Container>
+
+@code {
+    [SupplyParameterFromQuery(Name = "userId")]
+    public string? UserId { get; set; }
+
+    [SupplyParameterFromQuery(Name = "code")]
+    public string? Code { get; set; }
+
+    private bool confirmed;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Confirming on GET is fine: the only effect is marking the address as verified.
+        var token = AccountEmailService.Decode(Code);
+        var user = string.IsNullOrEmpty(UserId) ? null : await UserManager.FindByIdAsync(UserId);
+        if (user is null || token is null)
+        {
+            return;
+        }
+
+        confirmed = user.EmailConfirmed || (await UserManager.ConfirmEmailAsync(user, token)).Succeeded;
+    }
+}

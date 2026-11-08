@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Italiano (it). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>App di autenticazione</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Cambia password</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Invio non riuscito, riprova più tardi</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Inviato, controlla la posta in arrivo</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Già inviato, riprova tra qualche minuto</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Creato</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Impostazione del browser</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Passkey</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Ruoli</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Invia email di conferma</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Multifattore</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>Client OIDC</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scope</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Utenti</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Codice dall'app</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Crea nuova chiave</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>D'ora in poi ti verrà chiesto un codice dopo la password.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Il codice non è valido. Verifica che l'orologio del dispositivo sia corretto e riprova.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Non riesci a scansionarlo? Inserisci questa chiave manualmente:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Verrà creata una nuova chiave. L'app attuale smetterà subito di funzionare e l'accesso a due fattori resterà disattivato finché non avrai configurato la nuova app.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Passa a un'altra app di autenticazione</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>Codice QR per l'app di autenticazione</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Scansiona il codice QR con l'app, poi inserisci il codice mostrato.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Verifica e attiva</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Password attuale</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Scegli una nuova password (almeno {0} caratteri).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>La password è stata aggiornata.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Modifica della password non riuscita</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Aggiorna password</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Scope consentiti</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Crea client</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>La mia applicazione</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Modifica client: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (machine-to-machine)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (con PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>URI di reindirizzamento dopo il logout (uno per riga)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>URI di reindirizzamento (uno per riga)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Rigenera secret</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Richiedi il consenso esplicito dell'utente</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Salva modifiche</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Secret del client</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Lascia vuoto per mantenere il secret attuale.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Lascia vuoto per un client pubblico (solo PKCE) oppure inserisci un secret per un client confidenziale.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Almeno 16 caratteri</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Copialo ora: viene mostrato una sola volta. OpenIddict ne conserva solo l'hash.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} è stato aggiornato.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>ID client</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Consenso</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Implicito</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Obbligatorio</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Vuoi davvero eliminare {0}? I token emessi per questo client smetteranno subito di funzionare.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Elimina client</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Tipi di grant</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Nuovo client</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Tipo</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Amministrazione</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Torna all'accesso</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Annulla</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Controlla la posta in arrivo</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Conferma nuova password</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Elimina</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Descrizione</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Nome visualizzato</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Modifica</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>Email</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>tu@esempio.it</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Errore</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Questo account è bloccato per troppi tentativi non riusciti. Riprova più tardi.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Nome</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Nuova password</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Almeno {0} caratteri</value></data>
+  <data name="Common_No" xml:space="preserve"><value>No</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Nessuno</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Disattivato</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Attivato</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Password</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Rinomina</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Salva</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Accedi</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Qualcosa è andato storto</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Utente non trovato.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Sì</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Continua</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>I link di conferma sono validi per 24 ore. Richiedine uno nuovo qui sotto.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Il link non è valido o è scaduto</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Conferma email</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Invia un nuovo link</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Grazie. Il tuo indirizzo email è confermato.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>Email confermata</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>Conferma dell'email</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Consenti</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Nega</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Richiesta non valida</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>La richiesta di autorizzazione non specifica alcun client.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>La richiesta di autorizzazione manca o non è valida.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>chiede l'accesso al tuo account.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Autorizza applicazione</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>L'applicazione potrà:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Per accedere con la password basterà la password. Se la password viene divulgata, il tuo account sarà più facile da violare. Le tue passkey continueranno a funzionare.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Disattiva l'autenticazione a due fattori</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Disattivare l'app di autenticazione?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Conferma email</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Il link è valido per 24 ore. Se non hai creato un account, puoi ignorare questa email.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Conferma il tuo indirizzo email</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Ciao {0}, conferma che {1} appartiene al tuo account Anubis.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Scegli una nuova password</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Il link è valido per 1 ora e funziona una sola volta. Se non l'hai richiesto, ignora questa email; la tua password resta invariata.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Reimposta la password</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Ciao {0}, qualcuno ha chiesto di reimpostare la password del tuo account Anubis.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Apri Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Ricevi questo messaggio perché un amministratore ha inviato un'email di prova.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>L'email funziona</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Email di prova di Anubis</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Questo messaggio di prova è stato inviato da Anubis tramite {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Configurazione</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Dominio</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>utente</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>I link nelle email useranno il nome host di ogni richiesta. In produzione imposta Anubis:Issuer sul tuo URL pubblico.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Anubis:Issuer non è impostato</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Se il pulsante non funziona, apri questo link:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Solo log (non configurato)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>Le email vengono solo scritte nel log. Imposta Email:Smtp:Host oppure scegli un altro Email:Provider (SendGrid, Mailgun, Postmark, Resend) nella configurazione.</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>L'email non è configurata</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Provider</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Destinatario</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Invio non riuscito</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Invia email di prova</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Inviata</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>L'email di prova per {0} è stata accettata da {1}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>L'email non è configurata, quindi il messaggio è stato solo scritto nel log.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Il client '{0}' non è stato trovato.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Errore</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>ID richiesta: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>Lo scope '{0}' esiste già.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>Lo scope '{0}' non è stato trovato.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Si è verificato un errore durante l'elaborazione della richiesta.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Ti invieremo un link per sceglierne una nuova.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Password dimenticata</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Invia link di reimpostazione</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Se esiste un account con questo indirizzo, il link di reimpostazione è in arrivo. Il link è valido per 1 ora.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Hai dimenticato la password?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Crea account</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Il record è stato modificato da qualcun altro. Ricarica e riprova.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Si è verificato un errore sconosciuto.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>L'email '{0}' è già in uso.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Il nome del ruolo '{0}' è già in uso.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Il nome utente '{0}' è già in uso.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>L'email '{0}' non è valida.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Il nome del ruolo '{0}' non è valido.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Token non valido.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>Il nome utente '{0}' non è valido.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Esiste già un utente con questo accesso.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Password errata.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Le password devono contenere almeno una cifra (0-9).</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Le password devono contenere almeno una lettera minuscola (a-z).</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Le password devono contenere almeno un carattere che non sia una lettera o una cifra.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Le password devono usare almeno {0} caratteri diversi.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Le password devono contenere almeno una lettera maiuscola (A-Z).</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Le password devono contenere almeno {0} caratteri.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Impossibile usare il codice di recupero.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>L'utente ha già una password.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>L'utente ha già il ruolo '{0}'.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Il blocco non è abilitato per questo utente.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>L'utente non ha il ruolo '{0}'.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Account</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Lingua</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Navigazione principale</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Esci</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Creane uno</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Usa una passkey oppure email e password.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Prima conferma il tuo indirizzo email. Trovi il link nella posta in arrivo.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Accesso non riuscito</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Hai dimenticato la password?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Email o password non validi.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Non hai ancora un account?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>L'accesso non è consentito per questo account.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>oppure</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Accedi</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>La tua password</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Invia di nuovo l'email di conferma</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Accedi ad Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Questa passkey non è registrata in Anubis.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Accedi con una passkey</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Questo dispositivo ha già una passkey per questo account.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>La richiesta della passkey è stata annullata o è scaduta.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Impossibile usare la passkey. Riprova.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Il server non è riuscito ad avviare la richiesta della passkey. Riprova.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Questo browser non supporta le passkey.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Questo browser non supporta le passkey. Aggiornalo.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Codici monouso per accedere se perdi l'app di autenticazione.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Genera nuovi codici</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Usane uno per accedere se perdi l'app di autenticazione.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Vengono mostrati una sola volta. Conservali in un posto sicuro, ad esempio un gestore di password. Ogni codice ti fa accedere una volta se perdi l'app di autenticazione. I vecchi codici non funzionano più.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Salva ora questi codici di recupero</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Ho salvato i codici</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Codici di recupero</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Verranno creati {0} nuovi codici. I codici attuali smetteranno di funzionare.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Torna al codice di autenticazione</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Codice di recupero</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Ogni codice di recupero funziona una sola volta.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Il codice di recupero non è valido o è già stato usato.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Codice di recupero</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Accedi con un codice di recupero</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Sei già registrato?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Conferma password</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Ripeti la password</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Abbiamo inviato un link di conferma a {0}. Conferma l'indirizzo, poi accedi.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Registrati con email e password.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>La registrazione autonoma è attualmente disattivata. Contatta un amministratore.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Registrazione disattivata</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Mario Rossi</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Registrazione non riuscita</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Email non arrivata?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Crea account</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Invia di nuovo</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Crea il tuo account</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Dalle un nome riconoscibile, ad esempio «Pixel 9» o «MacBook Touch ID».</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Dai un nome alla passkey</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Salta</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Rinomina passkey</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Ti invieremo un nuovo link per confermare l'indirizzo.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Invia di nuovo la conferma</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Invia link</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Se l'indirizzo appartiene a un account non confermato, un nuovo link è in arrivo.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Invia di nuovo l'email di conferma</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Ora puoi accedere con la nuova password.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Password modificata</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Impossibile reimpostare la password</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Questo link di reimpostazione è incompleto. Apri di nuovo il link dall'email o richiedine uno nuovo.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Link non valido</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Il link è scaduto o è già stato usato. Richiedine uno nuovo.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Reimposta password</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Richiedi un nuovo link</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Imposta nuova password</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Scegli una nuova password</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Il tuo account non può accedere a questa pagina.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Accesso negato</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Non trovato</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Spiacenti, a questo indirizzo non c'è nulla.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Pagina non trovata</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Vedere il tuo indirizzo email</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Mantenere l'accesso quando non ci sei (refresh token)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Confermare chi sei</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Vedere il tuo nome e il profilo</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Vedere i tuoi ruoli</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Crea scope</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>I client possono richiedere scope personalizzati, associati a risorse (audience).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>La mia API</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Risorse (separate da virgole)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Risorse</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Aggiungi una passkey</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>Dopo la password, inserisci un codice di 6 cifre da un'app come Aegis, 2FAS, Google Authenticator, Microsoft Authenticator o 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Codici di recupero rimasti: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Valuta di generare nuovi codici.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Restano pochi codici di recupero ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Dimentica questo browser</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Passa a un'altra app</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Genera subito nuovi codici, altrimenti potresti restare bloccato fuori.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Nessun codice di recupero rimasto</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Il browser non ha fornito alcuna passkey.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Ancora nessuna passkey.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Aggiunta</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Puoi avere al massimo {0} passkey. Eliminane una per aggiungerne un'altra.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Impossibile salvare la passkey.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Impossibile verificare la passkey. Riprova o usa un altro dispositivo.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Sincronizzata</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Accedi con impronta, volto o PIN del dispositivo invece che con la password. La passkey è salvata sul telefono, sul computer o su una chiave di sicurezza e non può essere rubata con il phishing.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Configura app di autenticazione</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Questo browser</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Questo browser salta il codice di autenticazione all'accesso.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Disattiva</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Passkey senza nome</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Ti verrà chiesto un codice dall'app quando accedi con la password.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>App di autenticazione attivata</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Configura di nuovo l'app di autenticazione con la nuova chiave.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Chiave di autenticazione reimpostata</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Questo browser chiederà di nuovo un codice al prossimo accesso.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Browser dimenticato</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>L'app di autenticazione non è più necessaria per accedere.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Autenticazione a due fattori disattivata</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Configura un'app di autenticazione prima di generare i codici di recupero.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Non disponibile</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Ora puoi accedere con questa passkey.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Passkey aggiunta</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>La passkey non può più essere usata per accedere.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Passkey eliminata</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>La passkey non esiste o appartiene a un altro account.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Passkey non trovata</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>Il nome della passkey è stato aggiornato.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Passkey rinominata</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Codice di autenticazione</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Inserisci il codice di 6 cifre dall'app di autenticazione.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Il codice non è valido o è scaduto.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Hai perso il dispositivo?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Autenticazione a due fattori</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>Non chiedere più su questo browser per 14 giorni</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Usa un codice di recupero</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Verifica non riuscita</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Verifica</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Attivo</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Crea utente</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Le password sono salvate come hash Argon2id.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} è stato creato.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Vuoi davvero eliminare {0}? L'operazione non può essere annullata.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Elimina utente</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Utente eliminato</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} è stato eliminato.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Blocca</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Bloccato</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} ora può accedere solo con la password.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Passkey: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Reimposta MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Disattiva l'app di autenticazione, elimina tutte le passkey di {0} e chiude tutte le sue sessioni. Usalo quando qualcuno ha perso il dispositivo. Potrà poi accedere solo con la password e configurare di nuovo la MFA.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Stato</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Sblocca</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Inserisci un ID client.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Usa almeno 16 caratteri oppure lascia vuoto per un client pubblico.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Il codice ha 6 cifre.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Inserisci il codice dall'app.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Conferma la password.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Inserisci la password attuale.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Usa al massimo 100 caratteri.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Inserisci un indirizzo email valido.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>L'email è obbligatoria.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Sono consentiti solo lettere, cifre, '-', '_' e '.'.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Inserisci un nome.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Usa al massimo 100 caratteri.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>La password è obbligatoria.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Le password non coincidono.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Inserisci un destinatario.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Inserisci un codice di recupero.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Inserisci il nome di uno scope.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Carica avatar</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Usa Gravatar</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF o SVG. L'immagine viene ridotta a max 1024×1024 e salvata come WebP trasparente. Se non è impostata, viene usato Gravatar.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Nome visualizzato salvato.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Avatar aggiornato.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Avatar personalizzato rimosso. Viene usato Gravatar.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>File immagine non valido o non supportato.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Il file immagine è troppo grande (max 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Impostazioni</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Ruoli</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Aspetto</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Account che possono accedere ad Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>I ruoli vengono inviati alle applicazioni client nel claim roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Autorizzazioni che le applicazioni client possono richiedere.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Applicazioni che fanno accedere gli utenti tramite Anubis.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Email in uscita per la conferma dell'indirizzo e la reimpostazione della password.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Logo, carattere e colori delle pagine di accesso e dell'account.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Chiudi</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Salvato in {0}. Questi valori hanno la precedenza su appsettings.json e sulle variabili d'ambiente.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Impostazioni salvate</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Le modifiche si applicano subito.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Impostazioni non salvate</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Impostato. Lascia vuoto per mantenere il valore attuale.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Indirizzo del mittente</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Nome del mittente</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>Server SMTP</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Porta</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Crittografia</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Timeout (secondi)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Nome utente</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>Chiave API</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Token del server</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>URL dell'API</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Logo e icona</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Carica un file SVG, WebP, PNG, JPEG o GIF (salvato nel file delle impostazioni) oppure inserisci un percorso in wwwroot o un URL https://. Le versioni PNG della favicon per Safari e iOS vengono generate automaticamente.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Logo</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Carattere</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Vuoto = carattere predefinito (il monospaziato di sistema). Si possono usare solo caratteri installati sul dispositivo.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Famiglia di caratteri (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Tema chiaro</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Tema scuro</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Scegli un colore o inseriscilo come #RRGGBB. Vuoto = colore predefinito.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Primario</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Secondario</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Sfondo</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Testo</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Crea ruolo</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Un nuovo ruolo non ha membri; aggiungili nell'elenco qui sotto.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Membri</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Predefinito</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Elimina ruolo</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Eliminare il ruolo {0}? Tutti i suoi membri lo perderanno.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Membri di {0}</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Aggiungi</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Rimuovi</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Ancora nessun membro.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>L'ultimo amministratore non può essere rimosso.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Inserisci un nome per il ruolo.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Inserisci un colore come #RRGGBB oppure lascia vuoto.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Non deve contenere ; { } &lt; &gt; o \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Inserisci un URL https:// assoluto.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Inserisci un percorso che inizia con /, un URL https:// oppure carica un file.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Carica</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Usa predefinito</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>File caricato · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Immagine non supportata o danneggiata, oppure SVG con link esterni. Usa SVG, WebP, PNG, JPEG o GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Il file è troppo grande (max {0} MB, {1} KB dopo l'elaborazione).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Verificato</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Non verificato</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Numero di telefono</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Formato internazionale, ad es. +39 312 345 6789.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Invia codice</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Codice dell'SMS</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Abbiamo inviato un codice al {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Numero di telefono verificato.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Inserisci il numero in formato internazionale, ad es. +39 312 345 6789.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Un codice è stato appena inviato. Riprova tra un minuto.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Il tuo codice di verifica Anubis: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Modalità colore</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Chiaro</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Scuro</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>Sistema</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Non scelta: viene usata la lingua preferita dal browser.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Non scelta: segue l'impostazione chiara o scura del sistema.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Cronologia</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Accessi e modifiche al tuo account negli ultimi 12 mesi.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Ancora niente.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Più recenti</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Meno recenti</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>da un amministratore</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Dispositivo sconosciuto</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Account creato</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Accesso</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Tentativo di accesso non riuscito</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Account bloccato dopo troppi tentativi non riusciti</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Disconnessione</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Accesso a un'applicazione</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Password modificata</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Password reimpostata via email</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>Indirizzo email confermato</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>App di autenticazione attivata</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>App di autenticazione disattivata</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Nuovi codici di recupero generati</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Passkey aggiunta</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Passkey rimossa</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Numero di telefono modificato</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Numero di telefono verificato</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Numero di telefono rimosso</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Nome visualizzato modificato</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Avatar modificato</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Account bloccato</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Account sbloccato</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>password</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>passkey</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>app di autenticazione</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>codice di recupero</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Uscire da Anubis?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Gestione</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Azioni</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Eliminare lo scope {0}? I client non potranno più richiederlo.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Generale</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Impostazioni di base di questo server.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Nome del server</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Mostrato nel titolo della scheda del browser e in alto nelle pagine dell'account e di amministrazione.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Inserisci un nome per il server.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Usa al massimo 60 caratteri.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Sicurezza</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Regole delle password, blocco dopo tentativi falliti, durata della sessione e passkey. Le modifiche si applicano subito.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Token</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Validità dei token e dei codici emessi alle applicazioni client. Le modifiche valgono per i nuovi token.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Server</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>URL pubblico (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Ad esempio https://id.example.com. Vuoto = ricavato da ogni richiesta. Ha effetto dopo un riavvio.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Registrazione</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Consenti la registrazione autonoma</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Richiedi un indirizzo email confermato per accedere</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Richiede impostazioni email funzionanti.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Password</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Lunghezza minima</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Richiedi una cifra</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Richiedi una lettera minuscola</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Richiedi una lettera maiuscola</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Richiedi un simbolo</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Blocco dopo accessi non riusciti</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Tentativi falliti prima del blocco</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Durata del blocco (minuti)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Sessione di accesso</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Durata della sessione (ore)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Estendi la sessione finché l'utente è attivo</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Numero massimo di passkey per account</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (minuti)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID token (minuti)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Codice di autorizzazione (minuti)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (giorni)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Consenso (minuti)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Per quanto tempo viene ricordato un consenso durante l'accesso.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Intervallo consentito: da {0} a {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Modifica {0}</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>L'indirizzo email è anche il nome di accesso: l'utente accederà con il nuovo indirizzo.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>Indirizzo email confermato</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Un numero modificato viene salvato come non verificato.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Questo indirizzo email è già usato da un altro account.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Non puoi rimuovere il ruolo Admin dal tuo account.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Le modifiche a {0} sono state salvate.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>Indirizzo email modificato</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Ruolo aggiunto</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Ruolo rimosso</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Dopo il salvataggio viene inviata un'email di conferma al nuovo indirizzo.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>È stata inviata un'email di conferma a {0}.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Inizia con una lettera, poi lettere, cifre e - _ . : / (al massimo {0} caratteri).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>«{0}» è impostato da Anubis e non può essere usato.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Inserisci un valore.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Al massimo {0} caratteri.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Questo claim è elencato due volte.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Al massimo {0} claim.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Ruolo non trovato.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>I ruoli predefiniti non possono essere rinominati.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Esiste già un ruolo con questo nome.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Modifica ruolo {0}</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Ruolo {0} salvato.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Aggiungi ruolo</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claim</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Aggiunti all'access token, all'ID token e a userinfo, insieme ai claim dei ruoli dell'utente.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Aggiunti ai token di tutti i membri di questo ruolo.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Tipo</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Valore</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Aggiungi claim</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Rimuovi claim</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Ancora nessun claim.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Dai ruoli</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Cambia avatar</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Caricamento…</value></data>
+</root>

@@ -1,0 +1,188 @@
+@page "/account/passkeys"
+@page "/account/security"
+@attribute [Authorize]
+
+@using System.Buffers.Text
+@using Microsoft.AspNetCore.Authorization
+@using k6labs.Anubis.Models
+
+@inject UserManager<User> UserManager
+@inject Microsoft.Extensions.Options.IOptionsMonitor<Options.SecurityOptions> SecurityMonitor
+@inject SignInManager<User> SignInManager
+@inject NavigationManager Navigation
+@inject ILogger<Security> Logger
+
+@* Statically rendered: adding a passkey changes cookies, which only works during a normal HTTP request. *@
+
+<AppPageTitle Text="@(Translations.Account_Passkeys)" />
+
+<Stack Gap="Gap.Large">
+    <StatusAlert />
+
+    @if (!string.IsNullOrEmpty(error))
+    {
+        <Alert Severity="AlertSeverity.Danger" Title="@Translations.Common_SomethingWentWrong">
+            @error
+        </Alert>
+    }
+
+    <PageHeader Title="@Translations.Account_Passkeys" Description="@Translations.Security_PasskeysDescription" />
+
+    @if (passkeys.Count > 0)
+    {
+        <Table Label="@Translations.Account_Passkeys" Scroll="false">
+            <thead>
+                <tr>
+                    <th>@Translations.Common_Name</th>
+                    <th>@Translations.Security_PasskeyAdded</th>
+                    <th>@Translations.Security_PasskeySynced</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var passkey in passkeys)
+                {
+                    var id = Base64Url.EncodeToString(passkey.CredentialId);
+                    <tr>
+                        <td>@(passkey.Name ?? Translations.Security_UnnamedPasskey)</td>
+                        <td>@passkey.CreatedAt.ToString("yyyy-MM-dd")</td>
+                        <td>@(passkey.IsBackedUp ? Translations.Common_Yes : Translations.Common_No)</td>
+                        <td data-align="end">
+                            <Menu Label="@Translations.Common_Actions" data-row-menu>
+                                <MenuItem Href="@($"/account/security/passkeys/{id}")" Icon="@AppIcons.Edit">@Translations.Common_Rename</MenuItem>
+                                <form method="post" @formname="@($"delete-passkey-{id}")" @onsubmit="DeletePasskeyAsync">
+                                    <AntiforgeryToken />
+                                    <input type="hidden" name="CredentialId" value="@id" />
+                                    <MenuItem Type="submit" Icon="@AppIcons.Delete" Danger="true">@Translations.Common_Delete</MenuItem>
+                                </form>
+                            </Menu>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </Table>
+    }
+    else
+    {
+        <Typography Tone="Tone.Muted">@Translations.Security_NoPasskeys</Typography>
+    }
+
+    @if (passkeys.Count < MaxPasskeys)
+    {
+        <form method="post" @formname="add-passkey" @onsubmit="AddPasskeyAsync" data-passkey-section>
+            <Stack Gap="Gap.Medium">
+                <AntiforgeryToken />
+                <PasskeySubmit Operation="PasskeySubmit.PasskeyOperation.Create" Name="AddPasskey" Icon="@AppIcons.Fingerprint">
+                    @Translations.Security_AddPasskey
+                </PasskeySubmit>
+                <Typography Variant="TextVariant.Small" Tone="Tone.Muted" data-passkey-unsupported hidden>@Translations.Passkey_Unsupported</Typography>
+            </Stack>
+        </form>
+    }
+    else
+    {
+        <Typography Tone="Tone.Muted">@Translations.Security_PasskeyLimit.Format(MaxPasskeys)</Typography>
+    }
+</Stack>
+
+@code {
+    private int MaxPasskeys => SecurityMonitor.CurrentValue.MaxPasskeysPerUser;
+
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    [SupplyParameterFromForm(FormName = "add-passkey")]
+    private PasskeyInputModel? AddPasskey { get; set; }
+
+    [SupplyParameterFromForm]
+    private string? CredentialId { get; set; }
+
+    private User? user;
+    private IList<UserPasskeyInfo> passkeys = [];
+    private string? error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        AddPasskey ??= new();
+
+        user = await UserManager.GetUserAsync(HttpContext.User);
+        if (user is null)
+        {
+            Navigation.NavigateTo("/login", forceLoad: true);
+            return;
+        }
+
+        passkeys = await UserManager.GetPasskeysAsync(user);
+    }
+
+    private async Task AddPasskeyAsync()
+    {
+        if (user is null)
+        {
+            return;
+        }
+
+        if (!string.IsNullOrEmpty(AddPasskey!.Error))
+        {
+            error = AddPasskey.Error;
+            return;
+        }
+
+        if (string.IsNullOrEmpty(AddPasskey.CredentialJson))
+        {
+            error = Translations.Security_NoPasskeyProvided;
+            return;
+        }
+
+        if (passkeys.Count >= MaxPasskeys)
+        {
+            error = Translations.Security_PasskeyLimit.Format(MaxPasskeys);
+            return;
+        }
+
+        var attestation = await SignInManager.PerformPasskeyAttestationAsync(AddPasskey.CredentialJson);
+        if (!attestation.Succeeded)
+        {
+            // The framework message is English and technical; log it, show a translated one.
+            Logger.LogWarning("Passkey attestation failed: {Reason}", attestation.Failure.Message);
+            error = Translations.Security_PasskeyNotVerified;
+            return;
+        }
+
+        var result = await UserManager.AddOrUpdatePasskeyAsync(user, attestation.Passkey);
+        if (!result.Succeeded)
+        {
+            error = Translations.Security_PasskeyNotSaved;
+            return;
+        }
+
+        // Ask for a name right away so passkeys are easy to tell apart.
+        var id = Base64Url.EncodeToString(attestation.Passkey.CredentialId);
+        Navigation.NavigateTo($"/account/security/passkeys/{id}?new=1", forceLoad: true);
+    }
+
+    private async Task DeletePasskeyAsync()
+    {
+        if (user is null)
+        {
+            return;
+        }
+
+        byte[] credentialId;
+        try
+        {
+            credentialId = Base64Url.DecodeFromChars(CredentialId);
+        }
+        catch (FormatException)
+        {
+            Navigation.NavigateTo("/account/security?status=passkey-not-found", forceLoad: true);
+            return;
+        }
+
+        // RemovePasskeyAsync only touches passkeys of this user.
+        var result = await UserManager.RemovePasskeyAsync(user, credentialId);
+        Navigation.NavigateTo(
+            result.Succeeded ? "/account/security?status=passkey-deleted" : "/account/security?status=passkey-not-found",
+            forceLoad: true);
+    }
+}

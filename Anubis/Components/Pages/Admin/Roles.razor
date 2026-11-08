@@ -1,0 +1,368 @@
+@page "/admin/roles"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = "Admin")]
+
+@using k6labs.Anubis.Localization
+@using Microsoft.AspNetCore.Authorization
+
+@inject RoleManager<Role> RoleManager
+@inject UserManager<User> UserManager
+@* Notifications belong to this page and its interactive circuit. *@
+@inject Services.RoleAdministration Administration
+
+<AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_Roles))" />
+
+<NotificationList State="Notifications" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@Translations.Admin_Roles" Description="@Translations.Admin_RolesDescription"
+                CreateLabel="@Translations.Roles_Create" OnCreate="OpenCreate" />
+
+    <Table Label="@Translations.Admin_Roles">
+        <thead>
+            <tr>
+                <th>@Translations.Common_Name</th>
+                <th>@Translations.Roles_Members</th>
+                <th>@Translations.Claims_Title</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var role in roles)
+            {
+                <tr>
+                    <td>
+                        <code>@role.Name</code>
+                        @if (IsBuiltIn(role))
+                        {
+                            <Badge>@Translations.Roles_BuiltIn</Badge>
+                        }
+                    </td>
+                    <td>@members[role.Id].Count</td>
+                    <td>@claimCounts.GetValueOrDefault(role.Id)</td>
+                    <td data-align="end">
+                        <RowMenu>
+                            <MenuItem Icon="@AppIcons.Edit" OnClick="() => OpenEditAsync(role)" data-popup-option>@Translations.Common_Edit</MenuItem>
+                            <Divider />
+                            <MenuItem Icon="@AppIcons.Group" OnClick="() => OpenMembers(role)" data-popup-option>@Translations.Roles_Members</MenuItem>
+                            @if (!IsBuiltIn(role))
+                            {
+                                <Divider />
+                                <MenuItem Icon="@AppIcons.Delete" OnClick="() => AskDelete(role)" data-popup-option Danger="true">@Translations.Common_Delete</MenuItem>
+                            }
+                        </RowMenu>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </Table>
+</Stack>
+
+<AppModal Title="@Translations.Roles_Create" @bind-Open="createOpen">
+    <ChildContent>
+        <EditForm Model="createModel" OnValidSubmit="CreateAsync" FormName="createRole" id="createRoleForm">
+            <Stack Gap="Gap.Medium">
+                <DataAnnotationsValidator />
+                <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Roles_CreateDescription</Typography>
+                <FormText @bind-Value="createModel.Name" Label="@Translations.Common_Name" Placeholder="@("editors")" Id="roleName" />
+                @if (createError is not null)
+                {
+                    <Alert Severity="AlertSeverity.Danger">@createError</Alert>
+                }
+            </Stack>
+        </EditForm>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => createOpen = false">@Translations.Common_Cancel</Button>
+        <Button form="createRoleForm" Disabled="busy" Type="submit">@Translations.Roles_Create</Button>
+    </Footer>
+</AppModal>
+
+<AppModal Title="@Translations.Roles_EditTitle.F(editingName)" @bind-Open="editOpen">
+    <ChildContent>
+        @if (editModel is not null)
+        {
+            <EditForm Model="editModel" OnSubmit="SaveEditAsync" FormName="editRole" id="editRoleForm">
+                <Stack Gap="Gap.Medium">
+                    <FormText @bind-Value="editModel.Name" Label="@Translations.Common_Name" Disabled="editModel.BuiltIn" Error="@editErrors.ContainsKey("Name")" ErrorText="@editErrors.GetValueOrDefault("Name")" Id="editRoleName" Hint="@(editModel.BuiltIn ? Translations.Roles_BuiltInName : null)" maxlength="@Services.RoleAdministration.NameMaxLength" />
+                    <Divider />
+                    <ClaimsEditor Claims="editModel.Claims" Errors="editErrors" Hint="@Translations.Claims_RoleHint" IdPrefix="roleClaim" />
+                    @if (editErrors.GetValueOrDefault(string.Empty) is { } formError)
+                    {
+                        <Alert Severity="AlertSeverity.Danger">@formError</Alert>
+                    }
+                </Stack>
+            </EditForm>
+        }
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => editOpen = false">@Translations.Common_Cancel</Button>
+        <Button form="editRoleForm" Disabled="@(busy || !editSnapshot.IsDirty(editModel))" Type="submit">@Translations.Common_Save</Button>
+    </Footer>
+</AppModal>
+
+<AppModal Title="@Translations.Roles_MembersTitle.F(selectedRole?.Name)" @bind-Open="membersDialogOpen">
+    <ChildContent>
+        <Stack Gap="Gap.Medium">
+            @if (memberError is not null)
+            {
+                <Alert Severity="AlertSeverity.Danger">@memberError</Alert>
+            }
+
+            <Stack Direction="Direction.Row" Gap="Gap.Medium" Align="Align.Start" Wrap="true">
+                <Stack Gap="Gap.XSmall" Grow="true">
+                    <FormText @bind-Value="newMemberEmail" Label="@Translations.Common_Email" Placeholder="@Translations.Common_EmailPlaceholder" Id="memberEmail" Type="email" />
+                </Stack>
+                <Button OnClick="AddMemberAsync" Icon="@AppIcons.PersonAdd">
+                    @Translations.Roles_AddMember
+                </Button>
+            </Stack>
+
+            @if (selectedRole is not null && members[selectedRole.Id].Count > 0)
+            {
+                <Table Label="@Translations.Roles_Members" Dense="true">
+                    <tbody>
+                        @foreach (var member in members[selectedRole.Id])
+                        {
+                            <tr>
+                                <td>@member.Email</td>
+                                <td>@member.DisplayName</td>
+                                <td data-align="end">
+                                    <RowMenu>
+                                        <MenuItem Icon="@AppIcons.PersonRemove" OnClick="() => RemoveMemberAsync(member)" data-popup-option Danger="true">@Translations.Roles_RemoveMember</MenuItem>
+                                    </RowMenu>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </Table>
+            }
+            else
+            {
+                <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Roles_NoMembers</Typography>
+            }
+        </Stack>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Ghost" OnClick="() => membersDialogOpen = false">@Translations.Common_Close</Button>
+    </Footer>
+</AppModal>
+
+<AppModal Title="@Translations.Roles_DeleteTitle" @bind-Open="deleteDialogOpen">
+    <ChildContent>
+        <Typography>@Translations.Roles_DeleteConfirm.F(roleToDelete?.Name)</Typography>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Ghost" OnClick="() => deleteDialogOpen = false">@Translations.Common_Cancel</Button>
+        <Button Variant="ButtonVariant.Danger" OnClick="DeleteAsync">@Translations.Common_Delete</Button>
+    </Footer>
+</AppModal>
+
+@code {
+    private readonly NotificationState Notifications = new();
+    private RoleFormModel createModel = new();
+    private bool createOpen;
+    private string? createError;
+    private List<Role> roles = new();
+    private Dictionary<string, List<User>> members = new();
+    private Role? selectedRole;
+    private bool membersDialogOpen;
+    private string? newMemberEmail;
+    private string? memberError;
+    private Role? roleToDelete;
+    private bool deleteDialogOpen;
+    private bool busy;
+    private Dictionary<string, int> claimCounts = new();
+    private Models.RoleEditModel? editModel;
+    private string? editingName;
+    private bool editOpen;
+    private readonly FormSnapshot editSnapshot = new();
+    private Dictionary<string, string> editErrors = new();
+
+    protected override async Task OnInitializedAsync() => await LoadAsync();
+
+    private static bool IsBuiltIn(Role role)
+        => role.Name is DatabaseInitializer.AdminRole or DatabaseInitializer.UserRole;
+
+    private async Task LoadAsync()
+    {
+        roles = await RoleManager.Roles.OrderBy(r => r.Name).ToListAsync();
+        members = new Dictionary<string, List<User>>();
+        claimCounts = new Dictionary<string, int>();
+        foreach (var role in roles)
+        {
+            claimCounts[role.Id] = (await RoleManager.GetClaimsAsync(role)).Count(claim => !Services.CustomClaims.IsReserved(claim.Type));
+            members[role.Id] = (await UserManager.GetUsersInRoleAsync(role.Name!)).OrderBy(u => u.Email).ToList();
+        }
+
+        if (selectedRole is not null)
+        {
+            selectedRole = roles.FirstOrDefault(r => r.Id == selectedRole.Id);
+        }
+    }
+
+    private void OpenCreate()
+    {
+        createModel = new RoleFormModel();
+        createError = null;
+        createOpen = true;
+    }
+
+    private async Task CreateAsync()
+    {
+        busy = true;
+        createError = null;
+
+        var name = createModel.Name.Trim();
+        var result = await RoleManager.CreateAsync(new Role(name));
+        busy = false;
+
+        if (!result.Succeeded)
+        {
+            createError = string.Join(" ", result.Errors.Select(e => e.Description));
+            return;
+        }
+
+        createOpen = false;
+        Notifications.Add(Translations.Users_CreatedText.F(name), AlertSeverity.Success);
+        await LoadAsync();
+    }
+
+    private async Task OpenEditAsync(Role role)
+    {
+        editModel = await Administration.LoadAsync(role.Id);
+        if (editModel is null)
+        {
+            Notifications.Add(Translations.Roles_NotFound, AlertSeverity.Danger);
+            await LoadAsync();
+            return;
+        }
+
+        editingName = editModel.Name;
+        editErrors = new();
+        editSnapshot.Take(editModel);
+        editOpen = true;
+    }
+
+    private async Task SaveEditAsync()
+    {
+        if (editModel is null)
+        {
+            return;
+        }
+
+        busy = true;
+        editErrors = await Administration.UpdateAsync(editModel);
+        busy = false;
+        if (editErrors.Count > 0)
+        {
+            return;
+        }
+
+        editOpen = false;
+        Notifications.Add(Translations.Roles_Saved.F(editModel.Name.Trim()), AlertSeverity.Success);
+        await LoadAsync();
+    }
+
+    private void OpenMembers(Role role)
+    {
+        selectedRole = role;
+        newMemberEmail = null;
+        memberError = null;
+        membersDialogOpen = true;
+    }
+
+    private async Task AddMemberAsync()
+    {
+        memberError = null;
+        if (selectedRole is null || string.IsNullOrWhiteSpace(newMemberEmail))
+        {
+            return;
+        }
+
+        var user = await UserManager.FindByEmailAsync(newMemberEmail.Trim());
+        if (user is null)
+        {
+            memberError = Translations.Common_UserNotFound;
+            return;
+        }
+
+        if (!await UserManager.IsInRoleAsync(user, selectedRole.Name!))
+        {
+            var result = await UserManager.AddToRoleAsync(user, selectedRole.Name!);
+            if (!result.Succeeded)
+            {
+                memberError = string.Join(" ", result.Errors.Select(e => e.Description));
+                return;
+            }
+        }
+
+        newMemberEmail = null;
+        await LoadAsync();
+    }
+
+    private async Task RemoveMemberAsync(User user)
+    {
+        memberError = null;
+        if (selectedRole is null)
+        {
+            return;
+        }
+
+        // Never lock everybody out of the admin section.
+        if (selectedRole.Name == DatabaseInitializer.AdminRole && members[selectedRole.Id].Count <= 1)
+        {
+            memberError = Translations.Roles_LastAdmin;
+            return;
+        }
+
+        var result = await UserManager.RemoveFromRoleAsync(user, selectedRole.Name!);
+        if (!result.Succeeded)
+        {
+            memberError = string.Join(" ", result.Errors.Select(e => e.Description));
+            return;
+        }
+
+        // Role changes take effect on the user's next sign-in / token refresh.
+        await UserManager.UpdateSecurityStampAsync(user);
+        await LoadAsync();
+    }
+
+    private void AskDelete(Role role)
+    {
+        roleToDelete = role;
+        deleteDialogOpen = true;
+    }
+
+    private async Task DeleteAsync()
+    {
+        if (roleToDelete is null || IsBuiltIn(roleToDelete))
+        {
+            deleteDialogOpen = false;
+            return;
+        }
+
+        var result = await RoleManager.DeleteAsync(roleToDelete);
+        deleteDialogOpen = false;
+
+        if (result.Succeeded)
+        {
+            Notifications.Add(Translations.Users_DeletedText.F(roleToDelete.Name), AlertSeverity.Success);
+        }
+        else
+        {
+            Notifications.Add(string.Join(" ", result.Errors.Select(e => e.Description)), AlertSeverity.Danger);
+        }
+
+        roleToDelete = null;
+        await LoadAsync();
+    }
+
+    private sealed class RoleFormModel
+    {
+        [LRequired(nameof(Translations.Validation_RoleNameRequired))]
+        [LRegularExpression(@"^[a-zA-Z0-9\-_\.]+$", nameof(Translations.Validation_Identifier))]
+        [LStringLength(100, nameof(Translations.Validation_NameTooLong))]
+        public string Name { get; set; } = string.Empty;
+    }
+}

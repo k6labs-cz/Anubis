@@ -1,0 +1,44 @@
+@page "/account/security/disable"
+@attribute [Authorize]
+
+@using Microsoft.AspNetCore.Authorization
+
+@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+@inject NavigationManager Navigation
+
+<AppPageTitle Text="@(Translations.Disable2fa_PageTitle)" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@Translations.Disable2fa_Title" Description="@Translations.Disable2fa_Description" />
+    <form method="post" @formname="disable-2fa" @onsubmit="DisableAsync">
+        <Stack Direction="Direction.Row" Gap="Gap.Medium" Align="Align.Center" Wrap="true">
+            <AntiforgeryToken />
+            <Button Variant="ButtonVariant.Danger" Type="submit" Icon="@AppIcons.RemoveModerator">
+                @Translations.Security_TurnOff
+            </Button>
+            <Button Variant="ButtonVariant.Ghost" Href="/account/mfa">@Translations.Common_Cancel</Button>
+        </Stack>
+    </form>
+</Stack>
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    private async Task DisableAsync()
+    {
+        var user = await UserManager.GetUserAsync(HttpContext.User);
+        if (user is null)
+        {
+            Navigation.NavigateTo("/login", forceLoad: true);
+            return;
+        }
+
+        await UserManager.SetTwoFactorEnabledAsync(user, false);
+        // New key, so a later setup doesn't silently reuse the old app entry.
+        await UserManager.ResetAuthenticatorKeyAsync(user);
+        await SignInManager.RefreshSignInAsync(user);
+        Navigation.NavigateTo("/account/security?status=mfa-disabled", forceLoad: true);
+    }
+}

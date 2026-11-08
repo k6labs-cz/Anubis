@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Dansk (da). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Godkendelsesapp</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Skift adgangskode</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Kunne ikke sende, prøv igen senere</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Sendt, tjek din indbakke</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Allerede sendt, prøv igen om et par minutter</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Oprettet</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Browserens indstilling</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Adgangsnøgler</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Roller</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Send bekræftelsesmail</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Flerfaktor</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>OIDC-klienter</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scopes</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Brugere</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Kode fra appen</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Opret ny nøgle</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>Fremover bliver du bedt om en kode efter din adgangskode.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Koden er ugyldig. Kontrollér, at uret på din enhed går rigtigt, og prøv igen.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Kan du ikke scanne den? Indtast denne nøgle manuelt:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Der oprettes en ny nøgle. Din nuværende app holder straks op med at virke, og totrinslogin forbliver slået fra, indtil du har konfigureret den nye app.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Skift til en anden godkendelsesapp</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>QR-kode til din godkendelsesapp</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Scan QR-koden med din app, og indtast derefter den kode, den viser.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Bekræft og slå til</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Nuværende adgangskode</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Vælg en ny adgangskode (mindst {0} tegn).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Din adgangskode er blevet opdateret.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Skift af adgangskode mislykkedes</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Opdater adgangskode</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Tilladte scopes</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Opret klient</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>Min applikation</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Rediger klient: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (maskine til maskine)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (med PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>Omdirigerings-URI'er efter logout (én pr. linje)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>Omdirigerings-URI'er (én pr. linje)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Generér ny hemmelighed</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Kræv udtrykkeligt samtykke fra brugeren</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Gem ændringer</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Klienthemmelighed</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Lad feltet være tomt for at beholde den nuværende hemmelighed.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Lad feltet være tomt for en offentlig klient (kun PKCE), eller indtast en hemmelighed for en fortrolig klient.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Mindst 16 tegn</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Kopiér den nu – den vises kun én gang. OpenIddict gemmer kun dens hash.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} er blevet opdateret.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>Klient-id</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Samtykke</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Implicit</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Påkrævet</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Er du sikker på, at du vil slette {0}? Tokens udstedt til den holder straks op med at virke.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Slet klient</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Grant-typer</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Ny klient</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Administration</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Tilbage til login</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Annuller</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Tjek din indbakke</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Bekræft ny adgangskode</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Slet</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Beskrivelse</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Visningsnavn</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Rediger</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>E-mail</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>dig@eksempel.dk</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Fejl</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Kontoen er låst efter for mange mislykkede forsøg. Prøv igen senere.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Navn</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Ny adgangskode</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Mindst {0} tegn</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Nej</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Ingen</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Fra</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Til</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Adgangskode</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Omdøb</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Gem</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Log ind</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Noget gik galt</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Brugeren blev ikke fundet.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Ja</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Fortsæt</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Bekræftelseslinks gælder i 24 timer. Anmod om et nyt nedenfor.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Linket er ugyldigt eller udløbet</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Bekræft e-mail</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Send et nyt link</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Tak. Din e-mailadresse er bekræftet.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>E-mail bekræftet</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>Bekræftelse af e-mail</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Tillad</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Afvis</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Ugyldig anmodning</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Godkendelsesanmodningen angiver ikke en klient.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Godkendelsesanmodningen mangler eller er ugyldig.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>anmoder om adgang til din konto.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Godkend applikation</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>Applikationen vil kunne:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Login med adgangskode kræver så kun adgangskoden. Hvis adgangskoden lækker, er det lettere at overtage din konto. Dine adgangsnøgler virker fortsat.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Slå totrinsgodkendelse fra</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Slå godkendelsesappen fra?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Bekræft e-mail</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Linket gælder i 24 timer. Hvis du ikke har oprettet en konto, kan du se bort fra denne e-mail.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Bekræft din e-mailadresse</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Hej {0}, bekræft venligst, at {1} hører til din Anubis-konto.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Vælg en ny adgangskode</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Linket gælder i 1 time og virker én gang. Hvis du ikke har bedt om dette, kan du se bort fra e-mailen; din adgangskode forbliver uændret.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Nulstil din adgangskode</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Hej {0}, nogen har bedt om at nulstille adgangskoden til din Anubis-konto.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Åbn Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Du modtager dette, fordi en administrator har sendt en testmail.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>E-mail virker</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Testmail fra Anubis</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Denne testbesked blev sendt af Anubis via {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Konfiguration</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Domæne</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>der</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Links i e-mails bruger så værtsnavnet fra hver anmodning. Sæt Anubis:Issuer til din offentlige URL i produktion.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Anubis:Issuer er ikke angivet</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Hvis knappen ikke virker, så åbn dette link:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Kun log (ikke konfigureret)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>E-mails skrives kun til loggen. Angiv Email:Smtp:Host, eller vælg en anden Email:Provider (SendGrid, Mailgun, Postmark, Resend) i konfigurationen.</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>E-mail er ikke konfigureret</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Udbyder</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Modtager</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Afsendelse mislykkedes</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Send testmail</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Sendt</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>Testmailen til {0} blev accepteret af {1}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>E-mail er ikke konfigureret, så beskeden blev kun skrevet til loggen.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Klienten '{0}' blev ikke fundet.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Fejl</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>Anmodnings-id: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>Scopet '{0}' findes allerede.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>Scopet '{0}' blev ikke fundet.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Der opstod en fejl under behandlingen af din anmodning.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Vi sender dig et link, så du kan vælge en ny.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Glemt adgangskode</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Send nulstillingslink</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Hvis der findes en konto med den adresse, er et nulstillingslink på vej. Linket gælder i 1 time.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Har du glemt din adgangskode?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Opret konto</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Posten er blevet ændret af en anden. Genindlæs, og prøv igen.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Der opstod en ukendt fejl.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>E-mailen '{0}' er allerede i brug.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Rollenavnet '{0}' er allerede i brug.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Brugernavnet '{0}' er allerede i brug.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>E-mailen '{0}' er ugyldig.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Rollenavnet '{0}' er ugyldigt.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Ugyldigt token.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>Brugernavnet '{0}' er ugyldigt.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Der findes allerede en bruger med dette login.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Forkert adgangskode.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Adgangskoder skal indeholde mindst ét ciffer (0-9).</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Adgangskoder skal indeholde mindst ét lille bogstav (a-z).</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Adgangskoder skal indeholde mindst ét tegn, der hverken er et bogstav eller et ciffer.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Adgangskoder skal indeholde mindst {0} forskellige tegn.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Adgangskoder skal indeholde mindst ét stort bogstav (A-Z).</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Adgangskoder skal være mindst {0} tegn lange.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Gendannelseskoden kunne ikke bruges.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Brugeren har allerede en adgangskode.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Brugeren har allerede rollen '{0}'.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Spærring er ikke slået til for denne bruger.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Brugeren har ikke rollen '{0}'.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Konto</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Sprog</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Hovednavigation</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Log ud</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Opret en</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Brug en adgangsnøgle eller din e-mail og adgangskode.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Bekræft først din e-mailadresse. Linket ligger i din indbakke.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Login mislykkedes</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Har du glemt din adgangskode?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Forkert e-mail eller adgangskode.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Ingen konto endnu?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Login er ikke tilladt for denne konto.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>eller</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Log ind</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Din adgangskode</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Send bekræftelsesmailen igen</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Log ind på Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Denne adgangsnøgle er ikke registreret i Anubis.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Log ind med en adgangsnøgle</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Denne enhed har allerede en adgangsnøgle til denne konto.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>Anmodningen om adgangsnøgle blev annulleret eller udløb.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Adgangsnøglen kunne ikke bruges. Prøv igen.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Serveren kunne ikke starte anmodningen om adgangsnøgle. Prøv igen.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Denne browser understøtter ikke adgangsnøgler.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Denne browser understøtter ikke adgangsnøgler. Opdater den.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Engangskoder til login, hvis du mister din godkendelsesapp.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Generér nye koder</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Brug en af disse til at logge ind, hvis du mister din godkendelsesapp.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>De vises kun én gang. Opbevar dem et sikkert sted, f.eks. i en adgangskodeadministrator. Hver kode logger dig ind én gang, hvis du mister din godkendelsesapp. Gamle koder virker ikke længere.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Gem disse gendannelseskoder nu</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Jeg har gemt koderne</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Gendannelseskoder</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Der oprettes {0} nye koder. Dine nuværende koder holder op med at virke.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Tilbage til godkendelseskoden</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Gendannelseskode</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Hver gendannelseskode virker kun én gang.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Gendannelseskoden er ugyldig eller allerede brugt.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Gendannelseskode</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Log ind med en gendannelseskode</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Allerede registreret?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Bekræft adgangskode</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Gentag adgangskoden</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Vi har sendt et bekræftelseslink til {0}. Bekræft din adresse, og log derefter ind.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Registrér dig med e-mail og adgangskode.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Selvregistrering er slået fra i øjeblikket. Kontakt en administrator.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Registrering slået fra</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Jens Hansen</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Registreringen mislykkedes</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Ingen e-mail?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Opret konto</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Send igen</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Opret din konto</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Giv den et navn, du kan genkende, f.eks. "Pixel 9" eller "MacBook Touch ID".</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Navngiv din adgangsnøgle</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Spring over</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Omdøb adgangsnøgle</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Vi sender et nyt link til bekræftelse af din adresse.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Send bekræftelse igen</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Send link</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Hvis adressen hører til en ubekræftet konto, er et nyt link på vej.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Send bekræftelsesmail igen</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Du kan nu logge ind med din nye adgangskode.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Adgangskoden er ændret</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Adgangskoden kunne ikke nulstilles</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Nulstillingslinket er ufuldstændigt. Åbn linket fra e-mailen igen, eller anmod om et nyt.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Ugyldigt link</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Linket er udløbet eller allerede brugt. Anmod om et nyt.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Nulstil adgangskode</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Anmod om et nyt link</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Angiv ny adgangskode</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Vælg en ny adgangskode</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Din konto har ikke adgang til denne side.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Adgang nægtet</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Ikke fundet</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Beklager, der er intet på denne adresse.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Siden blev ikke fundet</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Se din e-mailadresse</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Bevare adgangen, mens du er væk (refresh tokens)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Bekræfte, hvem du er</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Se dit navn og din profil</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Se dine roller</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Opret scope</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Klienter kan anmode om egne scopes, der knyttes til ressourcer (audiences).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Min API</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Ressourcer (kommasepareret)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Ressourcer</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Tilføj en adgangsnøgle</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>Indtast efter din adgangskode en 6-cifret kode fra en app som Aegis, 2FAS, Google Authenticator, Microsoft Authenticator eller 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Gendannelseskoder tilbage: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Overvej at generere nye koder.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Få gendannelseskoder tilbage ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Glem denne browser</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Skift til en anden app</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Generér nye koder nu, ellers kan du blive lukket ude.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Ingen gendannelseskoder tilbage</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Browseren leverede ingen adgangsnøgle.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Ingen adgangsnøgler endnu.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Tilføjet</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Du kan højst have {0} adgangsnøgler. Slet en for at tilføje en ny.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Adgangsnøglen kunne ikke gemmes.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Adgangsnøglen kunne ikke bekræftes. Prøv igen, eller brug en anden enhed.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Synkroniseret</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Log ind med fingeraftryk, ansigt eller enhedens pinkode i stedet for en adgangskode. En adgangsnøgle gemmes på din telefon, computer eller sikkerhedsnøgle og kan ikke phishes.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Konfigurer godkendelsesapp</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Denne browser</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Denne browser springer godkendelseskoden over ved login.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Slå fra</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Unavngiven adgangsnøgle</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Du bliver bedt om en kode fra appen, når du logger ind med adgangskode.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Godkendelsesappen er slået til</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Konfigurer din godkendelsesapp igen med den nye nøgle.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Godkendelsesnøglen er nulstillet</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Denne browser beder om en kode igen ved næste login.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Browseren er glemt</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>Din godkendelsesapp er ikke længere nødvendig for at logge ind.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Totrinsgodkendelse slået fra</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Konfigurer en godkendelsesapp, før du genererer gendannelseskoder.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Ikke tilgængelig</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Du kan nu logge ind med denne adgangsnøgle.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Adgangsnøglen er tilføjet</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Adgangsnøglen kan ikke længere bruges til login.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Adgangsnøglen er slettet</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>Adgangsnøglen findes ikke eller tilhører en anden konto.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Adgangsnøglen blev ikke fundet</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>Adgangsnøglens navn er opdateret.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Adgangsnøglen er omdøbt</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Godkendelseskode</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Indtast den 6-cifrede kode fra din godkendelsesapp.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Koden er ugyldig eller udløbet.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Har du mistet din enhed?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Totrinsgodkendelse</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>Spørg ikke igen i denne browser i 14 dage</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Brug en gendannelseskode</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Bekræftelsen mislykkedes</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Bekræft</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Aktiv</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Opret bruger</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Adgangskoder gemmes som Argon2id-hashes.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} er blevet oprettet.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Er du sikker på, at du vil slette {0}? Det kan ikke fortrydes.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Slet bruger</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Brugeren er slettet</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} er blevet slettet.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Lås</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Låst</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} kan nu logge ind med kun adgangskoden.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Adgangsnøgler: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Nulstil MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Dette slår godkendelsesappen fra, sletter alle adgangsnøgler for {0} og logger personen ud overalt. Brug det, når nogen har mistet sin enhed. Derefter kan personen logge ind med kun adgangskoden og konfigurere MFA igen.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Status</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Lås op</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Indtast et klient-id.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Brug mindst 16 tegn, eller lad feltet være tomt for en offentlig klient.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Koden har 6 cifre.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Indtast koden fra din app.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Bekræft adgangskoden.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Indtast din nuværende adgangskode.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Brug højst 100 tegn.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Indtast en gyldig e-mailadresse.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>E-mail er påkrævet.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Kun bogstaver, cifre, '-', '_' og '.' er tilladt.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Indtast et navn.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Brug højst 100 tegn.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Adgangskode er påkrævet.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Adgangskoderne stemmer ikke overens.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Indtast en modtager.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Indtast en gendannelseskode.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Indtast et scopenavn.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Upload avatar</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Brug Gravatar</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF eller SVG. Billedet formindskes til højst 1024×1024 og gemmes som gennemsigtig WebP. Uden eget billede bruges Gravatar.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Visningsnavnet er gemt.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Avataren er opdateret.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Din egen avatar er fjernet. Gravatar bruges.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Ugyldig eller ikke-understøttet billedfil.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Billedfilen er for stor (højst 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Indstillinger</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Roller</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Udseende</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Konti, der kan logge ind på Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Roller sendes til klientapplikationer i claimet roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Tilladelser, som klientapplikationer kan anmode om.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Applikationer, der logger brugere ind via Anubis.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Udgående e-mail til adressebekræftelse og nulstilling af adgangskode.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Logo, skrifttype og farver på login- og kontosiderne.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Luk</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Gemmes i {0}. Disse værdier har forrang for appsettings.json og miljøvariabler.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Indstillingerne er gemt</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Ændringerne gælder med det samme.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Indstillingerne blev ikke gemt</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Angivet. Lad feltet være tomt for at beholde den nuværende værdi.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Afsenderadresse</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Afsendernavn</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>SMTP-server</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Port</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Kryptering</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Timeout (sekunder)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Brugernavn</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>API-nøgle</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Servertoken</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>API-URL</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Logo og ikon</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Upload SVG, WebP, PNG, JPEG eller GIF (gemmes i indstillingsfilen), eller angiv en sti under wwwroot eller en https://-URL. PNG-versioner af faviconet til Safari og iOS oprettes automatisk.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Logo</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Skrifttype</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Tom = standardskrifttype (systemets monospace). Kun skrifttyper installeret på enheden kan bruges.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Skrifttypefamilie (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Lyst tema</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Mørkt tema</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Vælg en farve, eller angiv den som #RRGGBB. Tom = standardfarve.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Primær</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Sekundær</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Baggrund</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Tekst</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Opret rolle</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>En ny rolle har ingen medlemmer; tilføj dem på listen nedenfor.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Medlemmer</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Indbygget</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Slet rolle</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Slet rollen {0}? Alle medlemmer mister den.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Medlemmer af {0}</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Tilføj</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Fjern</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Ingen medlemmer endnu.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>Den sidste administrator kan ikke fjernes.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Indtast et rollenavn.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Angiv en farve som #RRGGBB, eller lad feltet være tomt.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Må ikke indeholde ; { } &lt; &gt; eller \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Indtast en absolut https://-URL.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Indtast en sti, der begynder med /, en https://-URL, eller upload en fil.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Upload</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Brug standard</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Uploadet fil · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Billedet understøttes ikke eller er beskadiget, eller det er en SVG med eksterne links. Brug SVG, WebP, PNG, JPEG eller GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Filen er for stor (højst {0} MB, {1} KB efter behandling).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Bekræftet</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Ikke bekræftet</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Telefonnummer</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Internationalt format, f.eks. +45 20 12 34 56.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Send kode</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Kode fra sms'en</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Vi har sendt en kode til {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Telefonnummeret er bekræftet.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Indtast nummeret i internationalt format, f.eks. +45 20 12 34 56.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Der blev lige sendt en kode. Prøv igen om et minut.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Din Anubis-bekræftelseskode: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Farvetilstand</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Lys</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Mørk</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>System</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Ikke valgt: Browserens foretrukne sprog bruges.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Ikke valgt: følger systemets lyse eller mørke indstilling.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Historik</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Logins og ændringer af din konto inden for de seneste 12 måneder.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Intet her endnu.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Nyere</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Ældre</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>af en administrator</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Ukendt enhed</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Konto oprettet</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Logget ind</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Mislykket loginforsøg</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Kontoen blev låst efter for mange mislykkede forsøg</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Logget ud</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Logget ind i en applikation</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Adgangskode ændret</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Adgangskode nulstillet via e-mail</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>E-mailadresse bekræftet</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Godkendelsesapp slået til</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Godkendelsesapp slået fra</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Nye gendannelseskoder genereret</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Adgangsnøgle tilføjet</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Adgangsnøgle fjernet</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Telefonnummer ændret</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Telefonnummer bekræftet</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Telefonnummer fjernet</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Visningsnavn ændret</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Avatar ændret</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Konto låst</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Konto låst op</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>adgangskode</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>adgangsnøgle</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>godkendelsesapp</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>gendannelseskode</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Log ud af Anubis?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Administration</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Handlinger</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Slet scopet {0}? Klienter kan så ikke længere anmode om det.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Generelt</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Grundlæggende indstillinger for denne server.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Servernavn</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Vises i browserfanens titel og øverst på konto- og administrationssiderne.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Indtast et servernavn.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Brug højst 60 tegn.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Sikkerhed</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Adgangskoderegler, spærring efter mislykkede forsøg, sessionslængde og adgangsnøgler. Ændringer gælder med det samme.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Tokens</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Gyldighed for tokens og koder til klientapplikationer. Ændringer gælder for nye tokens.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Server</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>Offentlig URL (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>For eksempel https://id.example.com. Tom = fra hver anmodning. Træder i kraft efter genstart.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Registrering</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Tillad selvregistrering</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Kræv en bekræftet e-mailadresse for at logge ind</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Kræver fungerende e-mailindstillinger.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Adgangskoder</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Minimumslængde</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Kræv et ciffer</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Kræv et lille bogstav</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Kræv et stort bogstav</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Kræv et symbol</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Spærring efter mislykkede logins</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Mislykkede forsøg før spærring</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Spærringens varighed (minutter)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Loginsession</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Sessionslængde (timer)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Forlæng sessionen, mens brugeren er aktiv</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Maks. antal adgangsnøgler pr. konto</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (minutter)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID-token (minutter)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Autorisationskode (minutter)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (dage)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Samtykke (minutter)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Hvor længe et givet samtykke huskes under login.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Tilladt interval: {0} til {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Rediger {0}</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>E-mailadressen er også loginnavnet: brugeren logger ind med den nye adresse.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>E-mailadresse bekræftet</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Et ændret nummer gemmes som ikke bekræftet.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>E-mailadressen bruges allerede af en anden konto.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Du kan ikke fjerne rollen Admin fra din egen konto.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Ændringerne for {0} er gemt.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>E-mailadresse ændret</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Rolle tilføjet</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Rolle fjernet</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Når du gemmer, sendes en bekræftelsesmail til den nye adresse.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Der er sendt en bekræftelsesmail til {0}.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Start med et bogstav, derefter bogstaver, cifre og - _ . : / (højst {0} tegn).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>“{0}” sættes af Anubis og kan ikke bruges.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Angiv en værdi.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Højst {0} tegn.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Dette claim står der to gange.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Højst {0} claims.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Rollen blev ikke fundet.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Indbyggede roller kan ikke omdøbes.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Der findes allerede en rolle med dette navn.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Rediger rollen {0}</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Rollen {0} er gemt.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Tilføj rolle</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claims</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Føjes til adgangstokenet, ID-tokenet og userinfo sammen med claims fra brugerens roller.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Føjes til tokens for alle medlemmer af denne rolle.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Værdi</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Tilføj claim</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Fjern claim</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Ingen claims endnu.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Fra roller</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Skift avatar</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Indlæser…</value></data>
+</root>

@@ -1,0 +1,174 @@
+@page "/account/security/authenticator"
+@attribute [Authorize]
+
+@using k6labs.Anubis.Localization
+@using Microsoft.AspNetCore.Authorization
+@using k6labs.Anubis.Identity
+
+@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+@inject NavigationManager Navigation
+
+<AppPageTitle Text="@(Translations.Account_AuthenticatorApp)" />
+
+<Stack Gap="Gap.Large">
+    @if (recoveryCodes is not null)
+    {
+        <PageHeader Title="@Translations.Status_AuthenticatorEnabledTitle" Description="@Translations.Authenticator_EnabledText" />
+        <Stack Gap="Gap.Medium">
+            <RecoveryCodesList Codes="recoveryCodes" />
+            <Button Href="/account/mfa">@Translations.RecoveryCodes_Saved</Button>
+        </Stack>
+    }
+    else if (alreadyEnabled)
+    {
+        <PageHeader Title="@Translations.Authenticator_MoveTitle" Description="@Translations.Authenticator_MoveText" />
+        <form method="post" @formname="reset-authenticator" @onsubmit="ResetAsync">
+            <Stack Direction="Direction.Row" Gap="Gap.Medium" Align="Align.Center" Wrap="true">
+                <AntiforgeryToken />
+                <Button Variant="ButtonVariant.Danger" Type="submit" Icon="@AppIcons.Refresh">
+                    @Translations.Authenticator_CreateNewKey
+                </Button>
+                <Button Variant="ButtonVariant.Ghost" Href="/account/mfa">@Translations.Common_Cancel</Button>
+            </Stack>
+        </form>
+    }
+    else
+    {
+        <PageHeader Title="@Translations.Security_SetUpAuthenticator" Description="@Translations.Authenticator_SetupText" />
+        <Stack Gap="Gap.Medium">
+            <StatusAlert />
+
+            @if (qrCodeDataUri is not null)
+            {
+                <Stack Direction="Direction.Row" Justify="Justify.Center">
+                    <Image Src="@qrCodeDataUri" Alt="@Translations.Authenticator_QrAlt" Width="240" Height="240" DisplayWidth="15rem" Lazy="false" />
+                </Stack>
+            }
+
+            <Stack Gap="Gap.Small">
+                <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Authenticator_ManualKey</Typography>
+                <Card><code data-secret>@sharedKey</code></Card>
+            </Stack>
+
+            <EditForm Model="model" method="post" OnValidSubmit="VerifyAsync" FormName="verify-authenticator">
+                <Stack Gap="Gap.Medium">
+                    <DataAnnotationsValidator />
+
+                    @if (!string.IsNullOrEmpty(error))
+                    {
+                        <Alert Severity="AlertSeverity.Danger" Title="@Translations.TwoFactor_VerificationFailed">
+                            @error
+                        </Alert>
+                    }
+
+                    <FormText @bind-Value="model!.Code" Label="@Translations.Authenticator_CodeLabel" Placeholder="123456" name="model.Code" autocomplete="one-time-code" Id="code" Type="text" inputmode="numeric" />
+
+                    <Stack Direction="Direction.Row" Gap="Gap.Medium" Align="Align.Center" Wrap="true">
+                        <Button Type="submit" Icon="@AppIcons.VerifiedUser">
+                            @Translations.Authenticator_VerifyAndEnable
+                        </Button>
+                        <Button Variant="ButtonVariant.Ghost" Href="/account/mfa">@Translations.Common_Cancel</Button>
+                    </Stack>
+                </Stack>
+            </EditForm>
+        </Stack>
+    }
+</Stack>
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    [SupplyParameterFromForm(FormName = "verify-authenticator")]
+    private VerifyModel model { get; set; } = default!;
+
+    private User? user;
+    private bool alreadyEnabled;
+    private string? sharedKey;
+    private string? qrCodeDataUri;
+    private IEnumerable<string>? recoveryCodes;
+    private string? error;
+
+    protected override async Task OnInitializedAsync()
+    {
+        model ??= new();
+
+        user = await UserManager.GetUserAsync(HttpContext.User);
+        if (user is null)
+        {
+            Navigation.NavigateTo("/login", forceLoad: true);
+            return;
+        }
+
+        alreadyEnabled = await UserManager.GetTwoFactorEnabledAsync(user);
+        if (!alreadyEnabled)
+        {
+            await LoadKeyAsync(user);
+        }
+    }
+
+    private async Task LoadKeyAsync(User user)
+    {
+        var key = await UserManager.GetAuthenticatorKeyAsync(user);
+        if (string.IsNullOrEmpty(key))
+        {
+            await UserManager.ResetAuthenticatorKeyAsync(user);
+            await SignInManager.RefreshSignInAsync(user);
+            key = await UserManager.GetAuthenticatorKeyAsync(user);
+        }
+
+        sharedKey = AuthenticatorSetup.FormatKey(key!);
+        var uri = AuthenticatorSetup.BuildUri(await UserManager.GetEmailAsync(user) ?? user.UserName!, key!);
+        qrCodeDataUri = AuthenticatorSetup.BuildQrCodeDataUri(uri);
+    }
+
+    private async Task VerifyAsync()
+    {
+        if (user is null || alreadyEnabled)
+        {
+            return;
+        }
+
+        var valid = await UserManager.VerifyTwoFactorTokenAsync(
+            user, UserManager.Options.Tokens.AuthenticatorTokenProvider, AuthenticatorSetup.NormalizeCode(model!.Code));
+
+        if (!valid)
+        {
+            error = Translations.Authenticator_InvalidCode;
+            return;
+        }
+
+        await UserManager.SetTwoFactorEnabledAsync(user, true);
+        // Enabling 2FA changes the security stamp; refresh the cookie so this session stays valid.
+        await SignInManager.RefreshSignInAsync(user);
+
+        if (await UserManager.CountRecoveryCodesAsync(user) == 0)
+        {
+            recoveryCodes = await UserManager.GenerateNewTwoFactorRecoveryCodesAsync(user, AuthenticatorSetup.RecoveryCodeCount);
+            return;
+        }
+
+        Navigation.NavigateTo("/account/security?status=authenticator-enabled", forceLoad: true);
+    }
+
+    private async Task ResetAsync()
+    {
+        if (user is null)
+        {
+            return;
+        }
+
+        await UserManager.SetTwoFactorEnabledAsync(user, false);
+        await UserManager.ResetAuthenticatorKeyAsync(user);
+        await SignInManager.RefreshSignInAsync(user);
+        Navigation.NavigateTo("/account/security/authenticator?status=authenticator-reset", forceLoad: true);
+    }
+
+    public sealed class VerifyModel
+    {
+        [LRequired(nameof(Translations.Validation_CodeRequired))]
+        [LStringLength(7, nameof(Translations.Validation_CodeLength), MinimumLength = 6)]
+        public string Code { get; set; } = string.Empty;
+    }
+}

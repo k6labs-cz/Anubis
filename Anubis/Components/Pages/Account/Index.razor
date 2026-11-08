@@ -1,0 +1,406 @@
+@page "/account"
+@rendermode InteractiveServer
+@attribute [Authorize]
+
+@using k6labs.Anubis.Localization
+@using k6labs.Anubis.Services
+@using k6labs.Anubis.Services.Sms
+@using k6labs.Anubis.Services.Avatar
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+
+@inject UserManager<User> UserManager
+@inject AccountEmailService AccountEmails
+@inject AvatarService AvatarService
+@inject PhoneNumberService PhoneNumbers
+@inject Services.Activity.AccountActivity Activity
+@inject NavigationManager Navigation
+@* Notifications belong to this page and its interactive circuit. *@
+@inject IJSRuntime JS
+
+<AppPageTitle Text="@(Translations.Layout_Account)" />
+
+<NotificationList State="Notifications" />
+
+@if (user is not null)
+{
+    <Stack Gap="Gap.Large">
+        <Stack Gap="Gap.Small" Align="Align.Start">
+            <Avatar Src="@AvatarUrl.For(user, size: 256)" Name="@(user.DisplayName ?? user.UserName ?? string.Empty)" Size="AvatarSize.XLarge" />
+            <Stack Direction="Direction.Row" Gap="Gap.XSmall" Wrap="true">
+                <InputFile OnChange="UploadAvatarAsync" accept="image/*" id="avatarUploadInput" hidden />
+                <Button Variant="ButtonVariant.Text" For="avatarUploadInput" Disabled="busy" Icon="@AppIcons.Upload">
+                    @Translations.Account_UploadAvatar
+                </Button>
+                @if (!string.IsNullOrWhiteSpace(user.AvatarUrl))
+                {
+                    <Button Variant="ButtonVariant.Danger" Disabled="busy" OnClick="RemoveAvatarAsync" Icon="@AppIcons.DeleteOutline">
+                        @Translations.Account_RemoveAvatar
+                    </Button>
+                }
+            </Stack>
+            <Typography Variant="TextVariant.Caption" Tone="Tone.Muted">@Translations.Account_AvatarHint</Typography>
+        </Stack>
+
+        @* Name, phone, language and color mode: one form, saved by the button at the bottom. *@
+        <EditForm Model="model" OnValidSubmit="SaveAsync" FormName="account-profile">
+            <Stack Gap="Gap.Large">
+                <DataAnnotationsValidator />
+
+                <FormText @bind-Value="model.DisplayName" Label="@Translations.Common_DisplayName" Placeholder="@Translations.Register_DisplayNamePlaceholder" autocomplete="name" Id="displayName" />
+
+                @* Email: changed by an administrator only; can be verified here *@
+                <Stack Gap="Gap.Small">
+                    <FormText Value="@user.Email" ReadOnly="true" Label="@Translations.Common_Email" Id="email" Hint="@(user.EmailConfirmed ? Translations.Account_Verified : Translations.Account_NotVerified)" />
+                    @if (!user.EmailConfirmed)
+                    {
+                        <div>
+                            <Button Variant="ButtonVariant.Ghost" Disabled="confirmationSent" OnClick="SendConfirmationAsync" Icon="@AppIcons.Email">
+                                @(confirmationSent ? confirmationMessage : Translations.Account_SendConfirmation)
+                            </Button>
+                        </div>
+                    }
+                </Stack>
+
+                @* Phone: saved unverified, then verified by an SMS code; a new number needs verifying again *@
+                <Stack Gap="Gap.Small">
+                    <FormText @bind-Value="model.PhoneNumber" Label="@Translations.Account_Phone" Placeholder="@("+420 123 456 789")" autocomplete="tel" Error="@(phoneError is not null)" ErrorText="@phoneError" Id="phone" Type="tel" Hint="@PhoneStatusText" />
+
+                    @if (PhoneSaved && !user.PhoneNumberConfirmed && !PhoneChanged)
+                    {
+                        @if (codeSentTo is null)
+                        {
+                            <div>
+                                <Button Variant="ButtonVariant.Ghost" Disabled="busy" OnClick="SendPhoneCodeAsync" Icon="@AppIcons.Sms">
+                                    @Translations.Account_SendCode
+                                </Button>
+                            </div>
+                        }
+                        else
+                        {
+                            <FormText @bind-Value="phoneCode" Label="@Translations.Account_PhoneCode" autocomplete="one-time-code" Error="@(codeError is not null)" ErrorText="@codeError" Id="phoneCode" inputmode="numeric" Hint="@Translations.Account_PhoneCodeSent.F(codeSentTo)" maxlength="10" />
+                            <Stack Direction="Direction.Row" Gap="Gap.XSmall" Wrap="true">
+                                <Button Disabled="@(busy || string.IsNullOrWhiteSpace(phoneCode))" OnClick="ConfirmPhoneAsync" Icon="@AppIcons.Check">
+                                    @Translations.TwoFactor_Verify
+                                </Button>
+                                <Button Variant="ButtonVariant.Text" Disabled="busy" OnClick="SendPhoneCodeAsync">@Translations.Register_SendAgain</Button>
+                            </Stack>
+                        }
+                    }
+                </Stack>
+
+                @* No choice = the browser's preferred language (the default); the empty option goes back to it. *@
+                <FormSelect @bind-Value="model.Language" Label="@Translations.Layout_Language" Placeholder="@BrowserLanguageText" Hint="@(model.Language is null ? Translations.Account_LanguageBrowserHint : null)" TValue="string">
+                    @foreach (var language in Cultures.Supported)
+                    {
+                        <option value="@language">@Cultures.NativeName(language)</option>
+                    }
+                </FormSelect>
+
+                @* Color mode: no choice = follow the system (the default); the empty option goes back to it. *@
+                <FormSelect @bind-Value="model.ColorScheme" Label="@Translations.Account_ColorScheme" Placeholder="@Translations.Account_ColorSchemeSystem" Hint="@(model.ColorScheme is null ? Translations.Account_ColorSchemeSystemHint : null)" TValue="string">
+                    <option value="@ColorSchemes.Light">@Translations.Account_ColorSchemeLight</option>
+                    <option value="@ColorSchemes.Dark">@Translations.Account_ColorSchemeDark</option>
+                </FormSelect>
+
+                <SaveBar Dirty="@snapshot.IsDirty(model)" Busy="busy" />
+            </Stack>
+        </EditForm>
+    </Stack>
+}
+
+@code {
+    private readonly NotificationState Notifications = new();
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthenticationState { get; set; }
+
+    [SupplyParameterFromQuery(Name = "status")]
+    public string? Status { get; set; }
+
+    private readonly ProfileModel model = new();
+    private readonly FormSnapshot snapshot = new();
+    private string? phoneCode;
+    private User? user;
+    private bool busy;
+    private bool confirmationSent;
+    private string confirmationMessage = string.Empty;
+    private string? codeSentTo;
+    private string? phoneError;
+    private string? codeError;
+
+    /// <summary>"Browser setting (Čeština)": with no saved choice, the current UI culture is the browser's.</summary>
+    private string BrowserLanguageText => $"{Translations.Account_LanguageBrowser} ({Cultures.NativeName(Cultures.Normalize(System.Globalization.CultureInfo.CurrentUICulture.Name) ?? Cultures.Default)})";
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (AuthenticationState is null)
+        {
+            return;
+        }
+
+        var state = await AuthenticationState;
+        user = await UserManager.GetUserAsync(state.User);
+        if (user is not null)
+        {
+            LoadModel(user);
+        }
+    }
+
+    private void LoadModel(User account)
+    {
+        model.DisplayName = account.DisplayName ?? account.UserName;
+        model.PhoneNumber = account.PhoneNumber;
+        model.Language = Cultures.Normalize(account.Language);
+        model.ColorScheme = ColorSchemes.Normalize(account.ColorScheme);   // null = follow the system
+        snapshot.Take(model);
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        // Results of the non-JavaScript form posts (/account/profile, /account/avatar).
+        if (firstRender && QueryStatus() is { } status)
+        {
+            Notifications.Add(status.Message, status.AlertSeverity);
+        }
+    }
+
+    private (string Message, AlertSeverity AlertSeverity)? QueryStatus() => Status switch
+    {
+        "profile-updated" => (Translations.Account_ProfileUpdated, AlertSeverity.Success),
+        "profile-invalid" => (Translations.Validation_DisplayNameTooLong, AlertSeverity.Danger),
+        "avatar-updated" => (Translations.Account_AvatarUpdated, AlertSeverity.Success),
+        "avatar-removed" => (Translations.Account_AvatarRemoved, AlertSeverity.Success),
+        "avatar-invalid" => (Translations.Account_AvatarInvalid, AlertSeverity.Danger),
+        "avatar-too-large" => (Translations.Account_AvatarTooLarge, AlertSeverity.Danger),
+        _ => null,
+    };
+
+    // ---------------------------------------------------------------- avatar
+
+    private async Task UploadAvatarAsync(InputFileChangeEventArgs args)
+    {
+        if (user is null || args.File is null)
+        {
+            return;
+        }
+
+        if (args.File.Size > AvatarService.MaxUploadBytes)
+        {
+            Notifications.Add(Translations.Account_AvatarTooLarge, AlertSeverity.Danger);
+            return;
+        }
+
+        busy = true;
+        try
+        {
+            await using var stream = args.File.OpenReadStream(AvatarService.MaxUploadBytes);
+            using var memory = new MemoryStream((int)args.File.Size);
+            await stream.CopyToAsync(memory);
+            await AvatarService.SetAvatarAsync(user, memory.ToArray());
+            Notifications.Add(Translations.Account_AvatarUpdated, AlertSeverity.Success);
+        }
+        catch (InvalidDataException)
+        {
+            Notifications.Add(Translations.Account_AvatarInvalid, AlertSeverity.Danger);
+        }
+        catch (IOException)
+        {
+            Notifications.Add(Translations.Account_AvatarTooLarge, AlertSeverity.Danger);
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    private async Task RemoveAvatarAsync()
+    {
+        if (user is null)
+        {
+            return;
+        }
+
+        busy = true;
+        await AvatarService.RemoveAvatarAsync(user);
+        busy = false;
+        Notifications.Add(Translations.Account_AvatarRemoved, AlertSeverity.Success);
+    }
+
+    // ---------------------------------------------------------------- save
+
+    private async Task SaveAsync()
+    {
+        if (user is null || !snapshot.IsDirty(model))
+        {
+            return;
+        }
+
+        var typedPhone = model.PhoneNumber?.Trim();
+        if (PhoneChanged && !string.IsNullOrEmpty(typedPhone) && PhoneNumberService.Normalize(typedPhone) is null)
+        {
+            phoneError = Translations.Account_PhoneInvalid;
+            return;
+        }
+
+        busy = true;
+        try
+        {
+            var name = model.DisplayName?.Trim();
+            name = string.IsNullOrWhiteSpace(name) ? user.Email : name;
+            var nameChanged = name != user.DisplayName;
+            var language = Cultures.Normalize(model.Language);
+            var languageChanged = language != Cultures.Normalize(user.Language);
+            var colorScheme = ColorSchemes.Normalize(model.ColorScheme);
+            var colorChanged = colorScheme != ColorSchemes.Normalize(user.ColorScheme);
+
+            user.DisplayName = name;
+            user.Language = language;   // applied to every request by UserLanguageCultureProvider
+            user.ColorScheme = colorScheme;
+            var result = await UserManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                Notifications.Add(string.Join(" ", result.Errors.Select(e => e.Description)), AlertSeverity.Danger);
+                return;
+            }
+
+            if (nameChanged)
+            {
+                await Activity.RecordAsync(user.Id, Services.Activity.UserEventTypes.ProfileUpdated, user.DisplayName);
+            }
+
+            if (PhoneChanged)
+            {
+                if (!await PhoneNumbers.SaveAsync(user, typedPhone))
+                {
+                    phoneError = Translations.Account_PhoneInvalid;
+                    return;
+                }
+
+                codeSentTo = null;
+                phoneCode = null;
+            }
+
+            phoneError = null;
+            LoadModel(user);
+
+            if (languageChanged)
+            {
+                // A full reload, so the whole page is rendered in the new language.
+                Navigation.NavigateTo("/account?status=profile-updated", forceLoad: true);
+                return;
+            }
+
+            if (colorChanged)
+            {
+                await JS.InvokeVoidAsync("anubis.setColorScheme", colorScheme ?? ColorSchemes.System);
+            }
+
+            Notifications.Add(Translations.Account_ProfileUpdated, AlertSeverity.Success);
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    // ---------------------------------------------------------------- email
+
+    private async Task SendConfirmationAsync()
+    {
+        if (user is null)
+        {
+            return;
+        }
+
+        var result = await AccountEmails.SendConfirmationAsync(user, Navigation.BaseUri);
+        confirmationSent = true;
+        confirmationMessage = result switch
+        {
+            AccountEmailResult.Sent => Translations.Account_ConfirmationSent,
+            AccountEmailResult.Throttled => Translations.Account_ConfirmationThrottled,
+            _ => Translations.Account_ConfirmationFailed,
+        };
+    }
+
+    // ---------------------------------------------------------------- phone
+
+    private bool PhoneSaved => !string.IsNullOrEmpty(user?.PhoneNumber);
+
+    /// <summary>The field differs from the saved number (compared in E.164, so "+420 123…" == "+420123…").</summary>
+    private bool PhoneChanged
+    {
+        get
+        {
+            var typed = model.PhoneNumber?.Trim() ?? string.Empty;
+            var saved = user?.PhoneNumber ?? string.Empty;
+            return (PhoneNumberService.Normalize(typed) ?? typed) != saved;
+        }
+    }
+
+    private string PhoneStatusText => PhoneChanged || !PhoneSaved
+        ? Translations.Account_PhoneHint
+        : user?.PhoneNumberConfirmed == true ? Translations.Account_Verified : Translations.Account_NotVerified;
+
+    private async Task SendPhoneCodeAsync()
+    {
+        if (user is null || !PhoneSaved)
+        {
+            return;
+        }
+
+        busy = true;
+        var result = await PhoneNumbers.SendCodeAsync(user, user.PhoneNumber);
+        busy = false;
+
+        switch (result)
+        {
+            case PhoneCodeResult.Sent:
+                codeSentTo = user.PhoneNumber;
+                phoneCode = null;
+                codeError = null;
+                break;
+            case PhoneCodeResult.Throttled:
+                Notifications.Add(Translations.Account_PhoneThrottled, AlertSeverity.Warning);
+                codeSentTo ??= user.PhoneNumber;
+                break;
+            default:
+                phoneError = Translations.Account_PhoneInvalid;
+                break;
+        }
+    }
+
+    private async Task ConfirmPhoneAsync()
+    {
+        if (user is null || codeSentTo is null)
+        {
+            return;
+        }
+
+        busy = true;
+        var confirmed = await PhoneNumbers.ConfirmAsync(user, codeSentTo, phoneCode);
+        busy = false;
+
+        if (!confirmed)
+        {
+            codeError = Translations.TwoFactor_InvalidCode;
+            return;
+        }
+
+        codeSentTo = null;
+        codeError = null;
+        phoneCode = null;
+        Notifications.Add(Translations.Account_PhoneVerifiedText, AlertSeverity.Success);
+    }
+
+    public sealed class ProfileModel
+    {
+        [LStringLength(100, nameof(Translations.Validation_DisplayNameTooLong))]
+        public string? DisplayName { get; set; }
+
+        public string? PhoneNumber { get; set; }
+
+        public string? Language { get; set; }
+
+        public string? ColorScheme { get; set; }
+    }
+}

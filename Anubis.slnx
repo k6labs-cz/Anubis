@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Anubis/Anubis.csproj" />
+  <Project Path="Anubis.Tests/Anubis.Tests.csproj" />
+</Solution>

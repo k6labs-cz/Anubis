@@ -1,0 +1,50 @@
+namespace k6labs.Anubis.Components.Shared;
+
+public static class AppIcons
+{
+    public const string Add = "plus";
+    public const string Apps = "app-window";
+    public const string Badge = "badge";
+    public const string Check = "check";
+    public const string ChevronLeft = "chevron-left";
+    public const string ChevronRight = "chevron-right";
+    public const string Close = "x";
+    public const string Delete = "trash-2";
+    public const string DeleteOutline = "trash-2";
+    public const string DesktopAccessDisabled = "monitor-off";
+    public const string Edit = "pencil";
+    public const string Email = "mail";
+    public const string ErrorOutline = "circle-alert";
+    public const string Fingerprint = "fingerprint";
+    public const string Group = "users";
+    public const string History = "history";
+    public const string Key = "key-round";
+    public const string Layers = "layers";
+    public const string Lock = "lock";
+    public const string LockOpen = "lock-open";
+    public const string Login = "log-in";
+    public const string Logout = "log-out";
+    public const string MarkEmailRead = "mail-check";
+    public const string MoreVert = "ellipsis-vertical";
+    public const string Palette = "palette";
+    public const string People = "users";
+    public const string Person = "user";
+    public const string PersonAdd = "user-plus";
+    public const string PersonRemove = "user-minus";
+    public const string Phone = "phone";
+    public const string PhonelinkLock = "smartphone";
+    public const string Refresh = "refresh-cw";
+    public const string RemoveModerator = "shield-off";
+    public const string Restore = "rotate-ccw";
+    public const string Save = "save";
+    public const string Send = "send";
+    public const string Shield = "shield";
+    public const string Smartphone = "smartphone";
+    public const string Sms = "message-square";
+    public const string Support = "life-buoy";
+    public const string Token = "key";
+    public const string Tune = "sliders-horizontal";
+    public const string Upload = "upload";
+    public const string Verified = "badge-check";
+    public const string VerifiedUser = "shield-check";
+}

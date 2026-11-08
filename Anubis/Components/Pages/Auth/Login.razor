@@ -1,0 +1,169 @@
+@page "/login"
+
+@using Microsoft.Extensions.Options
+@using k6labs.Anubis.Localization
+@using k6labs.Anubis.Models
+@using k6labs.Anubis.Options
+
+@inject SignInManager<User> SignInManager
+@inject NavigationManager Navigation
+@inject IOptionsSnapshot<AnubisOptions> Options
+@inject IOptionsMonitor<EmailOptions> EmailOptions
+@inject Services.AppearanceAssets AppearanceFiles
+@inject IHostEnvironment Environment
+
+<AppPageTitle Text="@(Translations.Login_PageTitle)" />
+
+<Container MaxWidth="28rem">
+    <Stack Gap="Gap.Large">
+        <Stack Direction="Direction.Row" Gap="Gap.None" Justify="Justify.Center">
+            <Image Src="@AppearanceFiles.LogoUrl" Alt="" Width="56" Height="56" DisplayWidth="3.5rem" Fit="MediaFit.Contain" Lazy="false" aria-hidden="true" />
+        </Stack>
+        <Card>
+            <Header>
+                <Stack Gap="Gap.XSmall">
+                    <Typography Variant="TextVariant.Title" As="TextElement.H1">@Translations.Login_Title</Typography>
+                    <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Login_Description</Typography>
+                </Stack>
+            </Header>
+            <ChildContent>
+                <Stack Gap="Gap.Medium">
+                    <EditForm EditContext="editContext" method="post" OnSubmit="SubmitAsync" FormName="login">
+                        <Stack Gap="Gap.Medium">
+                            <DataAnnotationsValidator />
+
+                            @if (!string.IsNullOrEmpty(error))
+                            {
+                                <Alert Severity="AlertSeverity.Danger" Title="@Translations.Login_Failed">
+                                    <div>
+                                        @error
+                                        @if (emailNotConfirmed)
+                                        {
+                                            <a href="/confirm-email/resend">@Translations.Login_ResendConfirmation</a>
+                                        }
+                                    </div>
+                                </Alert>
+                            }
+
+                            <FormText @bind-Value="model.Email" name="model.Email" Label="@Translations.Common_Email" Placeholder="@Translations.Common_EmailPlaceholder" autocomplete="username webauthn" Id="email" Type="email" />
+
+                            <Stack Gap="Gap.XSmall">
+                                <FormText @bind-Value="model.Password" name="model.Password" Label="@Translations.Common_Password" Placeholder="@Translations.Login_PasswordPlaceholder" autocomplete="current-password" Id="password" Type="password" />
+                                @if (EmailOptions.CurrentValue.IsConfigured || Environment.IsDevelopment())
+                                {
+                                    <a href="/forgot-password">@Translations.Login_ForgotPassword</a>
+                                }
+                            </Stack>
+
+                            <Button Block="true" Type="submit" Icon="@AppIcons.Login">
+                                @Translations.Common_SignIn
+                            </Button>
+
+                            <Typography Variant="TextVariant.Small" Tone="Tone.Muted" Align="TextAlign.Center">@Translations.Login_Or</Typography>
+
+                            <div data-passkey-section>
+                                <PasskeySubmit Operation="PasskeySubmit.PasskeyOperation.Request" Name="model.Passkey" Variant="ButtonVariant.Ghost" Block="true" Icon="@AppIcons.Fingerprint">
+                                    @Translations.Login_WithPasskey
+                                </PasskeySubmit>
+                                <Typography Variant="TextVariant.Small" Tone="Tone.Muted" data-passkey-unsupported hidden>@Translations.Passkey_Unsupported</Typography>
+                            </div>
+                        </Stack>
+                    </EditForm>
+
+                    @if (Options.Value.AllowRegistration)
+                    {
+                        <Typography Tone="Tone.Muted" Align="TextAlign.Center">@Translations.Login_NoAccount <a href="/register">@Translations.Login_CreateOne</a></Typography>
+                    }
+                </Stack>
+            </ChildContent>
+        </Card>
+    </Stack>
+</Container>
+
+@code {
+    [SupplyParameterFromQuery(Name = "returnUrl")]
+    public string? ReturnUrl { get; set; }
+
+    [SupplyParameterFromForm(FormName = "login")]
+    private LoginModel model { get; set; } = default!;
+
+    private EditContext editContext = default!;
+    private string? error;
+    private bool emailNotConfirmed;
+
+    protected override void OnInitialized()
+    {
+        model ??= new();
+        editContext = new EditContext(model);
+    }
+
+    private async Task SubmitAsync()
+    {
+        error = null;
+
+        if (!string.IsNullOrEmpty(model.Passkey?.Error))
+        {
+            error = model.Passkey.Error;
+            return;
+        }
+
+        SignInResult result;
+        if (!string.IsNullOrEmpty(model.Passkey?.CredentialJson))
+        {
+            // A passkey with user verification is already multi-factor
+            // (device + fingerprint/PIN), so no second step follows.
+            result = await SignInManager.PasskeySignInAsync(model.Passkey.CredentialJson);
+        }
+        else
+        {
+            // Only the password path needs the email/password fields.
+            if (!editContext.Validate())
+            {
+                return;
+            }
+
+            result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: true);
+        }
+
+        var returnUrl = LocalUrl.IsLocal(ReturnUrl) ? ReturnUrl! : "/";
+
+        if (result.Succeeded)
+        {
+            Navigation.NavigateTo(returnUrl, forceLoad: true);
+            return;
+        }
+
+        if (result.RequiresTwoFactor)
+        {
+            Navigation.NavigateTo("/login/2fa?returnUrl=" + Uri.EscapeDataString(returnUrl), forceLoad: true);
+            return;
+        }
+
+        // IsNotAllowed with RequireConfirmedEmail means the password was right but the
+        // address isn't confirmed yet.
+        emailNotConfirmed = result.IsNotAllowed && Options.Value.RequireConfirmedEmail;
+
+        error = result.IsLockedOut
+            ? Translations.Common_LockedOut
+            : emailNotConfirmed
+                ? Translations.Login_EmailNotConfirmed
+                : result.IsNotAllowed
+                    ? Translations.Login_NotAllowed
+                    : model.Passkey?.CredentialJson is not null
+                        ? Translations.Login_UnknownPasskey
+                        : Translations.Login_InvalidCredentials;
+    }
+
+    // Must be public for form binding.
+    public sealed class LoginModel
+    {
+        [LRequired(nameof(Translations.Validation_EmailRequired))]
+        [LEmailAddress]
+        public string Email { get; set; } = string.Empty;
+
+        [LRequired(nameof(Translations.Validation_PasswordRequired))]
+        public string Password { get; set; } = string.Empty;
+
+        public PasskeyInputModel? Passkey { get; set; }
+    }
+}

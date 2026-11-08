@@ -1,0 +1,462 @@
+@page "/admin/users"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = "Admin")]
+
+@using Microsoft.AspNetCore.Authorization
+@using k6labs.Anubis.Models
+@using k6labs.Anubis.Services.Avatar
+
+@inject UserManager<User> UserManager
+@inject RoleManager<Role> RoleManager
+@inject ILogger<Users> Logger
+@inject Services.UserAdministration Administration
+@inject NavigationManager Navigation
+@inject Identity.PasswordPolicy PasswordPolicy
+@* Notifications belong to this page and its interactive circuit. *@
+
+<AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_Users))" />
+
+<NotificationList State="Notifications" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@Translations.Admin_Users" Description="@Translations.Admin_UsersDescription"
+                CreateLabel="@Translations.Users_Create" OnCreate="OpenCreate" />
+
+    <Table Label="@Translations.Admin_Users">
+        <thead>
+            <tr>
+                <th>@Translations.Common_Email</th>
+                <th>@Translations.Common_DisplayName</th>
+                <th>@Translations.Account_Roles</th>
+                <th>@Translations.Users_Status</th>
+                <th>@Translations.Users_Mfa</th>
+                <th>@Translations.Account_Created</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in users)
+            {
+                var locked = IsLocked(user);
+                var hasMfa = user.TwoFactorEnabled || passkeyCounts[user.Id] > 0;
+                <tr>
+                    <td>@user.Email</td>
+                    <td>@user.DisplayName</td>
+                    <td>@string.Join(", ", userRoles[user.Id])</td>
+                    <td>
+                        <Badge Tone="@(locked ? Tone.Danger : Tone.Success)">
+                            @(locked ? Translations.Users_Locked : Translations.Users_Active)
+                        </Badge>
+                    </td>
+                    <td>
+                        @if (user.TwoFactorEnabled)
+                        {
+                            <Badge Tone="Tone.Success">TOTP</Badge>
+                        }
+                        @if (passkeyCounts[user.Id] > 0)
+                        {
+                            <Badge Tone="Tone.Info">@Translations.Users_PasskeyCount.F(passkeyCounts[user.Id])</Badge>
+                        }
+                        @if (!hasMfa)
+                        {
+                            <Typography As="TextElement.Span" Tone="Tone.Muted">@Translations.Common_None</Typography>
+                        }
+                    </td>
+                    <td>@user.CreatedAt.ToString("yyyy-MM-dd")</td>
+                    <td data-align="end">
+                        <RowMenu>
+                            <MenuItem Icon="@AppIcons.Edit" OnClick="() => OpenEditAsync(user)" data-popup-option>@Translations.Common_Edit</MenuItem>
+                            <Divider />
+                            <MenuItem Icon="@(locked ? AppIcons.LockOpen : AppIcons.Lock)" OnClick="() => ToggleLockoutAsync(user)" data-popup-option>
+                                @(locked ? Translations.Users_Unlock : Translations.Users_Lock)
+                            </MenuItem>
+                            @if (hasMfa)
+                            {
+                                <MenuItem Icon="@AppIcons.RemoveModerator" OnClick="() => AskResetMfa(user)" data-popup-option>@Translations.Users_ResetMfa</MenuItem>
+                            }
+                            <Divider />
+                            <MenuItem Icon="@AppIcons.Delete" OnClick="() => AskDelete(user)" data-popup-option Danger="true">@Translations.Common_Delete</MenuItem>
+                        </RowMenu>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </Table>
+</Stack>
+
+<AppModal Title="@Translations.Users_Create" @bind-Open="createOpen">
+    <ChildContent>
+        <EditForm Model="createModel" OnValidSubmit="CreateUserAsync" FormName="createUser" id="createUserForm">
+            <Stack Gap="Gap.Medium">
+                <DataAnnotationsValidator />
+                <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Users_CreateDescription</Typography>
+                <FormText @bind-Value="createModel.Email" Label="@Translations.Common_Email" Placeholder="@Translations.Common_EmailPlaceholder" Id="newEmail" Type="email" />
+                <FormText @bind-Value="createModel.DisplayName" Label="@Translations.Common_DisplayName" Placeholder="@Translations.Register_DisplayNamePlaceholder" Id="newDisplayName" />
+                <FormText @bind-Value="createModel.Password" Label="@Translations.Common_Password" Placeholder="@Translations.Common_NewPasswordPlaceholder.F(PasswordPolicy.MinLength)" Id="newPassword" Type="password" />
+                <RolePicker Selected="createModel.Roles" Roles="roleNames" Error="@createErrors.GetValueOrDefault("Roles")" InputId="newRoleSearch" />
+                @foreach (var error in createErrors)
+                {
+                    <Alert Severity="AlertSeverity.Danger">@error.Value</Alert>
+                }
+            </Stack>
+        </EditForm>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => createOpen = false">@Translations.Common_Cancel</Button>
+        <Button form="createUserForm" Disabled="busy" Type="submit">@Translations.Users_Create</Button>
+    </Footer>
+</AppModal>
+
+<AppModal Title="@Translations.Users_EditTitle.F(editingEmail)" @bind-Open="editOpen">
+    <ChildContent>
+        @if (editModel is not null)
+        {
+            <EditForm Model="editModel" OnValidSubmit="SaveEditAsync" FormName="editUser" id="editUserForm">
+                <Stack Gap="Gap.Medium">
+                    <DataAnnotationsValidator />
+
+                    @* Avatar: replaced / removed together with the other changes on save *@
+                    <Stack Direction="Direction.Row" Gap="Gap.Medium" Align="Align.Center">
+                        <Avatar Src="@EditAvatarUrl" Name="@(editModel.DisplayName ?? editModel.Email ?? string.Empty)" Size="AvatarSize.Large" />
+                        <Stack Gap="Gap.XSmall">
+                            <Stack Direction="Direction.Row" Gap="Gap.XSmall" Wrap="true">
+                                <InputFile OnChange="UploadEditAvatarAsync" accept="image/*" id="editAvatarInput" hidden />
+                                <Button Variant="ButtonVariant.Text" For="editAvatarInput" Disabled="busy" Icon="@AppIcons.Upload">
+                                    @Translations.Users_ChangeAvatar
+                                </Button>
+                                @if (HasEditAvatar)
+                                {
+                                    <Button Variant="ButtonVariant.Danger" Disabled="busy" OnClick="RemoveEditAvatar" Icon="@AppIcons.DeleteOutline">
+                                        @Translations.Account_RemoveAvatar
+                                    </Button>
+                                }
+                            </Stack>
+                            @if (editErrors.GetValueOrDefault("Avatar") is { } avatarError)
+                            {
+                                <Typography Variant="TextVariant.Caption" Tone="Tone.Danger">@avatarError</Typography>
+                            }
+                        </Stack>
+                    </Stack>
+
+                    <FormText @bind-Value="editModel.DisplayName" Label="@Translations.Common_DisplayName" Error="@editErrors.ContainsKey("DisplayName")" ErrorText="@editErrors.GetValueOrDefault("DisplayName")" Id="editDisplayName" maxlength="@Services.UserAdministration.DisplayNameMaxLength" />
+                    <Stack Gap="Gap.XSmall">
+                        <FormText Value="editModel.Email" ValueChanged="@((string value) => EmailEdited(value))" Label="@Translations.Common_Email" Error="@editErrors.ContainsKey("Email")" ErrorText="@editErrors.GetValueOrDefault("Email")" Id="editEmail" Type="email" ValueExpression="() => editModel.Email" Hint="@Translations.Users_EmailChangeNote" maxlength="@Services.UserAdministration.EmailMaxLength" />
+                        <Checkbox AllowClear="false" @bind-Value="editModel.EmailConfirmed">@Translations.Users_EmailConfirmed</Checkbox>
+                        @if (EmailChanged && !editModel.EmailConfirmed)
+                        {
+                            <Typography Variant="TextVariant.Caption" Tone="Tone.Muted">@Translations.Users_ConfirmationWillBeSent</Typography>
+                        }
+                    </Stack>
+                    <FormText @bind-Value="editModel.PhoneNumber" Label="@Translations.Account_Phone" Placeholder="@("+420 123 456 789")" Error="@editErrors.ContainsKey("PhoneNumber")" ErrorText="@editErrors.GetValueOrDefault("PhoneNumber")" Id="editPhone" Type="tel" Hint="@Translations.Users_PhoneChangeNote" />
+
+                    <Divider />
+                    <RolePicker Selected="editModel.Roles" Roles="roleNames" Error="@editErrors.GetValueOrDefault("Roles")" InputId="editRoleSearch" />
+
+                    <Divider />
+                    <ClaimsEditor Claims="editModel.Claims" Inherited="InheritedClaims" Errors="editErrors" Hint="@Translations.Claims_UserHint" IdPrefix="userClaim" />
+
+                    @if (editErrors.GetValueOrDefault(string.Empty) is { } formError)
+                    {
+                        <Alert Severity="AlertSeverity.Danger">@formError</Alert>
+                    }
+                </Stack>
+            </EditForm>
+        }
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => editOpen = false">@Translations.Common_Cancel</Button>
+        <Button form="editUserForm" Disabled="@(busy || !editSnapshot.IsDirty(editModel))" Type="submit">@Translations.Common_Save</Button>
+    </Footer>
+</AppModal>
+
+@* Reset MFA *@
+<AppModal Title="@Translations.Users_ResetMfa" @bind-Open="resetMfaDialogOpen">
+    <ChildContent>
+        <Typography>@Translations.Users_ResetMfaConfirm.F(userToResetMfa?.Email)</Typography>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => resetMfaDialogOpen = false">@Translations.Common_Cancel</Button>
+        <Button Variant="ButtonVariant.Danger" OnClick="ResetMfaAsync">@Translations.Users_ResetMfa</Button>
+    </Footer>
+</AppModal>
+
+<AppModal Title="@Translations.Users_DeleteTitle" @bind-Open="deleteDialogOpen">
+    <ChildContent>
+        <Typography>@Translations.Users_DeleteConfirm.F(userToDelete?.Email)</Typography>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => deleteDialogOpen = false">@Translations.Common_Cancel</Button>
+        <Button Variant="ButtonVariant.Danger" OnClick="DeleteAsync">@Translations.Common_Delete</Button>
+    </Footer>
+</AppModal>
+
+@code {
+    private readonly NotificationState Notifications = new();
+
+    private CreateUserModel createModel = new();
+    private List<User> users = new();
+    private Dictionary<string, IList<string>> userRoles = new();
+    private Dictionary<string, int> passkeyCounts = new();
+    private bool createOpen;
+    private Dictionary<string, string> createErrors = new();
+    private List<string> roleNames = new();
+    private UserEditModel? editModel;
+    private string? editingEmail;
+    private bool editOpen;
+    private readonly FormSnapshot editSnapshot = new();
+    private Dictionary<string, string> editErrors = new();
+    private List<(string Role, System.Security.Claims.Claim Claim)> roleClaims = new();
+    private string? editingAvatarUrl;   // the saved avatar (null = Gravatar)
+    private string? pendingAvatarDataUrl;
+
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthenticationState { get; set; }
+    private User? userToResetMfa;
+    private bool resetMfaDialogOpen;
+    private User? userToDelete;
+    private bool deleteDialogOpen;
+    private bool busy;
+
+    protected override async Task OnInitializedAsync() => await LoadAsync();
+
+    private static bool IsLocked(User user) => user.LockoutEnd is { } end && end > DateTimeOffset.UtcNow;
+
+    private async Task LoadAsync()
+    {
+        users = await UserManager.Users.OrderBy(u => u.Email).ToListAsync();
+        userRoles = new Dictionary<string, IList<string>>();
+        passkeyCounts = new Dictionary<string, int>();
+        foreach (var user in users)
+        {
+            userRoles[user.Id] = await UserManager.GetRolesAsync(user);
+            passkeyCounts[user.Id] = (await UserManager.GetPasskeysAsync(user)).Count;
+        }
+    }
+
+    private async Task OpenCreate()
+    {
+        roleNames = await Administration.RoleNamesAsync();
+        createModel = new CreateUserModel();
+        createErrors = new();
+        createOpen = true;
+    }
+
+    private async Task CreateUserAsync()
+    {
+        busy = true;
+        var result = await Administration.CreateAsync(createModel);
+        busy = false;
+        createErrors = result.Errors;
+        if (!result.Succeeded)
+        {
+            return;
+        }
+
+        createOpen = false;
+        Notifications.Add(Translations.Users_CreatedText.F(result.User!.Email), AlertSeverity.Success);
+        await LoadAsync();
+    }
+
+    private async Task OpenEditAsync(User user)
+    {
+        roleNames = await Administration.RoleNamesAsync();
+        editModel = await Administration.LoadAsync(user.Id);
+        if (editModel is null)
+        {
+            Notifications.Add(Translations.Common_UserNotFound, AlertSeverity.Danger);
+            await LoadAsync();
+            return;
+        }
+
+        editingEmail = editModel.Email;
+        editingAvatarUrl = user.AvatarUrl;
+        pendingAvatarDataUrl = null;
+        roleClaims = await Services.CustomClaims.OfRolesAsync(RoleManager, roleNames);
+        editSnapshot.Take(editModel);
+        editErrors = new();
+        editOpen = true;
+    }
+
+    /// <summary>Claims the user gets from the roles currently selected in the form.</summary>
+    private List<(string Role, System.Security.Claims.Claim Claim)> InheritedClaims
+        => editModel is null ? new() : roleClaims.Where(item => editModel.Roles.Contains(item.Role)
+            || string.Equals(item.Role, DatabaseInitializer.UserRole, StringComparison.OrdinalIgnoreCase)).ToList();
+
+    private bool HasEditAvatar => editModel?.Avatar switch
+    {
+        AvatarChange.Replace => true,
+        AvatarChange.Remove => false,
+        _ => !string.IsNullOrWhiteSpace(editingAvatarUrl),
+    };
+
+    private string EditAvatarUrl => editModel?.Avatar switch
+    {
+        AvatarChange.Replace when pendingAvatarDataUrl is not null => pendingAvatarDataUrl,
+        AvatarChange.Remove => AvatarUrl.ForEmail(editingEmail, 256),
+        _ => string.IsNullOrWhiteSpace(editingAvatarUrl) ? AvatarUrl.ForEmail(editingEmail, 256) : editingAvatarUrl,
+    };
+
+    private async Task UploadEditAvatarAsync(InputFileChangeEventArgs args)
+    {
+        if (editModel is null)
+        {
+            return;
+        }
+
+        editErrors.Remove("Avatar");
+        if (args.File.Size > AvatarService.MaxUploadBytes)
+        {
+            editErrors["Avatar"] = Translations.Account_AvatarTooLarge;
+            return;
+        }
+
+        busy = true;
+        try
+        {
+            using var memory = new MemoryStream();
+            await using (var stream = args.File.OpenReadStream(AvatarService.MaxUploadBytes))
+            {
+                await stream.CopyToAsync(memory);
+            }
+
+            // Resized and encoded now (also checks the image); stored when the form is saved.
+            var bytes = memory.ToArray();
+            var (webp, _, _) = await Task.Run(() => AvatarService.ProcessImage(bytes));
+            editModel.AvatarImage = webp;
+            editModel.Avatar = AvatarChange.Replace;
+            pendingAvatarDataUrl = $"data:{AvatarService.WebpContentType};base64,{Convert.ToBase64String(webp)}";
+        }
+        catch (Exception exception) when (exception is InvalidDataException or IOException)
+        {
+            Logger.LogInformation(exception, "Rejected avatar upload {File}.", args.File.Name);
+            editErrors["Avatar"] = exception is IOException ? Translations.Account_AvatarTooLarge : Translations.Account_AvatarInvalid;
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    private void RemoveEditAvatar()
+    {
+        if (editModel is null)
+        {
+            return;
+        }
+
+        editModel.AvatarImage = null;
+        pendingAvatarDataUrl = null;
+        editModel.Avatar = string.IsNullOrWhiteSpace(editingAvatarUrl) ? AvatarChange.None : AvatarChange.Remove;
+    }
+
+    private bool EmailChanged => editModel is not null && !string.Equals(editModel.Email.Trim(), editingEmail, StringComparison.Ordinal);
+
+    /// <summary>A new address starts unconfirmed (the user gets a confirmation email); the admin may still tick it.</summary>
+    private void EmailEdited(string value)
+    {
+        if (editModel is null)
+        {
+            return;
+        }
+
+        var wasChanged = EmailChanged;
+        editModel.Email = value;
+        if (EmailChanged && !wasChanged)
+        {
+            editModel.EmailConfirmed = false;
+        }
+    }
+
+    private async Task SaveEditAsync()
+    {
+        if (editModel is null)
+        {
+            return;
+        }
+
+        busy = true;
+        var actingUserId = AuthenticationState is null ? null : UserManager.GetUserId((await AuthenticationState).User);
+        var result = await Administration.UpdateAsync(editModel, actingUserId, Navigation.BaseUri);
+        busy = false;
+        editErrors = result.Errors;
+        if (!result.Succeeded)
+        {
+            return;
+        }
+
+        editOpen = false;
+        Notifications.Add(Translations.Users_Saved.F(result.User!.Email), AlertSeverity.Success);
+        if (result.ConfirmationEmail is { } sent)
+        {
+            Notifications.Add(sent == AccountEmailResult.Sent
+                ? Translations.Users_ConfirmationSent.F(result.User.Email)
+                : Translations.Account_ConfirmationFailed, sent == AccountEmailResult.Sent ? AlertSeverity.Info : AlertSeverity.Warning);
+        }
+        await LoadAsync();
+    }
+
+    private async Task ToggleLockoutAsync(User user)
+    {
+        await UserManager.SetLockoutEndDateAsync(user, IsLocked(user) ? null : DateTimeOffset.UtcNow.AddYears(100));
+        await LoadAsync();
+    }
+
+    private void AskResetMfa(User user)
+    {
+        userToResetMfa = user;
+        resetMfaDialogOpen = true;
+    }
+
+    private async Task ResetMfaAsync()
+    {
+        if (userToResetMfa is null)
+        {
+            return;
+        }
+
+        var user = userToResetMfa;
+        await UserManager.SetTwoFactorEnabledAsync(user, false);
+        await UserManager.ResetAuthenticatorKeyAsync(user);
+        foreach (var passkey in await UserManager.GetPasskeysAsync(user))
+        {
+            await UserManager.RemovePasskeyAsync(user, passkey.CredentialId);
+        }
+
+        // Invalidate existing sessions and "remember this browser" cookies.
+        await UserManager.UpdateSecurityStampAsync(user);
+
+        resetMfaDialogOpen = false;
+        userToResetMfa = null;
+        Notifications.Add(Translations.Users_MfaResetText.F(user.Email), AlertSeverity.Success);
+        await LoadAsync();
+    }
+
+    private void AskDelete(User user)
+    {
+        userToDelete = user;
+        deleteDialogOpen = true;
+    }
+
+    private async Task DeleteAsync()
+    {
+        if (userToDelete is null)
+        {
+            return;
+        }
+
+        var result = await UserManager.DeleteAsync(userToDelete);
+        deleteDialogOpen = false;
+
+        if (result.Succeeded)
+        {
+            Notifications.Add(Translations.Users_DeletedText.F(userToDelete.Email), AlertSeverity.Success);
+        }
+        else
+        {
+            Notifications.Add(string.Join(" ", result.Errors.Select(e => e.Description)), AlertSeverity.Danger);
+        }
+
+        userToDelete = null;
+        await LoadAsync();
+    }
+}

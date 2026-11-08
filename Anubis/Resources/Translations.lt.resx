@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Lietuvių (lt). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Autentifikavimo programėlė</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Keisti slaptažodį</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Nepavyko išsiųsti, bandykite vėliau</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Išsiųsta, patikrinkite gautuosius</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Jau išsiųsta, bandykite dar kartą po kelių minučių</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Sukurta</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Naršyklės nustatymas</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Prieigos raktai</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Vaidmenys</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Siųsti patvirtinimo laišką</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Kelių veiksnių</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>OIDC klientai</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scope</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Naudotojai</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Kodas iš programėlės</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Sukurti naują raktą</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>Nuo šiol po slaptažodžio būsite paprašyti kodo.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Kodas neteisingas. Patikrinkite, ar įrenginio laikrodis rodo teisingą laiką, ir bandykite dar kartą.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Negalite nuskaityti? Įveskite šį raktą rankiniu būdu:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Bus sukurtas naujas raktas. Dabartinė programėlė iš karto nustos veikti, o dviejų veiksnių prisijungimas liks išjungtas, kol nustatysite naują programėlę.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Pereiti prie kitos autentifikavimo programėlės</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>QR kodas jūsų autentifikavimo programėlei</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Nuskaitykite QR kodą programėle ir įveskite rodomą kodą.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Patikrinti ir įjungti</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Dabartinis slaptažodis</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Pasirinkite naują slaptažodį (bent {0} simbolių).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Jūsų slaptažodis atnaujintas.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Nepavyko pakeisti slaptažodžio</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Atnaujinti slaptažodį</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Leidžiami scope</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Sukurti klientą</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>Mano programa</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Redaguoti klientą: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (mašina–mašina)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (su PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>Peradresavimo URI po atsijungimo (po vieną eilutėje)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>Peradresavimo URI (po vieną eilutėje)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Generuoti naują paslaptį</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Reikalauti aiškaus naudotojo sutikimo</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Išsaugoti pakeitimus</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Kliento paslaptis</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Palikite tuščią, kad liktų dabartinė paslaptis.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Palikite tuščią viešajam klientui (tik PKCE) arba įveskite paslaptį konfidencialiam klientui.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Bent 16 simbolių</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Nukopijuokite ją dabar – ji rodoma tik kartą. OpenIddict saugo tik jos maišos reikšmę.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} atnaujintas.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>Kliento ID</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Sutikimas</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Numanomas</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Privalomas</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Ar tikrai norite ištrinti {0}? Jam išduoti prieigos raktai iš karto nustos veikti.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Ištrinti klientą</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Grant tipai</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Naujas klientas</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Tipas</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Administravimas</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Grįžti į prisijungimą</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Atšaukti</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Patikrinkite gautuosius</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Patvirtinkite naują slaptažodį</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Ištrinti</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Aprašas</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Rodomas vardas</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Redaguoti</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>El. paštas</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>jus@pavyzdys.lt</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Klaida</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Paskyra užblokuota dėl per daug nesėkmingų bandymų. Bandykite vėliau.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Pavadinimas</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Naujas slaptažodis</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Bent {0} simbolių</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Ne</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Nėra</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Išjungta</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Įjungta</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Slaptažodis</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Pervadinti</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Išsaugoti</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Prisijungti</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Kažkas nepavyko</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Naudotojas nerastas.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Taip</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Tęsti</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Patvirtinimo nuorodos galioja 24 valandas. Paprašykite naujos toliau.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Nuoroda negalioja arba baigėsi jos galiojimas</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Patvirtinti el. paštą</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Siųsti naują nuorodą</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Ačiū. Jūsų el. pašto adresas patvirtintas.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>El. paštas patvirtintas</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>El. pašto patvirtinimas</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Leisti</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Atmesti</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Neteisinga užklausa</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Autorizacijos užklausoje nenurodytas klientas.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Autorizacijos užklausos nėra arba ji neteisinga.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>prašo prieigos prie jūsų paskyros.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Autorizuoti programą</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>Programa galės:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Prisijungiant slaptažodžiu tada užteks tik slaptažodžio. Jei slaptažodis nutekės, jūsų paskyrą bus lengviau perimti. Jūsų prieigos raktai ir toliau veiks.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Išjungti dviejų veiksnių autentifikavimą</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Išjungti autentifikavimo programėlę?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Patvirtinti el. paštą</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Nuoroda galioja 24 valandas. Jei paskyros nekūrėte, šį laišką galite ignoruoti.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Patvirtinkite savo el. pašto adresą</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Sveiki, {0}, patvirtinkite, kad {1} priklauso jūsų Anubis paskyrai.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Pasirinkti naują slaptažodį</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Nuoroda galioja 1 valandą ir veikia vieną kartą. Jei to neprašėte, ignoruokite šį laišką; jūsų slaptažodis nesikeičia.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Atkurkite slaptažodį</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Sveiki, {0}, kažkas paprašė atkurti jūsų Anubis paskyros slaptažodį.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Atidaryti Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Gavote šį laišką, nes administratorius išsiuntė bandomąjį laišką.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>El. paštas veikia</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Anubis bandomasis laiškas</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Šį bandomąjį pranešimą Anubis išsiuntė per {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Konfigūracija</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Domenas</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>naudotojau</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Nuorodos laiškuose tada naudoja kiekvienos užklausos pagrindinio kompiuterio vardą. Gamybinėje aplinkoje nustatykite Anubis:Issuer į savo viešą URL.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Anubis:Issuer nenustatytas</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Jei mygtukas neveikia, atidarykite šią nuorodą:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Tik žurnalas (nesukonfigūruota)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>Laiškai tik įrašomi į žurnalą. Nustatykite Email:Smtp:Host arba konfigūracijoje pasirinkite kitą Email:Provider (SendGrid, Mailgun, Postmark, Resend).</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>El. paštas nesukonfigūruotas</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Teikėjas</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Gavėjas</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Siuntimas nepavyko</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Siųsti bandomąjį laišką</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Išsiųsta</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>{1} priėmė bandomąjį laišką gavėjui {0}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>El. paštas nesukonfigūruotas, todėl pranešimas tik įrašytas į žurnalą.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Klientas '{0}' nerastas.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Klaida</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>Užklausos ID: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>Scope '{0}' jau yra.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>Scope '{0}' nerastas.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Apdorojant užklausą įvyko klaida.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Atsiųsime nuorodą naujam slaptažodžiui pasirinkti.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Pamirštas slaptažodis</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Siųsti atkūrimo nuorodą</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Jei su šiuo adresu yra paskyra, atkūrimo nuoroda jau siunčiama. Nuoroda galioja 1 valandą.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Pamiršote slaptažodį?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Sukurti paskyrą</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Įrašą pakeitė kažkas kitas. Įkelkite iš naujo ir bandykite dar kartą.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Įvyko nežinoma klaida.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>El. paštas '{0}' jau naudojamas.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Vaidmens pavadinimas '{0}' jau naudojamas.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Naudotojo vardas '{0}' jau naudojamas.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>El. paštas '{0}' neteisingas.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Vaidmens pavadinimas '{0}' neteisingas.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Neteisingas prieigos raktas.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>Naudotojo vardas '{0}' neteisingas.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Naudotojas su šiuo prisijungimu jau yra.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Neteisingas slaptažodis.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Slaptažodyje turi būti bent vienas skaitmuo (0-9).</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Slaptažodyje turi būti bent viena mažoji raidė (a-z).</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Slaptažodyje turi būti bent vienas simbolis, kuris nėra raidė ar skaitmuo.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Slaptažodyje turi būti bent {0} skirtingi simboliai.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Slaptažodyje turi būti bent viena didžioji raidė (A-Z).</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Slaptažodis turi būti bent {0} simbolių ilgio.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Atkūrimo kodo panaudoti nepavyko.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Naudotojas jau turi slaptažodį.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Naudotojas jau turi vaidmenį '{0}'.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Šiam naudotojui blokavimas neįjungtas.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Naudotojas neturi vaidmens '{0}'.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Paskyra</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Kalba</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Pagrindinė navigacija</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Atsijungti</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Susikurkite</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Naudokite prieigos raktą arba el. paštą ir slaptažodį.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Pirmiausia patvirtinkite el. pašto adresą. Nuorodą rasite gautuosiuose.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Prisijungti nepavyko</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Pamiršote slaptažodį?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Neteisingas el. paštas arba slaptažodis.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Dar neturite paskyros?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Prisijungti prie šios paskyros neleidžiama.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>arba</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Prisijungti</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Jūsų slaptažodis</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Dar kartą siųsti patvirtinimo laišką</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Prisijungti prie Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Šis prieigos raktas neužregistruotas Anubis.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Prisijungti prieigos raktu</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Šis įrenginys jau turi šios paskyros prieigos raktą.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>Prieigos rakto užklausa atšaukta arba baigėsi jos laikas.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Prieigos rakto panaudoti nepavyko. Bandykite dar kartą.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Serveriui nepavyko pradėti prieigos rakto užklausos. Bandykite dar kartą.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Ši naršyklė nepalaiko prieigos raktų.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Ši naršyklė nepalaiko prieigos raktų. Atnaujinkite ją.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Vienkartiniai kodai prisijungti, jei prarasite autentifikavimo programėlę.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Generuoti naujus kodus</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Naudokite vieną iš jų prisijungti, jei prarasite autentifikavimo programėlę.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Jie rodomi tik kartą. Laikykite juos saugioje vietoje, pavyzdžiui, slaptažodžių tvarkyklėje. Kiekvienas kodas leidžia prisijungti vieną kartą, jei prarasite autentifikavimo programėlę. Seni kodai nebeveikia.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Išsaugokite šiuos atkūrimo kodus dabar</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Kodus išsaugojau</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Atkūrimo kodai</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Bus sukurta {0} naujų kodų. Dabartiniai kodai nustos veikti.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Grįžti prie autentifikavimo kodo</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Atkūrimo kodas</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Kiekvienas atkūrimo kodas veikia tik kartą.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Atkūrimo kodas neteisingas arba jau panaudotas.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Atkūrimo kodas</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Prisijungti atkūrimo kodu</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Jau užsiregistravote?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Patvirtinkite slaptažodį</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Pakartokite slaptažodį</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Išsiuntėme patvirtinimo nuorodą adresu {0}. Patvirtinkite adresą ir prisijunkite.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Užsiregistruokite el. paštu ir slaptažodžiu.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Savarankiška registracija šiuo metu išjungta. Susisiekite su administratoriumi.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Registracija išjungta</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Jonas Jonaitis</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Registracija nepavyko</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Negavote laiško?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Sukurti paskyrą</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Siųsti dar kartą</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Susikurkite paskyrą</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Suteikite jam atpažįstamą pavadinimą, pavyzdžiui, „Pixel 9“ arba „MacBook Touch ID“.</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Pavadinkite prieigos raktą</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Praleisti</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Pervadinti prieigos raktą</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Atsiųsime naują nuorodą adresui patvirtinti.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Pakartotinai siųsti patvirtinimą</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Siųsti nuorodą</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Jei adresas priklauso nepatvirtintai paskyrai, nauja nuoroda jau siunčiama.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Pakartotinai siųsti patvirtinimo laišką</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Dabar galite prisijungti nauju slaptažodžiu.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Slaptažodis pakeistas</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Nepavyko atkurti slaptažodžio</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Ši atkūrimo nuoroda neišsami. Dar kartą atidarykite nuorodą iš laiško arba paprašykite naujos.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Neteisinga nuoroda</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Nuorodos galiojimas baigėsi arba ji jau panaudota. Paprašykite naujos.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Atkurti slaptažodį</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Paprašyti naujos nuorodos</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Nustatyti naują slaptažodį</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Pasirinkite naują slaptažodį</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Jūsų paskyra neturi prieigos prie šio puslapio.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Prieiga uždrausta</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Nerasta</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Atsiprašome, šiuo adresu nieko nėra.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Puslapis nerastas</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Matyti jūsų el. pašto adresą</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Išlaikyti prieigą, kai jūsų nėra (refresh tokens)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Patvirtinti, kas jūs esate</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Matyti jūsų vardą ir profilį</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Matyti jūsų vaidmenis</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Sukurti scope</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Klientai gali prašyti pasirinktinių scope, susietų su ištekliais (audiences).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Mano API</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Ištekliai (atskirti kableliais)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Ištekliai</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Pridėti prieigos raktą</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>Po slaptažodžio įveskite 6 skaitmenų kodą iš programėlės, pavyzdžiui, Aegis, 2FAS, Google Authenticator, Microsoft Authenticator arba 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Liko atkūrimo kodų: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Apsvarstykite galimybę sugeneruoti naujus kodus.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Liko nedaug atkūrimo kodų ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Pamiršti šią naršyklę</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Pereiti prie kitos programėlės</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Sugeneruokite naujus kodus dabar, kitaip galite prarasti prieigą.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Atkūrimo kodų neliko</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Naršyklė nepateikė prieigos rakto.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Prieigos raktų dar nėra.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Pridėta</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Galite turėti daugiausia {0} prieigos raktų. Ištrinkite vieną, kad pridėtumėte kitą.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Prieigos rakto išsaugoti nepavyko.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Prieigos rakto patikrinti nepavyko. Bandykite dar kartą arba naudokite kitą įrenginį.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Sinchronizuotas</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Prisijunkite piršto atspaudu, veidu arba įrenginio PIN kodu vietoj slaptažodžio. Prieigos raktas saugomas jūsų telefone, kompiuteryje arba saugos rakte, ir jo negalima išvilioti sukčiavimu.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Nustatyti autentifikavimo programėlę</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Ši naršyklė</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Ši naršyklė prisijungiant praleidžia autentifikavimo kodą.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Išjungti</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Bevardis prieigos raktas</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Prisijungiant slaptažodžiu būsite paprašyti kodo iš programėlės.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Autentifikavimo programėlė įjungta</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Iš naujo nustatykite autentifikavimo programėlę su nauju raktu.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Autentifikavimo raktas atkurtas</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Ši naršyklė kito prisijungimo metu vėl paprašys kodo.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Naršyklė pamiršta</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>Autentifikavimo programėlė prisijungiant nebereikalinga.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Dviejų veiksnių autentifikavimas išjungtas</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Prieš generuodami atkūrimo kodus nustatykite autentifikavimo programėlę.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Nepasiekiama</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Dabar galite prisijungti šiuo prieigos raktu.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Prieigos raktas pridėtas</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Šiuo prieigos raktu nebegalima prisijungti.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Prieigos raktas ištrintas</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>Prieigos rakto nėra arba jis priklauso kitai paskyrai.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Prieigos raktas nerastas</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>Prieigos rakto pavadinimas atnaujintas.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Prieigos raktas pervadintas</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Autentifikavimo kodas</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Įveskite 6 skaitmenų kodą iš autentifikavimo programėlės.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Kodas neteisingas arba baigėsi jo galiojimas.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Pametėte įrenginį?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Dviejų veiksnių autentifikavimas</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>Šioje naršyklėje 14 dienų nebeklausti</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Naudoti atkūrimo kodą</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Patikrinimas nepavyko</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Patikrinti</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Aktyvus</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Sukurti naudotoją</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Slaptažodžiai saugomi kaip Argon2id maišos reikšmės.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} sukurtas.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Ar tikrai norite ištrinti {0}? To negalima atšaukti.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Ištrinti naudotoją</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Naudotojas ištrintas</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} ištrintas.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Užblokuoti</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Užblokuotas</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} dabar gali prisijungti tik slaptažodžiu.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Prieigos raktai: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Atkurti MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Tai išjungia autentifikavimo programėlę, ištrina visus naudotojo {0} prieigos raktus ir atjungia jį visur. Naudokite, kai kas nors pametė įrenginį. Tada jis galės prisijungti tik slaptažodžiu ir iš naujo nustatyti MFA.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Būsena</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Atblokuoti</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Įveskite kliento ID.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Naudokite bent 16 simbolių arba palikite tuščią viešajam klientui.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Kodą sudaro 6 skaitmenys.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Įveskite kodą iš programėlės.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Patvirtinkite slaptažodį.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Įveskite dabartinį slaptažodį.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Naudokite ne daugiau kaip 100 simbolių.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Įveskite galiojantį el. pašto adresą.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>El. paštas privalomas.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Leidžiamos tik raidės, skaitmenys, '-', '_' ir '.'.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Įveskite pavadinimą.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Naudokite ne daugiau kaip 100 simbolių.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Slaptažodis privalomas.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Slaptažodžiai nesutampa.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Įveskite gavėją.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Įveskite atkūrimo kodą.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Įveskite scope pavadinimą.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Įkelti avatarą</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Naudoti Gravatar</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF arba SVG. Paveikslėlis sumažinamas iki daugiausia 1024×1024 ir išsaugomas kaip permatomas WebP. Jei paveikslėlio nėra, naudojamas Gravatar.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Rodomas vardas išsaugotas.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Avataras atnaujintas.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Savas avataras pašalintas. Naudojamas Gravatar.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Netinkamas arba nepalaikomas paveikslėlio failas.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Paveikslėlio failas per didelis (daugiausia 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Nustatymai</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Vaidmenys</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Išvaizda</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Paskyros, kurios gali prisijungti prie Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Vaidmenys perduodami klientų programoms claim roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Teisės, kurių gali prašyti klientų programos.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Programos, kurios prijungia naudotojus per Anubis.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Siunčiami laiškai adresui patvirtinti ir slaptažodžiui atkurti.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Prisijungimo ir paskyros puslapių logotipas, šriftas ir spalvos.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Uždaryti</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Išsaugoma faile {0}. Šios reikšmės turi pirmenybę prieš appsettings.json ir aplinkos kintamuosius.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Nustatymai išsaugoti</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Pakeitimai įsigalioja iš karto.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Nustatymai neišsaugoti</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Nustatyta. Palikite tuščią, kad liktų dabartinė reikšmė.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Siuntėjo adresas</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Siuntėjo vardas</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>SMTP serveris</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Prievadas</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Šifravimas</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Skirtasis laikas (sekundėmis)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Naudotojo vardas</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>API raktas</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Serverio prieigos raktas</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>API URL</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Logotipas ir piktograma</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Įkelkite SVG, WebP, PNG, JPEG arba GIF (išsaugoma nustatymų faile) arba įveskite kelią aplanke wwwroot ar https:// adresą. Favicon PNG versijos Safari ir iOS sukuriamos automatiškai.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Logotipas</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Šriftas</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Tuščia = numatytasis šriftas (sistemos lygiaplotis). Galima naudoti tik įrenginyje įdiegtus šriftus.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Šriftų šeima (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Šviesus apipavidalinimas</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Tamsus apipavidalinimas</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Pasirinkite spalvą arba įveskite ją kaip #RRGGBB. Tuščia = numatytoji spalva.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Pagrindinė</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Antrinė</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Fonas</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Tekstas</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Sukurti vaidmenį</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Naujas vaidmuo neturi narių; pridėkite juos toliau esančiame sąraše.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Nariai</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Integruotas</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Ištrinti vaidmenį</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Ištrinti vaidmenį {0}? Visi jo nariai jį praras.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Vaidmens {0} nariai</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Pridėti</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Pašalinti</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Narių dar nėra.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>Paskutinio administratoriaus pašalinti negalima.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Įveskite vaidmens pavadinimą.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Įveskite spalvą kaip #RRGGBB arba palikite lauką tuščią.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Negali būti ; { } &lt; &gt; ar \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Įveskite absoliutų https:// adresą.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Įveskite kelią, prasidedantį /, https:// adresą arba įkelkite failą.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Įkelti</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Naudoti numatytąjį</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Įkeltas failas · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Nepalaikomas arba sugadintas paveikslėlis arba SVG su išorinėmis nuorodomis. Naudokite SVG, WebP, PNG, JPEG arba GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Failas per didelis (daugiausia {0} MB, po apdorojimo {1} KB).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Patvirtinta</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Nepatvirtinta</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Telefono numeris</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Tarptautinis formatas, pvz., +370 612 34567.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Siųsti kodą</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Kodas iš SMS</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Išsiuntėme kodą numeriu {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Telefono numeris patvirtintas.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Įveskite numerį tarptautiniu formatu, pvz., +370 612 34567.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Kodas ką tik išsiųstas. Bandykite dar kartą po minutės.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Jūsų Anubis patvirtinimo kodas: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Spalvų režimas</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Šviesus</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Tamsus</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>Pagal sistemą</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Nepasirinkta: naudojama naršyklės pageidaujama kalba.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Nepasirinkta: taikomas sistemos šviesus arba tamsus nustatymas.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Istorija</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Prisijungimai ir paskyros pakeitimai per pastaruosius 12 mėnesių.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Kol kas nieko nėra.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Naujesni</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Senesni</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>atliko administratorius</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Nežinomas įrenginys</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Paskyra sukurta</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Prisijungta</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Nesėkmingas bandymas prisijungti</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Paskyra užblokuota po per daug nesėkmingų bandymų</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Atsijungta</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Prisijungta prie programos</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Slaptažodis pakeistas</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Slaptažodis atkurtas el. paštu</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>El. pašto adresas patvirtintas</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Autentifikavimo programėlė įjungta</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Autentifikavimo programėlė išjungta</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Sugeneruoti nauji atkūrimo kodai</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Prieigos raktas pridėtas</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Prieigos raktas pašalintas</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Telefono numeris pakeistas</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Telefono numeris patvirtintas</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Telefono numeris pašalintas</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Rodomas vardas pakeistas</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Avataras pakeistas</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Paskyra užblokuota</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Paskyra atblokuota</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>slaptažodis</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>prieigos raktas</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>autentifikavimo programėlė</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>atkūrimo kodas</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Atsijungti nuo Anubis?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Valdymas</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Veiksmai</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Ištrinti scope {0}? Klientai jo nebegalės prašyti.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Bendrieji</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Pagrindiniai šio serverio nustatymai.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Serverio pavadinimas</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Rodomas naršyklės skirtuko pavadinime ir paskyros bei administravimo puslapių viršuje.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Įveskite serverio pavadinimą.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Naudokite ne daugiau kaip 60 simbolių.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Sauga</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Slaptažodžių taisyklės, blokavimas po nesėkmingų bandymų, sesijos trukmė ir prieigos raktai. Pakeitimai įsigalioja iš karto.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Prieigos raktai (tokens)</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Klientų programoms išduodamų prieigos raktų ir kodų galiojimas. Pakeitimai taikomi naujiems raktams.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Serveris</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>Viešasis URL (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Pavyzdžiui, https://id.example.com. Tuščia = pagal kiekvieną užklausą. Įsigalioja po paleidimo iš naujo.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Registracija</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Leisti savarankišką registraciją</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Prisijungiant reikalauti patvirtinto el. pašto adreso</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Reikia veikiančių el. pašto nustatymų.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Slaptažodžiai</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Mažiausias ilgis</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Reikalauti skaitmens</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Reikalauti mažosios raidės</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Reikalauti didžiosios raidės</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Reikalauti simbolio</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Blokavimas po nesėkmingų prisijungimų</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Nesėkmingi bandymai iki blokavimo</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Blokavimo trukmė (minutėmis)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Prisijungimo sesija</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Sesijos trukmė (valandomis)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Pratęsti sesiją, kol naudotojas aktyvus</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Didžiausias prieigos raktų skaičius paskyrai</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (minutėmis)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID token (minutėmis)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Autorizacijos kodas (minutėmis)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (dienomis)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Sutikimas (minutėmis)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Kiek laiko prisijungimo metu prisimenamas suteiktas sutikimas.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Leidžiamas intervalas: nuo {0} iki {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Redaguoti {0}</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>El. pašto adresas yra ir prisijungimo vardas: naudotojas jungsis nauju adresu.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>El. pašto adresas patvirtintas</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Pakeistas numeris išsaugomas kaip nepatvirtintas.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Šį el. pašto adresą jau naudoja kita paskyra.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Negalite pašalinti vaidmens Admin iš savo paskyros.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Paskyros {0} pakeitimai išsaugoti.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>El. pašto adresas pakeistas</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Vaidmuo pridėtas</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Vaidmuo pašalintas</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Išsaugojus naujuoju adresu bus išsiųstas patvirtinimo laiškas.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Patvirtinimo laiškas išsiųstas adresu {0}.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Pradėkite raide, toliau raidės, skaitmenys ir - _ . : / (ne daugiau kaip {0} simbolių).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>„{0}“ nustato Anubis, todėl jo naudoti negalima.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Įveskite reikšmę.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Ne daugiau kaip {0} simbolių.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Šis claim nurodytas du kartus.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Ne daugiau kaip {0} claimų.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Vaidmuo nerastas.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Įtaisytųjų vaidmenų pervadinti negalima.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Vaidmuo tokiu pavadinimu jau yra.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Redaguoti vaidmenį {0}</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Vaidmuo {0} išsaugotas.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Pridėti vaidmenį</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claimai</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Pridedami prie prieigos žetono, ID žetono ir userinfo kartu su naudotojo vaidmenų claimais.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Pridedami prie visų šio vaidmens narių žetonų.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Tipas</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Reikšmė</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Pridėti claim</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Pašalinti claim</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Claimų dar nėra.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Iš vaidmenų</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Keisti avatarą</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Įkeliama…</value></data>
+</root>

@@ -1,0 +1,12 @@
+@namespace k6labs.Anubis.Components.Shared
+@using k6labs.Anubis.Options
+@using Microsoft.Extensions.Options
+@inject IOptionsMonitor<GeneralOptions> General
+
+@* Browser tab title: "<page> — <server name>" (server name from the admin "General" settings). *@
+<PageTitle>@Text — @General.CurrentValue.EffectiveServerName</PageTitle>
+
+@code {
+    [Parameter, EditorRequired]
+    public string Text { get; set; } = string.Empty;
+}

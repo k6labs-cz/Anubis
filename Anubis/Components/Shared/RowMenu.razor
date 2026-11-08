@@ -1,0 +1,13 @@
+@namespace k6labs.Anubis.Components.Shared
+
+@* The "⋮" row menu of interactive pages; items are MenuItem. Statically rendered pages use Hathor's Menu. *@
+<Popup @ref="popup" Label="@Translations.Common_Actions" TriggerLabel="@Translations.Common_Actions" PanelRole="menu" data-row-menu>
+    <Trigger><Icon Name="@AppIcons.MoreVert" Size="18" /></Trigger>
+    <ChildContent><div @onclick="Close">@ChildContent</div></ChildContent>
+</Popup>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    private Popup? popup;
+    private Task Close() => popup?.SetOpenAsync(false) ?? Task.CompletedTask;
+}

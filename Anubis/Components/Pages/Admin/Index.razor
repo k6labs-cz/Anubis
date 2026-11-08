@@ -1,0 +1,12 @@
+@page "/admin"
+@attribute [Authorize(Roles = "Admin")]
+
+@using Microsoft.AspNetCore.Authorization
+
+@inject NavigationManager Navigation
+
+@* The admin section starts with the user list (first item of the left navigation). *@
+
+@code {
+    protected override void OnInitialized() => Navigation.NavigateTo("/admin/users", replace: true);
+}

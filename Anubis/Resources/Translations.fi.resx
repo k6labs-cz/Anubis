@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Suomi (fi). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Todennussovellus</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Vaihda salasana</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Lähetys epäonnistui, yritä myöhemmin uudelleen</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Lähetetty, tarkista saapuneet viestit</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Jo lähetetty, yritä uudelleen muutaman minuutin kuluttua</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Luotu</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Selaimen asetus</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Pääsyavaimet</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Roolit</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Lähetä vahvistusviesti</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Monivaiheinen</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>OIDC-asiakkaat</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scopet</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Käyttäjät</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Koodi sovelluksesta</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Luo uusi avain</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>Tästä lähtien sinulta kysytään koodia salasanan jälkeen.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Koodi on virheellinen. Tarkista, että laitteesi kello on oikeassa ajassa, ja yritä uudelleen.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Etkö voi skannata? Syötä tämä avain käsin:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Tämä luo uuden avaimen. Nykyinen sovelluksesi lakkaa toimimasta heti, ja kaksivaiheinen kirjautuminen pysyy pois päältä, kunnes olet ottanut uuden sovelluksen käyttöön.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Siirry toiseen todennussovellukseen</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>QR-koodi todennussovellustasi varten</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Skannaa QR-koodi sovelluksella ja syötä sitten sen näyttämä koodi.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Vahvista ja ota käyttöön</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Nykyinen salasana</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Valitse uusi salasana (vähintään {0} merkkiä).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Salasanasi on päivitetty.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Salasanan vaihto epäonnistui</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Päivitä salasana</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Sallitut scopet</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Luo asiakas</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>Oma sovellukseni</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Muokkaa asiakasta: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (kone koneelle)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (PKCE:n kanssa)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>Uudelleenohjaus-URI:t uloskirjautumisen jälkeen (yksi per rivi)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>Uudelleenohjaus-URI:t (yksi per rivi)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Luo uusi salaisuus</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Vaadi käyttäjän nimenomainen suostumus</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Tallenna muutokset</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Asiakkaan salaisuus</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Jätä tyhjäksi, jos haluat säilyttää nykyisen salaisuuden.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Jätä tyhjäksi julkiselle asiakkaalle (vain PKCE) tai syötä salaisuus luottamukselliselle asiakkaalle.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Vähintään 16 merkkiä</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Kopioi se nyt – se näytetään vain kerran. OpenIddict tallentaa vain sen tiivisteen.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} on päivitetty.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>Asiakastunnus</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Suostumus</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Implisiittinen</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Pakollinen</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Haluatko varmasti poistaa kohteen {0}? Sille myönnetyt tunnukset lakkaavat toimimasta heti.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Poista asiakas</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Grant-tyypit</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Uusi asiakas</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Tyyppi</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Ylläpito</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Takaisin kirjautumiseen</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Peruuta</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Tarkista saapuneet viestit</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Vahvista uusi salasana</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Poista</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Kuvaus</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Näyttönimi</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Muokkaa</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>Sähköposti</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>sinä@esimerkki.fi</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Virhe</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Tili on lukittu liian monen epäonnistuneen yrityksen vuoksi. Yritä myöhemmin uudelleen.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Nimi</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Uusi salasana</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Vähintään {0} merkkiä</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Ei</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Ei mitään</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Pois</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Päällä</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Salasana</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Nimeä uudelleen</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Tallenna</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Kirjaudu sisään</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Jokin meni vikaan</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Käyttäjää ei löytynyt.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Kyllä</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Jatka</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Vahvistuslinkit ovat voimassa 24 tuntia. Pyydä uusi alta.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Linkki on virheellinen tai vanhentunut</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Vahvista sähköposti</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Lähetä uusi linkki</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Kiitos. Sähköpostiosoitteesi on vahvistettu.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>Sähköposti vahvistettu</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>Sähköpostin vahvistus</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Salli</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Estä</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Virheellinen pyyntö</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Valtuutuspyyntö ei määritä asiakasta.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Valtuutuspyyntö puuttuu tai on virheellinen.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>pyytää pääsyä tiliisi.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Valtuuta sovellus</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>Sovellus voi:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Salasanalla kirjautuminen vaatii silloin vain salasanan. Jos salasana vuotaa, tilisi on helpompi kaapata. Pääsyavaimesi toimivat edelleen.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Poista kaksivaiheinen todennus käytöstä</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Poistetaanko todennussovellus käytöstä?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Vahvista sähköposti</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Linkki on voimassa 24 tuntia. Jos et luonut tiliä, voit jättää tämän viestin huomiotta.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Vahvista sähköpostiosoitteesi</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Hei {0}, vahvista, että {1} kuuluu Anubis-tiliisi.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Valitse uusi salasana</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Linkki on voimassa 1 tunnin ja toimii kerran. Jos et pyytänyt tätä, jätä viesti huomiotta; salasanasi pysyy ennallaan.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Nollaa salasanasi</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Hei {0}, joku pyysi Anubis-tilisi salasanan nollaamista.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Avaa Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Sait tämän viestin, koska ylläpitäjä lähetti testiviestin.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>Sähköposti toimii</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>Anubiksen testiviesti</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Anubis lähetti tämän testiviestin palvelun {0} kautta.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Asetukset</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Verkkotunnus</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>siellä</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Sähköpostien linkit käyttävät silloin kunkin pyynnön isäntänimeä. Aseta tuotannossa Anubis:Issuer julkiseen URL-osoitteeseesi.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Anubis:Issuer ei ole asetettu</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Jos painike ei toimi, avaa tämä linkki:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Vain loki (ei määritetty)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>Sähköpostit kirjoitetaan vain lokiin. Aseta Email:Smtp:Host tai valitse asetuksissa toinen Email:Provider (SendGrid, Mailgun, Postmark, Resend).</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>Sähköpostia ei ole määritetty</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Palveluntarjoaja</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Vastaanottaja</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Lähetys epäonnistui</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Lähetä testiviesti</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Lähetetty</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>{1} hyväksyi testiviestin osoitteeseen {0}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>Sähköpostia ei ole määritetty, joten viesti kirjoitettiin vain lokiin.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Asiakasta '{0}' ei löytynyt.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Virhe</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>Pyynnön tunnus: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>Scope '{0}' on jo olemassa.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>Scopea '{0}' ei löytynyt.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>Pyyntösi käsittelyssä tapahtui virhe.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Lähetämme sinulle linkin uuden valitsemista varten.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Unohtunut salasana</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Lähetä nollauslinkki</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Jos osoitteella on tili, nollauslinkki on matkalla. Linkki on voimassa 1 tunnin.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Unohditko salasanasi?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Luo tili</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Joku muu on muuttanut tietuetta. Lataa sivu uudelleen ja yritä uudelleen.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>Tapahtui tuntematon virhe.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>Sähköposti '{0}' on jo käytössä.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Roolin nimi '{0}' on jo käytössä.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Käyttäjänimi '{0}' on jo käytössä.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>Sähköposti '{0}' on virheellinen.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Roolin nimi '{0}' on virheellinen.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Virheellinen tunnus.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>Käyttäjänimi '{0}' on virheellinen.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Käyttäjä, jolla on tämä kirjautuminen, on jo olemassa.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Väärä salasana.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Salasanassa on oltava vähintään yksi numero (0-9).</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Salasanassa on oltava vähintään yksi pieni kirjain (a-z).</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Salasanassa on oltava vähintään yksi merkki, joka ei ole kirjain tai numero.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Salasanassa on oltava vähintään {0} eri merkkiä.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Salasanassa on oltava vähintään yksi iso kirjain (A-Z).</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Salasanan on oltava vähintään {0} merkkiä pitkä.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Palautuskoodia ei voitu käyttää.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Käyttäjällä on jo salasana.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Käyttäjällä on jo rooli '{0}'.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Lukitus ei ole käytössä tälle käyttäjälle.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Käyttäjällä ei ole roolia '{0}'.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Tili</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Kieli</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Päänavigaatio</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Kirjaudu ulos</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Luo tili</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Käytä pääsyavainta tai sähköpostiosoitetta ja salasanaa.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Vahvista ensin sähköpostiosoitteesi. Linkki on saapuneissa viesteissäsi.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Kirjautuminen epäonnistui</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Unohditko salasanasi?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>Virheellinen sähköposti tai salasana.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Eikö sinulla ole vielä tiliä?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Kirjautuminen tälle tilille ei ole sallittu.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>tai</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Kirjaudu sisään</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Salasanasi</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Lähetä vahvistusviesti uudelleen</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Kirjaudu Anubikseen</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Tätä pääsyavainta ei ole rekisteröity Anubikseen.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Kirjaudu pääsyavaimella</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Tällä laitteella on jo pääsyavain tähän tiliin.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>Pääsyavaimen pyyntö peruttiin tai aikakatkaistiin.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Pääsyavainta ei voitu käyttää. Yritä uudelleen.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Palvelin ei voinut aloittaa pääsyavainpyyntöä. Yritä uudelleen.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Tämä selain ei tue pääsyavaimia.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Tämä selain ei tue pääsyavaimia. Päivitä se.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Kertakäyttöiset koodit kirjautumiseen, jos menetät todennussovelluksesi.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Luo uudet koodit</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Kirjaudu jollakin näistä, jos menetät todennussovelluksesi.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Ne näytetään vain kerran. Säilytä ne turvallisessa paikassa, esimerkiksi salasanojen hallinnassa. Kukin koodi kirjaa sinut sisään kerran, jos menetät todennussovelluksesi. Vanhat koodit lakkaavat toimimasta.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Tallenna nämä palautuskoodit nyt</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Olen tallentanut koodit</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Palautuskoodit</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Tämä luo {0} uutta koodia. Nykyiset koodisi lakkaavat toimimasta.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Takaisin todennuskoodiin</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Palautuskoodi</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Kukin palautuskoodi toimii vain kerran.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Palautuskoodi on virheellinen tai jo käytetty.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Palautuskoodi</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Kirjaudu palautuskoodilla</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Oletko jo rekisteröitynyt?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Vahvista salasana</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Toista salasana</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Lähetimme vahvistuslinkin osoitteeseen {0}. Vahvista osoite ja kirjaudu sitten sisään.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Rekisteröidy sähköpostiosoitteella ja salasanalla.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Omatoiminen rekisteröityminen on tällä hetkellä pois käytöstä. Ota yhteyttä ylläpitäjään.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Rekisteröityminen pois käytöstä</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Matti Meikäläinen</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Rekisteröityminen epäonnistui</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Eikö viestiä tullut?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Luo tili</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Lähetä uudelleen</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Luo tilisi</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Anna sille tunnistettava nimi, kuten ”Pixel 9” tai ”MacBook Touch ID”.</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Nimeä pääsyavaimesi</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Ohita</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Nimeä pääsyavain uudelleen</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Lähetämme uuden linkin osoitteesi vahvistamiseksi.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Lähetä vahvistus uudelleen</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Lähetä linkki</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Jos osoite kuuluu vahvistamattomaan tiliin, uusi linkki on matkalla.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Lähetä vahvistusviesti uudelleen</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Voit nyt kirjautua uudella salasanallasi.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Salasana vaihdettu</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Salasanaa ei voitu nollata</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Nollauslinkki on puutteellinen. Avaa sähköpostin linkki uudelleen tai pyydä uusi.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Virheellinen linkki</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Linkki on vanhentunut tai jo käytetty. Pyydä uusi.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Nollaa salasana</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Pyydä uusi linkki</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Aseta uusi salasana</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Valitse uusi salasana</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Tililläsi ei ole pääsyä tälle sivulle.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Pääsy estetty</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Ei löytynyt</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Valitettavasti tässä osoitteessa ei ole mitään.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Sivua ei löytynyt</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Nähdä sähköpostiosoitteesi</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Säilyttää pääsyn, kun olet poissa (refresh tokens)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Vahvistaa henkilöllisyytesi</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Nähdä nimesi ja profiilisi</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Nähdä roolisi</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Luo scope</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Asiakkaat voivat pyytää mukautettuja scopeja, jotka liitetään resursseihin (audiences).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>Oma API</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Resurssit (pilkuilla eroteltuina)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Resurssit</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Lisää pääsyavain</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>Syötä salasanan jälkeen 6-numeroinen koodi sovelluksesta, kuten Aegis, 2FAS, Google Authenticator, Microsoft Authenticator tai 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Palautuskoodeja jäljellä: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Harkitse uusien koodien luomista.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Palautuskoodeja vähän jäljellä ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Unohda tämä selain</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Siirry toiseen sovellukseen</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Luo uudet koodit nyt, muuten saatat menettää pääsyn.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Palautuskoodeja ei ole jäljellä</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Selain ei antanut pääsyavainta.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Ei vielä pääsyavaimia.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Lisätty</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Sinulla voi olla enintään {0} pääsyavainta. Poista yksi lisätäksesi uuden.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Pääsyavainta ei voitu tallentaa.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Pääsyavainta ei voitu vahvistaa. Yritä uudelleen tai käytä toista laitetta.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Synkronoitu</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Kirjaudu sormenjäljellä, kasvoilla tai laitteen PIN-koodilla salasanan sijaan. Pääsyavain tallennetaan puhelimeesi, tietokoneeseesi tai suojausavaimeen, eikä sitä voi kalastella.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Ota todennussovellus käyttöön</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Tämä selain</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Tämä selain ohittaa todennuskoodin kirjautuessa.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Poista käytöstä</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Nimetön pääsyavain</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>Sinulta kysytään sovelluksen koodia, kun kirjaudut salasanalla.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Todennussovellus otettu käyttöön</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Ota todennussovellus uudelleen käyttöön uudella avaimella.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Todennusavain nollattu</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Tämä selain kysyy koodia taas seuraavalla kirjautumiskerralla.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Selain unohdettu</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>Todennussovellusta ei enää tarvita kirjautumiseen.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Kaksivaiheinen todennus poistettu käytöstä</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Ota todennussovellus käyttöön ennen palautuskoodien luomista.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Ei käytettävissä</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Voit nyt kirjautua tällä pääsyavaimella.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Pääsyavain lisätty</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Pääsyavainta ei voi enää käyttää kirjautumiseen.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Pääsyavain poistettu</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>Pääsyavainta ei ole olemassa tai se kuuluu toiselle tilille.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Pääsyavainta ei löytynyt</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>Pääsyavaimen nimi on päivitetty.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Pääsyavain nimetty uudelleen</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Todennuskoodi</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Syötä todennussovelluksesi 6-numeroinen koodi.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Koodi on virheellinen tai vanhentunut.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Kadotitko laitteesi?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Kaksivaiheinen todennus</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>Älä kysy uudelleen tällä selaimella 14 päivään</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Käytä palautuskoodia</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Vahvistus epäonnistui</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Vahvista</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Aktiivinen</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Luo käyttäjä</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Salasanat tallennetaan Argon2id-tiivisteinä.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} on luotu.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Haluatko varmasti poistaa käyttäjän {0}? Toimintoa ei voi kumota.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Poista käyttäjä</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Käyttäjä poistettu</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} on poistettu.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Lukitse</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Lukittu</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} voi nyt kirjautua pelkällä salasanalla.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Pääsyavaimet: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Nollaa MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Tämä poistaa todennussovelluksen käytöstä, poistaa käyttäjän {0} kaikki pääsyavaimet ja kirjaa hänet ulos kaikkialta. Käytä tätä, kun joku on kadottanut laitteensa. Sen jälkeen hän voi kirjautua pelkällä salasanalla ja ottaa MFA:n uudelleen käyttöön.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Tila</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Avaa lukitus</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Syötä asiakastunnus.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Käytä vähintään 16 merkkiä tai jätä tyhjäksi julkiselle asiakkaalle.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Koodissa on 6 numeroa.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Syötä koodi sovelluksesta.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Vahvista salasana.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Syötä nykyinen salasanasi.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Käytä enintään 100 merkkiä.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Syötä kelvollinen sähköpostiosoite.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>Sähköposti on pakollinen.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Vain kirjaimet, numerot, '-', '_' ja '.' ovat sallittuja.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Syötä nimi.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Käytä enintään 100 merkkiä.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Salasana on pakollinen.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Salasanat eivät täsmää.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Syötä vastaanottaja.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Syötä palautuskoodi.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Syötä scopen nimi.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Lataa avatar</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Käytä Gravataria</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF tai SVG. Kuva pienennetään enintään kokoon 1024×1024 ja tallennetaan läpinäkyvänä WebP-kuvana. Ilman omaa kuvaa käytetään Gravataria.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Näyttönimi tallennettu.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Avatar päivitetty.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Oma avatar poistettu. Käytetään Gravataria.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Virheellinen tai ei-tuettu kuvatiedosto.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Kuvatiedosto on liian suuri (enintään 10 Mt).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Asetukset</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Roolit</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Ulkoasu</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Tilit, jotka voivat kirjautua Anubikseen.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Roolit välitetään asiakassovelluksille roles-claimissa.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Käyttöoikeudet, joita asiakassovellukset voivat pyytää.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Sovellukset, jotka kirjaavat käyttäjiä sisään Anubiksen kautta.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>Lähtevä sähköposti osoitteen vahvistukseen ja salasanan nollaukseen.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Kirjautumis- ja tilisivujen logo, fontti ja värit.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Sulje</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Tallennetaan tiedostoon {0}. Nämä arvot ovat etusijalla appsettings.json-tiedostoon ja ympäristömuuttujiin nähden.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Asetukset tallennettu</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Muutokset tulevat voimaan heti.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Asetuksia ei tallennettu</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Asetettu. Jätä tyhjäksi, jos haluat säilyttää nykyisen arvon.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Lähettäjän osoite</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Lähettäjän nimi</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>SMTP-palvelin</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Portti</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Salaus</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Aikakatkaisu (sekuntia)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Käyttäjänimi</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>API-avain</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Palvelintunnus</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>API-URL</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Logo ja kuvake</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Lataa SVG-, WebP-, PNG-, JPEG- tai GIF-tiedosto (tallennetaan asetustiedostoon) tai syötä polku wwwroot-kansiossa tai https://-osoite. Faviconin PNG-versiot Safaria ja iOS:ää varten luodaan automaattisesti.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Logo</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Fontti</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Tyhjä = oletusfontti (järjestelmän tasavälinen). Vain laitteeseen asennettuja fontteja voi käyttää.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Fonttiperhe (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Vaalea teema</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Tumma teema</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Valitse väri tai anna se muodossa #RRGGBB. Tyhjä = oletusväri.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Ensisijainen</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Toissijainen</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Tausta</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Teksti</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Luo rooli</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Uudella roolilla ei ole jäseniä; lisää ne alla olevassa luettelossa.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Jäsenet</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Sisäänrakennettu</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Poista rooli</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Poistetaanko rooli {0}? Kaikki sen jäsenet menettävät sen.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Roolin {0} jäsenet</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Lisää</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Poista</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Ei vielä jäseniä.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>Viimeistä ylläpitäjää ei voi poistaa.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Syötä roolin nimi.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Anna väri muodossa #RRGGBB tai jätä kenttä tyhjäksi.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Ei saa sisältää merkkejä ; { } &lt; &gt; tai \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Syötä absoluuttinen https://-osoite.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Syötä /-merkillä alkava polku, https://-osoite tai lataa tiedosto.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Lataa</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Käytä oletusta</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Ladattu tiedosto · {0} · {1} kt</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Kuvaa ei tueta tai se on vioittunut, tai SVG sisältää ulkoisia linkkejä. Käytä SVG-, WebP-, PNG-, JPEG- tai GIF-muotoa.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Tiedosto on liian suuri (enintään {0} Mt, käsittelyn jälkeen {1} kt).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Vahvistettu</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Ei vahvistettu</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Puhelinnumero</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Kansainvälinen muoto, esim. +358 40 123 4567.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Lähetä koodi</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Tekstiviestin koodi</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Lähetimme koodin numeroon {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Puhelinnumero vahvistettu.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Syötä numero kansainvälisessä muodossa, esim. +358 40 123 4567.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Koodi lähetettiin juuri. Yritä uudelleen minuutin kuluttua.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Anubis-vahvistuskoodisi: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Väritila</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Vaalea</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Tumma</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>Järjestelmä</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Ei valittu: käytetään selaimesi ensisijaista kieltä.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Ei valittu: noudattaa järjestelmäsi vaaleaa tai tummaa asetusta.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Historia</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Kirjautumiset ja tilisi muutokset viimeisten 12 kuukauden ajalta.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Ei vielä mitään.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Uudemmat</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Vanhemmat</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>ylläpitäjän tekemä</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Tuntematon laite</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Tili luotu</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Kirjautuminen</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Epäonnistunut kirjautumisyritys</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Tili lukittu liian monen epäonnistuneen yrityksen jälkeen</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Uloskirjautuminen</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Kirjautuminen sovellukseen</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Salasana vaihdettu</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Salasana nollattu sähköpostilla</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>Sähköpostiosoite vahvistettu</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Todennussovellus otettu käyttöön</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Todennussovellus poistettu käytöstä</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Uudet palautuskoodit luotu</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Pääsyavain lisätty</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Pääsyavain poistettu</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Puhelinnumero vaihdettu</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Puhelinnumero vahvistettu</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Puhelinnumero poistettu</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Näyttönimi vaihdettu</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Avatar vaihdettu</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Tili lukittu</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Tilin lukitus avattu</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>salasana</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>pääsyavain</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>todennussovellus</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>palautuskoodi</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Kirjaudutaanko ulos Anubiksesta?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Hallinta</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Toiminnot</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Poistetaanko scope {0}? Asiakkaat eivät voi enää pyytää sitä.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>Yleiset</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Tämän palvelimen perusasetukset.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Palvelimen nimi</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Näytetään selaimen välilehden otsikossa sekä tili- ja ylläpitosivujen yläosassa.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Syötä palvelimen nimi.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Käytä enintään 60 merkkiä.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Tietoturva</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Salasanasäännöt, lukitus epäonnistuneiden yritysten jälkeen, istunnon pituus ja pääsyavaimet. Muutokset tulevat voimaan heti.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Tunnukset</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Asiakassovelluksille myönnettyjen tunnusten ja koodien voimassaolo. Muutokset koskevat uusia tunnuksia.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Palvelin</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>Julkinen URL (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Esimerkiksi https://id.example.com. Tyhjä = jokaisesta pyynnöstä. Tulee voimaan uudelleenkäynnistyksen jälkeen.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Rekisteröityminen</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Salli omatoiminen rekisteröityminen</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Vaadi vahvistettu sähköpostiosoite kirjautumiseen</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Edellyttää toimivia sähköpostiasetuksia.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Salasanat</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Vähimmäispituus</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Vaadi numero</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Vaadi pieni kirjain</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Vaadi iso kirjain</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Vaadi erikoismerkki</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Lukitus epäonnistuneiden kirjautumisten jälkeen</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Epäonnistuneita yrityksiä ennen lukitusta</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Lukituksen kesto (minuuttia)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Kirjautumisistunto</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Istunnon pituus (tuntia)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Jatka istuntoa, kun käyttäjä on aktiivinen</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Pääsyavainten enimmäismäärä tiliä kohden</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Access token (minuuttia)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>ID token (minuuttia)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Valtuutuskoodi (minuuttia)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Refresh token (päivää)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Suostumus (minuuttia)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Kuinka kauan annettu suostumus muistetaan kirjautumisen aikana.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Sallittu väli: {0}–{1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Muokkaa: {0}</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>Sähköpostiosoite on myös kirjautumisnimi: käyttäjä kirjautuu jatkossa uudella osoitteella.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>Sähköpostiosoite vahvistettu</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Muutettu numero tallennetaan vahvistamattomana.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Toinen tili käyttää jo tätä sähköpostiosoitetta.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Et voi poistaa Admin-roolia omalta tililtäsi.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Käyttäjän {0} muutokset on tallennettu.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>Sähköpostiosoite vaihdettu</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Rooli lisätty</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Rooli poistettu</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>Tallennuksen jälkeen uuteen osoitteeseen lähetetään vahvistusviesti.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>Vahvistusviesti lähetettiin osoitteeseen {0}.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Aloita kirjaimella, sitten kirjaimia, numeroita ja - _ . : / (enintään {0} merkkiä).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>”{0}” on Anubiksen asettama, eikä sitä voi käyttää.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Anna arvo.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Enintään {0} merkkiä.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Tämä claim on listassa kahdesti.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Enintään {0} claimia.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Roolia ei löytynyt.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Sisäänrakennettuja rooleja ei voi nimetä uudelleen.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Tämänniminen rooli on jo olemassa.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Muokkaa roolia {0}</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Rooli {0} tallennettu.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Lisää rooli</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claimit</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Lisätään käyttöoikeustunnukseen, ID-tunnukseen ja userinfoon yhdessä käyttäjän roolien claimien kanssa.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Lisätään tämän roolin kaikkien jäsenten tunnuksiin.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Tyyppi</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Arvo</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Lisää claim</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Poista claim</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Ei vielä claimeja.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Rooleista</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Vaihda avatar</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Ladataan…</value></data>
+</root>

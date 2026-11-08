@@ -1,0 +1,48 @@
+# Build output
+bin/
+obj/
+out/
+publish/
+
+# .NET
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# IDE
+.vs/
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local data / secrets
+*.db
+*.db-shm
+*.db-wal
+appsettings.Development.json
+appsettings.*.local.json
+.env
+*.pfx
+
+# Test results
+TestResults/
+coverage/
+
+# Dev HTTPS certificate (exported by .devcontainer/setup-dev-cert.sh)
+.devcontainer/.certs/
+
+# Settings saved from the admin UI (Appearance, Email; may contain secrets)
+anubis.settings.json
+
+# Data directory contents when running locally (Anubis:DataDirectory defaults to the project folder):
+# Data Protection keys and OpenIddict certificates
+Anubis/keys/

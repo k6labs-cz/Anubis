@@ -1,0 +1,24 @@
+@namespace k6labs.Anubis.Components.Shared
+@typeparam TValue
+@using System.Linq.Expressions
+
+<Field Label="@Label" For="@Id" Hint="@Hint">
+    <NativeSelect TValue="TValue" Value="@Value" ValueChanged="Changed" ValueExpression="@Expression"
+                  AllowClear="false" id="@Id" aria-label="@Label">
+        @if (Placeholder is not null) { <option value="">@Placeholder</option> }
+        @ChildContent
+    </NativeSelect>
+</Field>
+
+@code {
+    [Parameter] public TValue? Value { get; set; }
+    [Parameter] public EventCallback<TValue> ValueChanged { get; set; }
+    [Parameter] public Expression<Func<TValue>>? ValueExpression { get; set; }
+    [Parameter] public string Id { get; set; } = $"select-{Guid.NewGuid():N}";
+    [Parameter] public string? Label { get; set; }
+    [Parameter] public string? Hint { get; set; }
+    [Parameter] public string? Placeholder { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    private Expression<Func<TValue>> Expression => ValueExpression ?? (() => Value!);
+    private Task Changed(TValue value) => ValueChanged.InvokeAsync(value is string { Length: 0 } ? default! : value);
+}

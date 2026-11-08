@@ -1,0 +1,86 @@
+@page "/login/recovery-code"
+
+@using k6labs.Anubis.Localization
+
+@inject SignInManager<User> SignInManager
+@inject NavigationManager Navigation
+
+<AppPageTitle Text="@(Translations.Recovery_PageTitle)" />
+
+<Container MaxWidth="28rem">
+    <Stack Gap="Gap.Large">
+        <Card>
+            <Header>
+                <Stack Gap="Gap.XSmall">
+                    <Typography Variant="TextVariant.Title" As="TextElement.H1">@Translations.Recovery_Title</Typography>
+                    <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Recovery_Description</Typography>
+                </Stack>
+            </Header>
+            <ChildContent>
+                <Stack Gap="Gap.Medium">
+                    <EditForm Model="model" method="post" OnValidSubmit="SubmitAsync" FormName="login-recovery">
+                        <Stack Gap="Gap.Medium">
+                            <DataAnnotationsValidator />
+
+                            @if (!string.IsNullOrEmpty(error))
+                            {
+                                <Alert Severity="AlertSeverity.Danger" Title="@Translations.TwoFactor_VerificationFailed">
+                                    @error
+                                </Alert>
+                            }
+
+                            <FormText @bind-Value="model.RecoveryCode" name="model.RecoveryCode" Label="@Translations.Recovery_CodeLabel" Placeholder="XXXXX-XXXXX" autocomplete="off" autofocus Id="recoveryCode" Type="text" />
+
+                            <Button Block="true" Type="submit" Icon="@AppIcons.Support">
+                                @Translations.Common_SignIn
+                            </Button>
+                        </Stack>
+                    </EditForm>
+
+                    <Typography Tone="Tone.Muted" Align="TextAlign.Center"><a href="@("/login/2fa?returnUrl=" + Uri.EscapeDataString(SafeReturnUrl))">@Translations.Recovery_BackToCode</a></Typography>
+                </Stack>
+            </ChildContent>
+        </Card>
+    </Stack>
+</Container>
+
+@code {
+    [SupplyParameterFromQuery(Name = "returnUrl")]
+    public string? ReturnUrl { get; set; }
+
+    [SupplyParameterFromForm(FormName = "login-recovery")]
+    private RecoveryModel model { get; set; } = default!;
+
+    private string? error;
+
+    private string SafeReturnUrl => LocalUrl.IsLocal(ReturnUrl) ? ReturnUrl! : "/";
+
+    protected override async Task OnInitializedAsync()
+    {
+        model ??= new();
+
+        if (await SignInManager.GetTwoFactorAuthenticationUserAsync() is null)
+        {
+            Navigation.NavigateTo("/login?returnUrl=" + Uri.EscapeDataString(SafeReturnUrl), forceLoad: true);
+        }
+    }
+
+    private async Task SubmitAsync()
+    {
+        var result = await SignInManager.TwoFactorRecoveryCodeSignInAsync(model.RecoveryCode.Replace(" ", string.Empty));
+
+        if (result.Succeeded)
+        {
+            Navigation.NavigateTo(SafeReturnUrl, forceLoad: true);
+            return;
+        }
+
+        error = result.IsLockedOut ? Translations.Common_LockedOut : Translations.Recovery_InvalidCode;
+    }
+
+    public sealed class RecoveryModel
+    {
+        [LRequired(nameof(Translations.Validation_RecoveryCodeRequired))]
+        public string RecoveryCode { get; set; } = string.Empty;
+    }
+}

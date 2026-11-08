@@ -1,0 +1,63 @@
+@using System.Globalization
+@using k6labs.Anubis.Options
+@using k6labs.Anubis.Services
+@using Microsoft.Extensions.Options
+@inject IOptionsMonitor<AppearanceOptions> Appearance
+@inject AppearanceAssets AppearanceFiles
+@inject UserManager<User> UserManager
+<!DOCTYPE html>
+<html lang="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <base href="/" />
+        @* The only stylesheet: the scoped styles of Hathor (all UI comes from Hathor components). *@
+        <link rel="stylesheet" href="k6labs.Anubis.styles.css" />
+        @* PNG first (Safari, older browsers), then the original (SVG where supported), then iOS. *@
+        @if (AppearanceFiles.PngFaviconUrl(32) is { } png32)
+        {
+            <link rel="icon" type="image/png" sizes="32x32" href="@png32" />
+        }
+        <link rel="icon" href="@AppearanceFiles.FaviconUrl" type="@AppearanceFiles.FaviconContentType" sizes="@(AppearanceFiles.FaviconContentType == ImageProcessing.SvgContentType ? "any" : null)" />
+        @if (AppearanceFiles.PngFaviconUrl(180) is { } png180)
+        {
+            <link rel="apple-touch-icon" href="@png180" />
+        }
+        <HeadOutlet />
+    </head>
+
+    @* Hathor renders <body>: the theme (light / dark / system from the signed-in user's account,
+       system for everyone else) and the Anubis:Appearance colors and font, as Hathor tokens. *@
+    <Hathor AsBody="true" IconSet="LucideIconSet.Instance" Mode="@mode"
+            Light="@AppearanceTheme.Palette(Appearance.CurrentValue.Light)"
+            Dark="@AppearanceTheme.Palette(Appearance.CurrentValue.Dark)"
+            FontFamily="@AppearanceTheme.FontFamily(Appearance.CurrentValue)">
+        <Routes />
+        <script src="_framework/blazor.web.js"></script>
+        <script src="js/theme.js" type="module"></script>
+        <script src="js/passkey.js" type="module"></script>
+    </Hathor>
+
+</html>
+
+@code {
+    [CascadingParameter]
+    private HttpContext? HttpContext { get; set; }
+
+    private ThemeMode mode = ThemeMode.System;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (HttpContext?.User.Identity?.IsAuthenticated == true
+            && await UserManager.GetUserAsync(HttpContext.User) is { } user)
+        {
+            mode = ColorSchemes.Normalize(user.ColorScheme) switch
+            {
+                ColorSchemes.Light => ThemeMode.Light,
+                ColorSchemes.Dark => ThemeMode.Dark,
+                _ => ThemeMode.System,
+            };
+        }
+    }
+}

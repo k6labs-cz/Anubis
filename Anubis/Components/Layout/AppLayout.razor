@@ -1,0 +1,104 @@
+@namespace k6labs.Anubis.Components.Layout
+@inherits LayoutComponentBase
+@using k6labs.Anubis.Options
+@using Microsoft.Extensions.Options
+@inject IOptionsMonitor<GeneralOptions> General
+@inject Services.AppearanceAssets AppearanceFiles
+@inject NavigationManager Navigation
+
+@* The signed-in application (account and admin pages) over the full width: Hathor's AppShell
+   with the logo and server name in the header that stays at the top, and one navigation:
+   the account, then Management and Settings (administrators only), then signing out.
+   On phones the navigation opens from the menu button in the header. *@
+<AppShell MenuLabel="@Translations.Layout_MainNavigation">
+    <Brand>
+        <Image Src="@AppearanceFiles.LogoUrl" Alt="" Width="32" Height="32" DisplayWidth="2rem" Fit="MediaFit.Contain" Lazy="false" aria-hidden="true" data-server-logo />
+        <Typography Variant="TextVariant.Subtitle" As="TextElement.P" data-server-name>@General.CurrentValue.EffectiveServerName</Typography>
+    </Brand>
+    <Navigation>
+        <Stack Gap="Gap.None">
+            <Navigation Label="@Translations.Layout_Account" Vertical="true" Collapsible="false">
+                <NavigationLink Href="/account" Match="NavLinkMatch.All"><Icon Name="@AppIcons.Person" Size="18" />
+                    @Translations.Layout_Account
+                </NavigationLink>
+                <NavigationLink Href="/account/passkeys" Match="NavLinkMatch.Prefix" Class="@(IsPasskeysPath ? "active" : null)"><Icon Name="@AppIcons.Fingerprint" Size="18" />
+                    @Translations.Account_Passkeys
+                </NavigationLink>
+                <NavigationLink Href="/account/mfa" Match="NavLinkMatch.Prefix" Class="@(IsMfaPath ? "active" : null)"><Icon Name="@AppIcons.PhonelinkLock" Size="18" />
+                    @Translations.Account_TwoFactor
+                </NavigationLink>
+                <NavigationLink Href="/account/change-password" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Key" Size="18" />
+                    @Translations.Account_ChangePassword
+                </NavigationLink>
+                <NavigationLink Href="/account/history" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.History" Size="18" />
+                    @Translations.Account_History
+                </NavigationLink>
+            </Navigation>
+            <AuthorizeView Roles="Admin">
+                <Divider />
+                <Navigation Label="@Translations.Admin_Management" Vertical="true" Collapsible="false">
+                    <Typography Variant="TextVariant.Overline" Tone="Tone.Muted">@Translations.Admin_Management</Typography>
+                    <NavigationLink Href="/admin/users" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.People" Size="18" />
+                        @Translations.Admin_Users
+                    </NavigationLink>
+                    <NavigationLink Href="/admin/roles" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Badge" Size="18" />
+                        @Translations.Admin_Roles
+                    </NavigationLink>
+                    <NavigationLink Href="/admin/scopes" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Layers" Size="18" />
+                        @Translations.Admin_Scopes
+                    </NavigationLink>
+                    <NavigationLink Href="/admin/clients" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Apps" Size="18" />
+                        @Translations.Admin_Clients
+                    </NavigationLink>
+                </Navigation>
+                <Divider />
+                <Navigation Label="@Translations.Admin_Settings" Vertical="true" Collapsible="false">
+                    <Typography Variant="TextVariant.Overline" Tone="Tone.Muted">@Translations.Admin_Settings</Typography>
+                    <NavigationLink Href="/admin/general" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Tune" Size="18" />
+                        @Translations.Admin_General
+                    </NavigationLink>
+                    <NavigationLink Href="/admin/security" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Shield" Size="18" />
+                        @Translations.Admin_Security
+                    </NavigationLink>
+                    <NavigationLink Href="/admin/tokens" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Token" Size="18" />
+                        @Translations.Admin_Tokens
+                    </NavigationLink>
+                    <NavigationLink Href="/admin/appearance" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Palette" Size="18" />
+                        @Translations.Admin_Appearance
+                    </NavigationLink>
+                    <NavigationLink Href="/admin/email" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Email" Size="18" />
+                        @Translations.Common_Email
+                    </NavigationLink>
+                </Navigation>
+            </AuthorizeView>
+            <Divider />
+            <LogoutNavItem />
+        </Stack>
+    </Navigation>
+    <Footer>
+        <SiteFooter />
+    </Footer>
+    <ChildContent>
+        @Body
+    </ChildContent>
+</AppShell>
+<form method="post" action="/auth/logout" data-logout-form hidden>
+    <AntiforgeryToken />
+</form>
+
+@code {
+    private string CurrentPath => new Uri(Navigation.Uri).AbsolutePath;
+
+    private bool IsPasskeysPath =>
+        CurrentPath.Equals("/account/passkeys", StringComparison.OrdinalIgnoreCase) ||
+        CurrentPath.Equals("/account/security", StringComparison.OrdinalIgnoreCase) ||
+        CurrentPath.StartsWith("/account/security/passkeys", StringComparison.OrdinalIgnoreCase) ||
+        CurrentPath.StartsWith("/account/passkeys/", StringComparison.OrdinalIgnoreCase);
+
+    private bool IsMfaPath =>
+        CurrentPath.Equals("/account/mfa", StringComparison.OrdinalIgnoreCase) ||
+        CurrentPath.StartsWith("/account/mfa/", StringComparison.OrdinalIgnoreCase) ||
+        CurrentPath.StartsWith("/account/security/authenticator", StringComparison.OrdinalIgnoreCase) ||
+        CurrentPath.StartsWith("/account/security/disable", StringComparison.OrdinalIgnoreCase) ||
+        CurrentPath.StartsWith("/account/security/recovery-codes", StringComparison.OrdinalIgnoreCase);
+}

@@ -1,0 +1,123 @@
+@page "/account/mfa"
+@attribute [Authorize]
+
+@using Microsoft.AspNetCore.Authorization
+
+@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+@inject NavigationManager Navigation
+
+@* Statically rendered: forgetting the browser changes cookies, which only works during a normal HTTP request. *@
+
+<AppPageTitle Text="@(Translations.Account_TwoFactor)" />
+
+<Stack Gap="Gap.Large">
+    <StatusAlert />
+
+    <Stack Gap="Gap.Medium">
+        <Stack Gap="Gap.XSmall">
+            <Stack Direction="Direction.Row" Align="Align.Center" Gap="Gap.Small">
+                <Typography Variant="TextVariant.Title" As="TextElement.H1">@Translations.Account_AuthenticatorApp</Typography>
+                @if (twoFactorEnabled)
+                {
+                    <Badge Tone="Tone.Success">@Translations.Common_On</Badge>
+                }
+                else
+                {
+                    <Badge Tone="Tone.Warning">@Translations.Common_Off</Badge>
+                }
+            </Stack>
+            <Typography Variant="TextVariant.Small" Tone="Tone.Muted">@Translations.Security_AuthenticatorDescription</Typography>
+        </Stack>
+        <Stack Direction="Direction.Row" Gap="Gap.Small" Align="Align.Center" Wrap="true">
+            @if (twoFactorEnabled)
+            {
+                <Button Variant="ButtonVariant.Ghost" Href="/account/security/authenticator" Icon="@AppIcons.Smartphone">
+                    @Translations.Security_MoveToAnotherApp
+                </Button>
+                <Button Variant="ButtonVariant.Danger" Href="/account/security/disable" Icon="@AppIcons.RemoveModerator">
+                    @Translations.Security_TurnOff
+                </Button>
+            }
+            else
+            {
+                <Button Href="/account/security/authenticator" Icon="@AppIcons.Smartphone">
+                    @Translations.Security_SetUpAuthenticator
+                </Button>
+            }
+        </Stack>
+    </Stack>
+
+    @if (twoFactorEnabled)
+    {
+        <Divider />
+        <Stack Gap="Gap.Medium">
+            <PageHeader Title="@Translations.RecoveryCodes_Title" Description="@Translations.RecoveryCodes_Description" As="TextElement.H2" />
+            @if (recoveryCodesLeft == 0)
+            {
+                <Alert Severity="AlertSeverity.Danger" Title="@Translations.Security_NoCodesLeftTitle">
+                    @Translations.Security_NoCodesLeftText
+                </Alert>
+            }
+            else if (recoveryCodesLeft <= 3)
+            {
+                <Alert Severity="AlertSeverity.Warning" Title="@Translations.Security_FewCodesLeftTitle.F(recoveryCodesLeft)">
+                    @Translations.Security_FewCodesLeftText
+                </Alert>
+            }
+            else
+            {
+                <Typography Tone="Tone.Muted">@Translations.Security_CodesLeft.F(recoveryCodesLeft)</Typography>
+            }
+            <Stack Direction="Direction.Row" Gap="Gap.Small" Align="Align.Center" Wrap="true">
+                <Button Variant="ButtonVariant.Ghost" Href="/account/security/recovery-codes" Icon="@AppIcons.Refresh">
+                    @Translations.RecoveryCodes_Generate
+                </Button>
+            </Stack>
+        </Stack>
+    }
+
+    @if (browserRemembered)
+    {
+        <Divider />
+        <Stack Gap="Gap.Medium">
+            <PageHeader Title="@Translations.Security_ThisBrowser" Description="@Translations.Security_ThisBrowserText" As="TextElement.H2" />
+            <form method="post" @formname="forget-browser" @onsubmit="ForgetBrowserAsync">
+                <AntiforgeryToken />
+                <Button Variant="ButtonVariant.Ghost" Type="submit" Icon="@AppIcons.DesktopAccessDisabled">
+                    @Translations.Security_ForgetBrowser
+                </Button>
+            </form>
+        </Stack>
+    }
+</Stack>
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    private User? user;
+    private bool twoFactorEnabled;
+    private int recoveryCodesLeft;
+    private bool browserRemembered;
+
+    protected override async Task OnInitializedAsync()
+    {
+        user = await UserManager.GetUserAsync(HttpContext.User);
+        if (user is null)
+        {
+            Navigation.NavigateTo("/login", forceLoad: true);
+            return;
+        }
+
+        twoFactorEnabled = await UserManager.GetTwoFactorEnabledAsync(user);
+        recoveryCodesLeft = await UserManager.CountRecoveryCodesAsync(user);
+        browserRemembered = await SignInManager.IsTwoFactorClientRememberedAsync(user);
+    }
+
+    private async Task ForgetBrowserAsync()
+    {
+        await SignInManager.ForgetTwoFactorClientAsync();
+        Navigation.NavigateTo("/account/mfa?status=browser-forgotten", forceLoad: true);
+    }
+}

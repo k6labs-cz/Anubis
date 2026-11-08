@@ -1,0 +1,21 @@
+@namespace k6labs.Anubis.Components.Shared
+
+<Alert Severity="AlertSeverity.Warning" Title="@Translations.RecoveryCodes_SaveTitle">
+    @Translations.RecoveryCodes_SaveText
+</Alert>
+
+<Grid Gap="Gap.Small">
+    @foreach (var recoveryCode in Codes)
+    {
+        <GridItem Xs="6">
+            <Card>
+                <Typography Align="TextAlign.Center"><code data-recovery-code>@recoveryCode</code></Typography>
+            </Card>
+        </GridItem>
+    }
+</Grid>
+
+@code {
+    [Parameter, EditorRequired]
+    public IEnumerable<string> Codes { get; set; } = [];
+}

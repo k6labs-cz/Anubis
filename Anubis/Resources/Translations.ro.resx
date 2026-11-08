@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Anubis UI and email texts: Română (ro). Keys must match Translations.resx (a test checks it). -->
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Account_AuthenticatorApp" xml:space="preserve"><value>Aplicație de autentificare</value></data>
+  <data name="Account_ChangePassword" xml:space="preserve"><value>Schimbă parola</value></data>
+  <data name="Account_ConfirmationFailed" xml:space="preserve"><value>Nu s-a putut trimite, încercați mai târziu</value></data>
+  <data name="Account_ConfirmationSent" xml:space="preserve"><value>Trimis, verificați căsuța de e-mail</value></data>
+  <data name="Account_ConfirmationThrottled" xml:space="preserve"><value>Deja trimis, încercați din nou peste câteva minute</value></data>
+  <data name="Account_Created" xml:space="preserve"><value>Creat</value></data>
+  <data name="Account_LanguageBrowser" xml:space="preserve"><value>Setarea browserului</value></data>
+  <data name="Account_Passkeys" xml:space="preserve"><value>Chei de acces</value></data>
+  <data name="Account_Roles" xml:space="preserve"><value>Roluri</value></data>
+  <data name="Account_SendConfirmation" xml:space="preserve"><value>Trimite e-mailul de confirmare</value></data>
+  <data name="Account_TwoFactor" xml:space="preserve"><value>Multifactor</value></data>
+  <data name="Admin_Clients" xml:space="preserve"><value>Clienți OIDC</value></data>
+  <data name="Admin_Scopes" xml:space="preserve"><value>Scope-uri</value></data>
+  <data name="Admin_Users" xml:space="preserve"><value>Utilizatori</value></data>
+  <data name="Authenticator_CodeLabel" xml:space="preserve"><value>Cod din aplicație</value></data>
+  <data name="Authenticator_CreateNewKey" xml:space="preserve"><value>Creează o cheie nouă</value></data>
+  <data name="Authenticator_EnabledText" xml:space="preserve"><value>De acum, vi se va cere un cod după parolă.</value></data>
+  <data name="Authenticator_InvalidCode" xml:space="preserve"><value>Codul nu este valid. Verificați dacă ceasul dispozitivului este corect și încercați din nou.</value></data>
+  <data name="Authenticator_ManualKey" xml:space="preserve"><value>Nu îl puteți scana? Introduceți manual această cheie:</value></data>
+  <data name="Authenticator_MoveText" xml:space="preserve"><value>Se va crea o cheie nouă. Aplicația actuală nu va mai funcționa imediat, iar autentificarea în doi pași rămâne dezactivată până terminați configurarea noii aplicații.</value></data>
+  <data name="Authenticator_MoveTitle" xml:space="preserve"><value>Mutați pe altă aplicație de autentificare</value></data>
+  <data name="Authenticator_QrAlt" xml:space="preserve"><value>Cod QR pentru aplicația de autentificare</value></data>
+  <data name="Authenticator_SetupText" xml:space="preserve"><value>Scanați codul QR cu aplicația, apoi introduceți codul afișat.</value></data>
+  <data name="Authenticator_VerifyAndEnable" xml:space="preserve"><value>Verifică și activează</value></data>
+  <data name="ChangePassword_Current" xml:space="preserve"><value>Parola actuală</value></data>
+  <data name="ChangePassword_Description" xml:space="preserve"><value>Alegeți o parolă nouă (cel puțin {0} caractere).</value></data>
+  <data name="ChangePassword_Done" xml:space="preserve"><value>Parola a fost actualizată.</value></data>
+  <data name="ChangePassword_Failed" xml:space="preserve"><value>Schimbarea parolei a eșuat</value></data>
+  <data name="ChangePassword_Submit" xml:space="preserve"><value>Actualizează parola</value></data>
+  <data name="ClientEditor_AllowedScopes" xml:space="preserve"><value>Scope-uri permise</value></data>
+  <data name="ClientEditor_Create" xml:space="preserve"><value>Creează client</value></data>
+  <data name="ClientEditor_DisplayNamePlaceholder" xml:space="preserve"><value>Aplicația mea</value></data>
+  <data name="ClientEditor_EditHeading" xml:space="preserve"><value>Editează clientul: {0}</value></data>
+  <data name="ClientEditor_GrantClientCredentials" xml:space="preserve"><value>Client credentials (mașină la mașină)</value></data>
+  <data name="ClientEditor_GrantCode" xml:space="preserve"><value>Authorization code (cu PKCE)</value></data>
+  <data name="ClientEditor_GrantRefresh" xml:space="preserve"><value>Refresh token</value></data>
+  <data name="ClientEditor_PostLogoutUris" xml:space="preserve"><value>URI-uri de redirecționare după deconectare (câte unul pe rând)</value></data>
+  <data name="ClientEditor_RedirectUris" xml:space="preserve"><value>URI-uri de redirecționare (câte unul pe rând)</value></data>
+  <data name="ClientEditor_RegenerateSecret" xml:space="preserve"><value>Regenerează secretul</value></data>
+  <data name="ClientEditor_RequireConsent" xml:space="preserve"><value>Solicită consimțământul explicit al utilizatorului</value></data>
+  <data name="ClientEditor_SaveChanges" xml:space="preserve"><value>Salvează modificările</value></data>
+  <data name="ClientEditor_Secret" xml:space="preserve"><value>Secretul clientului</value></data>
+  <data name="ClientEditor_SecretKeep" xml:space="preserve"><value>Lăsați gol pentru a păstra secretul actual.</value></data>
+  <data name="ClientEditor_SecretNew" xml:space="preserve"><value>Lăsați gol pentru un client public (doar PKCE) sau introduceți un secret pentru un client confidențial.</value></data>
+  <data name="ClientEditor_SecretPlaceholder" xml:space="preserve"><value>Cel puțin 16 caractere</value></data>
+  <data name="ClientEditor_SecretShownOnce" xml:space="preserve"><value>Copiați-l acum — este afișat o singură dată. OpenIddict păstrează doar hash-ul său.</value></data>
+  <data name="ClientEditor_UpdatedText" xml:space="preserve"><value>{0} a fost actualizat.</value></data>
+  <data name="Clients_ClientId" xml:space="preserve"><value>ID client</value></data>
+  <data name="Clients_Consent" xml:space="preserve"><value>Consimțământ</value></data>
+  <data name="Clients_ConsentImplicit" xml:space="preserve"><value>Implicit</value></data>
+  <data name="Clients_ConsentRequired" xml:space="preserve"><value>Obligatoriu</value></data>
+  <data name="Clients_DeleteConfirm" xml:space="preserve"><value>Sigur doriți să ștergeți {0}? Tokenurile emise pentru acesta nu vor mai funcționa imediat.</value></data>
+  <data name="Clients_DeleteTitle" xml:space="preserve"><value>Șterge clientul</value></data>
+  <data name="Clients_GrantTypes" xml:space="preserve"><value>Tipuri de grant</value></data>
+  <data name="Clients_New" xml:space="preserve"><value>Client nou</value></data>
+  <data name="Clients_Type" xml:space="preserve"><value>Tip</value></data>
+  <data name="Common_AdminPageTitle" xml:space="preserve"><value>{0} — Administrare</value></data>
+  <data name="Common_BackToSignIn" xml:space="preserve"><value>Înapoi la autentificare</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Anulează</value></data>
+  <data name="Common_CheckInbox" xml:space="preserve"><value>Verificați căsuța de e-mail</value></data>
+  <data name="Common_ConfirmNewPassword" xml:space="preserve"><value>Confirmați parola nouă</value></data>
+  <data name="Common_Delete" xml:space="preserve"><value>Șterge</value></data>
+  <data name="Common_Description" xml:space="preserve"><value>Descriere</value></data>
+  <data name="Common_DisplayName" xml:space="preserve"><value>Nume afișat</value></data>
+  <data name="Common_Edit" xml:space="preserve"><value>Editează</value></data>
+  <data name="Common_Email" xml:space="preserve"><value>E-mail</value></data>
+  <data name="Common_EmailPlaceholder" xml:space="preserve"><value>tu@exemplu.ro</value></data>
+  <data name="Common_Error" xml:space="preserve"><value>Eroare</value></data>
+  <data name="Common_LockedOut" xml:space="preserve"><value>Contul este blocat din cauza prea multor încercări eșuate. Încercați mai târziu.</value></data>
+  <data name="Common_Name" xml:space="preserve"><value>Nume</value></data>
+  <data name="Common_NewPassword" xml:space="preserve"><value>Parolă nouă</value></data>
+  <data name="Common_NewPasswordPlaceholder" xml:space="preserve"><value>Cel puțin {0} caractere</value></data>
+  <data name="Common_No" xml:space="preserve"><value>Nu</value></data>
+  <data name="Common_None" xml:space="preserve"><value>Niciunul</value></data>
+  <data name="Common_Off" xml:space="preserve"><value>Dezactivat</value></data>
+  <data name="Common_On" xml:space="preserve"><value>Activat</value></data>
+  <data name="Common_Password" xml:space="preserve"><value>Parolă</value></data>
+  <data name="Common_Rename" xml:space="preserve"><value>Redenumește</value></data>
+  <data name="Common_Save" xml:space="preserve"><value>Salvează</value></data>
+  <data name="Common_SignIn" xml:space="preserve"><value>Conectare</value></data>
+  <data name="Common_SomethingWentWrong" xml:space="preserve"><value>Ceva nu a mers bine</value></data>
+  <data name="Common_UserNotFound" xml:space="preserve"><value>Utilizatorul nu a fost găsit.</value></data>
+  <data name="Common_Yes" xml:space="preserve"><value>Da</value></data>
+  <data name="Confirm_Continue" xml:space="preserve"><value>Continuă</value></data>
+  <data name="Confirm_InvalidText" xml:space="preserve"><value>Linkurile de confirmare sunt valabile 24 de ore. Solicitați unul nou mai jos.</value></data>
+  <data name="Confirm_InvalidTitle" xml:space="preserve"><value>Linkul nu este valid sau a expirat</value></data>
+  <data name="Confirm_PageTitle" xml:space="preserve"><value>Confirmă e-mailul</value></data>
+  <data name="Confirm_SendNew" xml:space="preserve"><value>Trimite un link nou</value></data>
+  <data name="Confirm_SuccessText" xml:space="preserve"><value>Mulțumim. Adresa de e-mail este confirmată.</value></data>
+  <data name="Confirm_SuccessTitle" xml:space="preserve"><value>E-mail confirmat</value></data>
+  <data name="Confirm_Title" xml:space="preserve"><value>Confirmarea e-mailului</value></data>
+  <data name="Consent_Allow" xml:space="preserve"><value>Permite</value></data>
+  <data name="Consent_Deny" xml:space="preserve"><value>Refuză</value></data>
+  <data name="Consent_InvalidRequest" xml:space="preserve"><value>Cerere nevalidă</value></data>
+  <data name="Consent_NoClient" xml:space="preserve"><value>Cererea de autorizare nu specifică un client.</value></data>
+  <data name="Consent_RequestMissing" xml:space="preserve"><value>Cererea de autorizare lipsește sau nu este validă.</value></data>
+  <data name="Consent_RequestsAccess" xml:space="preserve"><value>solicită acces la contul dvs.</value></data>
+  <data name="Consent_Title" xml:space="preserve"><value>Autorizează aplicația</value></data>
+  <data name="Consent_WillBeAbleTo" xml:space="preserve"><value>Aplicația va putea:</value></data>
+  <data name="Disable2fa_Description" xml:space="preserve"><value>Conectarea cu parolă va necesita atunci doar parola. Dacă parola ajunge la alții, contul dvs. poate fi preluat mai ușor. Cheile de acces continuă să funcționeze.</value></data>
+  <data name="Disable2fa_PageTitle" xml:space="preserve"><value>Dezactivează autentificarea în doi pași</value></data>
+  <data name="Disable2fa_Title" xml:space="preserve"><value>Dezactivați aplicația de autentificare?</value></data>
+  <data name="EmailConfirm_Button" xml:space="preserve"><value>Confirmă e-mailul</value></data>
+  <data name="EmailConfirm_Footer" xml:space="preserve"><value>Linkul este valabil 24 de ore. Dacă nu ați creat un cont, puteți ignora acest e-mail.</value></data>
+  <data name="EmailConfirm_Subject" xml:space="preserve"><value>Confirmați adresa de e-mail</value></data>
+  <data name="EmailConfirm_Text" xml:space="preserve"><value>Bună, {0}, vă rugăm să confirmați că {1} aparține contului dvs. Anubis.</value></data>
+  <data name="EmailReset_Button" xml:space="preserve"><value>Alege o parolă nouă</value></data>
+  <data name="EmailReset_Footer" xml:space="preserve"><value>Linkul este valabil 1 oră și funcționează o singură dată. Dacă nu ați cerut acest lucru, ignorați e-mailul; parola rămâne aceeași.</value></data>
+  <data name="EmailReset_Subject" xml:space="preserve"><value>Resetați parola</value></data>
+  <data name="EmailReset_Text" xml:space="preserve"><value>Bună, {0}, cineva a cerut resetarea parolei contului dvs. Anubis.</value></data>
+  <data name="EmailTest_Button" xml:space="preserve"><value>Deschide Anubis</value></data>
+  <data name="EmailTest_Footer" xml:space="preserve"><value>Ați primit acest mesaj deoarece un administrator a trimis un e-mail de test.</value></data>
+  <data name="EmailTest_Heading" xml:space="preserve"><value>E-mailul funcționează</value></data>
+  <data name="EmailTest_Subject" xml:space="preserve"><value>E-mail de test Anubis</value></data>
+  <data name="EmailTest_Text" xml:space="preserve"><value>Acest mesaj de test a fost trimis de Anubis prin {0}.</value></data>
+  <data name="Email_Configuration" xml:space="preserve"><value>Configurare</value></data>
+  <data name="Email_Domain" xml:space="preserve"><value>Domeniu</value></data>
+  <data name="Email_GreetingFallback" xml:space="preserve"><value>utilizatorule</value></data>
+  <data name="Email_IssuerNotSetText" xml:space="preserve"><value>Linkurile din e-mailuri folosesc atunci numele gazdei din fiecare cerere. În producție, setați Anubis:Issuer la URL-ul dvs. public.</value></data>
+  <data name="Email_IssuerNotSetTitle" xml:space="preserve"><value>Anubis:Issuer nu este setat</value></data>
+  <data name="Email_LinkFallback" xml:space="preserve"><value>Dacă butonul nu funcționează, deschideți acest link:</value></data>
+  <data name="Email_LogOnly" xml:space="preserve"><value>Doar jurnal (neconfigurat)</value></data>
+  <data name="Email_MessageStream" xml:space="preserve"><value>Message stream</value></data>
+  <data name="Email_NotConfiguredText" xml:space="preserve"><value>E-mailurile sunt doar scrise în jurnal. Setați Email:Smtp:Host sau alegeți alt Email:Provider (SendGrid, Mailgun, Postmark, Resend) în configurare.</value></data>
+  <data name="Email_NotConfiguredTitle" xml:space="preserve"><value>E-mailul nu este configurat</value></data>
+  <data name="Email_Provider" xml:space="preserve"><value>Furnizor</value></data>
+  <data name="Email_Recipient" xml:space="preserve"><value>Destinatar</value></data>
+  <data name="Email_SendFailed" xml:space="preserve"><value>Trimiterea a eșuat</value></data>
+  <data name="Email_SendTest" xml:space="preserve"><value>Trimite e-mail de test</value></data>
+  <data name="Email_Sent" xml:space="preserve"><value>Trimis</value></data>
+  <data name="Email_TestAccepted" xml:space="preserve"><value>E-mailul de test către {0} a fost acceptat de {1}.</value></data>
+  <data name="Email_TestLogged" xml:space="preserve"><value>E-mailul nu este configurat, așa că mesajul a fost doar scris în jurnal.</value></data>
+  <data name="Error_ClientNotFound" xml:space="preserve"><value>Clientul '{0}' nu a fost găsit.</value></data>
+  <data name="Error_PageTitle" xml:space="preserve"><value>Eroare</value></data>
+  <data name="Error_RequestId" xml:space="preserve"><value>ID cerere: {0}</value></data>
+  <data name="Error_ScopeExists" xml:space="preserve"><value>Scope-ul '{0}' există deja.</value></data>
+  <data name="Error_ScopeNotFound" xml:space="preserve"><value>Scope-ul '{0}' nu a fost găsit.</value></data>
+  <data name="Error_Text" xml:space="preserve"><value>A apărut o eroare la procesarea cererii.</value></data>
+  <data name="Forgot_Description" xml:space="preserve"><value>Vă trimitem un link pentru a alege una nouă.</value></data>
+  <data name="Forgot_PageTitle" xml:space="preserve"><value>Parolă uitată</value></data>
+  <data name="Forgot_Send" xml:space="preserve"><value>Trimite linkul de resetare</value></data>
+  <data name="Forgot_Sent" xml:space="preserve"><value>Dacă există un cont pentru această adresă, linkul de resetare este pe drum. Linkul este valabil 1 oră.</value></data>
+  <data name="Forgot_Title" xml:space="preserve"><value>Ați uitat parola?</value></data>
+  <data name="Home_CreateAccountTitle" xml:space="preserve"><value>Creează cont</value></data>
+  <data name="Identity_ConcurrencyFailure" xml:space="preserve"><value>Înregistrarea a fost modificată de altcineva. Reîncărcați și încercați din nou.</value></data>
+  <data name="Identity_DefaultError" xml:space="preserve"><value>A apărut o eroare necunoscută.</value></data>
+  <data name="Identity_DuplicateEmail" xml:space="preserve"><value>E-mailul '{0}' este deja folosit.</value></data>
+  <data name="Identity_DuplicateRoleName" xml:space="preserve"><value>Numele de rol '{0}' este deja folosit.</value></data>
+  <data name="Identity_DuplicateUserName" xml:space="preserve"><value>Numele de utilizator '{0}' este deja folosit.</value></data>
+  <data name="Identity_InvalidEmail" xml:space="preserve"><value>E-mailul '{0}' nu este valid.</value></data>
+  <data name="Identity_InvalidRoleName" xml:space="preserve"><value>Numele de rol '{0}' nu este valid.</value></data>
+  <data name="Identity_InvalidToken" xml:space="preserve"><value>Token nevalid.</value></data>
+  <data name="Identity_InvalidUserName" xml:space="preserve"><value>Numele de utilizator '{0}' nu este valid.</value></data>
+  <data name="Identity_LoginAlreadyAssociated" xml:space="preserve"><value>Există deja un utilizator cu această autentificare.</value></data>
+  <data name="Identity_PasswordMismatch" xml:space="preserve"><value>Parolă incorectă.</value></data>
+  <data name="Identity_PasswordRequiresDigit" xml:space="preserve"><value>Parolele trebuie să conțină cel puțin o cifră (0-9).</value></data>
+  <data name="Identity_PasswordRequiresLower" xml:space="preserve"><value>Parolele trebuie să conțină cel puțin o literă mică (a-z).</value></data>
+  <data name="Identity_PasswordRequiresNonAlphanumeric" xml:space="preserve"><value>Parolele trebuie să conțină cel puțin un caracter care nu este literă sau cifră.</value></data>
+  <data name="Identity_PasswordRequiresUniqueChars" xml:space="preserve"><value>Parolele trebuie să folosească cel puțin {0} caractere diferite.</value></data>
+  <data name="Identity_PasswordRequiresUpper" xml:space="preserve"><value>Parolele trebuie să conțină cel puțin o literă mare (A-Z).</value></data>
+  <data name="Identity_PasswordTooShort" xml:space="preserve"><value>Parolele trebuie să aibă cel puțin {0} caractere.</value></data>
+  <data name="Identity_RecoveryCodeRedemptionFailed" xml:space="preserve"><value>Codul de recuperare nu a putut fi folosit.</value></data>
+  <data name="Identity_UserAlreadyHasPassword" xml:space="preserve"><value>Utilizatorul are deja o parolă.</value></data>
+  <data name="Identity_UserAlreadyInRole" xml:space="preserve"><value>Utilizatorul are deja rolul '{0}'.</value></data>
+  <data name="Identity_UserLockoutNotEnabled" xml:space="preserve"><value>Blocarea nu este activată pentru acest utilizator.</value></data>
+  <data name="Identity_UserNotInRole" xml:space="preserve"><value>Utilizatorul nu are rolul '{0}'.</value></data>
+  <data name="Layout_Account" xml:space="preserve"><value>Cont</value></data>
+  <data name="Layout_Footer" xml:space="preserve"><value>© 2006</value></data>
+  <data name="Layout_Language" xml:space="preserve"><value>Limbă</value></data>
+  <data name="Layout_MainNavigation" xml:space="preserve"><value>Navigare principală</value></data>
+  <data name="Layout_SignOut" xml:space="preserve"><value>Deconectare</value></data>
+  <data name="Login_CreateOne" xml:space="preserve"><value>Creați unul</value></data>
+  <data name="Login_Description" xml:space="preserve"><value>Folosiți o cheie de acces sau e-mailul și parola.</value></data>
+  <data name="Login_EmailNotConfirmed" xml:space="preserve"><value>Confirmați mai întâi adresa de e-mail. Găsiți linkul în căsuța de e-mail.</value></data>
+  <data name="Login_Failed" xml:space="preserve"><value>Conectarea a eșuat</value></data>
+  <data name="Login_ForgotPassword" xml:space="preserve"><value>Ați uitat parola?</value></data>
+  <data name="Login_InvalidCredentials" xml:space="preserve"><value>E-mail sau parolă incorectă.</value></data>
+  <data name="Login_NoAccount" xml:space="preserve"><value>Nu aveți încă un cont?</value></data>
+  <data name="Login_NotAllowed" xml:space="preserve"><value>Conectarea nu este permisă pentru acest cont.</value></data>
+  <data name="Login_Or" xml:space="preserve"><value>sau</value></data>
+  <data name="Login_PageTitle" xml:space="preserve"><value>Conectare</value></data>
+  <data name="Login_PasswordPlaceholder" xml:space="preserve"><value>Parola dvs.</value></data>
+  <data name="Login_ResendConfirmation" xml:space="preserve"><value>Retrimite e-mailul de confirmare</value></data>
+  <data name="Login_Title" xml:space="preserve"><value>Conectați-vă la Anubis</value></data>
+  <data name="Login_UnknownPasskey" xml:space="preserve"><value>Această cheie de acces nu este înregistrată în Anubis.</value></data>
+  <data name="Login_WithPasskey" xml:space="preserve"><value>Conectare cu o cheie de acces</value></data>
+  <data name="Passkey_AlreadyRegistered" xml:space="preserve"><value>Acest dispozitiv are deja o cheie de acces pentru acest cont.</value></data>
+  <data name="Passkey_Cancelled" xml:space="preserve"><value>Solicitarea cheii de acces a fost anulată sau a expirat.</value></data>
+  <data name="Passkey_Failed" xml:space="preserve"><value>Cheia de acces nu a putut fi folosită. Încercați din nou.</value></data>
+  <data name="Passkey_ServerError" xml:space="preserve"><value>Serverul nu a putut porni solicitarea cheii de acces. Încercați din nou.</value></data>
+  <data name="Passkey_Unsupported" xml:space="preserve"><value>Acest browser nu acceptă chei de acces.</value></data>
+  <data name="Passkey_UpdateBrowser" xml:space="preserve"><value>Acest browser nu acceptă chei de acces. Vă rugăm să îl actualizați.</value></data>
+  <data name="RecoveryCodes_Description" xml:space="preserve"><value>Coduri de unică folosință pentru conectare dacă pierdeți aplicația de autentificare.</value></data>
+  <data name="RecoveryCodes_Generate" xml:space="preserve"><value>Generează coduri noi</value></data>
+  <data name="RecoveryCodes_PageDescription" xml:space="preserve"><value>Folosiți unul dintre ele pentru a vă conecta dacă pierdeți aplicația de autentificare.</value></data>
+  <data name="RecoveryCodes_SaveText" xml:space="preserve"><value>Sunt afișate o singură dată. Păstrați-le într-un loc sigur, de exemplu într-un manager de parole. Fiecare cod vă conectează o dată dacă pierdeți aplicația de autentificare. Codurile vechi nu mai funcționează.</value></data>
+  <data name="RecoveryCodes_SaveTitle" xml:space="preserve"><value>Salvați acum aceste coduri de recuperare</value></data>
+  <data name="RecoveryCodes_Saved" xml:space="preserve"><value>Am salvat codurile</value></data>
+  <data name="RecoveryCodes_Title" xml:space="preserve"><value>Coduri de recuperare</value></data>
+  <data name="RecoveryCodes_Warning" xml:space="preserve"><value>Se vor crea {0} coduri noi. Codurile actuale nu vor mai funcționa.</value></data>
+  <data name="Recovery_BackToCode" xml:space="preserve"><value>Înapoi la codul de autentificare</value></data>
+  <data name="Recovery_CodeLabel" xml:space="preserve"><value>Cod de recuperare</value></data>
+  <data name="Recovery_Description" xml:space="preserve"><value>Fiecare cod de recuperare funcționează o singură dată.</value></data>
+  <data name="Recovery_InvalidCode" xml:space="preserve"><value>Codul de recuperare nu este valid sau a fost deja folosit.</value></data>
+  <data name="Recovery_PageTitle" xml:space="preserve"><value>Cod de recuperare</value></data>
+  <data name="Recovery_Title" xml:space="preserve"><value>Conectare cu un cod de recuperare</value></data>
+  <data name="Register_AlreadyRegistered" xml:space="preserve"><value>Aveți deja cont?</value></data>
+  <data name="Register_ConfirmPassword" xml:space="preserve"><value>Confirmă parola</value></data>
+  <data name="Register_ConfirmPasswordPlaceholder" xml:space="preserve"><value>Repetați parola</value></data>
+  <data name="Register_ConfirmationSent" xml:space="preserve"><value>Am trimis un link de confirmare la {0}. Confirmați adresa, apoi conectați-vă.</value></data>
+  <data name="Register_Description" xml:space="preserve"><value>Înregistrați-vă cu e-mail și parolă.</value></data>
+  <data name="Register_DisabledText" xml:space="preserve"><value>Înregistrarea autonomă este dezactivată momentan. Contactați un administrator.</value></data>
+  <data name="Register_DisabledTitle" xml:space="preserve"><value>Înregistrare dezactivată</value></data>
+  <data name="Register_DisplayNamePlaceholder" xml:space="preserve"><value>Ion Popescu</value></data>
+  <data name="Register_Failed" xml:space="preserve"><value>Înregistrarea a eșuat</value></data>
+  <data name="Register_NoEmail" xml:space="preserve"><value>Nu ați primit e-mailul?</value></data>
+  <data name="Register_PageTitle" xml:space="preserve"><value>Creează cont</value></data>
+  <data name="Register_SendAgain" xml:space="preserve"><value>Retrimite</value></data>
+  <data name="Register_Title" xml:space="preserve"><value>Creați-vă contul</value></data>
+  <data name="RenamePasskey_Description" xml:space="preserve"><value>Dați-i un nume ușor de recunoscut, de exemplu „Pixel 9” sau „MacBook Touch ID”.</value></data>
+  <data name="RenamePasskey_PageTitle" xml:space="preserve"><value>Denumiți cheia de acces</value></data>
+  <data name="RenamePasskey_Skip" xml:space="preserve"><value>Omite</value></data>
+  <data name="RenamePasskey_Title" xml:space="preserve"><value>Redenumește cheia de acces</value></data>
+  <data name="Resend_Description" xml:space="preserve"><value>Vă trimitem un link nou pentru confirmarea adresei.</value></data>
+  <data name="Resend_PageTitle" xml:space="preserve"><value>Retrimite confirmarea</value></data>
+  <data name="Resend_Send" xml:space="preserve"><value>Trimite linkul</value></data>
+  <data name="Resend_Sent" xml:space="preserve"><value>Dacă adresa aparține unui cont neconfirmat, un link nou este pe drum.</value></data>
+  <data name="Resend_Title" xml:space="preserve"><value>Retrimite e-mailul de confirmare</value></data>
+  <data name="Reset_DoneText" xml:space="preserve"><value>Acum vă puteți conecta cu parola nouă.</value></data>
+  <data name="Reset_DoneTitle" xml:space="preserve"><value>Parolă schimbată</value></data>
+  <data name="Reset_FailedTitle" xml:space="preserve"><value>Parola nu a putut fi resetată</value></data>
+  <data name="Reset_InvalidLinkText" xml:space="preserve"><value>Acest link de resetare este incomplet. Deschideți din nou linkul din e-mail sau solicitați unul nou.</value></data>
+  <data name="Reset_InvalidLinkTitle" xml:space="preserve"><value>Link nevalid</value></data>
+  <data name="Reset_LinkExpired" xml:space="preserve"><value>Linkul a expirat sau a fost deja folosit. Solicitați unul nou.</value></data>
+  <data name="Reset_PageTitle" xml:space="preserve"><value>Resetează parola</value></data>
+  <data name="Reset_RequestNew" xml:space="preserve"><value>Solicită un link nou</value></data>
+  <data name="Reset_Submit" xml:space="preserve"><value>Setează parola nouă</value></data>
+  <data name="Reset_Title" xml:space="preserve"><value>Alegeți o parolă nouă</value></data>
+  <data name="Routes_AccessDeniedText" xml:space="preserve"><value>Contul dvs. nu are acces la această pagină.</value></data>
+  <data name="Routes_AccessDeniedTitle" xml:space="preserve"><value>Acces refuzat</value></data>
+  <data name="Routes_NotFoundPageTitle" xml:space="preserve"><value>Negăsit</value></data>
+  <data name="Routes_NotFoundText" xml:space="preserve"><value>Ne pare rău, la această adresă nu există nimic.</value></data>
+  <data name="Routes_NotFoundTitle" xml:space="preserve"><value>Pagina nu a fost găsită</value></data>
+  <data name="Scope_Email" xml:space="preserve"><value>Să vadă adresa dvs. de e-mail</value></data>
+  <data name="Scope_OfflineAccess" xml:space="preserve"><value>Să păstreze accesul cât sunteți plecat (refresh tokens)</value></data>
+  <data name="Scope_OpenId" xml:space="preserve"><value>Să confirme cine sunteți</value></data>
+  <data name="Scope_Profile" xml:space="preserve"><value>Să vadă numele și profilul dvs.</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Să vadă rolurile dvs.</value></data>
+  <data name="Scopes_Create" xml:space="preserve"><value>Creează scope</value></data>
+  <data name="Scopes_CreateDescription" xml:space="preserve"><value>Clienții pot solicita scope-uri personalizate, asociate cu resurse (audiences).</value></data>
+  <data name="Scopes_DisplayNamePlaceholder" xml:space="preserve"><value>API-ul meu</value></data>
+  <data name="Scopes_Resources" xml:space="preserve"><value>Resurse (separate prin virgulă)</value></data>
+  <data name="Scopes_ResourcesHeader" xml:space="preserve"><value>Resurse</value></data>
+  <data name="Security_AddPasskey" xml:space="preserve"><value>Adaugă o cheie de acces</value></data>
+  <data name="Security_AuthenticatorDescription" xml:space="preserve"><value>După parolă, introduceți un cod de 6 cifre dintr-o aplicație precum Aegis, 2FAS, Google Authenticator, Microsoft Authenticator sau 1Password.</value></data>
+  <data name="Security_CodesLeft" xml:space="preserve"><value>Coduri de recuperare rămase: {0}</value></data>
+  <data name="Security_FewCodesLeftText" xml:space="preserve"><value>Luați în considerare generarea de coduri noi.</value></data>
+  <data name="Security_FewCodesLeftTitle" xml:space="preserve"><value>Au mai rămas puține coduri de recuperare ({0})</value></data>
+  <data name="Security_ForgetBrowser" xml:space="preserve"><value>Uită acest browser</value></data>
+  <data name="Security_MoveToAnotherApp" xml:space="preserve"><value>Mutați pe altă aplicație</value></data>
+  <data name="Security_NoCodesLeftText" xml:space="preserve"><value>Generați acum coduri noi, altfel ați putea rămâne fără acces.</value></data>
+  <data name="Security_NoCodesLeftTitle" xml:space="preserve"><value>Nu au mai rămas coduri de recuperare</value></data>
+  <data name="Security_NoPasskeyProvided" xml:space="preserve"><value>Browserul nu a furnizat o cheie de acces.</value></data>
+  <data name="Security_NoPasskeys" xml:space="preserve"><value>Încă nu există chei de acces.</value></data>
+  <data name="Security_PasskeyAdded" xml:space="preserve"><value>Adăugată</value></data>
+  <data name="Security_PasskeyLimit" xml:space="preserve"><value>Puteți avea cel mult {0} chei de acces. Ștergeți una pentru a adăuga alta.</value></data>
+  <data name="Security_PasskeyNotSaved" xml:space="preserve"><value>Cheia de acces nu a putut fi salvată.</value></data>
+  <data name="Security_PasskeyNotVerified" xml:space="preserve"><value>Cheia de acces nu a putut fi verificată. Încercați din nou sau folosiți alt dispozitiv.</value></data>
+  <data name="Security_PasskeySynced" xml:space="preserve"><value>Sincronizată</value></data>
+  <data name="Security_PasskeysDescription" xml:space="preserve"><value>Conectați-vă cu amprenta, fața sau PIN-ul dispozitivului în loc de parolă. Cheia de acces este stocată pe telefon, computer sau o cheie de securitate și nu poate fi furată prin phishing.</value></data>
+  <data name="Security_SetUpAuthenticator" xml:space="preserve"><value>Configurează aplicația de autentificare</value></data>
+  <data name="Security_ThisBrowser" xml:space="preserve"><value>Acest browser</value></data>
+  <data name="Security_ThisBrowserText" xml:space="preserve"><value>Acest browser omite codul de autentificare la conectare.</value></data>
+  <data name="Security_TurnOff" xml:space="preserve"><value>Dezactivează</value></data>
+  <data name="Security_UnnamedPasskey" xml:space="preserve"><value>Cheie de acces fără nume</value></data>
+  <data name="Status_AuthenticatorEnabledText" xml:space="preserve"><value>La conectarea cu parolă vi se va cere un cod din aplicație.</value></data>
+  <data name="Status_AuthenticatorEnabledTitle" xml:space="preserve"><value>Aplicația de autentificare a fost activată</value></data>
+  <data name="Status_AuthenticatorResetText" xml:space="preserve"><value>Configurați din nou aplicația de autentificare cu cheia nouă.</value></data>
+  <data name="Status_AuthenticatorResetTitle" xml:space="preserve"><value>Cheia de autentificare a fost resetată</value></data>
+  <data name="Status_BrowserForgottenText" xml:space="preserve"><value>Acest browser va cere din nou un cod la următoarea conectare.</value></data>
+  <data name="Status_BrowserForgottenTitle" xml:space="preserve"><value>Browser uitat</value></data>
+  <data name="Status_MfaDisabledText" xml:space="preserve"><value>Aplicația de autentificare nu mai este necesară la conectare.</value></data>
+  <data name="Status_MfaDisabledTitle" xml:space="preserve"><value>Autentificarea în doi pași a fost dezactivată</value></data>
+  <data name="Status_MfaRequiredForCodesText" xml:space="preserve"><value>Configurați o aplicație de autentificare înainte de a genera coduri de recuperare.</value></data>
+  <data name="Status_MfaRequiredForCodesTitle" xml:space="preserve"><value>Indisponibil</value></data>
+  <data name="Status_PasskeyAddedText" xml:space="preserve"><value>Acum vă puteți conecta cu această cheie de acces.</value></data>
+  <data name="Status_PasskeyAddedTitle" xml:space="preserve"><value>Cheie de acces adăugată</value></data>
+  <data name="Status_PasskeyDeletedText" xml:space="preserve"><value>Cheia de acces nu mai poate fi folosită pentru conectare.</value></data>
+  <data name="Status_PasskeyDeletedTitle" xml:space="preserve"><value>Cheie de acces ștearsă</value></data>
+  <data name="Status_PasskeyNotFoundText" xml:space="preserve"><value>Cheia de acces nu există sau aparține altui cont.</value></data>
+  <data name="Status_PasskeyNotFoundTitle" xml:space="preserve"><value>Cheia de acces nu a fost găsită</value></data>
+  <data name="Status_PasskeyRenamedText" xml:space="preserve"><value>Numele cheii de acces a fost actualizat.</value></data>
+  <data name="Status_PasskeyRenamedTitle" xml:space="preserve"><value>Cheie de acces redenumită</value></data>
+  <data name="TwoFactor_CodeLabel" xml:space="preserve"><value>Cod de autentificare</value></data>
+  <data name="TwoFactor_Description" xml:space="preserve"><value>Introduceți codul de 6 cifre din aplicația de autentificare.</value></data>
+  <data name="TwoFactor_InvalidCode" xml:space="preserve"><value>Codul nu este valid sau a expirat.</value></data>
+  <data name="TwoFactor_LostDevice" xml:space="preserve"><value>Ați pierdut dispozitivul?</value></data>
+  <data name="TwoFactor_PageTitle" xml:space="preserve"><value>Autentificare în doi pași</value></data>
+  <data name="TwoFactor_RememberBrowser" xml:space="preserve"><value>Nu mai întreba în acest browser timp de 14 zile</value></data>
+  <data name="TwoFactor_UseRecoveryCode" xml:space="preserve"><value>Folosește un cod de recuperare</value></data>
+  <data name="TwoFactor_VerificationFailed" xml:space="preserve"><value>Verificarea a eșuat</value></data>
+  <data name="TwoFactor_Verify" xml:space="preserve"><value>Verifică</value></data>
+  <data name="Users_Active" xml:space="preserve"><value>Activ</value></data>
+  <data name="Users_Create" xml:space="preserve"><value>Creează utilizator</value></data>
+  <data name="Users_CreateDescription" xml:space="preserve"><value>Parolele sunt stocate ca hash-uri Argon2id.</value></data>
+  <data name="Users_CreatedText" xml:space="preserve"><value>{0} a fost creat.</value></data>
+  <data name="Users_DeleteConfirm" xml:space="preserve"><value>Sigur doriți să ștergeți {0}? Acțiunea nu poate fi anulată.</value></data>
+  <data name="Users_DeleteTitle" xml:space="preserve"><value>Șterge utilizatorul</value></data>
+  <data name="Users_Deleted" xml:space="preserve"><value>Utilizator șters</value></data>
+  <data name="Users_DeletedText" xml:space="preserve"><value>{0} a fost șters.</value></data>
+  <data name="Users_Lock" xml:space="preserve"><value>Blochează</value></data>
+  <data name="Users_Locked" xml:space="preserve"><value>Blocat</value></data>
+  <data name="Users_Mfa" xml:space="preserve"><value>MFA</value></data>
+  <data name="Users_MfaResetText" xml:space="preserve"><value>{0} se poate conecta acum doar cu parola.</value></data>
+  <data name="Users_PasskeyCount" xml:space="preserve"><value>Chei de acces: {0}</value></data>
+  <data name="Users_ResetMfa" xml:space="preserve"><value>Resetează MFA</value></data>
+  <data name="Users_ResetMfaConfirm" xml:space="preserve"><value>Aceasta dezactivează aplicația de autentificare, șterge toate cheile de acces ale lui {0} și îl deconectează peste tot. Folosiți-o când cineva și-a pierdut dispozitivul. Apoi se va putea conecta doar cu parola și va putea configura din nou MFA.</value></data>
+  <data name="Users_Status" xml:space="preserve"><value>Stare</value></data>
+  <data name="Users_Unlock" xml:space="preserve"><value>Deblochează</value></data>
+  <data name="Validation_ClientIdRequired" xml:space="preserve"><value>Introduceți un ID de client.</value></data>
+  <data name="Validation_ClientSecretMinLength" xml:space="preserve"><value>Folosiți cel puțin 16 caractere sau lăsați gol pentru un client public.</value></data>
+  <data name="Validation_CodeLength" xml:space="preserve"><value>Codul are 6 cifre.</value></data>
+  <data name="Validation_CodeRequired" xml:space="preserve"><value>Introduceți codul din aplicație.</value></data>
+  <data name="Validation_ConfirmPasswordRequired" xml:space="preserve"><value>Vă rugăm să confirmați parola.</value></data>
+  <data name="Validation_CurrentPasswordRequired" xml:space="preserve"><value>Introduceți parola actuală.</value></data>
+  <data name="Validation_DisplayNameTooLong" xml:space="preserve"><value>Folosiți cel mult 100 de caractere.</value></data>
+  <data name="Validation_EmailInvalid" xml:space="preserve"><value>Introduceți o adresă de e-mail validă.</value></data>
+  <data name="Validation_EmailRequired" xml:space="preserve"><value>E-mailul este obligatoriu.</value></data>
+  <data name="Validation_Identifier" xml:space="preserve"><value>Sunt permise doar litere, cifre, '-', '_' și '.'.</value></data>
+  <data name="Validation_NameRequired" xml:space="preserve"><value>Introduceți un nume.</value></data>
+  <data name="Validation_NameTooLong" xml:space="preserve"><value>Folosiți cel mult 100 de caractere.</value></data>
+  <data name="Validation_PasswordRequired" xml:space="preserve"><value>Parola este obligatorie.</value></data>
+  <data name="Validation_PasswordsDoNotMatch" xml:space="preserve"><value>Parolele nu se potrivesc.</value></data>
+  <data name="Validation_RecipientRequired" xml:space="preserve"><value>Introduceți un destinatar.</value></data>
+  <data name="Validation_RecoveryCodeRequired" xml:space="preserve"><value>Introduceți un cod de recuperare.</value></data>
+  <data name="Validation_ScopeNameRequired" xml:space="preserve"><value>Introduceți numele unui scope.</value></data>
+  <data name="Account_UploadAvatar" xml:space="preserve"><value>Încarcă avatar</value></data>
+  <data name="Account_RemoveAvatar" xml:space="preserve"><value>Folosește Gravatar</value></data>
+  <data name="Account_AvatarHint" xml:space="preserve"><value>JPEG, PNG, WebP, GIF sau SVG. Imaginea este redusă la maximum 1024×1024 și salvată ca WebP transparent. Dacă nu există imagine, se folosește Gravatar.</value></data>
+  <data name="Account_ProfileUpdated" xml:space="preserve"><value>Numele afișat a fost salvat.</value></data>
+  <data name="Account_AvatarUpdated" xml:space="preserve"><value>Avatar actualizat.</value></data>
+  <data name="Account_AvatarRemoved" xml:space="preserve"><value>Avatarul personalizat a fost eliminat. Se folosește Gravatar.</value></data>
+  <data name="Account_AvatarInvalid" xml:space="preserve"><value>Fișier imagine nevalid sau neacceptat.</value></data>
+  <data name="Account_AvatarTooLarge" xml:space="preserve"><value>Fișierul imagine este prea mare (max. 10 MB).</value></data>
+  <data name="Admin_Settings" xml:space="preserve"><value>Setări</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Roluri</value></data>
+  <data name="Admin_Appearance" xml:space="preserve"><value>Aspect</value></data>
+  <data name="Admin_UsersDescription" xml:space="preserve"><value>Conturi care se pot conecta la Anubis.</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Rolurile sunt transmise aplicațiilor client în claimul roles.</value></data>
+  <data name="Admin_ScopesDescription" xml:space="preserve"><value>Permisiuni pe care le pot solicita aplicațiile client.</value></data>
+  <data name="Admin_ClientsDescription" xml:space="preserve"><value>Aplicații care conectează utilizatorii prin Anubis.</value></data>
+  <data name="Admin_EmailDescription" xml:space="preserve"><value>E-mailuri trimise pentru confirmarea adresei și resetarea parolei.</value></data>
+  <data name="Admin_AppearanceDescription" xml:space="preserve"><value>Logo, font și culori ale paginilor de conectare și de cont.</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Închide</value></data>
+  <data name="Settings_FileNote" xml:space="preserve"><value>Salvat în {0}. Aceste valori au prioritate față de appsettings.json și variabilele de mediu.</value></data>
+  <data name="Settings_Saved" xml:space="preserve"><value>Setări salvate</value></data>
+  <data name="Settings_SavedText" xml:space="preserve"><value>Modificările se aplică imediat.</value></data>
+  <data name="Settings_Invalid" xml:space="preserve"><value>Setările nu au fost salvate</value></data>
+  <data name="Settings_SecretKeep" xml:space="preserve"><value>Setat. Lăsați gol pentru a păstra valoarea actuală.</value></data>
+  <data name="Email_FromAddress" xml:space="preserve"><value>Adresa expeditorului</value></data>
+  <data name="Email_FromName" xml:space="preserve"><value>Numele expeditorului</value></data>
+  <data name="Email_Host" xml:space="preserve"><value>Server SMTP</value></data>
+  <data name="Email_Port" xml:space="preserve"><value>Port</value></data>
+  <data name="Email_Security" xml:space="preserve"><value>Criptare</value></data>
+  <data name="Email_TimeoutSeconds" xml:space="preserve"><value>Timp de așteptare (secunde)</value></data>
+  <data name="Email_Username" xml:space="preserve"><value>Nume de utilizator</value></data>
+  <data name="Email_ApiKey" xml:space="preserve"><value>Cheie API</value></data>
+  <data name="Email_ServerToken" xml:space="preserve"><value>Token de server</value></data>
+  <data name="Email_BaseUrl" xml:space="preserve"><value>URL API</value></data>
+  <data name="Appearance_Assets" xml:space="preserve"><value>Logo și pictogramă</value></data>
+  <data name="Appearance_PathHint" xml:space="preserve"><value>Încărcați SVG, WebP, PNG, JPEG sau GIF (salvat în fișierul de setări) sau introduceți o cale din wwwroot ori un URL https://. Versiunile PNG ale faviconului pentru Safari și iOS sunt generate automat.</value></data>
+  <data name="Appearance_LogoPath" xml:space="preserve"><value>Logo</value></data>
+  <data name="Appearance_FaviconPath" xml:space="preserve"><value>Favicon</value></data>
+  <data name="Appearance_Font" xml:space="preserve"><value>Font</value></data>
+  <data name="Appearance_FontHint" xml:space="preserve"><value>Gol = fontul implicit (cel monospațiat al sistemului). Se pot folosi doar fonturi instalate pe dispozitiv.</value></data>
+  <data name="Appearance_FontFamily" xml:space="preserve"><value>Familie de fonturi (CSS)</value></data>
+  <data name="Appearance_LightTheme" xml:space="preserve"><value>Temă luminoasă</value></data>
+  <data name="Appearance_DarkTheme" xml:space="preserve"><value>Temă întunecată</value></data>
+  <data name="Appearance_ColorsHint" xml:space="preserve"><value>Alegeți o culoare sau introduceți-o ca #RRGGBB. Gol = culoarea implicită.</value></data>
+  <data name="Appearance_Primary" xml:space="preserve"><value>Principală</value></data>
+  <data name="Appearance_Secondary" xml:space="preserve"><value>Secundară</value></data>
+  <data name="Appearance_Background" xml:space="preserve"><value>Fundal</value></data>
+  <data name="Appearance_Foreground" xml:space="preserve"><value>Text</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Creează rol</value></data>
+  <data name="Roles_CreateDescription" xml:space="preserve"><value>Un rol nou nu are membri; adăugați-i în lista de mai jos.</value></data>
+  <data name="Roles_Members" xml:space="preserve"><value>Membri</value></data>
+  <data name="Roles_BuiltIn" xml:space="preserve"><value>Predefinit</value></data>
+  <data name="Roles_DeleteTitle" xml:space="preserve"><value>Șterge rolul</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Ștergeți rolul {0}? Toți membrii îl vor pierde.</value></data>
+  <data name="Roles_MembersTitle" xml:space="preserve"><value>Membrii rolului {0}</value></data>
+  <data name="Roles_AddMember" xml:space="preserve"><value>Adaugă</value></data>
+  <data name="Roles_RemoveMember" xml:space="preserve"><value>Elimină</value></data>
+  <data name="Roles_NoMembers" xml:space="preserve"><value>Încă nu există membri.</value></data>
+  <data name="Roles_LastAdmin" xml:space="preserve"><value>Ultimul administrator nu poate fi eliminat.</value></data>
+  <data name="Validation_RoleNameRequired" xml:space="preserve"><value>Introduceți numele rolului.</value></data>
+  <data name="Validation_HexColor" xml:space="preserve"><value>Introduceți o culoare ca #RRGGBB sau lăsați câmpul gol.</value></data>
+  <data name="Validation_CssValue" xml:space="preserve"><value>Nu poate conține ; { } &lt; &gt; sau \.</value></data>
+  <data name="Validation_HttpsUrl" xml:space="preserve"><value>Introduceți un URL https:// absolut.</value></data>
+  <data name="Validation_PathOrUrl" xml:space="preserve"><value>Introduceți o cale care începe cu /, un URL https:// sau încărcați un fișier.</value></data>
+  <data name="Appearance_Upload" xml:space="preserve"><value>Încarcă</value></data>
+  <data name="Appearance_UseDefault" xml:space="preserve"><value>Folosește implicit</value></data>
+  <data name="Appearance_UploadedFile" xml:space="preserve"><value>Fișier încărcat · {0} · {1} KB</value></data>
+  <data name="Appearance_UploadInvalid" xml:space="preserve"><value>Imagine neacceptată sau deteriorată ori SVG cu linkuri externe. Folosiți SVG, WebP, PNG, JPEG sau GIF.</value></data>
+  <data name="Appearance_UploadTooLarge" xml:space="preserve"><value>Fișierul este prea mare (max. {0} MB, {1} KB după procesare).</value></data>
+  <data name="Account_Verified" xml:space="preserve"><value>Verificat</value></data>
+  <data name="Account_NotVerified" xml:space="preserve"><value>Neverificat</value></data>
+  <data name="Account_Phone" xml:space="preserve"><value>Număr de telefon</value></data>
+  <data name="Account_PhoneHint" xml:space="preserve"><value>Format internațional, de ex. +40 712 345 678.</value></data>
+  <data name="Account_SendCode" xml:space="preserve"><value>Trimite codul</value></data>
+  <data name="Account_PhoneCode" xml:space="preserve"><value>Codul din SMS</value></data>
+  <data name="Account_PhoneCodeSent" xml:space="preserve"><value>Am trimis un cod la {0}.</value></data>
+  <data name="Account_PhoneVerifiedText" xml:space="preserve"><value>Numărul de telefon a fost verificat.</value></data>
+  <data name="Account_PhoneInvalid" xml:space="preserve"><value>Introduceți numărul în format internațional, de ex. +40 712 345 678.</value></data>
+  <data name="Account_PhoneThrottled" xml:space="preserve"><value>Un cod tocmai a fost trimis. Încercați din nou peste un minut.</value></data>
+  <data name="Sms_VerificationCode" xml:space="preserve"><value>Codul dvs. de verificare Anubis: {0}</value></data>
+  <data name="Account_ColorScheme" xml:space="preserve"><value>Mod de culoare</value></data>
+  <data name="Account_ColorSchemeLight" xml:space="preserve"><value>Luminos</value></data>
+  <data name="Account_ColorSchemeDark" xml:space="preserve"><value>Întunecat</value></data>
+  <data name="Account_ColorSchemeSystem" xml:space="preserve"><value>Sistem</value></data>
+  <data name="Account_LanguageBrowserHint" xml:space="preserve"><value>Neselectată: se folosește limba preferată a browserului.</value></data>
+  <data name="Account_ColorSchemeSystemHint" xml:space="preserve"><value>Neselectat: urmează setarea luminoasă sau întunecată a sistemului.</value></data>
+  <data name="Account_History" xml:space="preserve"><value>Istoric</value></data>
+  <data name="History_Description" xml:space="preserve"><value>Conectări și modificări ale contului în ultimele 12 luni.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Încă nu există nimic.</value></data>
+  <data name="History_Newer" xml:space="preserve"><value>Mai noi</value></data>
+  <data name="History_Older" xml:space="preserve"><value>Mai vechi</value></data>
+  <data name="History_ByAdmin" xml:space="preserve"><value>de un administrator</value></data>
+  <data name="History_UnknownDevice" xml:space="preserve"><value>Dispozitiv necunoscut</value></data>
+  <data name="History_AccountCreated" xml:space="preserve"><value>Cont creat</value></data>
+  <data name="History_SignedIn" xml:space="preserve"><value>Conectare</value></data>
+  <data name="History_SignInFailed" xml:space="preserve"><value>Încercare de conectare eșuată</value></data>
+  <data name="History_LockedOut" xml:space="preserve"><value>Cont blocat după prea multe încercări eșuate</value></data>
+  <data name="History_SignedOut" xml:space="preserve"><value>Deconectare</value></data>
+  <data name="History_ApplicationSignIn" xml:space="preserve"><value>Conectare la o aplicație</value></data>
+  <data name="History_PasswordChanged" xml:space="preserve"><value>Parolă schimbată</value></data>
+  <data name="History_PasswordReset" xml:space="preserve"><value>Parolă resetată prin e-mail</value></data>
+  <data name="History_EmailConfirmed" xml:space="preserve"><value>Adresă de e-mail confirmată</value></data>
+  <data name="History_TwoFactorEnabled" xml:space="preserve"><value>Aplicația de autentificare activată</value></data>
+  <data name="History_TwoFactorDisabled" xml:space="preserve"><value>Aplicația de autentificare dezactivată</value></data>
+  <data name="History_RecoveryCodesGenerated" xml:space="preserve"><value>Coduri de recuperare noi generate</value></data>
+  <data name="History_PasskeyAdded" xml:space="preserve"><value>Cheie de acces adăugată</value></data>
+  <data name="History_PasskeyRemoved" xml:space="preserve"><value>Cheie de acces eliminată</value></data>
+  <data name="History_PhoneChanged" xml:space="preserve"><value>Număr de telefon schimbat</value></data>
+  <data name="History_PhoneVerified" xml:space="preserve"><value>Număr de telefon verificat</value></data>
+  <data name="History_PhoneRemoved" xml:space="preserve"><value>Număr de telefon eliminat</value></data>
+  <data name="History_ProfileUpdated" xml:space="preserve"><value>Nume afișat schimbat</value></data>
+  <data name="History_AvatarChanged" xml:space="preserve"><value>Avatar schimbat</value></data>
+  <data name="History_AccountLocked" xml:space="preserve"><value>Cont blocat</value></data>
+  <data name="History_AccountUnlocked" xml:space="preserve"><value>Cont deblocat</value></data>
+  <data name="History_MethodPassword" xml:space="preserve"><value>parolă</value></data>
+  <data name="History_MethodPasskey" xml:space="preserve"><value>cheie de acces</value></data>
+  <data name="History_MethodAuthenticator" xml:space="preserve"><value>aplicație de autentificare</value></data>
+  <data name="History_MethodRecoveryCode" xml:space="preserve"><value>cod de recuperare</value></data>
+  <data name="Logout_Title" xml:space="preserve"><value>Vă deconectați de la Anubis?</value></data>
+  <data name="Admin_Management" xml:space="preserve"><value>Administrare</value></data>
+  <data name="Common_Actions" xml:space="preserve"><value>Acțiuni</value></data>
+  <data name="Scopes_DeleteConfirm" xml:space="preserve"><value>Ștergeți scope-ul {0}? Clienții nu îl vor mai putea solicita.</value></data>
+  <data name="Admin_General" xml:space="preserve"><value>General</value></data>
+  <data name="Admin_GeneralDescription" xml:space="preserve"><value>Setările de bază ale acestui server.</value></data>
+  <data name="General_ServerName" xml:space="preserve"><value>Numele serverului</value></data>
+  <data name="General_ServerNameHint" xml:space="preserve"><value>Afișat în titlul filei browserului și în partea de sus a paginilor de cont și de administrare.</value></data>
+  <data name="Validation_ServerNameRequired" xml:space="preserve"><value>Introduceți un nume de server.</value></data>
+  <data name="Validation_ServerNameTooLong" xml:space="preserve"><value>Folosiți cel mult 60 de caractere.</value></data>
+  <data name="Admin_Security" xml:space="preserve"><value>Securitate</value></data>
+  <data name="Admin_SecurityDescription" xml:space="preserve"><value>Reguli pentru parole, blocare după încercări eșuate, durata sesiunii și chei de acces. Modificările se aplică imediat.</value></data>
+  <data name="Admin_Tokens" xml:space="preserve"><value>Tokenuri</value></data>
+  <data name="Admin_TokensDescription" xml:space="preserve"><value>Valabilitatea tokenurilor și codurilor emise aplicațiilor client. Modificările se aplică tokenurilor noi.</value></data>
+  <data name="General_Server" xml:space="preserve"><value>Server</value></data>
+  <data name="General_PublicUrl" xml:space="preserve"><value>URL public (issuer)</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>De exemplu https://id.example.com. Gol = din fiecare cerere. Se aplică după repornire.</value></data>
+  <data name="General_Registration" xml:space="preserve"><value>Înregistrare</value></data>
+  <data name="General_AllowRegistration" xml:space="preserve"><value>Permite înregistrarea autonomă</value></data>
+  <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Solicită o adresă de e-mail confirmată pentru conectare</value></data>
+  <data name="General_RequireConfirmedEmailHint" xml:space="preserve"><value>Necesită setări de e-mail funcționale.</value></data>
+  <data name="SecuritySettings_Passwords" xml:space="preserve"><value>Parole</value></data>
+  <data name="SecuritySettings_PasswordMinLength" xml:space="preserve"><value>Lungime minimă</value></data>
+  <data name="SecuritySettings_RequireDigit" xml:space="preserve"><value>Solicită o cifră</value></data>
+  <data name="SecuritySettings_RequireLowercase" xml:space="preserve"><value>Solicită o literă mică</value></data>
+  <data name="SecuritySettings_RequireUppercase" xml:space="preserve"><value>Solicită o literă mare</value></data>
+  <data name="SecuritySettings_RequireNonAlphanumeric" xml:space="preserve"><value>Solicită un simbol</value></data>
+  <data name="SecuritySettings_Lockout" xml:space="preserve"><value>Blocare după conectări eșuate</value></data>
+  <data name="SecuritySettings_LockoutAttempts" xml:space="preserve"><value>Încercări eșuate înainte de blocare</value></data>
+  <data name="SecuritySettings_LockoutMinutes" xml:space="preserve"><value>Durata blocării (minute)</value></data>
+  <data name="SecuritySettings_Session" xml:space="preserve"><value>Sesiune de conectare</value></data>
+  <data name="SecuritySettings_SessionHours" xml:space="preserve"><value>Durata sesiunii (ore)</value></data>
+  <data name="SecuritySettings_SlidingSession" xml:space="preserve"><value>Prelungește sesiunea cât timp utilizatorul este activ</value></data>
+  <data name="SecuritySettings_MaxPasskeys" xml:space="preserve"><value>Număr maxim de chei de acces per cont</value></data>
+  <data name="Tokens_AccessToken" xml:space="preserve"><value>Token de acces (minute)</value></data>
+  <data name="Tokens_IdentityToken" xml:space="preserve"><value>Token de identitate (minute)</value></data>
+  <data name="Tokens_AuthorizationCode" xml:space="preserve"><value>Cod de autorizare (minute)</value></data>
+  <data name="Tokens_RefreshToken" xml:space="preserve"><value>Token de reîmprospătare (zile)</value></data>
+  <data name="Tokens_Consent" xml:space="preserve"><value>Consimțământ (minute)</value></data>
+  <data name="Tokens_ConsentHint" xml:space="preserve"><value>Cât timp este reținut un consimțământ acordat în timpul conectării.</value></data>
+  <data name="Validation_Range" xml:space="preserve"><value>Interval permis: {0} – {1}.</value></data>
+  <data name="Users_EditTitle" xml:space="preserve"><value>Editează {0}</value></data>
+  <data name="Users_EmailChangeNote" xml:space="preserve"><value>Adresa de e-mail este și numele de conectare: utilizatorul se va conecta cu noua adresă.</value></data>
+  <data name="Users_EmailConfirmed" xml:space="preserve"><value>Adresă de e-mail confirmată</value></data>
+  <data name="Users_PhoneChangeNote" xml:space="preserve"><value>Un număr schimbat este salvat ca neverificat.</value></data>
+  <data name="Users_EmailInUse" xml:space="preserve"><value>Această adresă de e-mail este deja folosită de alt cont.</value></data>
+  <data name="Users_CannotRemoveOwnAdmin" xml:space="preserve"><value>Nu vă puteți elimina rolul Admin din propriul cont.</value></data>
+  <data name="Users_Saved" xml:space="preserve"><value>Modificările pentru {0} au fost salvate.</value></data>
+  <data name="History_EmailChanged" xml:space="preserve"><value>Adresă de e-mail schimbată</value></data>
+  <data name="History_RoleAdded" xml:space="preserve"><value>Rol adăugat</value></data>
+  <data name="History_RoleRemoved" xml:space="preserve"><value>Rol eliminat</value></data>
+  <data name="Users_ConfirmationWillBeSent" xml:space="preserve"><value>După salvare, se trimite un e-mail de confirmare la noua adresă.</value></data>
+  <data name="Users_ConfirmationSent" xml:space="preserve"><value>A fost trimis un e-mail de confirmare la {0}.</value></data>
+  <data name="Validation_ClaimTypeInvalid" xml:space="preserve"><value>Începeți cu o literă, apoi litere, cifre și - _ . : / (cel mult {0} caractere).</value></data>
+  <data name="Validation_ClaimTypeReserved" xml:space="preserve"><value>„{0}” este setat de Anubis și nu poate fi folosit.</value></data>
+  <data name="Validation_ClaimValueRequired" xml:space="preserve"><value>Introduceți o valoare.</value></data>
+  <data name="Validation_ClaimValueTooLong" xml:space="preserve"><value>Cel mult {0} caractere.</value></data>
+  <data name="Validation_ClaimDuplicate" xml:space="preserve"><value>Acest claim apare de două ori.</value></data>
+  <data name="Validation_ClaimTooMany" xml:space="preserve"><value>Cel mult {0} claimuri.</value></data>
+  <data name="Roles_NotFound" xml:space="preserve"><value>Rolul nu a fost găsit.</value></data>
+  <data name="Roles_BuiltInName" xml:space="preserve"><value>Rolurile predefinite nu pot fi redenumite.</value></data>
+  <data name="Roles_NameInUse" xml:space="preserve"><value>Există deja un rol cu acest nume.</value></data>
+  <data name="Roles_EditTitle" xml:space="preserve"><value>Editați rolul {0}</value></data>
+  <data name="Roles_Saved" xml:space="preserve"><value>Rolul {0} a fost salvat.</value></data>
+  <data name="Roles_AddRole" xml:space="preserve"><value>Adăugați rol</value></data>
+  <data name="Claims_Title" xml:space="preserve"><value>Claimuri</value></data>
+  <data name="Claims_UserHint" xml:space="preserve"><value>Se adaugă în tokenul de acces, tokenul ID și userinfo, împreună cu claimurile rolurilor utilizatorului.</value></data>
+  <data name="Claims_RoleHint" xml:space="preserve"><value>Se adaugă în tokenurile tuturor membrilor acestui rol.</value></data>
+  <data name="Claims_Type" xml:space="preserve"><value>Tip</value></data>
+  <data name="Claims_Value" xml:space="preserve"><value>Valoare</value></data>
+  <data name="Claims_Add" xml:space="preserve"><value>Adăugați claim</value></data>
+  <data name="Claims_Remove" xml:space="preserve"><value>Eliminați claimul</value></data>
+  <data name="Claims_None" xml:space="preserve"><value>Încă nu există claimuri.</value></data>
+  <data name="Claims_FromRoles" xml:space="preserve"><value>Din roluri</value></data>
+  <data name="Users_ChangeAvatar" xml:space="preserve"><value>Schimbați avatarul</value></data>
+  <data name="Common_Loading" xml:space="preserve"><value>Se încarcă…</value></data>
+</root>
