@@ -1,6 +1,7 @@
 using System.Collections.Immutable;
 using System.Security.Claims;
 
+using k6labs.Anubis.Data;
 using k6labs.Anubis.Data.Entities;
 using k6labs.Anubis.Identity;
 using k6labs.Anubis.Services;
@@ -34,6 +35,7 @@ public class AuthorizationController : Controller
     private readonly UserManager<User> _userManager;
     private readonly IConsentService _consentService;
     private readonly RoleManager<Group> _groupManager;
+    private readonly AnubisDbContext _db;
 
     public AuthorizationController(
         IOpenIddictApplicationManager applicationManager,
@@ -41,8 +43,10 @@ public class AuthorizationController : Controller
         SignInManager<User> signInManager,
         UserManager<User> userManager,
         IConsentService consentService,
-        RoleManager<Group> groupManager)
+        RoleManager<Group> groupManager,
+        AnubisDbContext db)
     {
+        _db = db;
         _groupManager = groupManager;
         _applicationManager = applicationManager;
         _scopeManager = scopeManager;
@@ -92,7 +96,7 @@ public class AuthorizationController : Controller
             }
         }
 
-        var principal = await CreatePrincipalAsync(user, request.GetScopes());
+        var principal = await CreatePrincipalAsync(user, request.GetScopes(), request.ClientId);
 
         // History: "Signed in to <application>", and the code issued for it.
         var app = await _applicationManager.FindByClientIdAsync(request.ClientId!);
@@ -156,8 +160,12 @@ public class AuthorizationController : Controller
                     }));
             }
 
-            // Rebuild the principal with fresh claims (groups or profile may have changed since the code was issued).
-            var principal = await CreatePrincipalAsync(user, request.GetScopes());
+            // The scopes granted with the code / refresh token; a token request names none (or, when refreshing, fewer).
+            var granted = result.Principal.GetScopes();
+            var scopes = request.GetScopes() is { Length: > 0 } asked ? asked.Intersect(granted, StringComparer.Ordinal).ToImmutableArray() : granted;
+
+            // Rebuild the principal with fresh claims (groups, roles or profile may have changed since the code was issued).
+            var principal = await CreatePrincipalAsync(user, scopes, request.ClientId);
 
             CountIssued(request.GrantType, request.ClientId);
             return SignIn(WithLifetimes(principal), OpenIddictServerAspNetCoreDefaults.AuthenticationScheme);
@@ -231,6 +239,12 @@ public class AuthorizationController : Controller
             claims[GroupClaims.Claim] = await _userManager.GetRolesAsync(user);
         }
 
+        // The roles in the application the access token was issued to.
+        if (User.HasScope(RoleClaims.Scope) && User.GetClaim(Claims.ClientId) is { Length: > 0 } clientId)
+        {
+            claims[RoleClaims.Claim] = await RoleClaims.ForUserAsync(_db, user.Id, clientId);
+        }
+
         // Claims set by an administrator on the user's groups and on the user.
         foreach (var (type, values) in await CustomClaims.ForUserAsync(_userManager, _groupManager, user))
         {
@@ -258,7 +272,7 @@ public class AuthorizationController : Controller
             });
     }
 
-    private async Task<ClaimsPrincipal> CreatePrincipalAsync(User user, IReadOnlyCollection<string> scopes)
+    private async Task<ClaimsPrincipal> CreatePrincipalAsync(User user, IReadOnlyCollection<string> scopes, string? clientId)
     {
         var identity = new ClaimsIdentity(
             authenticationType: TokenValidationParameters.DefaultAuthenticationType,
@@ -279,7 +293,19 @@ public class AuthorizationController : Controller
         }
 
         identity.SetScopes(scopes);
-        identity.SetResources(await _scopeManager.ListResourcesAsync(identity.GetScopes()).ToListAsync());
+        var resources = await _scopeManager.ListResourcesAsync(identity.GetScopes()).ToListAsync();
+
+        // The "roles" scope: the user's roles in the asking application (per tenant), in a token issued for it.
+        if (clientId is not null && identity.HasScope(RoleClaims.Scope))
+        {
+            identity.SetClaims(RoleClaims.Claim, (await RoleClaims.ForUserAsync(_db, user.Id, clientId)).ToImmutableArray());
+            if (!resources.Contains(clientId, StringComparer.Ordinal))
+            {
+                resources.Add(clientId);
+            }
+        }
+
+        identity.SetResources(resources);
 
         foreach (var claim in identity.Claims)
         {
@@ -328,6 +354,11 @@ public class AuthorizationController : Controller
                     yield return Destinations.IdentityToken;
                 }
 
+                yield break;
+
+            case RoleClaims.Claim:
+                // Present only with the "roles" scope.
+                yield return Destinations.IdentityToken;
                 yield break;
 
             default:

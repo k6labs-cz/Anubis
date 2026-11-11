@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Zo skupín</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Zmeniť avatara</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Načítavanie…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Tenanti</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizácie, ktorých používatelia dostávajú roly v aplikáciách.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Roly</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Roly, ktoré si definujú aplikácie, a používatelia a skupiny, ktorí ich majú.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Vytvoriť tenanta</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identifikátor</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Zmazať tenanta {0}? Zmažú sa aj jeho priradenia rolí.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Vytvoriť rolu</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Aplikácia</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Rola</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Zmazať rolu {0}? Prídu o ňu všetci, ktorí ju majú.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Priradenia rolí</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Priradiť rolu</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Priradené</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Tenant</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Všetci tenanti</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Odobrať rolu {0} pre {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Vidieť vaše roly v tejto aplikácii</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Identifikátor smie obsahovať len malé písmená, číslice a pomlčky (najviac 63 znakov).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Tenant '{0}' už existuje.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Názov roly má 1 až 100 znakov bez dvojbodky a medzier.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Rola '{0}' už pre túto aplikáciu existuje.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Vyberte používateľa alebo skupinu.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Táto rola je už priradená.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>Položka '{0}' sa nenašla.</value></data>
 </root>

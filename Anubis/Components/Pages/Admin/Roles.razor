@@ -1,0 +1,309 @@
+@page "/roles"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = DatabaseInitializer.AdminGroup)]
+
+@using Microsoft.AspNetCore.Authorization
+@using k6labs.Anubis.Services
+
+@inject RoleAdministration Administration
+@* Notifications belong to this page and its interactive circuit. *@
+
+<AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_Roles))" />
+
+<NotificationList State="Notifications" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@Translations.Admin_Roles" Description="@Translations.Admin_RolesDescription"
+                CreateLabel="@Translations.Roles_Create" OnCreate="OpenCreate" />
+
+    <Table Label="@Translations.Admin_Roles">
+        <thead>
+            <tr>
+                <th>@Translations.Roles_Application</th>
+                <th>@Translations.Roles_Role</th>
+                <th>@Translations.Common_Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var role in roles)
+            {
+                <tr>
+                    <td><code>@role.ClientId</code></td>
+                    <td><code>@role.Name</code></td>
+                    <td>@role.Description</td>
+                    <td data-align="end">
+                        <RowMenu>
+                            <MenuItem Icon="@AppIcons.Delete" OnClick="() => AskDelete(role)" data-popup-option Danger="true">@Translations.Common_Delete</MenuItem>
+                        </RowMenu>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </Table>
+
+    <PageHeader Title="@Translations.Roles_Assignments" As="TextElement.H2"
+                CreateLabel="@Translations.Roles_Assign" OnCreate="OpenAssign" />
+
+    <Table Label="@Translations.Roles_Assignments">
+        <thead>
+            <tr>
+                <th>@Translations.Roles_AssignedTo</th>
+                <th>@Translations.Roles_Application</th>
+                <th>@Translations.Roles_Role</th>
+                <th>@Translations.Roles_Tenant</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var assignment in assignments)
+            {
+                <tr>
+                    <td>
+                        @if (assignment.GroupId is not null)
+                        {
+                            <Badge Icon="@AppIcons.Badge">@assignment.GroupName</Badge>
+                        }
+                        else
+                        {
+                            @assignment.UserName
+                        }
+                    </td>
+                    <td><code>@assignment.ClientId</code></td>
+                    <td><code>@assignment.RoleName</code></td>
+                    <td>
+                        @if (assignment.TenantId is null)
+                        {
+                            <Typography Variant="TextVariant.Small" Tone="Tone.Muted" As="TextElement.Span">@Translations.Roles_AllTenants</Typography>
+                        }
+                        else
+                        {
+                            <code>@assignment.TenantId</code>
+                        }
+                    </td>
+                    <td data-align="end">
+                        <RowMenu>
+                            <MenuItem Icon="@AppIcons.Delete" OnClick="() => AskRemove(assignment)" data-popup-option Danger="true">@Translations.Common_Delete</MenuItem>
+                        </RowMenu>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </Table>
+</Stack>
+
+<AppModal Title="@Translations.Roles_Create" @bind-Open="createOpen">
+    <ChildContent>
+        <EditForm Model="createModel" OnValidSubmit="CreateAsync" FormName="createRole" id="createRoleForm">
+            <Stack Gap="Gap.Medium">
+                <FormSelect @bind-Value="createModel.ClientId" Label="@Translations.Roles_Application" TValue="string" Id="roleClient" Placeholder="–">
+                    @foreach (var client in clients)
+                    {
+                        <option value="@client.ClientId">@(client.DisplayName is null ? client.ClientId : $"{client.DisplayName} ({client.ClientId})")</option>
+                    }
+                </FormSelect>
+                <FormText @bind-Value="createModel.Name" Label="@Translations.Roles_Role" Id="roleName" />
+                <FormText @bind-Value="createModel.Description" Label="@Translations.Common_Description" Id="roleDescription" />
+                @if (formError is not null)
+                {
+                    <Alert Severity="AlertSeverity.Danger">@formError</Alert>
+                }
+            </Stack>
+        </EditForm>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => createOpen = false">@Translations.Common_Cancel</Button>
+        <Button form="createRoleForm" Disabled="busy" Type="submit">@Translations.Roles_Create</Button>
+    </Footer>
+</AppModal>
+
+<AppModal Title="@Translations.Roles_Assign" @bind-Open="assignOpen">
+    <ChildContent>
+        <EditForm Model="assignModel" OnValidSubmit="AssignAsync" FormName="assignRole" id="assignRoleForm">
+            <Stack Gap="Gap.Medium">
+                <FormSelect @bind-Value="assignModel.RoleId" Label="@Translations.Roles_Role" TValue="string" Id="assignRole" Placeholder="–">
+                    @foreach (var role in roles)
+                    {
+                        <option value="@role.Id">@role.ClientId: @role.Name</option>
+                    }
+                </FormSelect>
+                @* One list of users and groups: the value's first letter says which. *@
+                <FormSelect @bind-Value="assignModel.Principal" Label="@Translations.Roles_AssignedTo" TValue="string" Id="assignPrincipal" Placeholder="–">
+                    <optgroup label="@Translations.Admin_Groups">
+                        @foreach (var group in groups)
+                        {
+                            <option value="g:@group.Id">@group.Name</option>
+                        }
+                    </optgroup>
+                    <optgroup label="@Translations.Admin_Users">
+                        @foreach (var user in users)
+                        {
+                            <option value="u:@user.Id">@user.Name</option>
+                        }
+                    </optgroup>
+                </FormSelect>
+                <FormSelect @bind-Value="assignModel.TenantId" Label="@Translations.Roles_Tenant" TValue="string" Id="assignTenant" Placeholder="@Translations.Roles_AllTenants">
+                    @foreach (var tenant in tenants)
+                    {
+                        <option value="@tenant.Id">@(tenant.DisplayName is null ? tenant.Id : $"{tenant.DisplayName} ({tenant.Id})")</option>
+                    }
+                </FormSelect>
+                @if (formError is not null)
+                {
+                    <Alert Severity="AlertSeverity.Danger">@formError</Alert>
+                }
+            </Stack>
+        </EditForm>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => assignOpen = false">@Translations.Common_Cancel</Button>
+        <Button form="assignRoleForm" Disabled="busy" Type="submit">@Translations.Roles_Assign</Button>
+    </Footer>
+</AppModal>
+
+<AppModal Title="@Translations.Common_Delete" @bind-Open="deleteOpen">
+    <ChildContent>
+        <Typography>@deleteQuestion</Typography>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => deleteOpen = false">@Translations.Common_Cancel</Button>
+        <Button Variant="ButtonVariant.Danger" OnClick="DeleteAsync">@Translations.Common_Delete</Button>
+    </Footer>
+</AppModal>
+
+@code {
+    private sealed class RoleForm
+    {
+        public string? ClientId { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+    }
+
+    private sealed class AssignForm
+    {
+        public string? RoleId { get; set; }
+        public string? Principal { get; set; }
+        public string? TenantId { get; set; }
+    }
+
+    private readonly NotificationState Notifications = new();
+    private List<RoleSummary> roles = new();
+    private List<AssignmentSummary> assignments = new();
+    private List<TenantSummary> tenants = new();
+    private List<(string ClientId, string? DisplayName)> clients = new();
+    private List<(string Id, string Name)> users = new();
+    private List<(string Id, string Name)> groups = new();
+    private RoleForm createModel = new();
+    private AssignForm assignModel = new();
+    private bool createOpen;
+    private bool assignOpen;
+    private bool deleteOpen;
+    private bool busy;
+    private string? formError;
+    private string? deleteQuestion;
+    private Func<Task>? delete;
+
+    protected override Task OnInitializedAsync() => LoadAsync();
+
+    private async Task LoadAsync()
+    {
+        roles = await Administration.ListRolesAsync();
+        assignments = await Administration.ListAssignmentsAsync();
+    }
+
+    private async Task OpenCreate()
+    {
+        clients = await Administration.ListClientsAsync();
+        createModel = new RoleForm();
+        formError = null;
+        createOpen = true;
+    }
+
+    private async Task OpenAssign()
+    {
+        tenants = await Administration.ListTenantsAsync();
+        (users, groups) = await Administration.ListPrincipalsAsync();
+        assignModel = new AssignForm();
+        formError = null;
+        assignOpen = true;
+    }
+
+    private Task CreateAsync() => SubmitAsync(async () =>
+    {
+        var created = await Administration.CreateRoleAsync(createModel.ClientId, createModel.Name, createModel.Description);
+        createOpen = false;
+        Notifications.Add(Translations.Users_CreatedText.F(created.Name), AlertSeverity.Success);
+    });
+
+    private Task AssignAsync() => SubmitAsync(async () =>
+    {
+        var principal = assignModel.Principal ?? string.Empty;
+        var id = principal.Length > 2 ? principal[2..] : null;
+        var created = await Administration.AssignAsync(assignModel.RoleId, principal.StartsWith("u:") ? id : null, principal.StartsWith("g:") ? id : null, assignModel.TenantId);
+        assignOpen = false;
+        Notifications.Add(Translations.Users_CreatedText.F(created.Claim), AlertSeverity.Success);
+    });
+
+    /// <summary>Runs a form's change; a refusal shows in the form.</summary>
+    private async Task SubmitAsync(Func<Task> change)
+    {
+        busy = true;
+        formError = null;
+        try
+        {
+            await change();
+            await LoadAsync();
+        }
+        catch (RoleAdministrationException exception)
+        {
+            formError = exception.Message;
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    private void AskDelete(RoleSummary role)
+    {
+        deleteQuestion = Translations.Roles_DeleteConfirm.F(role.Name);
+        delete = async () =>
+        {
+            await Administration.DeleteRoleAsync(role.Id);
+            Notifications.Add(Translations.Users_DeletedText.F(role.Name), AlertSeverity.Success);
+        };
+        deleteOpen = true;
+    }
+
+    private void AskRemove(AssignmentSummary assignment)
+    {
+        deleteQuestion = Translations.Roles_RemoveConfirm.F(assignment.Claim, assignment.GroupName ?? assignment.UserName);
+        delete = async () =>
+        {
+            await Administration.RemoveAssignmentAsync(assignment.Id);
+            Notifications.Add(Translations.Users_DeletedText.F(assignment.Claim), AlertSeverity.Success);
+        };
+        deleteOpen = true;
+    }
+
+    private async Task DeleteAsync()
+    {
+        deleteOpen = false;
+        if (delete is null)
+        {
+            return;
+        }
+
+        try
+        {
+            await delete();
+            await LoadAsync();
+        }
+        catch (RoleAdministrationException exception)
+        {
+            Notifications.Add(exception.Message, AlertSeverity.Danger);
+        }
+
+        delete = null;
+    }
+}

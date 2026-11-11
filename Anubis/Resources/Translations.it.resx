@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Dai gruppi</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Cambia avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Caricamento…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Tenant</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizzazioni i cui utenti ricevono ruoli nelle applicazioni.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Ruoli</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Ruoli definiti dalle applicazioni e gli utenti e i gruppi che li hanno.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Crea tenant</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identificatore</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Eliminare il tenant {0}? Verranno eliminate anche le sue assegnazioni di ruoli.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Crea ruolo</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Applicazione</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Ruolo</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Eliminare il ruolo {0}? Verrà tolto a tutti quelli che lo hanno.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Assegnazioni di ruoli</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Assegna ruolo</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Assegnato a</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Tenant</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Tutti i tenant</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Rimuovere il ruolo {0} a {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Vedere i tuoi ruoli in questa applicazione</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>L’identificatore può contenere solo lettere minuscole, cifre e trattini (al massimo 63 caratteri).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Il tenant '{0}' esiste già.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Il nome di un ruolo ha da 1 a 100 caratteri, senza due punti né spazi.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Il ruolo '{0}' esiste già per questa applicazione.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Scegli un utente o un gruppo.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Questo ruolo è già assegnato.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' non è stato trovato.</value></data>
 </root>

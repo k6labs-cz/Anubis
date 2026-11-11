@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>No grupām</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Mainīt avatāru</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Notiek ielāde…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Nomnieki</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizācijas, kuru lietotāji saņem lomas lietojumprogrammās.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Lomas</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Lietojumprogrammu definētās lomas un lietotāji un grupas, kam tās ir.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Izveidot nomnieku</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identifikators</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Vai dzēst nomnieku {0}? Tiks dzēsti arī tā lomu piešķīrumi.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Izveidot lomu</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Lietojumprogramma</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Loma</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Vai dzēst lomu {0}? Tā tiks atņemta visiem, kam tā ir.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Lomu piešķīrumi</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Piešķirt lomu</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Piešķirts</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Nomnieks</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Visi nomnieki</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Vai noņemt lomu {0} no {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Skatīt jūsu lomas šajā lietojumprogrammā</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Identifikatorā drīkst būt tikai mazie burti, cipari un defises (ne vairāk kā 63 rakstzīmes).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Nomnieks '{0}' jau pastāv.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Lomas nosaukumā ir 1–100 rakstzīmes bez kola un atstarpēm.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Loma '{0}' šai lietojumprogrammai jau pastāv.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Izvēlieties lietotāju vai grupu.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Šī loma jau ir piešķirta.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' netika atrasts.</value></data>
 </root>

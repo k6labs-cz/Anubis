@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Mill-gruppi</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Biddel l-avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Qed jitgħabba…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Kerrejja</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizzazzjonijiet li l-utenti tagħhom jingħataw rwoli fl-applikazzjonijiet.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Rwoli</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Rwoli li jiddefinixxu l-applikazzjonijiet, u l-utenti u l-gruppi li għandhom.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Oħloq kerrej</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identifikatur</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Tħassar il-kerrej {0}? L-assenjazzjonijiet tar-rwoli tiegħu jitħassru wkoll.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Oħloq rwol</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Applikazzjoni</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Rwol</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Tħassar ir-rwol {0}? Jitneħħa lil kull min għandu.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Assenjazzjonijiet tar-rwoli</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Assenja rwol</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Assenjat lil</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Kerrej</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Il-kerrejja kollha</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Tneħħi r-rwol {0} minn {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Tara r-rwoli tiegħek f’din l-applikazzjoni</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>L-identifikatur jista’ jkun fih biss ittri żgħar, ċifri u sing (mhux aktar minn 63 karattru).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Il-kerrej '{0}' diġà jeżisti.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>L-isem ta’ rwol fih minn 1 sa 100 karattru, mingħajr kolon u spazji.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Ir-rwol '{0}' diġà jeżisti għal din l-applikazzjoni.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Agħżel utent jew grupp.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Dan ir-rwol diġà assenjat.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' ma nstabx.</value></data>
 </root>

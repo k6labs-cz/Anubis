@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Z grup</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Zmień awatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Ładowanie…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Dzierżawy</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizacje, których użytkownicy otrzymują role w aplikacjach.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Role</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Role definiowane przez aplikacje oraz użytkownicy i grupy, które je mają.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Utwórz dzierżawę</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identyfikator</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Usunąć dzierżawę {0}? Jej przypisania ról również zostaną usunięte.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Utwórz rolę</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Aplikacja</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Rola</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Usunąć rolę {0}? Stracą ją wszyscy, którzy ją mają.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Przypisania ról</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Przypisz rolę</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Przypisano do</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Dzierżawa</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Wszystkie dzierżawy</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Odebrać rolę {0} dla {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Wyświetlać Twoje role w tej aplikacji</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Identyfikator może zawierać tylko małe litery, cyfry i myślniki (najwyżej 63 znaki).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Dzierżawa '{0}' już istnieje.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Nazwa roli ma od 1 do 100 znaków, bez dwukropka i spacji.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Rola '{0}' już istnieje dla tej aplikacji.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Wybierz użytkownika lub grupę.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Ta rola jest już przypisana.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>Nie znaleziono '{0}'.</value></data>
 </root>

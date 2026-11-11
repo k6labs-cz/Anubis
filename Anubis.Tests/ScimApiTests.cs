@@ -96,6 +96,9 @@ public class ScimApiTests
         var endpoints = resourceTypes.RootElement.GetProperty("Resources").EnumerateArray().Select(r => r.GetProperty("endpoint").GetString()).ToList();
         Assert.Contains("/api/Users", endpoints);
         Assert.Contains("/api/Groups", endpoints);
+        Assert.Contains("/api/Tenants", endpoints);
+        Assert.Contains("/api/Roles", endpoints);
+        Assert.Contains("/api/RoleAssignments", endpoints);
 
         using var schemas = await client.GetFromJsonAsync<JsonDocument>("/api/Schemas");
         Assert.NotNull(schemas);

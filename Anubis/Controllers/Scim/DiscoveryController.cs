@@ -50,36 +50,40 @@ public sealed class DiscoveryController : ScimControllerBase
 
     [HttpGet("ResourceTypes")]
     public IActionResult ResourceTypes()
-        => ScimJson(ScimResources.ListResponse(2, 1, new List<JsonObject>
-        {
-            ResourceType("User", "/api/Users", ScimConstants.UserSchema, "An Anubis account (the e-mail address is the userName)."),
-            ResourceType("Group", "/api/Groups", ScimConstants.GroupSchema, "An Anubis group; its members are the users in the group."),
-        }));
+    {
+        var types = AllResourceTypes();
+        return ScimJson(ScimResources.ListResponse(types.Count, 1, types));
+    }
 
     [HttpGet("ResourceTypes/{id}")]
     public IActionResult ResourceType(string id)
     {
-        var resource = id.Equals("User", StringComparison.OrdinalIgnoreCase)
-            ? ResourceType("User", "/api/Users", ScimConstants.UserSchema, "An Anubis account (the e-mail address is the userName).")
-            : id.Equals("Group", StringComparison.OrdinalIgnoreCase)
-                ? ResourceType("Group", "/api/Groups", ScimConstants.GroupSchema, "An Anubis group; its members are the users in the group.")
-                : null;
+        var resource = AllResourceTypes().FirstOrDefault(t => string.Equals(t["id"]?.GetValue<string>(), id, StringComparison.OrdinalIgnoreCase));
         return resource is null
             ? ScimJson(ScimResources.Error(StatusCodes.Status404NotFound, null, $"Resource type \"{id}\" was not found."), StatusCodes.Status404NotFound)
             : ScimJson(resource);
     }
 
+    private List<JsonObject> AllResourceTypes() =>
+    [
+        ResourceType("User", "/api/Users", ScimConstants.UserSchema, "An Anubis account (the e-mail address is the userName)."),
+        ResourceType("Group", "/api/Groups", ScimConstants.GroupSchema, "An Anubis group; its members are the users in the group."),
+        ResourceType("Tenant", "/api/Tenants", ScimConstants.TenantSchema, "A tenant: an organization shared by the client applications."),
+        ResourceType("Role", "/api/Roles", ScimConstants.RoleSchema, "A role a client application defines for itself."),
+        ResourceType("RoleAssignment", "/api/RoleAssignments", ScimConstants.RoleAssignmentSchema, "A role given to a user or a group, in one tenant or in all."),
+    ];
+
     [HttpGet("Schemas")]
     public IActionResult Schemas()
     {
-        var schemas = new List<JsonObject> { UserSchema(), GroupSchema(), UserExtension(), ListResponseSchema(), PatchRequestSchema(), ErrorSchema() };
+        var schemas = AllSchemas();
         return ScimJson(ScimResources.ListResponse(schemas.Count, 1, schemas));
     }
 
     [HttpGet("Schemas/{id}")]
     public IActionResult Schema(string id)
     {
-        var schema = new List<JsonObject> { UserSchema(), GroupSchema(), UserExtension(), ListResponseSchema(), PatchRequestSchema(), ErrorSchema() }
+        var schema = AllSchemas()
             .FirstOrDefault(s => string.Equals(s["id"]?.GetValue<string>(), id, StringComparison.OrdinalIgnoreCase)
                 || string.Equals(s["name"]?.GetValue<string>(), id, StringComparison.OrdinalIgnoreCase));
         return schema is null
@@ -136,6 +140,58 @@ public sealed class DiscoveryController : ScimControllerBase
                 Attribute("meta", "complex"),
                 Attribute(ScimConstants.UserExtensionSchema, "complex", description: "Anubis extension: claims (custom claims) and emailConfirmed.")),
             ["meta"] = new JsonObject { ["resourceType"] = "Schema", ["location"] = $"{BaseUri}/api/Schemas/{ScimConstants.UserSchema}" },
+        };
+
+    private List<JsonObject> AllSchemas() =>
+        [UserSchema(), GroupSchema(), UserExtension(), TenantSchema(), RoleSchema(), RoleAssignmentSchema(), ListResponseSchema(), PatchRequestSchema(), ErrorSchema()];
+
+    private JsonObject TenantSchema()
+        => new()
+        {
+            ["schemas"] = new JsonArray(ScimConstants.SchemaSchema),
+            ["id"] = ScimConstants.TenantSchema,
+            ["name"] = "Tenant",
+            ["description"] = "A tenant. Users belong to it by having a role of an application in it (RoleAssignment).",
+            ["attributes"] = new JsonArray(
+                Attribute("id", "string", description: "The same as name."),
+                Attribute("name", "string", required: true, description: "The identifier: lowercase letters, digits and dashes. Immutable; it travels in the \"roles\" claim."),
+                Attribute("displayName", "string"),
+                Attribute("meta", "complex")),
+            ["meta"] = new JsonObject { ["resourceType"] = "Schema", ["location"] = $"{BaseUri}/api/Schemas/{ScimConstants.TenantSchema}" },
+        };
+
+    private JsonObject RoleSchema()
+        => new()
+        {
+            ["schemas"] = new JsonArray(ScimConstants.SchemaSchema),
+            ["id"] = ScimConstants.RoleSchema,
+            ["name"] = "Role",
+            ["description"] = "A role of a client application, e.g. Administrator of the client \"osiris\".",
+            ["attributes"] = new JsonArray(
+                Attribute("id", "string"),
+                Attribute("client", "string", required: true, description: "The application's client_id. Immutable."),
+                Attribute("name", "string", required: true, description: "What the application checks: no colon, no spaces. Immutable."),
+                Attribute("description", "string"),
+                Attribute("meta", "complex")),
+            ["meta"] = new JsonObject { ["resourceType"] = "Schema", ["location"] = $"{BaseUri}/api/Schemas/{ScimConstants.RoleSchema}" },
+        };
+
+    private JsonObject RoleAssignmentSchema()
+        => new()
+        {
+            ["schemas"] = new JsonArray(ScimConstants.SchemaSchema),
+            ["id"] = ScimConstants.RoleAssignmentSchema,
+            ["name"] = "RoleAssignment",
+            ["description"] = "A role given to a user or a group. Immutable: delete it and create another.",
+            ["attributes"] = new JsonArray(
+                Attribute("id", "string"),
+                Attribute("role", "complex", required: true, description: "value = the role's id; or client + name to find it."),
+                Attribute("user", "complex", description: "value = user id. Exactly one of user and group."),
+                Attribute("group", "complex", description: "value = group id; the group's members have the role."),
+                Attribute("tenant", "string", description: "The tenant's name; without it the role holds in all tenants."),
+                Attribute("claim", "string", description: "Read-only: the value in the \"roles\" claim, \"tenant:Role\" or \"Role\"."),
+                Attribute("meta", "complex")),
+            ["meta"] = new JsonObject { ["resourceType"] = "Schema", ["location"] = $"{BaseUri}/api/Schemas/{ScimConstants.RoleAssignmentSchema}" },
         };
 
     private JsonObject GroupSchema()

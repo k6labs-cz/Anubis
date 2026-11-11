@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Ze skupin</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Změnit avatara</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Načítání…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Tenanti</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizace, jejichž uživatelé dostávají role v aplikacích.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Role</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Role, které si definují aplikace, a uživatelé a skupiny, kteří je mají.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Vytvořit tenanta</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identifikátor</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Smazat tenanta {0}? Smažou se i jeho přiřazení rolí.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Vytvořit roli</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Aplikace</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Role</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Smazat roli {0}? Přijdou o ni všichni, kdo ji mají.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Přiřazení rolí</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Přiřadit roli</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Přiřazeno</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Tenant</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Všichni tenanti</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Odebrat roli {0} pro {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Vidět vaše role v této aplikaci</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Identifikátor smí obsahovat jen malá písmena, číslice a pomlčky (nejvýše 63 znaků).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Tenant '{0}' už existuje.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Název role má 1 až 100 znaků bez dvojtečky a mezer.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Role '{0}' už pro tuto aplikaci existuje.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Vyberte uživatele nebo skupinu.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Tato role je už přiřazena.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>Položka '{0}' nebyla nalezena.</value></data>
 </root>

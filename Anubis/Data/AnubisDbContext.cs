@@ -26,6 +26,12 @@ public class AnubisDbContext : IdentityDbContext<User, Group, string>
 
     public DbSet<UserEvent> UserEvents => Set<UserEvent>();
 
+    public DbSet<Tenant> Tenants => Set<Tenant>();
+
+    public DbSet<ClientRole> ClientRoles => Set<ClientRole>();
+
+    public DbSet<RoleAssignment> RoleAssignments => Set<RoleAssignment>();
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -52,6 +58,33 @@ public class AnubisDbContext : IdentityDbContext<User, Group, string>
                   .WithMany()
                   .HasForeignKey(e => e.UserId)
                   .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        builder.Entity<Tenant>(entity => entity.ToTable("Tenants"));
+
+        // A role belongs to its application and goes with it.
+        builder.Entity<ClientRole>(entity =>
+        {
+            entity.ToTable("ClientRoles");
+            entity.HasIndex(r => new { r.ClientId, r.Name }).IsUnique();
+            entity.HasOne(r => r.Client)
+                  .WithMany()
+                  .HasForeignKey(r => r.ClientId)
+                  .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // An assignment goes with its role, its user or group, and its tenant.
+        builder.Entity<RoleAssignment>(entity =>
+        {
+            entity.ToTable("RoleAssignments");
+            entity.HasIndex(a => a.UserId);
+            entity.HasIndex(a => a.GroupId);
+            entity.HasIndex(a => a.TenantId);
+            entity.HasOne(a => a.Role).WithMany().HasForeignKey(a => a.RoleId).OnDelete(DeleteBehavior.Cascade);
+            entity.HasOne(a => a.User).WithMany().HasForeignKey(a => a.UserId).OnDelete(DeleteBehavior.Cascade);
+            entity.HasOne(a => a.Group).WithMany().HasForeignKey(a => a.GroupId).OnDelete(DeleteBehavior.Cascade);
+            entity.HasOne(a => a.Tenant).WithMany().HasForeignKey(a => a.TenantId).OnDelete(DeleteBehavior.Cascade);
+            entity.ToTable(table => table.HasCheckConstraint("CK_RoleAssignments_UserOrGroup", "(\"UserId\" IS NULL) <> (\"GroupId\" IS NULL)"));
         });
 
         foreach (var entityType in builder.Model.GetEntityTypes())

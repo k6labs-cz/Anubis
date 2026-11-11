@@ -20,6 +20,8 @@ public static class AppIcons
     public const string History = "history";
     public const string Key = "key-round";
     public const string Layers = "layers";
+    public const string Tenants = "building-2";
+    public const string Roles = "shield-check";
     public const string Lock = "lock";
     public const string LockOpen = "lock-open";
     public const string Login = "log-in";

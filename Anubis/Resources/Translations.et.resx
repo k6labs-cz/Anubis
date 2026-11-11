@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Gruppidest</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Muuda avatari</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Laadimine…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Rentnikud</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organisatsioonid, mille kasutajad saavad rakendustes rolle.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Rollid</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Rakenduste määratletud rollid ning kasutajad ja rühmad, kellel need on.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Loo rentnik</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identifikaator</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Kas kustutada rentnik {0}? Kustutatakse ka selle rollimäärangud.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Loo roll</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Rakendus</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Roll</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Kas kustutada roll {0}? See võetakse kõigilt, kellel see on.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Rollimäärangud</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Määra roll</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Määratud</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Rentnik</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Kõik rentnikud</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Kas eemaldada roll {0} kasutajalt või rühmalt {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Näha teie rolle selles rakenduses</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Identifikaator võib sisaldada ainult väiketähti, numbreid ja sidekriipse (kuni 63 märki).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Rentnik '{0}' on juba olemas.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Rolli nimes on 1–100 märki ilma kooloni ja tühikuteta.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Roll '{0}' on selle rakenduse jaoks juba olemas.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Valige kasutaja või rühm.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>See roll on juba määratud.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>Üksust '{0}' ei leitud.</value></data>
 </root>

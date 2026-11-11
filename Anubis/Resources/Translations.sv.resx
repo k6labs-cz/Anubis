@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Från grupper</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Byt avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Laddar…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Klientorganisationer</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organisationer vars användare får roller i applikationerna.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Roller</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Roller som applikationer definierar, och de användare och grupper som har dem.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Skapa klientorganisation</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identifierare</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Ta bort klientorganisationen {0}? Dess rolltilldelningar tas också bort.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Skapa roll</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Applikation</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Roll</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Ta bort rollen {0}? Den tas från alla som har den.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Rolltilldelningar</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Tilldela roll</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Tilldelad till</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Klientorganisation</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Alla klientorganisationer</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Ta bort rollen {0} från {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Se dina roller i den här applikationen</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Identifieraren får bara innehålla små bokstäver, siffror och bindestreck (högst 63 tecken).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Klientorganisationen '{0}' finns redan.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Namnet på en roll har 1 till 100 tecken utan kolon och blanksteg.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Rollen '{0}' finns redan för den här applikationen.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Välj en användare eller en grupp.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Den här rollen är redan tilldelad.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' hittades inte.</value></data>
 </root>

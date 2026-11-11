@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Van groepen</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Avatar wijzigen</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Laden…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Tenants</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organisaties waarvan de gebruikers rollen krijgen in de applicaties.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Rollen</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Rollen die applicaties definiëren, en de gebruikers en groepen die ze hebben.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Tenant aanmaken</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identificatie</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>De tenant {0} verwijderen? De roltoewijzingen ervan worden ook verwijderd.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Rol aanmaken</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Applicatie</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Rol</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>De rol {0} verwijderen? Iedereen die de rol heeft, raakt die kwijt.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Roltoewijzingen</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Rol toewijzen</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Toegewezen aan</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Tenant</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Alle tenants</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>De rol {0} verwijderen bij {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Uw rollen in deze applicatie zien</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>De identificatie mag alleen kleine letters, cijfers en streepjes bevatten (hoogstens 63 tekens).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>De tenant '{0}' bestaat al.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>De naam van een rol heeft 1 tot 100 tekens, zonder dubbele punt of spaties.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>De rol '{0}' bestaat al voor deze applicatie.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Kies een gebruiker of een groep.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Deze rol is al toegewezen.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' is niet gevonden.</value></data>
 </root>

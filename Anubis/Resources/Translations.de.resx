@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Aus Gruppen</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Avatar ändern</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Wird geladen…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Mandanten</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organisationen, deren Benutzer Rollen in den Anwendungen erhalten.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Rollen</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Rollen, die Anwendungen definieren, und die Benutzer und Gruppen, die sie haben.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Mandant erstellen</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Kennung</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Den Mandanten {0} löschen? Seine Rollenzuweisungen werden ebenfalls gelöscht.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Rolle erstellen</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Anwendung</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Rolle</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Die Rolle {0} löschen? Sie wird allen entzogen, die sie haben.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Rollenzuweisungen</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Rolle zuweisen</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Zugewiesen an</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Mandant</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Alle Mandanten</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Die Rolle {0} von {1} entfernen?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Ihre Rollen in dieser Anwendung sehen</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Die Kennung darf nur Kleinbuchstaben, Ziffern und Bindestriche enthalten (höchstens 63 Zeichen).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Der Mandant '{0}' existiert bereits.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Der Name einer Rolle hat 1 bis 100 Zeichen ohne Doppelpunkt und Leerzeichen.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Die Rolle '{0}' existiert für diese Anwendung bereits.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Wählen Sie einen Benutzer oder eine Gruppe.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Diese Rolle ist bereits zugewiesen.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' wurde nicht gefunden.</value></data>
 </root>

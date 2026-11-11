@@ -52,6 +52,26 @@ public sealed class AnubisOptions
 
     /// <summary>OIDC clients created automatically on first start (idempotent).</summary>
     public List<SeedClientOptions> Clients { get; set; } = new();
+
+    /// <summary>Tenants created automatically on first start (idempotent).</summary>
+    public List<SeedTenantOptions> Tenants { get; set; } = new();
+}
+
+/// <summary>Configuration of a tenant seeded into the database.</summary>
+public sealed class SeedTenantOptions
+{
+    /// <summary>Lowercase letters, digits and dashes.</summary>
+    public string Id { get; set; } = string.Empty;
+
+    public string? DisplayName { get; set; }
+}
+
+/// <summary>A role the seeded client defines for itself.</summary>
+public sealed class SeedRoleOptions
+{
+    public string Name { get; set; } = string.Empty;
+
+    public string? Description { get; set; }
 }
 
 /// <summary>Configuration of a client application seeded into the database.</summary>
@@ -78,4 +98,10 @@ public sealed class SeedClientOptions
     public List<string> Scopes { get; set; } = new();
 
     public bool RequireConsent { get; set; } = true;
+
+    /// <summary>
+    /// The application's roles (e.g. Administrator, User), added when missing even to an existing client.
+    /// Allow the "roles" scope too, so the application gets the user's roles in its tokens.
+    /// </summary>
+    public List<SeedRoleOptions> Roles { get; set; } = new();
 }
