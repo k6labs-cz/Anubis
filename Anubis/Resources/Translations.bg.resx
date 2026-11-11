@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>От групи</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Смяна на аватар</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Зареждане…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Наематели</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Организации, чиито потребители получават роли в приложенията.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Роли</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Роли, които приложенията определят, и потребителите и групите, които ги имат.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Създаване на наемател</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Идентификатор</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Да се изтрие ли наемателят {0}? Неговите присвоявания на роли също ще бъдат изтрити.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Създаване на роля</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Приложение</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Роля</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Да се изтрие ли ролята {0}? Тя ще бъде отнета от всички, които я имат.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Присвоявания на роли</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Присвояване на роля</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Присвоена на</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Наемател</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Всички наематели</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Да се премахне ли ролята {0} от {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Да вижда вашите роли в това приложение</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Идентификаторът може да съдържа само малки латински букви, цифри и тирета (най-много 63 знака).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Наемателят '{0}' вече съществува.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Името на роля е от 1 до 100 знака, без двоеточие и интервали.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Ролята '{0}' вече съществува за това приложение.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Изберете потребител или група.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Тази роля вече е присвоена.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' не е намерен.</value></data>
 </root>

@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Dos grupos</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Alterar avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>A carregar…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Inquilinos</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizações cujos utilizadores recebem funções nas aplicações.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Funções</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Funções definidas pelas aplicações e os utilizadores e grupos que as têm.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Criar inquilino</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identificador</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Eliminar o inquilino {0}? As suas atribuições de funções também serão eliminadas.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Criar função</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Aplicação</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Função</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Eliminar a função {0}? Será retirada a todos os que a têm.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Atribuições de funções</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Atribuir função</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Atribuído a</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Inquilino</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Todos os inquilinos</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Remover a função {0} de {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Ver as suas funções nesta aplicação</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>O identificador só pode conter letras minúsculas, dígitos e hífenes (63 caracteres no máximo).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>O inquilino '{0}' já existe.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>O nome de uma função tem de 1 a 100 caracteres, sem dois pontos nem espaços.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>A função '{0}' já existe para esta aplicação.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Escolha um utilizador ou um grupo.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Esta função já está atribuída.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' não foi encontrado.</value></data>
 </root>

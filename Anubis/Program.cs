@@ -217,7 +217,7 @@ services.AddOpenIddict()
                .SetIntrospectionEndpointUris("/introspect")
                .SetRevocationEndpointUris("/revocation");
 
-        options.RegisterScopes(Scopes.OpenId, Scopes.Profile, Scopes.Email, GroupClaims.Scope, Scopes.OfflineAccess, anubisOptions.ApiScope);
+        options.RegisterScopes(Scopes.OpenId, Scopes.Profile, Scopes.Email, GroupClaims.Scope, RoleClaims.Scope, Scopes.OfflineAccess, anubisOptions.ApiScope);
 
         options.AllowAuthorizationCodeFlow()
                .AllowRefreshTokenFlow()
@@ -335,7 +335,9 @@ services.AddScoped<IConsentService>(provider => new ConsentService(
 services.AddScoped<AvatarService>();
 services.AddScoped<UserAdministration>();
 services.AddScoped<GroupAdministration>();
+services.AddScoped<RoleAdministration>();
 services.AddScoped<ScimService>();
+services.AddScoped<ScimRoleService>();
 services.AddSingleton<ScimExceptionFilter>();
 
 // Phone numbers on the account (verified by an SMS code). LogSmsSender only logs the

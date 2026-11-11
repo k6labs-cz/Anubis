@@ -23,6 +23,11 @@ public class AnubisFactory : WebApplicationFactory<Program>
     public const string WebClientId = "test-web";
     public const string WebClientSecret = "test-web-secret";
     public const string WebClientRedirectUri = "https://client.example.com/callback";
+    /// <summary>An application with roles of its own (Administrator, User), signing users in without a consent page.</summary>
+    public const string AppClientId = "test-app";
+    public const string AppClientSecret = "test-app-secret";
+    public const string AppClientRedirectUri = "https://app.example.com/callback";
+    public const string SeededTenant = "acme";
     public const string AdminEmail = "admin@test.local";
     public const string AdminPassword = "Test-Admin-Password-123!";
 
@@ -60,6 +65,21 @@ public class AnubisFactory : WebApplicationFactory<Program>
         Environment.SetEnvironmentVariable("Anubis__Clients__1__Scopes__1", "profile");
         Environment.SetEnvironmentVariable("Anubis__Clients__1__Scopes__2", "email");
         Environment.SetEnvironmentVariable("Anubis__Clients__1__RequireConsent", "true");
+
+        Environment.SetEnvironmentVariable("Anubis__Clients__2__ClientId", AppClientId);
+        Environment.SetEnvironmentVariable("Anubis__Clients__2__ClientSecret", AppClientSecret);
+        Environment.SetEnvironmentVariable("Anubis__Clients__2__RedirectUris__0", AppClientRedirectUri);
+        Environment.SetEnvironmentVariable("Anubis__Clients__2__GrantTypes__0", "authorization_code");
+        Environment.SetEnvironmentVariable("Anubis__Clients__2__GrantTypes__1", "client_credentials");
+        Environment.SetEnvironmentVariable("Anubis__Clients__2__Scopes__0", "openid");
+        Environment.SetEnvironmentVariable("Anubis__Clients__2__Scopes__1", "profile");
+        Environment.SetEnvironmentVariable("Anubis__Clients__2__Scopes__2", "roles");
+        Environment.SetEnvironmentVariable("Anubis__Clients__2__RequireConsent", "false");
+        Environment.SetEnvironmentVariable("Anubis__Clients__2__Roles__0__Name", "Administrator");
+        Environment.SetEnvironmentVariable("Anubis__Clients__2__Roles__0__Description", "Changes the settings");
+        Environment.SetEnvironmentVariable("Anubis__Clients__2__Roles__1__Name", "User");
+        Environment.SetEnvironmentVariable("Anubis__Tenants__0__Id", SeededTenant);
+        Environment.SetEnvironmentVariable("Anubis__Tenants__0__DisplayName", "Acme Ltd.");
 
         // Appearance exercised by AppearanceTests (Hathor theme tokens on <body>).
         Environment.SetEnvironmentVariable("Anubis__Appearance__Light__Primary", "#123456");

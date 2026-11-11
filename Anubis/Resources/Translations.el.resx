@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Από ομάδες</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Αλλαγή avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Φόρτωση…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Μισθωτές</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Οργανισμοί των οποίων οι χρήστες λαμβάνουν ρόλους στις εφαρμογές.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Ρόλοι</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Ρόλοι που ορίζουν οι εφαρμογές, και οι χρήστες και οι ομάδες που τους έχουν.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Δημιουργία μισθωτή</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Αναγνωριστικό</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Διαγραφή του μισθωτή {0}; Θα διαγραφούν και οι αναθέσεις ρόλων του.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Δημιουργία ρόλου</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Εφαρμογή</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Ρόλος</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Διαγραφή του ρόλου {0}; Θα αφαιρεθεί από όλους όσοι τον έχουν.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Αναθέσεις ρόλων</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Ανάθεση ρόλου</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Ανατέθηκε σε</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Μισθωτής</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Όλοι οι μισθωτές</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Αφαίρεση του ρόλου {0} από {1};</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Να βλέπει τους ρόλους σας σε αυτή την εφαρμογή</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Το αναγνωριστικό μπορεί να περιέχει μόνο πεζά λατινικά γράμματα, ψηφία και παύλες (έως 63 χαρακτήρες).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Ο μισθωτής '{0}' υπάρχει ήδη.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Το όνομα ενός ρόλου έχει 1 έως 100 χαρακτήρες, χωρίς άνω και κάτω τελεία και κενά.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Ο ρόλος '{0}' υπάρχει ήδη για αυτή την εφαρμογή.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Επιλέξτε έναν χρήστη ή μια ομάδα.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Αυτός ο ρόλος έχει ήδη ανατεθεί.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>Το '{0}' δεν βρέθηκε.</value></data>
 </root>

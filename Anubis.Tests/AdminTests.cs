@@ -21,7 +21,7 @@ namespace Anubis.Tests;
 public class AdminTests
 {
     private static readonly string[] NavLinks =
-        ["/users", "/groups", "/scopes", "/clients", "/options-general", "/options-security", "/options-tokens", "/options-appearance", "/options-email"];
+        ["/users", "/groups", "/tenants", "/roles", "/scopes", "/clients", "/options-general", "/options-security", "/options-tokens", "/options-appearance", "/options-email"];
 
     private readonly AnubisFactory _factory;
 
@@ -33,6 +33,8 @@ public class AdminTests
     [Theory]
     [InlineData("/users")]
     [InlineData("/groups")]
+    [InlineData("/tenants")]
+    [InlineData("/roles")]
     [InlineData("/scopes")]
     [InlineData("/clients")]
     [InlineData("/options-general")]
@@ -64,6 +66,8 @@ public class AdminTests
     [Theory]
     [InlineData("/users")]
     [InlineData("/groups")]
+    [InlineData("/tenants")]
+    [InlineData("/roles")]
     [InlineData("/scopes")]
     [InlineData("/clients")]
     public async Task ManagementLists_HaveRowMenus_AndACreateButton_ButNoInlineForms(string path)

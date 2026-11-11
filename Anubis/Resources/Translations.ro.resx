@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Din grupuri</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Schimbați avatarul</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Se încarcă…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Entități găzduite</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizații ai căror utilizatori primesc roluri în aplicații.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Roluri</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Roluri definite de aplicații și utilizatorii și grupurile care le au.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Creează entitate găzduită</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identificator</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Ștergeți entitatea găzduită {0}? Atribuirile ei de roluri vor fi șterse și ele.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Creează rol</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Aplicație</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Rol</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Ștergeți rolul {0}? Va fi retras tuturor celor care îl au.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Atribuiri de roluri</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Atribuie rol</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Atribuit către</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Entitate găzduită</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Toate entitățile găzduite</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Eliminați rolul {0} de la {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Să vadă rolurile dvs. în această aplicație</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Identificatorul poate conține doar litere mici, cifre și cratime (cel mult 63 de caractere).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Entitatea găzduită '{0}' există deja.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Numele unui rol are între 1 și 100 de caractere, fără două puncte și spații.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Rolul '{0}' există deja pentru această aplicație.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Alegeți un utilizator sau un grup.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Acest rol este deja atribuit.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' nu a fost găsit.</value></data>
 </root>

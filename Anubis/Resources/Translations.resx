@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>From groups</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Change avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Loading…</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>The identifier must be lowercase letters, digits and dashes (at most 63 characters).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>The tenant '{0}' already exists.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>The name of a role has 1 to 100 characters without a colon or spaces.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>The role '{0}' already exists for this application.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Choose a user or a group.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>This role is already assigned.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' was not found.</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Tenants</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizations whose users get roles in the applications.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Roles</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Roles that applications define, and the users and groups that have them.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Create tenant</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identifier</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Delete the tenant {0}? Its role assignments are deleted too.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Create role</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Application</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Role</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Delete the role {0}? It is taken from everyone who has it.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Role assignments</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Assign role</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Assigned to</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Tenant</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>All tenants</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Remove the role {0} from {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>See your roles in this application</value></data>
 </root>

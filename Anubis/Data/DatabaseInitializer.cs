@@ -34,6 +34,27 @@ public static class DatabaseInitializer
         await EnsureAdminUserAsync(provider, options, logger);
         await EnsureApiScopeAsync(provider, options);
         await EnsureClientsAsync(provider, options);
+        await EnsureTenantsAndRolesAsync(provider, options);
+    }
+
+    private static async Task EnsureTenantsAndRolesAsync(IServiceProvider provider, AnubisOptions options)
+    {
+        var roles = provider.GetRequiredService<RoleAdministration>();
+
+        var tenants = (await roles.ListTenantsAsync()).Select(t => t.Id).ToHashSet(StringComparer.Ordinal);
+        foreach (var tenant in options.Tenants.Where(t => !string.IsNullOrWhiteSpace(t.Id) && !tenants.Contains(t.Id.Trim())))
+        {
+            await roles.CreateTenantAsync(tenant.Id, tenant.DisplayName);
+        }
+
+        foreach (var client in options.Clients.Where(c => !string.IsNullOrWhiteSpace(c.ClientId) && c.Roles.Count > 0))
+        {
+            var existing = (await roles.ListRolesAsync(client.ClientId)).Select(r => r.Name).ToHashSet(StringComparer.Ordinal);
+            foreach (var role in client.Roles.Where(r => !string.IsNullOrWhiteSpace(r.Name) && !existing.Contains(r.Name.Trim())))
+            {
+                await roles.CreateRoleAsync(client.ClientId, role.Name, role.Description);
+            }
+        }
     }
 
     private static async Task EnsureGroupsAsync(IServiceProvider provider)

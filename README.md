@@ -125,6 +125,66 @@ curl -X POST http://localhost:5080/api/Users \
        "urn:ietf:params:scim:schemas:extension:anubis:2.0:User":{"claims":[{"type":"department","value":"sales"}]}}'
 ```
 
+## Tenanti a role aplikací
+
+**Tenant** je organizace (zákazník, tým, workspace) společná pro všechny klientské aplikace; má neměnný
+identifikátor (`acme`: malá písmena, číslice, pomlčky) a zobrazovaný název. **Role** si definuje klientská
+aplikace sama pro sebe (např. `Administrator` a `User` klienta `osiris`) a říká, co v ní uživatel smí.
+Skupiny dál říkají, kdo lidé jsou; role se **přiřazují** uživatelům nebo skupinám (členové skupiny mají její
+role), a to v jednom tenantu, nebo bez tenantu = ve všech. Uživatel do tenantu patří tím, že v něm má roli
+některé aplikace.
+
+Aplikace si o role řekne scope **`roles`** (musí ho mít povolený). Token pak:
+
+- má v claimu `roles` role uživatele **v této aplikaci**: `acme:Administrator` pro roli v tenantu `acme`,
+  jen `Administrator` pro roli ve všech tenantech (dvojtečka odděluje tenant, proto ji název role nesmí obsahovat);
+  claim je v access tokenu, ID tokenu, userinfo i v odpovědi introspekce,
+- je vydán **pro tuto aplikaci**: její `client_id` je mezi audiences (`aud`), takže ho její API může přijmout.
+
+Odebrání role (i smazáním role nebo tenantu) **zneplatní access tokeny**, ve kterých je zapsaná, takže aplikace,
+která se na token ptá introspekcí, o změně ví hned; refresh token zůstává a přinese token s aktuálními rolemi.
+Nově přidaná role je v tokenech od dalšího přihlášení (nebo obnovení tokenu).
+
+Správa: stránky **Tenanti** (`/tenants`) a **Role** (`/roles`: role aplikací a jejich přiřazení) v administraci,
+SCIM API (níže) a seed z konfigurace:
+
+```json
+"Anubis": {
+  "Tenants": [ { "Id": "acme", "DisplayName": "Acme s.r.o." } ],
+  "Clients": [ {
+    "ClientId": "osiris",
+    "GrantTypes": [ "authorization_code", "client_credentials" ],
+    "Scopes": [ "openid", "profile", "email", "roles" ],
+    "Roles": [ { "Name": "Administrator", "Description": "Mění nastavení" }, { "Name": "User" } ]
+  } ]
+}
+```
+
+Role ze seedu se doplní i k už existujícímu klientovi; nic se nemaže.
+
+### Tenanti, role a přiřazení ve SCIM API
+
+Vlastní typy prostředků Anubisu (SCIM pro ně standard nemá), se stejným ověřením, stránkováním, `filter` a `sortBy`
+jako Users a Groups:
+
+| Endpoint | Prostředek | Atributy |
+|---|---|---|
+| `/api/Tenants` | tenant | `name` (identifikátor, zároveň `id`; neměnný), `displayName` |
+| `/api/Roles` | role aplikace | `client` (`client_id`), `name` (obojí neměnné), `description` |
+| `/api/RoleAssignments` | přiřazení role | `role` (`value` = id role, nebo `client` + `name`), `user.value` **nebo** `group.value`, volitelně `tenant`; jen pro čtení `claim` (hodnota v claimu `roles`) |
+
+`GET` (seznam a jeden záznam), `POST` a `DELETE` u všech tří; `PUT` a `PATCH` u tenantu (jen `displayName`) a role
+(jen `description`). Přiřazení se nemění: smaže se a vytvoří nové.
+
+```bash
+curl -X POST http://localhost:5080/api/Tenants -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/scim+json" -d '{"name":"acme","displayName":"Acme s.r.o."}'
+
+curl -X POST http://localhost:5080/api/RoleAssignments -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/scim+json" \
+  -d '{"role":{"client":"osiris","name":"Administrator"},"group":{"value":"<id skupiny>"},"tenant":"acme"}'
+```
+
 ## Webové UI
 
 - `/` — bez úvodní stránky: přesměruje na `/profile` (přihlášený uživatel) nebo `/login`
@@ -146,6 +206,7 @@ curl -X POST http://localhost:5080/api/Users \
     před uložením (formát a jedinečnost e-mailu, poslední administrátor, vlastní členství v Admins, souběžné změny),
     zablokování, reset MFA, smazání
   - `/groups` — skupiny, jejich claimy a členové
+  - `/tenants`, `/roles` — tenanti, role aplikací a jejich přiřazení uživatelům a skupinám (viz [Tenanti a role aplikací](#tenanti-a-role-aplikací))
   - `/scopes`, `/clients` — scopes, OIDC klienti (včetně generování secretu)
   - **Nastavení** (vše se ukládá do souboru s nastavením a platí hned, kromě veřejné adresy, která se projeví po restartu):
     - `/options-general` – Obecné: název serveru (titulek záložky „Stránka — Název“, logo + název vlevo nahoře),
@@ -176,6 +237,8 @@ curl -X POST http://localhost:5080/api/Users \
   posílá i jako standardní OIDC claim `picture` (userinfo + ID token).
 - **Skupiny v tokenech:** claim `groups` (pole názvů skupin) je vždy v access tokenu; se scope `groups`
   i v ID tokenu a userinfo (stejně jako Keycloak nebo Entra ID). Claimy nastavené na skupině dostanou všichni její členové.
+- **Role v tokenech:** se scope `roles` claim `roles` s rolemi uživatele v aplikaci, která o token žádá, po tenantech
+  (`acme:Administrator`); viz [Tenanti a role aplikací](#tenanti-a-role-aplikací).
 - **Jazyky:** všech 24 úředních jazyků EU (bg, cs, da, de, el, en, es, et, fi, fr, ga, hr, hu, it, lt, lv, mt,
   nl, pl, pt, ro, sk, sl, sv); výchozí je angličtina. Pořadí: jazyk uložený u účtu (volí se na stránce účtu)
   → OIDC parametr `ui_locales` od klienta → jazyk prohlížeče → angličtina.
@@ -196,6 +259,8 @@ Nový jazyk: přidejte `Translations.<kód>.resx` a kód a nativní název do `L
 | `RequireConfirmedEmail` | přihlášení až po potvrzení e-mailu (default `false`); vyžaduje funkční sekci `Email` |
 | `Issuer` | explicitní issuer (např. za reverse proxy); prázdné = odvozeno z requestu |
 | `ApiScope` / `ApiResource` | scope/resource pro client credentials |
+| `Tenants` | tenanti vytvoření při startu (`Id`, `DisplayName`) |
+| `Clients[].Roles` | role, které si klient definuje (`Name`, `Description`); doplní se i k existujícímu klientovi |
 | `AccessTokenLifetimeMinutes` | životnost access tokenu (default 60) |
 | `IdentityTokenLifetimeMinutes` | životnost ID tokenu (default 20) |
 | `AuthorizationCodeLifetimeMinutes` | životnost authorization code (default 10) |

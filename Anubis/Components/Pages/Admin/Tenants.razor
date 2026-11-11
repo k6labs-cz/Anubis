@@ -1,0 +1,149 @@
+@page "/tenants"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = DatabaseInitializer.AdminGroup)]
+
+@using Microsoft.AspNetCore.Authorization
+@using k6labs.Anubis.Services
+
+@inject RoleAdministration Roles
+@* Notifications belong to this page and its interactive circuit. *@
+
+<AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_Tenants))" />
+
+<NotificationList State="Notifications" />
+
+<Stack Gap="Gap.Large">
+    <PageHeader Title="@Translations.Admin_Tenants" Description="@Translations.Admin_TenantsDescription"
+                CreateLabel="@Translations.Tenants_Create" OnCreate="OpenCreate" />
+
+    <Table Label="@Translations.Admin_Tenants">
+        <thead>
+            <tr>
+                <th>@Translations.Tenants_Id</th>
+                <th>@Translations.Common_DisplayName</th>
+                <th data-align="end">@Translations.Roles_Assignments</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tenant in tenants)
+            {
+                <tr>
+                    <td><code>@tenant.Id</code></td>
+                    <td>@tenant.DisplayName</td>
+                    <td data-align="end">@tenant.Assignments</td>
+                    <td data-align="end">
+                        <RowMenu>
+                            <MenuItem Icon="@AppIcons.Delete" OnClick="() => AskDelete(tenant)" data-popup-option Danger="true">@Translations.Common_Delete</MenuItem>
+                        </RowMenu>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </Table>
+</Stack>
+
+<AppModal Title="@Translations.Tenants_Create" @bind-Open="createOpen">
+    <ChildContent>
+        <EditForm Model="createModel" OnValidSubmit="CreateAsync" FormName="createTenant" id="createTenantForm">
+            <Stack Gap="Gap.Medium">
+                <FormText @bind-Value="createModel.Id" Label="@Translations.Tenants_Id" Placeholder="acme" Id="tenantId" />
+                <FormText @bind-Value="createModel.DisplayName" Label="@Translations.Common_DisplayName" Id="tenantDisplayName" />
+                @if (createError is not null)
+                {
+                    <Alert Severity="AlertSeverity.Danger">@createError</Alert>
+                }
+            </Stack>
+        </EditForm>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => createOpen = false">@Translations.Common_Cancel</Button>
+        <Button form="createTenantForm" Disabled="busy" Type="submit">@Translations.Tenants_Create</Button>
+    </Footer>
+</AppModal>
+
+<AppModal Title="@Translations.Common_Delete" @bind-Open="deleteOpen">
+    <ChildContent>
+        <Typography>@Translations.Tenants_DeleteConfirm.F(tenantToDelete?.Id)</Typography>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => deleteOpen = false">@Translations.Common_Cancel</Button>
+        <Button Variant="ButtonVariant.Danger" OnClick="DeleteAsync">@Translations.Common_Delete</Button>
+    </Footer>
+</AppModal>
+
+@code {
+    private sealed class TenantForm
+    {
+        public string? Id { get; set; }
+        public string? DisplayName { get; set; }
+    }
+
+    private readonly NotificationState Notifications = new();
+    private TenantForm createModel = new();
+    private List<TenantSummary> tenants = new();
+    private bool createOpen;
+    private string? createError;
+    private TenantSummary? tenantToDelete;
+    private bool deleteOpen;
+    private bool busy;
+
+    protected override async Task OnInitializedAsync() => tenants = await Roles.ListTenantsAsync();
+
+    private void OpenCreate()
+    {
+        createModel = new TenantForm();
+        createError = null;
+        createOpen = true;
+    }
+
+    private async Task CreateAsync()
+    {
+        busy = true;
+        createError = null;
+
+        try
+        {
+            var created = await Roles.CreateTenantAsync(createModel.Id, createModel.DisplayName);
+            createOpen = false;
+            Notifications.Add(Translations.Users_CreatedText.F(created.Id), AlertSeverity.Success);
+            tenants = await Roles.ListTenantsAsync();
+        }
+        catch (RoleAdministrationException exception)
+        {
+            createError = exception.Message;
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    private void AskDelete(TenantSummary tenant)
+    {
+        tenantToDelete = tenant;
+        deleteOpen = true;
+    }
+
+    private async Task DeleteAsync()
+    {
+        if (tenantToDelete is null)
+        {
+            return;
+        }
+
+        deleteOpen = false;
+        try
+        {
+            await Roles.DeleteTenantAsync(tenantToDelete.Id);
+            Notifications.Add(Translations.Users_DeletedText.F(tenantToDelete.Id), AlertSeverity.Success);
+            tenants = await Roles.ListTenantsAsync();
+        }
+        catch (RoleAdministrationException exception)
+        {
+            Notifications.Add(exception.Message, AlertSeverity.Danger);
+        }
+
+        tenantToDelete = null;
+    }
+}

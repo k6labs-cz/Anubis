@@ -20,6 +20,11 @@ public static class ScimConstants
     /// <summary>Extension schema carrying the Anubis-specific user attributes (custom claims, email confirmation).</summary>
     public const string UserExtensionSchema = "urn:ietf:params:scim:schemas:extension:anubis:2.0:User";
 
+    /// <summary>Anubis's own resources: tenants, the roles applications define, and who has them.</summary>
+    public const string TenantSchema = "urn:ietf:params:scim:schemas:anubis:2.0:Tenant";
+    public const string RoleSchema = "urn:ietf:params:scim:schemas:anubis:2.0:Role";
+    public const string RoleAssignmentSchema = "urn:ietf:params:scim:schemas:anubis:2.0:RoleAssignment";
+
     /// <summary>Error scimTypes (RFC 7644 section 3.12).</summary>
     public static class ScimTypes
     {

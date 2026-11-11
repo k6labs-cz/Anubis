@@ -788,7 +788,7 @@ public sealed partial class ScimService
     private async Task<Group> FindGroupAsync(string id)
         => await _groups.FindByIdAsync(id) ?? throw ScimException.NotFound("Group", id);
 
-    private static List<JsonObject> SortResources(List<JsonObject> resources, string? sortBy, string? sortOrder, string defaultKey, string[] allowed)
+    internal static List<JsonObject> SortResources(List<JsonObject> resources, string? sortBy, string? sortOrder, string defaultKey, string[] allowed)
     {
         var key = string.IsNullOrWhiteSpace(sortBy) ? defaultKey : sortBy.ToLowerInvariant();
         if (!allowed.Contains(key))

@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Des groupes</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Changer l'avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Chargement…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Locataires</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organisations dont les utilisateurs reçoivent des rôles dans les applications.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Rôles</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Rôles définis par les applications, et les utilisateurs et groupes qui les ont.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Créer un locataire</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Identifiant</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Supprimer le locataire {0} ? Ses attributions de rôles seront aussi supprimées.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Créer un rôle</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Application</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Rôle</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>Supprimer le rôle {0} ? Il sera retiré à tous ceux qui l’ont.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Attributions de rôles</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Attribuer un rôle</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Attribué à</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Locataire</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Tous les locataires</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Retirer le rôle {0} à {1} ?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Voir vos rôles dans cette application</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>L’identifiant ne peut contenir que des minuscules, des chiffres et des tirets (63 caractères au plus).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Le locataire '{0}' existe déjà.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Le nom d’un rôle compte 1 à 100 caractères, sans deux-points ni espaces.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Le rôle '{0}' existe déjà pour cette application.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Choisissez un utilisateur ou un groupe.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Ce rôle est déjà attribué.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' est introuvable.</value></data>
 </root>

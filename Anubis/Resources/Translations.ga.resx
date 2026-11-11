@@ -534,4 +534,29 @@
   <data name="Claims_FromGroups" xml:space="preserve"><value>Ó ghrúpaí</value></data>
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Athraigh an t-abhatár</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Á lódáil…</value></data>
+  <data name="Admin_Tenants" xml:space="preserve"><value>Tionóntaí</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Eagraíochtaí a bhfaigheann a n-úsáideoirí róil sna feidhmchláir.</value></data>
+  <data name="Admin_Roles" xml:space="preserve"><value>Róil</value></data>
+  <data name="Admin_RolesDescription" xml:space="preserve"><value>Róil a shainíonn feidhmchláir, agus na húsáideoirí agus na grúpaí a bhfuil siad acu.</value></data>
+  <data name="Tenants_Create" xml:space="preserve"><value>Cruthaigh tionónta</value></data>
+  <data name="Tenants_Id" xml:space="preserve"><value>Aitheantóir</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>An bhfuil fonn ort an tionónta {0} a scriosadh? Scriosfar a shannacháin róil freisin.</value></data>
+  <data name="Roles_Create" xml:space="preserve"><value>Cruthaigh ról</value></data>
+  <data name="Roles_Application" xml:space="preserve"><value>Feidhmchlár</value></data>
+  <data name="Roles_Role" xml:space="preserve"><value>Ról</value></data>
+  <data name="Roles_DeleteConfirm" xml:space="preserve"><value>An bhfuil fonn ort an ról {0} a scriosadh? Bainfear é de gach duine a bhfuil sé acu.</value></data>
+  <data name="Roles_Assignments" xml:space="preserve"><value>Sannacháin róil</value></data>
+  <data name="Roles_Assign" xml:space="preserve"><value>Sann ról</value></data>
+  <data name="Roles_AssignedTo" xml:space="preserve"><value>Sannta do</value></data>
+  <data name="Roles_Tenant" xml:space="preserve"><value>Tionónta</value></data>
+  <data name="Roles_AllTenants" xml:space="preserve"><value>Gach tionónta</value></data>
+  <data name="Roles_RemoveConfirm" xml:space="preserve"><value>An bhfuil fonn ort an ról {0} a bhaint de {1}?</value></data>
+  <data name="Scope_Roles" xml:space="preserve"><value>Do róil san fheidhmchlár seo a fheiceáil</value></data>
+  <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Ní féidir ach litreacha beaga, digití agus fleiscíní a bheith san aitheantóir (63 carachtar ar a mhéad).</value></data>
+  <data name="Error_TenantExists" xml:space="preserve"><value>Tá an tionónta '{0}' ann cheana.</value></data>
+  <data name="Error_RoleNameInvalid" xml:space="preserve"><value>Tá 1 go 100 carachtar in ainm róil, gan idirstad ná spásanna.</value></data>
+  <data name="Error_RoleExists" xml:space="preserve"><value>Tá an ról '{0}' ann cheana don fheidhmchlár seo.</value></data>
+  <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Roghnaigh úsáideoir nó grúpa.</value></data>
+  <data name="Error_AssignmentExists" xml:space="preserve"><value>Tá an ról seo sannta cheana.</value></data>
+  <data name="Error_RoleItemNotFound" xml:space="preserve"><value>Níor aimsíodh '{0}'.</value></data>
 </root>
