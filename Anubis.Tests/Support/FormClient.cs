@@ -3,6 +3,8 @@ using System.Text.RegularExpressions;
 
 using k6labs.Anubis.Data.Entities;
 
+using k6labs.Anubis.Tenancy;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,20 +17,24 @@ namespace Anubis.Tests.Support;
 public sealed partial class FormClient : IDisposable
 {
     private readonly AnubisFactory _factory;
+    private readonly string? _tenant;
 
     /// <param name="factory">The application factory used to create the HTTP client.</param>
     /// <param name="language">Sent as Accept-Language, like a browser set to that language.</param>
-    public FormClient(AnubisFactory factory, string? language = null)
+    /// <param name="tenant">The tenant the browser visits (at <c>{tenant}.localhost</c>); null is the default one.</param>
+    public FormClient(AnubisFactory factory, string? language = null, string? tenant = null)
     {
         _factory = factory;
-        Http = factory.CreateAnonymousClient();
+        _tenant = tenant;
+        var host = tenant is null ? "localhost" : $"{tenant}.localhost";
+        Http = factory.CreateAnonymousClient(host);
         if (language is not null)
         {
             Http.DefaultRequestHeaders.AcceptLanguage.ParseAdd(language);
         }
 
         // Browsers send Origin on form posts; passkey verification compares it with the WebAuthn origin.
-        Http.DefaultRequestHeaders.Add("Origin", "http://localhost");
+        Http.DefaultRequestHeaders.Add("Origin", $"http://{host}");
     }
 
     public HttpClient Http { get; }
@@ -83,11 +89,11 @@ public sealed partial class FormClient : IDisposable
         return response.StatusCode == HttpStatusCode.OK;
     }
 
-    /// <summary>Creates a fresh user so tests don't share MFA state.</summary>
+    /// <summary>Creates a fresh user (in the client's tenant) so tests don't share MFA state.</summary>
     public async Task<(User User, string Password)> CreateUserAsync()
     {
         const string password = "Test-User-Password-123!";
-        using var scope = _factory.Services.CreateScope();
+        await using var scope = _factory.Services.CreateTenantScope(_factory.Tenant(_tenant ?? k6labs.Anubis.Tenancy.Tenant.DefaultId));
         var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
         var email = $"user-{Guid.NewGuid():N}@test.local";
         var user = new User { UserName = email, Email = email, EmailConfirmed = true };

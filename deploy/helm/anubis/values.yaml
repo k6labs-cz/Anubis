@@ -63,6 +63,9 @@ ingress:
   className: ""
   annotations: {}
   #   cert-manager.io/cluster-issuer: letsencrypt
+  # The first host is the default tenant's (and Anubis.Issuer). Tenants are told apart by host
+  # name: add "*.id.example.com" for their subdomains and any host names of their own, and
+  # cover them with the certificate.
   hosts:
     - id.example.com
   tls: []

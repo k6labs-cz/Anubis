@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Platnost tokenů a kódů vydávaných klientským aplikacím. Změny platí pro nově vydané tokeny.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Server</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Veřejná adresa (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Například https://id.example.com. Prázdné = podle každého požadavku. Projeví se po restartu.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Například https://id.example.com. Prázdné = podle každého požadavku.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Registrace</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Povolit samoobslužnou registraci</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Vyžadovat ověřenou e-mailovou adresu pro přihlášení</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Změnit avatara</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Načítání…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Tenanti</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizace, jejichž uživatelé dostávají role v aplikacích.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Oddělené organizace, každá s vlastní databází uživatelů, aplikací a nastavení.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Role</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Role, které si definují aplikace, a uživatelé a skupiny, kteří je mají.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Vytvořit tenanta</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Identifikátor</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Smazat tenanta {0}? Smažou se i jeho přiřazení rolí.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Smazat tenanta {0}? Jeho databáze se všemi uživateli, aplikacemi a nastavením se nenávratně smaže.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Vytvořit roli</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Aplikace</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Role</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Přiřazení rolí</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Přiřadit roli</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Přiřazeno</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Tenant</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Všichni tenanti</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Odebrat roli {0} pro {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Vidět vaše role v této aplikaci</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Identifikátor smí obsahovat jen malá písmena, číslice a pomlčky (nejvýše 63 znaků).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Vyberte uživatele nebo skupinu.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Tato role je už přiřazena.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>Položka '{0}' nebyla nalezena.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Názvy hostitelů</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Oddělené mezerami. Tenant je vždy dostupný také na adrese {0}.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Adresa</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>E-mail administrátora</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Heslo administrátora</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Výchozí</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' není platný název hostitele.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>Název hostitele '{0}' se už používá.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Zadejte e-mail a heslo administrátora.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Tento název hostitele nepatří tomuto tenantovi.</value></data>
 </root>

@@ -19,8 +19,8 @@ helm install anubis deploy/helm/anubis -n anubis --create-namespace \
 | `secrets.values` | tajné hodnoty jako soubory na klíč, např. `Email__Smtp__Password` |
 | `secrets.existingSecret` | použít existující Secret (External Secrets, Sealed Secrets, …) |
 | `secrets.generateAdminPassword` | vygenerovat heslo admina, pokud není v `secrets.values` (`true`); zachová se při upgradu |
-| `persistence.*` | PVC pro `/data` (`1Gi`, `ReadWriteOnce`); PVC zůstane i po `helm uninstall` |
-| `ingress.*` | ingress s TLS (vypnutý) |
+| `persistence.*` | PVC pro `/data` s databázemi, nastavením a klíči všech tenantů (`1Gi`, `ReadWriteOnce`); PVC zůstane i po `helm uninstall` |
+| `ingress.*` | ingress s TLS (vypnutý); první host je adresa výchozího tenantu, pro další tenanty přidejte `*.id.example.com` a jejich vlastní hostnames (včetně certifikátu) |
 | `extraEnv` | další proměnné prostředí (např. `OTEL_EXPORTER_OTLP_ENDPOINT`) |
 | `resources`, `podSecurityContext`, `securityContext`, sondy, `nodeSelector`, `tolerations`, `affinity` | jako v `deploy/kubernetes` |
 

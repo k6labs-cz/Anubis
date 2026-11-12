@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Lifetimes of the tokens and codes issued to client applications. Changes apply to newly issued tokens.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Server</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Public URL (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>For example https://id.example.com. Empty = taken from each request. Takes effect after a restart.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>For example https://id.example.com. Empty = taken from each request.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Registration</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Allow self-service registration</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Require a confirmed email address to sign in</value></data>
@@ -542,12 +542,12 @@
   <data name="Error_AssignmentExists" xml:space="preserve"><value>This role is already assigned.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' was not found.</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Tenants</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizations whose users get roles in the applications.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Separate organizations, each with its own database of users, applications and settings.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Roles</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Roles that applications define, and the users and groups that have them.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Create tenant</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Identifier</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Delete the tenant {0}? Its role assignments are deleted too.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Delete the tenant {0}? Its database with all users, applications and settings will be deleted permanently.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Create role</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Application</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Role</value></data>
@@ -555,8 +555,16 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Role assignments</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Assign role</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Assigned to</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Tenant</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>All tenants</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Remove the role {0} from {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>See your roles in this application</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Host names</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Separated by spaces. The tenant is always available at {0} as well.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Address</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>Administrator's email</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Administrator's password</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Default</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' is not a valid host name.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>The host name '{0}' is already in use.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Enter the administrator's email and password.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>This host name does not belong to this tenant.</value></data>
 </root>

@@ -12,5 +12,6 @@ deploy/
 **/*.db-wal
 **/anubis.settings.json
 **/keys/
+**/tenants/
 **/appsettings.Development.json
 **/appsettings.Development.example.json

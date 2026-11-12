@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Валидност на токените и кодовете за клиентски приложения. Промените важат за новите токени.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Сървър</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Публичен URL (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Например https://id.example.com. Празно = от всяка заявка. Влиза в сила след рестарт.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Например https://id.example.com. Празно = от всяка заявка.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Регистрация</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Разрешаване на самостоятелна регистрация</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Изискване на потвърден имейл адрес за вход</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Смяна на аватар</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Зареждане…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Наематели</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Организации, чиито потребители получават роли в приложенията.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Отделни организации, всяка със собствена база данни с потребители, приложения и настройки.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Роли</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Роли, които приложенията определят, и потребителите и групите, които ги имат.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Създаване на наемател</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Идентификатор</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Да се изтрие ли наемателят {0}? Неговите присвоявания на роли също ще бъдат изтрити.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Да се изтрие ли наемателят {0}? Неговата база данни с всички потребители, приложения и настройки ще бъде изтрита окончателно.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Създаване на роля</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Приложение</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Роля</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Присвоявания на роли</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Присвояване на роля</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Присвоена на</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Наемател</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Всички наематели</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Да се премахне ли ролята {0} от {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Да вижда вашите роли в това приложение</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Идентификаторът може да съдържа само малки латински букви, цифри и тирета (най-много 63 знака).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Изберете потребител или група.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Тази роля вече е присвоена.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' не е намерен.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Имена на хостове</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Разделени с интервали. Наемателят винаги е достъпен и на адрес {0}.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Адрес</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>Имейл на администратора</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Парола на администратора</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>По подразбиране</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' не е валидно име на хост.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>Името на хост '{0}' вече се използва.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Въведете имейла и паролата на администратора.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Това име на хост не принадлежи на този наемател.</value></data>
 </root>

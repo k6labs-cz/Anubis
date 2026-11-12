@@ -9,6 +9,7 @@ using Anubis.Tests.Support;
 
 using k6labs.Anubis.Data.Entities;
 using k6labs.Anubis.Services;
+using k6labs.Anubis.Tenancy;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
@@ -17,8 +18,9 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Anubis.Tests;
 
 /// <summary>
-/// Tenants and the roles applications define: seeded from configuration, given to users and groups,
-/// issued in the "roles" claim of a token for the application, taken back at once, and managed over SCIM.
+/// The roles applications define: seeded from configuration, given to users and groups, issued in the
+/// "roles" claim of a token for the application (next to the "tenant" claim), taken back at once, and
+/// managed over SCIM.
 /// </summary>
 [Collection(AnubisCollection.Name)]
 public class RolesTests
@@ -40,11 +42,8 @@ public class RolesTests
         => WithRolesAsync(async roles => (await roles.ListRolesAsync(AnubisFactory.AppClientId)).Single(r => r.Name == name));
 
     [Fact]
-    public async Task Configuration_SeedsTheTenantAndTheApplicationsRoles()
+    public async Task Configuration_SeedsTheApplicationsRoles()
     {
-        var tenants = await WithRolesAsync(roles => roles.ListTenantsAsync());
-        Assert.Equal("Acme Ltd.", tenants.Single(t => t.Id == AnubisFactory.SeededTenant).DisplayName);
-
         var roleNames = (await WithRolesAsync(roles => roles.ListRolesAsync(AnubisFactory.AppClientId))).Select(r => r.Name);
         Assert.Equal(["Administrator", "User"], roleNames);
     }
@@ -54,22 +53,15 @@ public class RolesTests
     {
         await WithRolesAsync(async roles =>
         {
-            foreach (var id in new[] { "", "Acme", "has space", "-acme", "a:b", new string('a', 64) })
-            {
-                Assert.Equal(RoleError.Invalid, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.CreateTenantAsync(id, null))).Error);
-            }
-
-            Assert.Equal(RoleError.Conflict, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.CreateTenantAsync(AnubisFactory.SeededTenant, null))).Error);
-
-            // The colon separates the tenant from the role in the claim.
             Assert.Equal(RoleError.Invalid, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.CreateRoleAsync(AnubisFactory.AppClientId, "a:b", null))).Error);
+            Assert.Equal(RoleError.Invalid, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.CreateRoleAsync(AnubisFactory.AppClientId, "has space", null))).Error);
             Assert.Equal(RoleError.Invalid, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.CreateRoleAsync("no-such-client", "Reader", null))).Error);
             Assert.Equal(RoleError.Conflict, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.CreateRoleAsync(AnubisFactory.AppClientId, "User", null))).Error);
 
             var role = (await roles.ListRolesAsync(AnubisFactory.AppClientId)).First();
-            Assert.Equal(RoleError.Invalid, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.AssignAsync(role.Id, null, null, null))).Error);
-            Assert.Equal(RoleError.Invalid, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.AssignAsync(role.Id, "u", "g", null))).Error);
-            Assert.Equal(RoleError.NotFound, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.AssignAsync(role.Id, "no-such-user", null, null))).Error);
+            Assert.Equal(RoleError.Invalid, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.AssignAsync(role.Id, null, null))).Error);
+            Assert.Equal(RoleError.Invalid, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.AssignAsync(role.Id, "u", "g"))).Error);
+            Assert.Equal(RoleError.NotFound, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.AssignAsync(role.Id, "no-such-user", null))).Error);
             return true;
         });
     }
@@ -79,7 +71,6 @@ public class RolesTests
     {
         using var client = new FormClient(_factory);
         var (user, password) = await client.CreateUserAsync();
-        var tenant = $"t-{Guid.NewGuid():N}"[..12];
         var groupName = $"roles-{Guid.NewGuid():N}"[..20];
         string groupId;
         using (var scope = _factory.Services.CreateScope())
@@ -95,27 +86,29 @@ public class RolesTests
         var adminRole = await AppRoleAsync("Administrator");
         var direct = await WithRolesAsync(async roles =>
         {
-            await roles.CreateTenantAsync(tenant, null);
-            await roles.AssignAsync(adminRole.Id, null, groupId, AnubisFactory.SeededTenant);   // through the group, in one tenant
-            await roles.AssignAsync(userRole.Id, null, groupId, null);                           // through the group, everywhere
-            return await roles.AssignAsync(userRole.Id, user.Id, null, tenant);                  // the user's own
+            await roles.AssignAsync(userRole.Id, null, groupId);          // through the group
+            Assert.Equal(RoleError.Conflict, (await Assert.ThrowsAsync<RoleAdministrationException>(() => roles.AssignAsync(userRole.Id, null, groupId))).Error);
+            await roles.AssignAsync(userRole.Id, user.Id, null);          // and again as the user's own: once in the claim
+            return await roles.AssignAsync(adminRole.Id, user.Id, null);  // the user's own
         });
-        Assert.Equal($"{tenant}:User", direct.Claim);
+        Assert.Equal("Administrator", direct.Claim);
 
         (await client.PasswordLoginAsync(user.Email!, password)).Dispose();
-        string[] expected = ["User", $"{AnubisFactory.SeededTenant}:Administrator", $"{tenant}:User"];
+        string[] expected = ["Administrator", "User"];
 
         var (idToken, accessToken) = await SignInAsync(client, "openid roles");
         using (var payload = JsonDocument.Parse(Base64UrlDecode(idToken.Split('.')[1])))
         {
-            Assert.Equal(expected.Order(StringComparer.Ordinal), Strings(payload.RootElement, "roles"));
+            Assert.Equal(expected, Strings(payload.RootElement, "roles"));
+            Assert.Equal(Tenant.DefaultId, payload.RootElement.GetProperty("tenant").GetString());   // the tenant the roles hold in
         }
 
         using (var introspection = await IntrospectAsync(client.Http, accessToken))
         {
             Assert.True(introspection.RootElement.GetProperty("active").GetBoolean());
             Assert.Contains(AnubisFactory.AppClientId, Strings(introspection.RootElement, "aud"));   // issued for the application
-            Assert.Equal(expected.Order(StringComparer.Ordinal), Strings(introspection.RootElement, "roles"));
+            Assert.Equal(expected, Strings(introspection.RootElement, "roles"));
+            Assert.Equal(Tenant.DefaultId, introspection.RootElement.GetProperty("tenant").GetString());
         }
 
         using (var request = new HttpRequestMessage(HttpMethod.Get, "/userinfo"))
@@ -123,14 +116,16 @@ public class RolesTests
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             using var userinfo = await client.Http.SendAsync(request);
             using var info = JsonDocument.Parse(await userinfo.Content.ReadAsStringAsync());
-            Assert.Equal(expected.Order(StringComparer.Ordinal), Strings(info.RootElement, "roles"));
+            Assert.Equal(expected, Strings(info.RootElement, "roles"));
+            Assert.Equal(Tenant.DefaultId, info.RootElement.GetProperty("tenant").GetString());
         }
 
-        // Without the scope the token says nothing about roles and isn't for the application.
-        var (plainId, plainAccess) = await SignInAsync(client, "openid");
+        // Without the scope the token says nothing about roles; the tenant is always there.
+        var (plainId, _) = await SignInAsync(client, "openid");
         using (var payload = JsonDocument.Parse(Base64UrlDecode(plainId.Split('.')[1])))
         {
             Assert.False(payload.RootElement.TryGetProperty("roles", out _));
+            Assert.Equal(Tenant.DefaultId, payload.RootElement.GetProperty("tenant").GetString());
         }
 
         // Taking the role away ends the tokens it is written in; the next sign-in is without it.
@@ -143,17 +138,12 @@ public class RolesTests
         var (laterId, _) = await SignInAsync(client, "openid roles");
         using (var payload = JsonDocument.Parse(Base64UrlDecode(laterId.Split('.')[1])))
         {
-            Assert.DoesNotContain($"{tenant}:User", Strings(payload.RootElement, "roles"));
+            Assert.Equal(["User"], Strings(payload.RootElement, "roles"));
         }
-
-        // Deleting a tenant takes its assignments with it.
-        await WithRolesAsync(async roles => { await roles.DeleteTenantAsync(tenant); return true; });
-        Assert.DoesNotContain(await WithRolesAsync(roles => roles.ListAssignmentsAsync()), a => a.TenantId == tenant);
-        Assert.NotNull(plainAccess);
     }
 
     [Fact]
-    public async Task Scim_ManagesTenantsRolesAndAssignments()
+    public async Task Scim_ManagesRolesAndAssignments()
     {
         using var anonymous = _factory.CreateAnonymousClient();
         using var tokenResponse = await anonymous.PostAsync("/token", new FormUrlEncodedContent(new Dictionary<string, string>
@@ -166,41 +156,6 @@ public class RolesTests
         using var tokenPayload = JsonDocument.Parse(await tokenResponse.Content.ReadAsStringAsync());
         using var api = _factory.CreateAnonymousClient();
         api.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenPayload.RootElement.GetProperty("access_token").GetString());
-
-        // --- tenant
-        var tenant = $"scim-{Guid.NewGuid():N}"[..14];
-        using (var created = await api.PostAsync("/api/Tenants", Scim($$"""{"name":"{{tenant}}","displayName":"Scim Tenant"}""")))
-        {
-            Assert.Equal(HttpStatusCode.Created, created.StatusCode);
-            Assert.Equal("application/scim+json", created.Content.Headers.ContentType?.MediaType);
-            Assert.EndsWith($"/api/Tenants/{tenant}", created.Headers.Location!.OriginalString);
-        }
-
-        using (var duplicate = await api.PostAsync("/api/Tenants", Scim($$"""{"name":"{{tenant}}"}""")))
-        {
-            Assert.Equal(HttpStatusCode.Conflict, duplicate.StatusCode);
-        }
-
-        using (var invalid = await api.PostAsync("/api/Tenants", Scim("""{"name":"Not Valid"}""")))
-        {
-            Assert.Equal(HttpStatusCode.BadRequest, invalid.StatusCode);
-        }
-
-        using (var patched = await api.PatchAsync($"/api/Tenants/{tenant}", Scim("""{"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchRequest"],"Operations":[{"op":"replace","path":"displayName","value":"Renamed"}]}""")))
-        {
-            Assert.Equal(HttpStatusCode.OK, patched.StatusCode);
-        }
-
-        using (var list = await api.GetFromJsonAsync<JsonDocument>($"/api/Tenants?filter=name eq \"{tenant}\""))
-        {
-            Assert.Equal(1, list!.RootElement.GetProperty("totalResults").GetInt32());
-            Assert.Equal("Renamed", list.RootElement.GetProperty("Resources")[0].GetProperty("displayName").GetString());
-        }
-
-        using (var renamed = await api.PutAsync($"/api/Tenants/{tenant}", Scim("""{"name":"another"}""")))
-        {
-            Assert.Equal(HttpStatusCode.BadRequest, renamed.StatusCode);   // the name is the identity
-        }
 
         // --- role
         var roleName = $"Reader{Guid.NewGuid():N}"[..14];
@@ -222,17 +177,17 @@ public class RolesTests
             Assert.Contains(roleName, roles!.RootElement.GetProperty("Resources").EnumerateArray().Select(r => r.GetProperty("name").GetString()));
         }
 
-        // --- assignment: the role by client + name, a user, a tenant
+        // --- assignment: the role by client + name, a user
         using var forms = new FormClient(_factory);
         var (user, _) = await forms.CreateUserAsync();
         string assignmentId;
-        var body = $$"""{"role":{"client":"{{AnubisFactory.AppClientId}}","name":"{{roleName}}"},"user":{"value":"{{user.Id}}"},"tenant":"{{tenant}}"}""";
+        var body = $$"""{"role":{"client":"{{AnubisFactory.AppClientId}}","name":"{{roleName}}"},"user":{"value":"{{user.Id}}"} }""";
         using (var created = await api.PostAsync("/api/RoleAssignments", Scim(body)))
         {
             Assert.Equal(HttpStatusCode.Created, created.StatusCode);
             using var assignment = JsonDocument.Parse(await created.Content.ReadAsStringAsync());
             assignmentId = assignment.RootElement.GetProperty("id").GetString()!;
-            Assert.Equal($"{tenant}:{roleName}", assignment.RootElement.GetProperty("claim").GetString());
+            Assert.Equal(roleName, assignment.RootElement.GetProperty("claim").GetString());
             Assert.Equal(roleId, assignment.RootElement.GetProperty("role").GetProperty("value").GetString());
             Assert.Equal(user.Email, assignment.RootElement.GetProperty("user").GetProperty("display").GetString());
         }
@@ -247,13 +202,13 @@ public class RolesTests
             Assert.Equal(HttpStatusCode.BadRequest, nobody.StatusCode);
         }
 
-        using (var list = await api.GetFromJsonAsync<JsonDocument>($"/api/RoleAssignments?filter=tenant eq \"{tenant}\""))
+        using (var list = await api.GetFromJsonAsync<JsonDocument>($"/api/RoleAssignments?filter=claim eq \"{roleName}\""))
         {
             Assert.Equal(assignmentId, list!.RootElement.GetProperty("Resources")[0].GetProperty("id").GetString());
         }
 
-        // --- deleting the tenant takes the assignment along; the role goes last
-        using (var deleted = await api.DeleteAsync($"/api/Tenants/{tenant}"))
+        // --- deleting the role takes the assignment along
+        using (var deleted = await api.DeleteAsync($"/api/Roles/{roleId}"))
         {
             Assert.Equal(HttpStatusCode.NoContent, deleted.StatusCode);
         }
@@ -261,11 +216,6 @@ public class RolesTests
         using (var gone = await api.GetAsync($"/api/RoleAssignments/{assignmentId}"))
         {
             Assert.Equal(HttpStatusCode.NotFound, gone.StatusCode);
-        }
-
-        using (var deleted = await api.DeleteAsync($"/api/Roles/{roleId}"))
-        {
-            Assert.Equal(HttpStatusCode.NoContent, deleted.StatusCode);
         }
 
         using (var again = await api.DeleteAsync($"/api/Roles/{roleId}"))

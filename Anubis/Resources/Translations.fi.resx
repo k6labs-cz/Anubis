@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Asiakassovelluksille myönnettyjen tunnusten ja koodien voimassaolo. Muutokset koskevat uusia tunnuksia.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Palvelin</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Julkinen URL (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Esimerkiksi https://id.example.com. Tyhjä = jokaisesta pyynnöstä. Tulee voimaan uudelleenkäynnistyksen jälkeen.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Esimerkiksi https://id.example.com. Tyhjä = jokaisesta pyynnöstä.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Rekisteröityminen</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Salli omatoiminen rekisteröityminen</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Vaadi vahvistettu sähköpostiosoite kirjautumiseen</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Vaihda avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Ladataan…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Vuokraajat</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organisaatiot, joiden käyttäjät saavat rooleja sovelluksissa.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Erilliset organisaatiot, joilla jokaisella on oma käyttäjien, sovellusten ja asetusten tietokanta.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Roolit</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Sovellusten määrittelemät roolit sekä käyttäjät ja ryhmät, joilla ne ovat.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Luo vuokraaja</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Tunniste</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Poistetaanko vuokraaja {0}? Myös sen roolimääritykset poistetaan.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Poistetaanko vuokraaja {0}? Sen tietokanta kaikkine käyttäjineen, sovelluksineen ja asetuksineen poistetaan pysyvästi.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Luo rooli</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Sovellus</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Rooli</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Roolimääritykset</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Määritä rooli</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Määritetty</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Vuokraaja</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Kaikki vuokraajat</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Poistetaanko rooli {0} kohteelta {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Nähdä roolisi tässä sovelluksessa</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Tunnisteessa saa olla vain pieniä kirjaimia, numeroita ja yhdysmerkkejä (enintään 63 merkkiä).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Valitse käyttäjä tai ryhmä.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Tämä rooli on jo määritetty.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>Kohdetta '{0}' ei löytynyt.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Isäntänimet</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Erotettu välilyönneillä. Vuokraaja on aina käytettävissä myös osoitteessa {0}.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Osoite</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>Ylläpitäjän sähköposti</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Ylläpitäjän salasana</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Oletus</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' ei ole kelvollinen isäntänimi.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>Isäntänimi '{0}' on jo käytössä.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Anna ylläpitäjän sähköposti ja salasana.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Tämä isäntänimi ei kuulu tälle vuokraajalle.</value></data>
 </root>

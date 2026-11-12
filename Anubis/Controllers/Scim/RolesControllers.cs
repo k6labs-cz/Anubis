@@ -26,22 +26,22 @@ public abstract class ScimRoleControllerBase : ScimControllerBase
     }
 }
 
-/// <summary>Tenants: /api/Tenants. A tenant's <c>name</c> is its identifier (and its SCIM id).</summary>
+/// <summary>Tenants: /api/Tenants, at the default tenant only. A tenant's <c>name</c> is its identifier (and its SCIM id).</summary>
 [Route("api/Tenants")]
 public sealed class TenantsController(ScimRoleService scim) : ScimRoleControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> List(
+    public IActionResult List(
         [FromQuery] string? filter, [FromQuery] string? sortBy, [FromQuery] string? sortOrder,
         [FromQuery] int? startIndex, [FromQuery] int? count, [FromQuery] string? attributes, [FromQuery] string? excludedAttributes)
-        => ScimJson(await scim.ListTenantsAsync(Query(filter, sortBy, sortOrder, startIndex, count, attributes, excludedAttributes), BaseUri));
+        => ScimJson(scim.ListTenants(Query(filter, sortBy, sortOrder, startIndex, count, attributes, excludedAttributes), BaseUri));
 
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] JsonObject? resource)
         => Created(await scim.CreateTenantAsync(Body(resource, "Tenant"), BaseUri), "Tenants");
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> Get(string id) => ScimJson(await scim.GetTenantAsync(id, BaseUri));
+    public IActionResult Get(string id) => ScimJson(scim.GetTenant(id, BaseUri));
 
     [HttpPut("{id}")]
     public async Task<IActionResult> Replace(string id, [FromBody] JsonObject? resource)
@@ -92,7 +92,7 @@ public sealed class RolesController(ScimRoleService scim) : ScimRoleControllerBa
     }
 }
 
-/// <summary>Who has which role in which tenant: /api/RoleAssignments. An assignment doesn't change: delete it and create another.</summary>
+/// <summary>Who has which role: /api/RoleAssignments. An assignment doesn't change: delete it and create another.</summary>
 [Route("api/RoleAssignments")]
 public sealed class RoleAssignmentsController(ScimRoleService scim) : ScimRoleControllerBase
 {

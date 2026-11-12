@@ -3,8 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace k6labs.Anubis.Data.Entities;
 
 /// <summary>
-/// A role given to a user or to a group (exactly one of the two), in one tenant or, without a tenant,
-/// in all of them. A group's members have the group's roles.
+/// A role given to a user or to a group (exactly one of the two). A group's members have the group's roles.
 /// </summary>
 public class RoleAssignment
 {
@@ -26,12 +25,6 @@ public class RoleAssignment
     public string? GroupId { get; set; }
 
     public Group? Group { get; set; }
-
-    /// <summary>Null: the role holds in every tenant.</summary>
-    [MaxLength(Tenant.IdMaxLength)]
-    public string? TenantId { get; set; }
-
-    public Tenant? Tenant { get; set; }
 
     public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
 }

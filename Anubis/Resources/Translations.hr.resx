@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Valjanost tokena i kodova izdanih klijentskim aplikacijama. Promjene vrijede za nove tokene.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Poslužitelj</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Javni URL (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Na primjer https://id.example.com. Prazno = iz svakog zahtjeva. Primjenjuje se nakon ponovnog pokretanja.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Na primjer https://id.example.com. Prazno = iz svakog zahtjeva.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Registracija</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Dopusti samostalnu registraciju</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Zahtijevaj potvrđenu adresu e-pošte za prijavu</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Promijeni avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Učitavanje…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Zakupci</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizacije čiji korisnici dobivaju uloge u aplikacijama.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Odvojene organizacije, svaka s vlastitom bazom podataka korisnika, aplikacija i postavki.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Uloge</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Uloge koje definiraju aplikacije te korisnici i grupe koji ih imaju.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Stvori zakupca</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Identifikator</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Izbrisati zakupca {0}? Izbrisat će se i njegove dodjele uloga.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Izbrisati zakupca {0}? Njegova baza podataka sa svim korisnicima, aplikacijama i postavkama trajno će se izbrisati.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Stvori ulogu</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Aplikacija</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Uloga</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Dodjele uloga</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Dodijeli ulogu</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Dodijeljeno</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Zakupac</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Svi zakupci</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Ukloniti ulogu {0} za {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Vidjeti vaše uloge u ovoj aplikaciji</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Identifikator smije sadržavati samo mala slova, znamenke i crtice (najviše 63 znaka).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Odaberite korisnika ili grupu.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Ova je uloga već dodijeljena.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>Stavka '{0}' nije pronađena.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Nazivi hostova</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Odvojeni razmacima. Zakupac je uvijek dostupan i na adresi {0}.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Adresa</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>E-pošta administratora</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Lozinka administratora</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Zadani</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' nije valjan naziv hosta.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>Naziv hosta '{0}' već se koristi.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Unesite e-poštu i lozinku administratora.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Ovaj naziv hosta ne pripada ovom zakupcu.</value></data>
 </root>

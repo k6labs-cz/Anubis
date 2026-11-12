@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Klientų programoms išduodamų prieigos raktų ir kodų galiojimas. Pakeitimai taikomi naujiems raktams.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Serveris</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Viešasis URL (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Pavyzdžiui, https://id.example.com. Tuščia = pagal kiekvieną užklausą. Įsigalioja po paleidimo iš naujo.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Pavyzdžiui, https://id.example.com. Tuščia = pagal kiekvieną užklausą.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Registracija</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Leisti savarankišką registraciją</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Prisijungiant reikalauti patvirtinto el. pašto adreso</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Keisti avatarą</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Įkeliama…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Nuomotojai</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizacijos, kurių naudotojai gauna vaidmenis programose.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Atskiros organizacijos, kiekviena su savo naudotojų, programų ir nustatymų duomenų baze.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Vaidmenys</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Programų apibrėžti vaidmenys ir juos turintys naudotojai bei grupės.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Sukurti nuomotoją</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Identifikatorius</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Ištrinti nuomotoją {0}? Jo vaidmenų priskyrimai taip pat bus ištrinti.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Ištrinti nuomotoją {0}? Jo duomenų bazė su visais naudotojais, programomis ir nustatymais bus ištrinta visam laikui.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Sukurti vaidmenį</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Programa</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Vaidmuo</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Vaidmenų priskyrimai</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Priskirti vaidmenį</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Priskirta</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Nuomotojas</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Visi nuomotojai</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Pašalinti vaidmenį {0} iš {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Matyti jūsų vaidmenis šioje programoje</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Identifikatoriuje gali būti tik mažosios raidės, skaitmenys ir brūkšneliai (ne daugiau kaip 63 simboliai).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Pasirinkite naudotoją arba grupę.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Šis vaidmuo jau priskirtas.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' nerasta.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Pagrindinių kompiuterių vardai</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Atskirti tarpais. Nuomotojas visada pasiekiamas ir adresu {0}.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Adresas</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>Administratoriaus el. paštas</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Administratoriaus slaptažodis</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Numatytasis</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' nėra tinkamas pagrindinio kompiuterio vardas.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>Pagrindinio kompiuterio vardas '{0}' jau naudojamas.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Įveskite administratoriaus el. paštą ir slaptažodį.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Šis pagrindinio kompiuterio vardas nepriklauso šiam nuomotojui.</value></data>
 </root>

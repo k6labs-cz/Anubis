@@ -12,6 +12,8 @@ namespace k6labs.Anubis.Hosting;
 /// Generated certificates are valid for two years; 60 days before expiry a new one is created
 /// and becomes the active key, while older ones that have not expired yet are still loaded so
 /// existing tokens can be validated.
+/// These are the default tenant's; every other tenant has generated certificates of its own in its
+/// folder (<c>tenants/{id}/keys</c>, <see cref="LoadGenerated"/>), so no tenant can read or forge another's tokens.
 /// </summary>
 public static class OpenIddictCertificates
 {
@@ -36,9 +38,16 @@ public static class OpenIddictCertificates
             return [LoadPfx(paths.Resolve(configuredPath), section[$"{name}CertificatePassword"])];
         }
 
+        return LoadGenerated(paths.KeysDirectory, purpose, now);
+    }
+
+    /// <summary>The generated certificates in a keys directory, newest first; creates the directory and a certificate when needed.</summary>
+    public static IReadOnlyList<X509Certificate2> LoadGenerated(string keysDirectory, Purpose purpose, DateTimeOffset? now = null)
+    {
+        Directory.CreateDirectory(keysDirectory);
         var current = now ?? DateTimeOffset.UtcNow;
-        var prefix = name.ToLowerInvariant();
-        var certificates = Directory.EnumerateFiles(paths.KeysDirectory, $"{prefix}-*.pfx")
+        var prefix = purpose.ToString().ToLowerInvariant();
+        var certificates = Directory.EnumerateFiles(keysDirectory, $"{prefix}-*.pfx")
             .Select(path => LoadPfx(path, password: null))
             .Where(certificate => certificate.NotAfter.ToUniversalTime() > current.UtcDateTime)
             .OrderByDescending(certificate => certificate.NotAfter)
@@ -46,7 +55,7 @@ public static class OpenIddictCertificates
 
         if (certificates.Count == 0 || certificates[0].NotAfter.ToUniversalTime() - current.UtcDateTime < RenewBefore)
         {
-            certificates.Insert(0, Create(paths.KeysDirectory, purpose, current));
+            certificates.Insert(0, Create(keysDirectory, purpose, current));
         }
 
         return certificates;

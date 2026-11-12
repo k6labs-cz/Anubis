@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>A kliensalkalmazásoknak kiadott tokenek és kódok érvényessége. A módosítások az új tokenekre vonatkoznak.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Kiszolgáló</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Nyilvános URL (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Például https://id.example.com. Üres = minden kérésből. Újraindítás után lép életbe.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Például https://id.example.com. Üres = minden kérésből.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Regisztráció</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Önálló regisztráció engedélyezése</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Megerősített e-mail-cím megkövetelése a bejelentkezéshez</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Avatar módosítása</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Betöltés…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Bérlők</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Szervezetek, amelyek felhasználói szerepköröket kapnak az alkalmazásokban.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Különálló szervezetek, mindegyik saját adatbázissal a felhasználók, alkalmazások és beállítások számára.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Szerepkörök</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Az alkalmazások által meghatározott szerepkörök, valamint a felhasználók és csoportok, akik rendelkeznek velük.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Bérlő létrehozása</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Azonosító</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Törli a(z) {0} bérlőt? A szerepkör-hozzárendelései is törlődnek.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Törli a(z) {0} bérlőt? Az adatbázisa az összes felhasználóval, alkalmazással és beállítással együtt véglegesen törlődik.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Szerepkör létrehozása</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Alkalmazás</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Szerepkör</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Szerepkör-hozzárendelések</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Szerepkör hozzárendelése</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Hozzárendelve</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Bérlő</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Minden bérlő</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Eltávolítja a(z) {0} szerepkört ettől: {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>A szerepkörei megtekintése ebben az alkalmazásban</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Az azonosító csak kisbetűket, számjegyeket és kötőjeleket tartalmazhat (legfeljebb 63 karakter).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Válasszon felhasználót vagy csoportot.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Ez a szerepkör már hozzá van rendelve.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>A(z) '{0}' nem található.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Gazdanevek</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Szóközzel elválasztva. A bérlő mindig elérhető a(z) {0} címen is.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Cím</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>Rendszergazda e-mail-címe</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Rendszergazda jelszava</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Alapértelmezett</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>A(z) '{0}' nem érvényes gazdanév.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>A(z) '{0}' gazdanév már használatban van.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Adja meg a rendszergazda e-mail-címét és jelszavát.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Ez a gazdanév nem ehhez a bérlőhöz tartozik.</value></data>
 </root>

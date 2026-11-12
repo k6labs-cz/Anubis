@@ -13,6 +13,7 @@
 @inject IOptionsMonitor<AnubisOptions> AnubisMonitor
 @inject SettingsFile Settings
 @inject NavigationManager Navigation
+@inject Tenancy.TenantCatalog Catalog
 @inject ILogger<General> Logger
 
 <AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_General))" />
@@ -85,6 +86,13 @@
             && !(Uri.TryCreate(publicUrl, UriKind.Absolute, out var uri) && uri.Scheme is "https" or "http" && string.IsNullOrEmpty(uri.Query)))
         {
             publicUrlError = Translations.Validation_HttpsUrl;
+            return;
+        }
+
+        // The address must lead to this tenant: with another tenant's, its tokens would name that tenant as their issuer.
+        if (!string.IsNullOrEmpty(publicUrl) && Catalog.Resolve(new Uri(publicUrl).Host).Id != Tenancy.TenantContext.Current.Id)
+        {
+            publicUrlError = Translations.Validation_PublicUrlHost;
             return;
         }
 

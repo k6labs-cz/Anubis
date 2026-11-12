@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Ważność tokenów i kodów wydawanych aplikacjom klienckim. Zmiany dotyczą nowo wydanych tokenów.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Serwer</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Publiczny adres URL (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Na przykład https://id.example.com. Puste = z każdego żądania. Obowiązuje po restarcie.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Na przykład https://id.example.com. Puste = z każdego żądania.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Rejestracja</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Zezwalaj na samodzielną rejestrację</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Wymagaj potwierdzonego adresu e-mail do logowania</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Zmień awatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Ładowanie…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Dzierżawy</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizacje, których użytkownicy otrzymują role w aplikacjach.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Oddzielne organizacje, każda z własną bazą danych użytkowników, aplikacji i ustawień.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Role</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Role definiowane przez aplikacje oraz użytkownicy i grupy, które je mają.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Utwórz dzierżawę</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Identyfikator</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Usunąć dzierżawę {0}? Jej przypisania ról również zostaną usunięte.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Usunąć dzierżawę {0}? Jej baza danych ze wszystkimi użytkownikami, aplikacjami i ustawieniami zostanie trwale usunięta.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Utwórz rolę</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Aplikacja</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Rola</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Przypisania ról</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Przypisz rolę</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Przypisano do</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Dzierżawa</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Wszystkie dzierżawy</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Odebrać rolę {0} dla {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Wyświetlać Twoje role w tej aplikacji</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Identyfikator może zawierać tylko małe litery, cyfry i myślniki (najwyżej 63 znaki).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Wybierz użytkownika lub grupę.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Ta rola jest już przypisana.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>Nie znaleziono '{0}'.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Nazwy hostów</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Oddzielone spacjami. Dzierżawa jest zawsze dostępna również pod adresem {0}.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Adres</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>E-mail administratora</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Hasło administratora</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Domyślna</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' nie jest prawidłową nazwą hosta.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>Nazwa hosta '{0}' jest już używana.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Podaj e-mail i hasło administratora.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Ta nazwa hosta nie należy do tej dzierżawy.</value></data>
 </root>

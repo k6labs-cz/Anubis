@@ -31,7 +31,7 @@ public static partial class CustomClaims
         "sub", "iss", "aud", "exp", "iat", "nbf", "jti", "auth_time", "nonce", "acr", "amr", "azp", "at_hash", "c_hash", "sid",
         "client_id", "scope", "scp", "cnf", "typ", "htm", "htu", "act", "may_act", "events", "sub_jwk",
         // Set by Anubis
-        "name", "preferred_username", "picture", "email", "email_verified", "phone_number", "phone_number_verified", "role", "roles", "groups",
+        "name", "preferred_username", "picture", "email", "email_verified", "phone_number", "phone_number_verified", "role", "roles", "groups", "tenant",
         "given_name", "family_name", "middle_name", "nickname", "profile", "website", "gender", "birthdate", "zoneinfo", "locale", "address", "updated_at",
         // ASP.NET Core Identity (sign-in cookie)
         "AspNet.Identity.SecurityStamp", "amr",

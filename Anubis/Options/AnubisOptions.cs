@@ -27,7 +27,9 @@ public sealed class AnubisOptions
 
     /// <summary>
     /// Explicit issuer URI (e.g. <c>https://id.example.com</c>) used when running behind a
-    /// reverse proxy. When empty, the issuer is derived from each request.
+    /// reverse proxy. When empty, the issuer is derived from each request. It is the address of the
+    /// default tenant; another tenant has the same address with its own host name
+    /// (<see cref="Tenancy.TenantConfigurations"/>), unless its "General" page says otherwise.
     /// </summary>
     public string? Issuer { get; set; }
 
@@ -50,20 +52,31 @@ public sealed class AnubisOptions
     /// <summary>Lifetime of the "consent granted" cookie used during the authorization code flow.</summary>
     public int ConsentCookieLifetimeMinutes { get; set; } = 10;
 
-    /// <summary>OIDC clients created automatically on first start (idempotent).</summary>
+    /// <summary>OIDC clients created automatically on first start (idempotent), in the default tenant.</summary>
     public List<SeedClientOptions> Clients { get; set; } = new();
 
-    /// <summary>Tenants created automatically on first start (idempotent).</summary>
+    /// <summary>Tenants created automatically on first start (idempotent), each with a database of its own.</summary>
     public List<SeedTenantOptions> Tenants { get; set; } = new();
 }
 
-/// <summary>Configuration of a tenant seeded into the database.</summary>
+/// <summary>Configuration of a tenant created at startup, with what is seeded into its database.</summary>
 public sealed class SeedTenantOptions
 {
-    /// <summary>Lowercase letters, digits and dashes.</summary>
+    /// <summary>Lowercase letters, digits and dashes: the tenant's folder, subdomain and "tenant" claim.</summary>
     public string Id { get; set; } = string.Empty;
 
     public string? DisplayName { get; set; }
+
+    /// <summary>Host names of the tenant's own, besides the subdomain <c>{Id}.{Anubis:TenantDomain}</c>.</summary>
+    public List<string> Hosts { get; set; } = new();
+
+    /// <summary>The tenant's administrator account, created when both are set and the account doesn't exist.</summary>
+    public string? AdminEmail { get; set; }
+
+    public string? AdminPassword { get; set; }
+
+    /// <summary>OIDC clients created in the tenant (<see cref="AnubisOptions.Clients"/> are the default tenant's).</summary>
+    public List<SeedClientOptions> Clients { get; set; } = new();
 }
 
 /// <summary>A role the seeded client defines for itself.</summary>

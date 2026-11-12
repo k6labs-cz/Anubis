@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Geldigheid van tokens en codes voor clientapplicaties. Wijzigingen gelden voor nieuw uitgegeven tokens.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Server</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Openbare URL (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Bijvoorbeeld https://id.example.com. Leeg = uit elk verzoek. Werkt na een herstart.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Bijvoorbeeld https://id.example.com. Leeg = uit elk verzoek.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Registratie</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Zelf registreren toestaan</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Bevestigd e-mailadres vereisen om in te loggen</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Avatar wijzigen</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Laden…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Tenants</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organisaties waarvan de gebruikers rollen krijgen in de applicaties.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Gescheiden organisaties, elk met een eigen database van gebruikers, applicaties en instellingen.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Rollen</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Rollen die applicaties definiëren, en de gebruikers en groepen die ze hebben.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Tenant aanmaken</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Identificatie</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>De tenant {0} verwijderen? De roltoewijzingen ervan worden ook verwijderd.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>De tenant {0} verwijderen? De database met alle gebruikers, applicaties en instellingen wordt definitief verwijderd.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Rol aanmaken</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Applicatie</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Rol</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Roltoewijzingen</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Rol toewijzen</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Toegewezen aan</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Tenant</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Alle tenants</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>De rol {0} verwijderen bij {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Uw rollen in deze applicatie zien</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>De identificatie mag alleen kleine letters, cijfers en streepjes bevatten (hoogstens 63 tekens).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Kies een gebruiker of een groep.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Deze rol is al toegewezen.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' is niet gevonden.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Hostnamen</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Gescheiden door spaties. De tenant is altijd ook bereikbaar op {0}.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Adres</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>E-mailadres van de beheerder</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Wachtwoord van de beheerder</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Standaard</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' is geen geldige hostnaam.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>De hostnaam '{0}' is al in gebruik.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Voer het e-mailadres en het wachtwoord van de beheerder in.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Deze hostnaam hoort niet bij deze tenant.</value></data>
 </root>

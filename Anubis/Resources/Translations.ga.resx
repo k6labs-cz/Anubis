@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Bailíocht na gcomharthaí agus na gcód a eisítear d'fheidhmchláir chliaint. Baineann athruithe le comharthaí nua.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Freastalaí</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>URL poiblí (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Mar shampla https://id.example.com. Folamh = ó gach iarratas. Tagann sé i bhfeidhm tar éis atosú.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Mar shampla https://id.example.com. Folamh = ó gach iarratas.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Clárú</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Ceadaigh féinchlárú</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Éiligh seoladh ríomhphoist deimhnithe chun síniú isteach</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Athraigh an t-abhatár</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Á lódáil…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Tionóntaí</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Eagraíochtaí a bhfaigheann a n-úsáideoirí róil sna feidhmchláir.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Eagraíochtaí ar leith, gach ceann acu lena bhunachar sonraí féin d'úsáideoirí, d'fheidhmchláir agus de shocruithe.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Róil</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Róil a shainíonn feidhmchláir, agus na húsáideoirí agus na grúpaí a bhfuil siad acu.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Cruthaigh tionónta</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Aitheantóir</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>An bhfuil fonn ort an tionónta {0} a scriosadh? Scriosfar a shannacháin róil freisin.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>An bhfuil fonn ort an tionónta {0} a scriosadh? Scriosfar a bhunachar sonraí leis na húsáideoirí, na feidhmchláir agus na socruithe go léir go buan.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Cruthaigh ról</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Feidhmchlár</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Ról</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Sannacháin róil</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Sann ról</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Sannta do</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Tionónta</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Gach tionónta</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>An bhfuil fonn ort an ról {0} a bhaint de {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Do róil san fheidhmchlár seo a fheiceáil</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Ní féidir ach litreacha beaga, digití agus fleiscíní a bheith san aitheantóir (63 carachtar ar a mhéad).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Roghnaigh úsáideoir nó grúpa.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Tá an ról seo sannta cheana.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>Níor aimsíodh '{0}'.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Óstainmneacha</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Scartha le spásanna. Bíonn an tionónta ar fáil ag {0} i gcónaí freisin.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Seoladh</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>Ríomhphost an riarthóra</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Pasfhocal an riarthóra</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Réamhshocrú</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>Ní óstainm bailí é '{0}'.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>Tá an t-óstainm '{0}' in úsáid cheana.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Cuir isteach ríomhphost agus pasfhocal an riarthóra.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Ní leis an tionónta seo an t-óstainm seo.</value></data>
 </root>

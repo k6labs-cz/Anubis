@@ -46,3 +46,6 @@ anubis.settings.json
 # Data directory contents when running locally (Anubis:DataDirectory defaults to the project folder):
 # Data Protection keys and OpenIddict certificates
 Anubis/keys/
+
+# Tenants: each folder holds a database, settings and private keys
+Anubis/tenants/

@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Validade dos tokens e códigos emitidos para aplicações cliente. As alterações aplicam-se a novos tokens.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Servidor</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>URL pública (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Por exemplo https://id.example.com. Vazio = obtida de cada pedido. Aplica-se após reiniciar.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Por exemplo https://id.example.com. Vazio = obtida de cada pedido.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Registo</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Permitir registo livre</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Exigir um endereço de e-mail confirmado para iniciar sessão</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Alterar avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>A carregar…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Inquilinos</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizações cujos utilizadores recebem funções nas aplicações.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizações separadas, cada uma com a sua própria base de dados de utilizadores, aplicações e definições.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Funções</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Funções definidas pelas aplicações e os utilizadores e grupos que as têm.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Criar inquilino</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Identificador</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Eliminar o inquilino {0}? As suas atribuições de funções também serão eliminadas.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Eliminar o inquilino {0}? A sua base de dados com todos os utilizadores, aplicações e definições será eliminada definitivamente.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Criar função</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Aplicação</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Função</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Atribuições de funções</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Atribuir função</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Atribuído a</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Inquilino</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Todos os inquilinos</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Remover a função {0} de {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Ver as suas funções nesta aplicação</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>O identificador só pode conter letras minúsculas, dígitos e hífenes (63 caracteres no máximo).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Escolha um utilizador ou um grupo.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Esta função já está atribuída.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' não foi encontrado.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Nomes de anfitrião</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Separados por espaços. O inquilino está sempre disponível também em {0}.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Endereço</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>E-mail do administrador</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Palavra-passe do administrador</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Predefinido</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' não é um nome de anfitrião válido.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>O nome de anfitrião '{0}' já está a ser utilizado.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Introduza o e-mail e a palavra-passe do administrador.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Este nome de anfitrião não pertence a este inquilino.</value></data>
 </root>

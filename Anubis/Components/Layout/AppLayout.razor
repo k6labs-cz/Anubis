@@ -43,9 +43,13 @@
                     <NavigationLink Href="/groups" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Badge" Size="18" />
                         @Translations.Admin_Groups
                     </NavigationLink>
-                    <NavigationLink Href="/tenants" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Tenants" Size="18" />
-                        @Translations.Admin_Tenants
-                    </NavigationLink>
+                    @* Tenants are managed from the default tenant only. *@
+                    @if (Tenancy.TenantContext.Current.IsDefault)
+                    {
+                        <NavigationLink Href="/tenants" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Tenants" Size="18" />
+                            @Translations.Admin_Tenants
+                        </NavigationLink>
+                    }
                     <NavigationLink Href="/roles" Match="NavLinkMatch.Prefix"><Icon Name="@AppIcons.Roles" Size="18" />
                         @Translations.Admin_Roles
                     </NavigationLink>

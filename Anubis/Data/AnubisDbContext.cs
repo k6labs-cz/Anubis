@@ -7,7 +7,8 @@ using Microsoft.EntityFrameworkCore;
 namespace k6labs.Anubis.Data;
 
 /// <summary>
-/// SQLite database context combining ASP.NET Core Identity and the OpenIddict entities.
+/// SQLite database context of one tenant, combining ASP.NET Core Identity and the OpenIddict entities.
+/// Which tenant's database it opens is decided when the context is created (<c>Program.cs</c>).
 /// OpenIddict entities are registered through
 /// <c>DbContextOptionsBuilder.UseOpenIddict&lt;...&gt;()</c> in <c>Program.cs</c>.
 /// </summary>
@@ -25,8 +26,6 @@ public class AnubisDbContext : IdentityDbContext<User, Group, string>
     public DbSet<UserAvatar> UserAvatars => Set<UserAvatar>();
 
     public DbSet<UserEvent> UserEvents => Set<UserEvent>();
-
-    public DbSet<Tenant> Tenants => Set<Tenant>();
 
     public DbSet<ClientRole> ClientRoles => Set<ClientRole>();
 
@@ -60,8 +59,6 @@ public class AnubisDbContext : IdentityDbContext<User, Group, string>
                   .OnDelete(DeleteBehavior.Cascade);
         });
 
-        builder.Entity<Tenant>(entity => entity.ToTable("Tenants"));
-
         // A role belongs to its application and goes with it.
         builder.Entity<ClientRole>(entity =>
         {
@@ -73,17 +70,15 @@ public class AnubisDbContext : IdentityDbContext<User, Group, string>
                   .OnDelete(DeleteBehavior.Cascade);
         });
 
-        // An assignment goes with its role, its user or group, and its tenant.
+        // An assignment goes with its role and its user or group.
         builder.Entity<RoleAssignment>(entity =>
         {
             entity.ToTable("RoleAssignments");
             entity.HasIndex(a => a.UserId);
             entity.HasIndex(a => a.GroupId);
-            entity.HasIndex(a => a.TenantId);
             entity.HasOne(a => a.Role).WithMany().HasForeignKey(a => a.RoleId).OnDelete(DeleteBehavior.Cascade);
             entity.HasOne(a => a.User).WithMany().HasForeignKey(a => a.UserId).OnDelete(DeleteBehavior.Cascade);
             entity.HasOne(a => a.Group).WithMany().HasForeignKey(a => a.GroupId).OnDelete(DeleteBehavior.Cascade);
-            entity.HasOne(a => a.Tenant).WithMany().HasForeignKey(a => a.TenantId).OnDelete(DeleteBehavior.Cascade);
             entity.ToTable(table => table.HasCheckConstraint("CK_RoleAssignments_UserOrGroup", "(\"UserId\" IS NULL) <> (\"GroupId\" IS NULL)"));
         });
 

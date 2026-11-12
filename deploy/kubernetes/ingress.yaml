@@ -1,6 +1,9 @@
 # TLS ends here; the ingress sends X-Forwarded-Proto/-For, which Anubis trusts
 # (the image sets ASPNETCORE_FORWARDEDHEADERS_ENABLED=true). Expose the pod only
 # through this proxy. Set Anubis:Issuer (configmap.yaml) to the public URL.
+# Tenants are told apart by host name: to serve them, add their hosts here too (a wildcard
+# such as "*.id.example.com" for the subdomains, plus any host names of their own) with a
+# certificate that covers them. The ingress must pass the original Host header (the default).
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:

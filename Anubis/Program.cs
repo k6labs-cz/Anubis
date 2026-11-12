@@ -16,8 +16,10 @@ using k6labs.Anubis.Services.Avatar;
 using k6labs.Anubis.Services.Email;
 using k6labs.Anubis.Services.Sms;
 using k6labs.Anubis.Telemetry;
+using k6labs.Anubis.Tenancy;
 using k6labs.Hathor.Lucide;
 
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.RateLimiting;
@@ -47,20 +49,30 @@ var configuration = builder.Configuration;
 //   < Anubis:SecretsDirectory (optional key-per-file directory, e.g. a mounted Secret:
 //     a file "Email__Smtp__Password" sets Email:Smtp:Password)
 //   < environment variables < command line
-//   < the settings file written by the admin UI (data directory)
+//   < the tenant's settings file written by the admin UI (data directory)
+// Everything up to the command line is the server's configuration, the same for all tenants.
 // ---------------------------------------------------------------------------
 ConfigurationSources.AddMountedSources(configuration, environment.ContentRootPath);
 
-// Everything Anubis writes (database, admin settings, keys) goes to one data directory,
+// Everything Anubis writes (databases, admin settings, keys) goes to one data directory,
 // e.g. /data on a persistent volume in Kubernetes (Anubis:DataDirectory).
 var dataPaths = DataPaths.Resolve(configuration, environment.ContentRootPath);
 services.AddSingleton(dataPaths);
 
-// Settings edited in the admin UI live in their own JSON file in the data directory, added as
-// the last configuration source so it wins over appsettings.json and environment variables.
-var settingsFile = new SettingsFile(SettingsFile.ResolvePath(configuration, dataPaths.DataDirectory), configuration);
-configuration.AddJsonFile(settingsFile.Path, optional: true, reloadOnChange: true);
-services.AddSingleton(settingsFile);
+// ---------------------------------------------------------------------------
+// Tenants: each has a SQLite database and a settings file of its own. The tenant of a request
+// comes from its host name (TenantMiddleware); the catalog database lists the tenants.
+// ---------------------------------------------------------------------------
+services.AddDbContextFactory<CatalogDbContext>((provider, options) =>
+    options.UseSqlite(dataPaths.CatalogConnectionString(provider.GetRequiredService<IConfiguration>().GetConnectionString("Tenants"))));
+services.AddSingleton<TenantCatalog>();
+services.AddSingleton<TenantConfigurations>();
+services.AddSingleton<TenantAdministration>();
+services.AddScoped<Microsoft.AspNetCore.Components.Server.Circuits.CircuitHandler, TenantCircuitHandler>();
+
+// Settings edited in the admin UI live in a JSON file per tenant in the data directory, the last
+// source of the tenant's configuration, so it wins over appsettings.json and environment variables.
+services.AddTransient(provider => provider.GetRequiredService<TenantConfigurations>().CurrentSettings);
 
 // Data Protection keys (sign-in cookies, antiforgery tokens, email links, consent) are kept in
 // the data directory, so they survive restarts and new pods.
@@ -68,19 +80,33 @@ services.AddDataProtection()
     .SetApplicationName("Anubis")
     .PersistKeysToFileSystem(new DirectoryInfo(dataPaths.KeysDirectory));
 
-services.Configure<AnubisOptions>(configuration.GetSection(AnubisOptions.SectionName));
-services.Configure<AppearanceOptions>(configuration.GetSection(AppearanceOptions.SectionName));
-services.Configure<GeneralOptions>(configuration.GetSection(GeneralOptions.SectionName));
+// Options are per tenant: bound from the tenant's configuration and cached per tenant.
+services.AddTenantOptions<AnubisOptions>(AnubisOptions.SectionName)
+    // A tenant's public address must be the tenant's: an issuer with another tenant's host name
+    // would sign tokens in that tenant's name. Such a value is ignored (the address then comes from each request).
+    .PostConfigure<TenantCatalog>((options, catalog) =>
+    {
+        if (!string.IsNullOrWhiteSpace(options.Issuer)
+            && !(Uri.TryCreate(options.Issuer, UriKind.Absolute, out var issuer) && catalog.Resolve(issuer.Host).Id == TenantContext.Current.Id))
+        {
+            options.Issuer = null;
+        }
+    });
+services.AddTenantOptions<AppearanceOptions>(AppearanceOptions.SectionName);
+services.AddTenantOptions<GeneralOptions>(GeneralOptions.SectionName);
+
+// The server's own values, the same for all tenants: the API scope and the default token lifetimes.
 var anubisOptions = configuration.GetSection(AnubisOptions.SectionName).Get<AnubisOptions>() ?? new AnubisOptions();
 
 // ---------------------------------------------------------------------------
-// Persistence: SQLite via EF Core (Identity + OpenIddict entities)
+// Persistence: SQLite via EF Core (Identity + OpenIddict entities), one database per tenant
 // ---------------------------------------------------------------------------
-// Read when the context is built (not here), so configuration added later (tests) applies.
-// A relative Data Source (default "anubis.db") is placed in the data directory.
+// Read when the context is built (not here), so configuration added later (tests) applies, and the
+// context of a scope is the current tenant's. A relative Data Source (default "anubis.db") is
+// placed in the data directory; the other tenants' files are tenants/{id}/anubis.db.
 services.AddDbContext<AnubisDbContext>((provider, options) =>
 {
-    options.UseSqlite(dataPaths.SqliteConnectionString(provider.GetRequiredService<IConfiguration>().GetConnectionString("Default")));
+    options.UseSqlite(dataPaths.TenantConnectionString(TenantContext.Current, provider.GetRequiredService<IConfiguration>().GetConnectionString("Default")));
     options.UseOpenIddict<Client, Authorization, Scope, Token, string>();
 });
 
@@ -107,11 +133,10 @@ services.AddIdentity<User, Group>(options =>
     .AddTokenProvider<EmailConfirmationTokenProvider<User>>(EmailConfirmationTokenProvider<User>.ProviderName);
 
 // Settings from the admin pages (General / Security), applied without a restart: IdentityOptions
-// is recomputed whenever the configuration (including the settings file) reloads, and the
-// custom UserManager / SignInManager read the current value for each request.
-services.Configure<SecurityOptions>(configuration.GetSection(SecurityOptions.SectionName));
-services.AddSingleton<IOptionsChangeTokenSource<IdentityOptions>>(new ConfigurationChangeTokenSource<IdentityOptions>(configuration));
-services.AddOptions<IdentityOptions>()
+// is per tenant and recomputed whenever a configuration (including a settings file) reloads, and
+// the custom UserManager / SignInManager read the current value for each request.
+services.AddTenantOptions<SecurityOptions>(SecurityOptions.SectionName);
+services.AddTenantOptions<IdentityOptions>()
     .Configure<IOptionsMonitor<AnubisOptions>, IOptionsMonitor<SecurityOptions>>((identity, anubis, securityMonitor) =>
     {
         var security = securityMonitor.CurrentValue;
@@ -131,7 +156,7 @@ services.Configure<DataProtectionTokenProviderOptions>(options => options.TokenL
 services.AddOptions<EmailConfirmationTokenProviderOptions>();
 
 // Outgoing email: SMTP by default, or SendGrid / Mailgun / Postmark / Resend (section "Email").
-services.AddAnubisEmail(configuration);
+services.AddAnubisEmail();
 
 services.AddScoped<IPasswordHasher<User>, Argon2idPasswordHasher<User>>();
 services.AddSingleton<PasswordPolicy>();
@@ -139,17 +164,18 @@ services.AddSingleton<PasswordPolicy>();
 // Passkeys (WebAuthn / FIDO2). User verification is required, so every passkey
 // sign-in also proves a biometric (fingerprint, face) or device PIN check.
 // Passkeys must be discoverable so users can sign in without typing an email.
-services.Configure<IdentityPasskeyOptions>(options =>
-{
-    options.UserVerificationRequirement = "required";
-    options.ResidentKeyRequirement = "required";
-
-    if (!string.IsNullOrWhiteSpace(anubisOptions.Issuer))
+services.AddTenantOptions<IdentityPasskeyOptions>()
+    .Configure<IOptionsMonitor<AnubisOptions>>((options, anubis) =>
     {
-        // Passkeys are bound to this domain; it must match the public host name.
-        options.ServerDomain = new Uri(anubisOptions.Issuer, UriKind.Absolute).Host;
-    }
-});
+        options.UserVerificationRequirement = "required";
+        options.ResidentKeyRequirement = "required";
+
+        if (Uri.TryCreate(anubis.CurrentValue.Issuer, UriKind.Absolute, out var issuer))
+        {
+            // Passkeys are bound to this domain; it must match the tenant's public host name.
+            options.ServerDomain = issuer.Host;
+        }
+    });
 
 services.ConfigureApplicationCookie(options =>
 {
@@ -162,10 +188,11 @@ services.ConfigureApplicationCookie(options =>
     options.ReturnUrlParameter = "returnUrl";
 });
 
-// Session length from the "Security" settings; the cookie handler reads its options per request.
-services.AddSingleton<IOptionsChangeTokenSource<Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions>>(
-    new ConfigurationChangeTokenSource<Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme, configuration));
-services.AddOptions<Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme)
+// Cookies are per tenant: encrypted for the tenant (TenantCookieProtection), with the session length
+// from its "Security" settings; the cookie handler reads its options per request.
+services.AddTenantOptions<CookieAuthenticationOptions>();
+services.AddSingleton<IConfigureOptions<CookieAuthenticationOptions>, TenantCookieProtection>();
+services.AddOptions<CookieAuthenticationOptions>(IdentityConstants.ApplicationScheme)
     .Configure<IOptionsMonitor<SecurityOptions>>((cookie, security) =>
     {
         cookie.ExpireTimeSpan = TimeSpan.FromHours(Math.Clamp(security.CurrentValue.SessionLifetimeHours, SecurityOptions.Limits.SessionHoursMin, SecurityOptions.Limits.SessionHoursMax));
@@ -230,13 +257,9 @@ services.AddOpenIddict()
                .SetAuthorizationCodeLifetime(TimeSpan.FromMinutes(anubisOptions.AuthorizationCodeLifetimeMinutes))
                .SetRefreshTokenLifetime(TimeSpan.FromDays(anubisOptions.RefreshTokenLifetimeDays));
 
-        if (!string.IsNullOrWhiteSpace(anubisOptions.Issuer))
-        {
-            options.SetIssuer(new Uri(anubisOptions.Issuer, UriKind.Absolute));
-        }
-
-        // Signing / encryption certificates: configured (Anubis:Keys) or generated once into the
-        // data directory, the same in every environment, so tokens survive restarts.
+        // Signing / encryption certificates of the default tenant: configured (Anubis:Keys) or
+        // generated once into the data directory, the same in every environment, so tokens survive
+        // restarts. The other tenants have generated ones of their own (below).
         foreach (var certificate in OpenIddictCertificates.Load(configuration, dataPaths, OpenIddictCertificates.Purpose.Signing))
         {
             options.AddSigningCertificate(certificate);
@@ -266,26 +289,61 @@ services.AddOpenIddict()
         options.UseAspNetCore();
     });
 
+// The OpenIddict options are per tenant too, for the issuer: the tenant's public address
+// (Anubis:Issuer of its configuration) or, without one, the address of each request.
+services.AddTenantOptions<OpenIddict.Server.OpenIddictServerOptions>()
+    .Configure<IOptionsMonitor<AnubisOptions>>((options, anubis) =>
+    {
+        if (Uri.TryCreate(anubis.CurrentValue.Issuer, UriKind.Absolute, out var issuer))
+        {
+            options.Issuer = issuer;
+        }
+
+        // Every tenant but the default one signs and encrypts with keys of its own (tenants/{id}/keys),
+        // so its tokens are worth nothing anywhere else, whatever their claims say.
+        var tenant = TenantContext.Current;
+        if (!tenant.IsDefault)
+        {
+            var keys = dataPaths.TenantKeysDirectory(tenant.Id);
+            options.SigningCredentials.Clear();
+            options.EncryptionCredentials.Clear();
+            foreach (var certificate in OpenIddictCertificates.LoadGenerated(keys, OpenIddictCertificates.Purpose.Signing))
+            {
+                options.SigningCredentials.Add(new Microsoft.IdentityModel.Tokens.SigningCredentials(
+                    new Microsoft.IdentityModel.Tokens.X509SecurityKey(certificate), Microsoft.IdentityModel.Tokens.SecurityAlgorithms.RsaSha256));
+            }
+
+            foreach (var certificate in OpenIddictCertificates.LoadGenerated(keys, OpenIddictCertificates.Purpose.Encryption))
+            {
+                options.EncryptionCredentials.Add(new Microsoft.IdentityModel.Tokens.EncryptingCredentials(
+                    new Microsoft.IdentityModel.Tokens.X509SecurityKey(certificate),
+                    Microsoft.IdentityModel.Tokens.SecurityAlgorithms.RsaOAEP, Microsoft.IdentityModel.Tokens.SecurityAlgorithms.Aes256CbcHmacSha512));
+            }
+        }
+    });
+services.AddTenantOptions<OpenIddict.Validation.OpenIddictValidationOptions>();
+
 // ---------------------------------------------------------------------------
-// Rate limiting for the token endpoint
+// Rate limiting for the token endpoint and the API, per tenant: the traffic of one
+// tenant does not use up the limit of another.
 // ---------------------------------------------------------------------------
 services.AddRateLimiter(limiterOptions =>
 {
     limiterOptions.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
-    limiterOptions.AddFixedWindowLimiter("oidc", options =>
+    limiterOptions.AddPolicy("oidc", _ => RateLimitPartition.GetFixedWindowLimiter(TenantContext.Current.Id, _ => new FixedWindowRateLimiterOptions
     {
-        options.PermitLimit = 30;
-        options.Window = TimeSpan.FromMinutes(1);
-        options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
-        options.QueueLimit = 0;
-    });
-    limiterOptions.AddFixedWindowLimiter("api", options =>
+        PermitLimit = 30,
+        Window = TimeSpan.FromMinutes(1),
+        QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
+        QueueLimit = 0,
+    }));
+    limiterOptions.AddPolicy("api", _ => RateLimitPartition.GetFixedWindowLimiter(TenantContext.Current.Id, _ => new FixedWindowRateLimiterOptions
     {
-        options.PermitLimit = 120;
-        options.Window = TimeSpan.FromMinutes(1);
-        options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
-        options.QueueLimit = 0;
-    });
+        PermitLimit = 120,
+        Window = TimeSpan.FromMinutes(1),
+        QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
+        QueueLimit = 0,
+    }));
 });
 
 // ---------------------------------------------------------------------------
@@ -299,7 +357,8 @@ services.AddAuthorization(options =>
     {
         policy.AddAuthenticationSchemes(OpenIddictValidationAspNetCoreDefaults.AuthenticationScheme);
         policy.RequireAuthenticatedUser();
-        policy.RequireAssertion(context => context.User.HasScope(anubisOptions.ApiScope));
+        // The token of one tenant's client is no key to another tenant's API.
+        policy.RequireAssertion(context => context.User.HasScope(anubisOptions.ApiScope) && TenantClaims.IsForCurrentTenant(context.User));
     });
 });
 
@@ -325,7 +384,9 @@ services.AddRazorComponents()
 // Hathor icons are resolved across interactive render-mode boundaries.
 services.AddHathorLucide();
 
+// The database of the tenant the probe's host name belongs to (the default one for a bare address).
 services.AddHealthChecks()
+        .AddDbContextCheck<CatalogDbContext>("tenants")
         .AddDbContextCheck<AnubisDbContext>("database");
 
 // Per request (IOptionsSnapshot), so the consent lifetime from the "Tokens" page applies right away.
@@ -401,13 +462,21 @@ if (!string.IsNullOrWhiteSpace(configuration["OTEL_EXPORTER_OTLP_ENDPOINT"]))
 // ---------------------------------------------------------------------------
 var app = builder.Build();
 
-AnubisTelemetry.ObserveUsers(() =>
+// Accounts in all tenants.
+AnubisTelemetry.ObserveUsers(() => app.Services.GetRequiredService<TenantCatalog>().All.Sum(tenant =>
 {
-    using var scope = app.Services.CreateScope();
-    return scope.ServiceProvider.GetRequiredService<AnubisDbContext>().Users.LongCount();
-});
+    using (TenantContext.Use(tenant))
+    {
+        using var scope = app.Services.CreateScope();
+        return scope.ServiceProvider.GetRequiredService<AnubisDbContext>().Users.LongCount();
+    }
+}));
 
 await DatabaseInitializer.InitializeAsync(app.Services);
+
+// Before everything else: the tenant of the request (by its host name) decides which database,
+// settings and appearance the rest of the pipeline sees.
+app.UseMiddleware<TenantMiddleware>();
 
 if (!app.Environment.IsDevelopment())
 {

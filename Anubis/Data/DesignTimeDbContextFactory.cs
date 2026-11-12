@@ -29,3 +29,10 @@ public sealed class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<Anu
         return new AnubisDbContext(options);
     }
 }
+
+/// <summary>The same for the tenant catalog (<c>dotnet ef ... --context CatalogDbContext</c>).</summary>
+public sealed class DesignTimeCatalogDbContextFactory : IDesignTimeDbContextFactory<Tenancy.CatalogDbContext>
+{
+    public Tenancy.CatalogDbContext CreateDbContext(string[] args)
+        => new(new DbContextOptionsBuilder<Tenancy.CatalogDbContext>().UseSqlite("Data Source=anubis.tenants.db").Options);
+}

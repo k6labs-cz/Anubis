@@ -1,4 +1,5 @@
 using k6labs.Anubis.Data.Entities;
+using k6labs.Anubis.Tenancy;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -6,7 +7,7 @@ namespace k6labs.Anubis.Data;
 
 /// <summary>
 /// Periodically removes expired tokens and account history older than a year from the
-/// SQLite database so it does not grow unbounded (replaces the Quartz.NET pruning job
+/// SQLite database of every tenant so it does not grow unbounded (replaces the Quartz.NET pruning job
 /// recommended for large deployments).
 /// </summary>
 public sealed class TokenPruningService : BackgroundService
@@ -30,11 +31,22 @@ public sealed class TokenPruningService : BackgroundService
         {
             try
             {
-                await PruneAsync(stoppingToken);
+                foreach (var tenant in _services.GetRequiredService<TenantCatalog>().All.ToList())
+                {
+                    try
+                    {
+                        await PruneAsync(tenant, stoppingToken);
+                    }
+                    catch (Exception exception) when (exception is not OperationCanceledException)
+                    {
+                        // One tenant's failure (e.g. it was deleted meanwhile) does not stop the others.
+                        _logger.LogError(exception, "Token pruning failed for the tenant {Tenant}.", tenant.Id);
+                    }
+                }
             }
-            catch (Exception exception) when (exception is not OperationCanceledException)
+            catch (OperationCanceledException) when (stoppingToken.IsCancellationRequested)
             {
-                _logger.LogError(exception, "Token pruning failed.");
+                break;
             }
 
             try
@@ -48,9 +60,9 @@ public sealed class TokenPruningService : BackgroundService
         }
     }
 
-    private async Task PruneAsync(CancellationToken cancellationToken)
+    private async Task PruneAsync(Tenant tenant, CancellationToken cancellationToken)
     {
-        using var scope = _services.CreateScope();
+        await using var scope = _services.CreateTenantScope(tenant);
         var context = scope.ServiceProvider.GetRequiredService<AnubisDbContext>();
 
         var cutoff = DateTimeOffset.UtcNow - RetentionPeriod;
@@ -75,14 +87,14 @@ public sealed class TokenPruningService : BackgroundService
 
             context.RemoveRange(expired);
             await context.SaveChangesAsync(cancellationToken);
-            _logger.LogInformation("Pruned {Count} expired tokens older than {Cutoff:u}.", expired.Count, cutoff);
+            _logger.LogInformation("Pruned {Count} expired tokens older than {Cutoff:u} in the tenant {Tenant}.", expired.Count, cutoff, tenant.Id);
         }
 
         var historyCutoff = DateTime.UtcNow - HistoryRetentionPeriod;
         var pruned = await context.UserEvents.Where(e => e.OccurredAtUtc < historyCutoff).ExecuteDeleteAsync(cancellationToken);
         if (pruned > 0)
         {
-            _logger.LogInformation("Pruned {Count} account history entries older than {Cutoff:u}.", pruned, historyCutoff);
+            _logger.LogInformation("Pruned {Count} account history entries older than {Cutoff:u} in the tenant {Tenant}.", pruned, historyCutoff, tenant.Id);
         }
     }
 }
