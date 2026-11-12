@@ -21,7 +21,7 @@ spec:
         seccompProfile: { type: RuntimeDefault }
       containers:
         - name: anubis
-          image: ghcr.io/k6labs-cz/anubis:0.1.0   # TODO: your registry/image
+          image: ghcr.io/k6labs-cz/anubis:0.2.0   # TODO: your registry/image
           ports:
             - name: http
               containerPort: 8080
