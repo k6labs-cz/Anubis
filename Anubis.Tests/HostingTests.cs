@@ -38,6 +38,21 @@ public class HostingTests : IDisposable
     }
 
     [Fact]
+    public void EveryTenant_HasItsOwnDatabaseFile_AndTheCatalogListsThem()
+    {
+        var paths = Paths();
+        var acme = new k6labs.Anubis.Tenancy.Tenant { Id = "acme" };
+
+        Assert.Equal(paths.SqliteConnectionString(null), paths.TenantConnectionString(k6labs.Anubis.Tenancy.Tenant.Default, null));
+        Assert.Equal($"Data Source={Path.Combine(_root, "data", "tenants", "acme", "anubis.db")}", paths.TenantConnectionString(acme, null));
+        // The other settings of the connection string are the tenant's too; only the file differs.
+        Assert.Equal($"Data Source={Path.Combine(_root, "data", "tenants", "acme", "anubis.db")};Foreign Keys=True",
+            paths.TenantConnectionString(acme, "Data Source=/mnt/db/main.db;Foreign Keys=True"));
+        Assert.Equal($"Data Source={Path.Combine(_root, "data", "anubis.tenants.db")}", paths.CatalogConnectionString(null));
+        Assert.Equal("Data Source=/mnt/db/catalog.db", paths.CatalogConnectionString("Data Source=/mnt/db/catalog.db"));
+    }
+
+    [Fact]
     public void DataDirectory_DefaultsToTheContentRoot()
     {
         var paths = DataPaths.Resolve(new ConfigurationBuilder().Build(), _root);

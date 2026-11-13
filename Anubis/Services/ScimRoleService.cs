@@ -1,35 +1,51 @@
 using System.Text.Json.Nodes;
 
 using k6labs.Anubis.Scim;
+using k6labs.Anubis.Tenancy;
 
 namespace k6labs.Anubis.Services;
 
 /// <summary>
 /// Tenants, roles and role assignments in the SCIM API (/api/Tenants, /api/Roles, /api/RoleAssignments),
-/// over the same <see cref="RoleAdministration"/> as the admin UI. They are Anubis's own resource types
-/// (SCIM has none for them), with the usual list (filter, sort, paging), get, create and delete.
-/// A tenant's display name and a role's description can be replaced (PUT) or patched; everything else
-/// is fixed at creation, because applications know tenants and roles by their names.
+/// over the same <see cref="TenantAdministration"/> and <see cref="RoleAdministration"/> as the admin UI.
+/// They are Anubis's own resource types (SCIM has none for them), with the usual list (filter, sort,
+/// paging), get, create and delete. A tenant's display name and host names and a role's description can
+/// be replaced (PUT) or patched; everything else is fixed at creation, because applications know tenants
+/// and roles by their names. Roles and assignments are those of the tenant the API is called at; tenants
+/// are managed at the default tenant only.
 /// </summary>
 public sealed class ScimRoleService
 {
     private readonly RoleAdministration _roles;
+    private readonly TenantAdministration _tenants;
 
-    public ScimRoleService(RoleAdministration roles)
+    public ScimRoleService(RoleAdministration roles, TenantAdministration tenants)
     {
         _roles = roles;
+        _tenants = tenants;
     }
 
     // ---------------------------------------------------------------- tenants
 
-    public async Task<JsonObject> ListTenantsAsync(ScimListQuery query, string baseUri)
-        => List((await _roles.ListTenantsAsync()).Select(t => Tenant(t, baseUri)), query, "name", ["id", "name", "displayname", "meta.created"]);
+    public JsonObject ListTenants(ScimListQuery query, string baseUri)
+        => List(Catalog().List().Select(t => Tenant(t, baseUri)), query, "name", ["id", "name", "displayname", "meta.created"]);
 
-    public async Task<JsonObject> GetTenantAsync(string id, string baseUri)
-        => Tenant(await _roles.FindTenantAsync(id) ?? throw ScimException.NotFound("Tenant", id), baseUri);
+    public JsonObject GetTenant(string id, string baseUri)
+        => Tenant(Catalog().Find(id) ?? throw ScimException.NotFound("Tenant", id), baseUri);
 
+    /// <summary>With <c>adminEmail</c> and <c>adminPassword</c> the new tenant gets its first administrator.</summary>
     public Task<JsonObject> CreateTenantAsync(JsonObject resource, string baseUri)
-        => RunAsync(async () => Tenant(await _roles.CreateTenantAsync(Text(resource, "name") ?? Text(resource, "id"), Text(resource, "displayName")), baseUri));
+        => RunAsync(async () =>
+        {
+            var (email, password) = (Text(resource, "adminEmail"), Text(resource, "adminPassword"));
+            if ((email is null) != (password is null))
+            {
+                throw ScimException.InvalidValue("The attributes \"adminEmail\" and \"adminPassword\" go together.");
+            }
+
+            var administrator = email is null ? null : new TenantAdministrator(email, password!);
+            return Tenant(await Catalog().CreateAsync(Text(resource, "name") ?? Text(resource, "id"), Text(resource, "displayName"), Hosts(resource), administrator), baseUri);
+        });
 
     public Task<JsonObject> ReplaceTenantAsync(string id, JsonObject resource, string baseUri)
         => RunAsync(async () =>
@@ -39,14 +55,78 @@ public sealed class ScimRoleService
                 throw new ScimException(StatusCodes.Status400BadRequest, ScimConstants.ScimTypes.Mutability, "A tenant's name can't change.");
             }
 
-            return Tenant(await _roles.RenameTenantAsync(id, Text(resource, "displayName")), baseUri);
+            Changeable(id);
+            return Tenant(await Catalog().UpdateAsync(id, Text(resource, "displayName"), Hosts(resource) ?? []), baseUri);
         }, "Tenant", id);
 
+    /// <summary>"replace"/"add"/"remove" of <c>displayName</c> and <c>hosts</c> (the whole list).</summary>
     public Task<JsonObject> PatchTenantAsync(string id, ScimPatchRequest patch, string baseUri)
-        => RunAsync(async () => Tenant(await _roles.RenameTenantAsync(id, Patched(patch, "displayName")), baseUri), "Tenant", id);
+        => RunAsync(async () =>
+        {
+            var tenant = Changeable(id);
+            var (displayName, hosts) = (tenant.DisplayName, tenant.Hosts);
+            if (patch.Operations is null || patch.Operations.Count == 0)
+            {
+                throw ScimException.InvalidSyntax("The PATCH request must contain at least one operation.");
+            }
+
+            foreach (var operation in patch.Operations)
+            {
+                var path = operation.Path?.Trim();
+
+                // What changes: the attribute of the path, or every attribute of a value object without a path.
+                IEnumerable<KeyValuePair<string, JsonNode?>> changes = operation.Op?.ToLowerInvariant() switch
+                {
+                    "remove" when !string.IsNullOrEmpty(path) => [new(path, null)],
+                    "add" or "replace" when !string.IsNullOrEmpty(path) => [new(path, operation.Value)],
+                    "add" or "replace" when operation.Value is JsonObject values => values,
+                    _ => throw ScimException.InvalidSyntax("The operation needs \"op\" (add, replace, remove) and a path or a value object."),
+                };
+
+                foreach (var (attribute, value) in changes)
+                {
+                    if (string.Equals(attribute, "displayName", StringComparison.OrdinalIgnoreCase))
+                    {
+                        displayName = value is JsonValue text && text.TryGetValue<string>(out var name) ? name : null;
+                    }
+                    else if (string.Equals(attribute, "hosts", StringComparison.OrdinalIgnoreCase))
+                    {
+                        hosts = Hosts(new JsonObject { ["hosts"] = value?.DeepClone() }) ?? [];
+                    }
+                    else
+                    {
+                        throw new ScimException(StatusCodes.Status400BadRequest, ScimConstants.ScimTypes.Mutability, "Only \"displayName\" and \"hosts\" can be changed.");
+                    }
+                }
+            }
+
+            return Tenant(await Catalog().UpdateAsync(id, displayName, hosts), baseUri);
+        }, "Tenant", id);
 
     public Task DeleteTenantAsync(string id)
-        => RunAsync(async () => { await _roles.DeleteTenantAsync(id); return new JsonObject(); }, "Tenant", id);
+        => RunAsync(async () => { await Catalog().DeleteAsync(id); return new JsonObject(); }, "Tenant", id);
+
+    /// <summary>Tenants are managed from the default tenant only: to any other, the resource type does not exist.</summary>
+    private TenantAdministration Catalog()
+        => TenantContext.Current.IsDefault ? _tenants : throw new ScimException(StatusCodes.Status404NotFound, null, "Tenants are managed in the default tenant.");
+
+    /// <summary>The default tenant is listed, but there is nothing about it to change here.</summary>
+    private Tenant Changeable(string id)
+        => Catalog().Find(id) switch
+        {
+            null => throw ScimException.NotFound("Tenant", id),
+            { IsDefault: true } => throw new ScimException(StatusCodes.Status400BadRequest, ScimConstants.ScimTypes.Mutability, "The default tenant can't be changed."),
+            var tenant => tenant,
+        };
+
+    /// <summary>The "hosts" attribute: an array of host names (or one string of them); null when absent.</summary>
+    private static List<string>? Hosts(JsonObject resource)
+        => resource.FirstOrDefault(p => string.Equals(p.Key, "hosts", StringComparison.OrdinalIgnoreCase)).Value switch
+        {
+            JsonArray array => array.Select(item => item is JsonValue value && value.TryGetValue<string>(out var host) ? host : string.Empty).ToList(),
+            JsonValue single when single.TryGetValue<string>(out var text) => [.. text.Split([' ', ',', ';', '\n'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)],
+            _ => null,
+        };
 
     // ---------------------------------------------------------------- roles
 
@@ -80,12 +160,12 @@ public sealed class ScimRoleService
     // ---------------------------------------------------------------- assignments
 
     public async Task<JsonObject> ListAssignmentsAsync(ScimListQuery query, string baseUri)
-        => List((await _roles.ListAssignmentsAsync()).Select(a => Assignment(a, baseUri)), query, "claim", ["id", "claim", "tenant", "role.client", "role.name", "meta.created"]);
+        => List((await _roles.ListAssignmentsAsync()).Select(a => Assignment(a, baseUri)), query, "claim", ["id", "claim", "role.client", "role.name", "meta.created"]);
 
     public async Task<JsonObject> GetAssignmentAsync(string id, string baseUri)
         => Assignment(await _roles.FindAssignmentAsync(id) ?? throw ScimException.NotFound("RoleAssignment", id), baseUri);
 
-    /// <summary>The role by its id (<c>role.value</c>) or by <c>role.client</c> + <c>role.name</c>; one of <c>user.value</c> and <c>group.value</c>; an optional <c>tenant</c>.</summary>
+    /// <summary>The role by its id (<c>role.value</c>) or by <c>role.client</c> + <c>role.name</c>; one of <c>user.value</c> and <c>group.value</c>.</summary>
     public Task<JsonObject> CreateAssignmentAsync(JsonObject resource, string baseUri)
         => RunAsync(async () =>
         {
@@ -98,7 +178,7 @@ public sealed class ScimRoleService
                     ?? throw ScimException.InvalidValue($"The role \"{name}\" of the client \"{client}\" was not found.");
             }
 
-            var created = await _roles.AssignAsync(roleId, Text(resource["user"] as JsonObject, "value"), Text(resource["group"] as JsonObject, "value"), Text(resource, "tenant"));
+            var created = await _roles.AssignAsync(roleId, Text(resource["user"] as JsonObject, "value"), Text(resource["group"] as JsonObject, "value"));
             return Assignment(created, baseUri);
         });
 
@@ -107,12 +187,13 @@ public sealed class ScimRoleService
 
     // ---------------------------------------------------------------- resources
 
-    private static JsonObject Tenant(TenantSummary tenant, string baseUri) => new()
+    private static JsonObject Tenant(Tenant tenant, string baseUri) => new()
     {
         ["schemas"] = new JsonArray(ScimConstants.TenantSchema),
         ["id"] = tenant.Id,
         ["name"] = tenant.Id,
         ["displayName"] = tenant.DisplayName ?? string.Empty,
+        ["hosts"] = new JsonArray([.. tenant.Hosts.Select(host => (JsonNode)host)]),
         ["meta"] = new JsonObject
         {
             ["resourceType"] = "Tenant",
@@ -157,11 +238,6 @@ public sealed class ScimRoleService
             resource["group"] = new JsonObject { ["value"] = assignment.GroupId, ["display"] = assignment.GroupName ?? string.Empty, ["$ref"] = $"{baseUri}/api/Groups/{assignment.GroupId}" };
         }
 
-        if (assignment.TenantId is not null)
-        {
-            resource["tenant"] = assignment.TenantId;
-        }
-
         resource["meta"] = new JsonObject
         {
             ["resourceType"] = "RoleAssignment",
@@ -187,7 +263,7 @@ public sealed class ScimRoleService
         return ScimResources.ListResponse(sorted.Count, query.StartIndex, page);
     }
 
-    /// <summary>Runs a change; what <see cref="RoleAdministration"/> refuses becomes a SCIM error.</summary>
+    /// <summary>Runs a change; what <see cref="RoleAdministration"/> or <see cref="TenantAdministration"/> refuses becomes a SCIM error.</summary>
     private static async Task<JsonObject> RunAsync(Func<Task<JsonObject>> action, string? resourceType = null, string? id = null)
     {
         try
@@ -200,6 +276,15 @@ public sealed class ScimRoleService
             {
                 RoleError.Conflict => new ScimException(StatusCodes.Status409Conflict, ScimConstants.ScimTypes.Uniqueness, e.Message),
                 RoleError.NotFound when resourceType is not null => ScimException.NotFound(resourceType, id ?? string.Empty),
+                _ => ScimException.InvalidValue(e.Message),
+            };
+        }
+        catch (TenantAdministrationException e)
+        {
+            throw e.Error switch
+            {
+                TenantError.Conflict => new ScimException(StatusCodes.Status409Conflict, ScimConstants.ScimTypes.Uniqueness, e.Message),
+                TenantError.NotFound when resourceType is not null => ScimException.NotFound(resourceType, id ?? string.Empty),
                 _ => ScimException.InvalidValue(e.Message),
             };
         }

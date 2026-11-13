@@ -51,7 +51,6 @@
                 <th>@Translations.Roles_AssignedTo</th>
                 <th>@Translations.Roles_Application</th>
                 <th>@Translations.Roles_Role</th>
-                <th>@Translations.Roles_Tenant</th>
                 <th></th>
             </tr>
         </thead>
@@ -71,16 +70,6 @@
                     </td>
                     <td><code>@assignment.ClientId</code></td>
                     <td><code>@assignment.RoleName</code></td>
-                    <td>
-                        @if (assignment.TenantId is null)
-                        {
-                            <Typography Variant="TextVariant.Small" Tone="Tone.Muted" As="TextElement.Span">@Translations.Roles_AllTenants</Typography>
-                        }
-                        else
-                        {
-                            <code>@assignment.TenantId</code>
-                        }
-                    </td>
                     <td data-align="end">
                         <RowMenu>
                             <MenuItem Icon="@AppIcons.Delete" OnClick="() => AskRemove(assignment)" data-popup-option Danger="true">@Translations.Common_Delete</MenuItem>
@@ -142,12 +131,6 @@
                         }
                     </optgroup>
                 </FormSelect>
-                <FormSelect @bind-Value="assignModel.TenantId" Label="@Translations.Roles_Tenant" TValue="string" Id="assignTenant" Placeholder="@Translations.Roles_AllTenants">
-                    @foreach (var tenant in tenants)
-                    {
-                        <option value="@tenant.Id">@(tenant.DisplayName is null ? tenant.Id : $"{tenant.DisplayName} ({tenant.Id})")</option>
-                    }
-                </FormSelect>
                 @if (formError is not null)
                 {
                     <Alert Severity="AlertSeverity.Danger">@formError</Alert>
@@ -183,13 +166,11 @@
     {
         public string? RoleId { get; set; }
         public string? Principal { get; set; }
-        public string? TenantId { get; set; }
     }
 
     private readonly NotificationState Notifications = new();
     private List<RoleSummary> roles = new();
     private List<AssignmentSummary> assignments = new();
-    private List<TenantSummary> tenants = new();
     private List<(string ClientId, string? DisplayName)> clients = new();
     private List<(string Id, string Name)> users = new();
     private List<(string Id, string Name)> groups = new();
@@ -221,7 +202,6 @@
 
     private async Task OpenAssign()
     {
-        tenants = await Administration.ListTenantsAsync();
         (users, groups) = await Administration.ListPrincipalsAsync();
         assignModel = new AssignForm();
         formError = null;
@@ -239,7 +219,7 @@
     {
         var principal = assignModel.Principal ?? string.Empty;
         var id = principal.Length > 2 ? principal[2..] : null;
-        var created = await Administration.AssignAsync(assignModel.RoleId, principal.StartsWith("u:") ? id : null, principal.StartsWith("g:") ? id : null, assignModel.TenantId);
+        var created = await Administration.AssignAsync(assignModel.RoleId, principal.StartsWith("u:") ? id : null, principal.StartsWith("g:") ? id : null);
         assignOpen = false;
         Notifications.Add(Translations.Users_CreatedText.F(created.Claim), AlertSeverity.Success);
     });

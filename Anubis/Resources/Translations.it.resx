@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Validità dei token e dei codici emessi alle applicazioni client. Le modifiche valgono per i nuovi token.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Server</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>URL pubblico (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Ad esempio https://id.example.com. Vuoto = ricavato da ogni richiesta. Ha effetto dopo un riavvio.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Ad esempio https://id.example.com. Vuoto = ricavato da ogni richiesta.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Registrazione</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Consenti la registrazione autonoma</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Richiedi un indirizzo email confermato per accedere</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Cambia avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Caricamento…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Tenant</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizzazioni i cui utenti ricevono ruoli nelle applicazioni.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organizzazioni separate, ognuna con il proprio database di utenti, applicazioni e impostazioni.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Ruoli</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Ruoli definiti dalle applicazioni e gli utenti e i gruppi che li hanno.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Crea tenant</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Identificatore</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Eliminare il tenant {0}? Verranno eliminate anche le sue assegnazioni di ruoli.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Eliminare il tenant {0}? Il suo database con tutti gli utenti, le applicazioni e le impostazioni verrà eliminato definitivamente.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Crea ruolo</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Applicazione</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Ruolo</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Assegnazioni di ruoli</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Assegna ruolo</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Assegnato a</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Tenant</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Tutti i tenant</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Rimuovere il ruolo {0} a {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Vedere i tuoi ruoli in questa applicazione</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>L’identificatore può contenere solo lettere minuscole, cifre e trattini (al massimo 63 caratteri).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Scegli un utente o un gruppo.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Questo ruolo è già assegnato.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' non è stato trovato.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Nomi host</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Separati da spazi. Il tenant è sempre raggiungibile anche all'indirizzo {0}.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Indirizzo</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>E-mail dell'amministratore</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Password dell'amministratore</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Predefinito</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' non è un nome host valido.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>Il nome host '{0}' è già in uso.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Inserire l'e-mail e la password dell'amministratore.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Questo nome host non appartiene a questo tenant.</value></data>
 </root>

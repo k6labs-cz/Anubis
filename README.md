@@ -5,7 +5,8 @@ Kromě OIDC přihlášení podporuje i klasické **přihlášení e-mailem a hes
 
 - **OIDC/OAuth2 server**: OpenIddict 7 (MIT) — authorization code flow s povinným PKCE, refresh tokeny, client credentials, introspekce, revokace, end-session
 - **UI**: Blazor Web App (.NET 10) + [Hathor](https://github.com/k6labs-cz/Hathor) (MIT)
-- **Úložiště**: SQLite přes EF Core (soubor `anubis.db`, migrace v `Data/Migrations`)
+- **Úložiště**: SQLite přes EF Core, **samostatná databáze pro každého tenanta** (výchozí tenant `anubis.db`, ostatní
+  `tenants/<id>/anubis.db`; migrace v `Data/Migrations`), viz [Tenanti](#tenanti)
 - **Hesla**: Argon2id (OWASP parametry: 64 MiB, t=3, p=4), PHC formát, unikátní salt
 - **Identity**: ASP.NET Core Identity (skupiny `Admins`/`Users`, lockout po 5 neúspěšných pokusech, rate limiting token endpointu)
 - **100 % free OSS**: MIT licence projektu, všechny závislosti MIT/Apache-2.0/public domain
@@ -51,6 +52,9 @@ dotnet run --project Anubis
 Aplikace běží na `http://localhost:5080` (HTTPS profil: `https://localhost:5443`).
 Výchozí admin: `admin@anubis.local` / heslo z `appsettings.Development.json`. Bez hesla se admin nevytvoří a administrátorem
 se stane první zaregistrovaný uživatel.
+
+Vývojová konfigurace zakládá i druhého tenanta `acme` s vlastní databází: `http://acme.localhost:5080`
+(`admin@acme.local`), viz [Tenanti](#tenanti).
 
 Bez devcontaineru jen: `dotnet tool restore && dotnet restore && dotnet run --project Anubis`.
 
@@ -125,32 +129,89 @@ curl -X POST http://localhost:5080/api/Users \
        "urn:ietf:params:scim:schemas:extension:anubis:2.0:User":{"claims":[{"type":"department","value":"sales"}]}}'
 ```
 
-## Tenanti a role aplikací
+## Tenanti
 
-**Tenant** je organizace (zákazník, tým, workspace) společná pro všechny klientské aplikace; má neměnný
-identifikátor (`acme`: malá písmena, číslice, pomlčky) a zobrazovaný název. **Role** si definuje klientská
-aplikace sama pro sebe (např. `Administrator` a `User` klienta `osiris`) a říká, co v ní uživatel smí.
-Skupiny dál říkají, kdo lidé jsou; role se **přiřazují** uživatelům nebo skupinám (členové skupiny mají její
-role), a to v jednom tenantu, nebo bez tenantu = ve všech. Uživatel do tenantu patří tím, že v něm má roli
-některé aplikace.
+**Tenant** je samostatná organizace (zákazník, tým, prostředí) na jednom serveru Anubis. Tenanti jsou plně
+oddělení – každý má vlastní:
 
-Aplikace si o role řekne scope **`roles`** (musí ho mít povolený). Token pak:
+- **databázi SQLite** (`tenants/<id>/anubis.db`): uživatele, skupiny, klienty, scopes, role, tokeny a historii;
+  stejný e-mail může být v různých tenantech dvěma nezávislými účty,
+- **nastavení** z administrace (`tenants/<id>/anubis.settings.json`): název serveru, vzhled a logo, e-mail,
+  bezpečnost, platnosti tokenů; co tenant nenastaví, platí ze společné konfigurace serveru (appsettings, env),
+- **adresu a issuer**, **podpisové a šifrovací klíče** (`tenants/<id>/keys/`) a **přihlašovací cookies**:
+  token ani relace jednoho tenantu v jiném neplatí.
 
-- má v claimu `roles` role uživatele **v této aplikaci**: `acme:Administrator` pro roli v tenantu `acme`,
-  jen `Administrator` pro roli ve všech tenantech (dvojtečka odděluje tenant, proto ji název role nesmí obsahovat);
-  claim je v access tokenu, ID tokenu, userinfo i v odpovědi introspekce,
-- je vydán **pro tuto aplikaci**: její `client_id` je mezi audiences (`aud`), takže ho její API může přijmout.
+**Výchozí tenant** (`default`) má každá instalace: je to dosavadní `anubis.db` a `anubis.settings.json` v datovém
+adresáři, takže existující nasazení běží beze změny. Ostatní tenanty eviduje katalog `anubis.tenants.db`.
 
-Odebrání role (i smazáním role nebo tenantu) **zneplatní access tokeny**, ve kterých je zapsaná, takže aplikace,
-která se na token ptá introspekcí, o změně ví hned; refresh token zůstává a přinese token s aktuálními rolemi.
-Nově přidaná role je v tokenech od dalšího přihlášení (nebo obnovení tokenu).
+### Který tenant obsluhuje požadavek
 
-Správa: stránky **Tenanti** (`/tenants`) a **Role** (`/roles`: role aplikací a jejich přiřazení) v administraci,
-SCIM API (níže) a seed z konfigurace:
+Rozhoduje **hostname** požadavku:
+
+1. vlastní hostname tenantu (`Hosts`, např. `login.acme.com`),
+2. subdoména `<id>.<doména tenantů>`, např. `acme.id.example.com`; doména tenantů je `Anubis:TenantDomain`,
+   jinak host z `Anubis:Issuer`, jinak `localhost` (při vývoji tedy `http://acme.localhost:5080`),
+3. cokoli jiného je výchozí tenant.
+
+Reverse proxy proto musí předávat původní hlavičku `Host` a mít pro tenanty DNS záznam a certifikát (typicky
+wildcard `*.id.example.com`). Issuer tenantu se odvodí z požadavku; je-li nastaven `Anubis:Issuer` (adresa
+výchozího tenantu), má tenant stejnou adresu se svým hostname (`https://acme.id.example.com`). Administrátor
+tenantu ji může změnit na stránce *Obecné*, ale jen na hostname, který tenantu patří.
+
+### Správa tenantů
+
+Tenanty spravují **administrátoři výchozího tenantu**: stránka **Tenanti** (`/tenants`), SCIM API `/api/Tenants`
+(níže) a seed z konfigurace. Tenant má neměnný identifikátor (`acme`: malá písmena, číslice, pomlčky – je to
+složka s daty, subdoména a claim `tenant`), zobrazovaný název (výchozí název jeho serveru) a volitelné vlastní
+hostnames. Při vytvoření dostane databázi se skupinami `Admins`/`Users`, API scope a prvního administrátora;
+ten pak ve svém tenantu spravuje uživatele, skupiny, klienty, role i nastavení stejně jako administrátor výchozího
+tenantu (jen stránku *Tenanti* nevidí). **Smazání tenantu nenávratně smaže jeho databázi, nastavení i klíče.**
 
 ```json
 "Anubis": {
-  "Tenants": [ { "Id": "acme", "DisplayName": "Acme s.r.o." } ],
+  "TenantDomain": "id.example.com",
+  "Tenants": [ {
+    "Id": "acme",
+    "DisplayName": "Acme s.r.o.",
+    "Hosts": [ "login.acme.com" ],
+    "AdminEmail": "admin@acme.com",
+    "AdminPassword": "…",
+    "Clients": [ { "ClientId": "osiris", "GrantTypes": [ "authorization_code" ], "Scopes": [ "openid", "roles" ] } ]
+  } ]
+}
+```
+
+Tenant ze seedu se vytvoří, pokud ještě neexistuje; `Clients` mají stejný tvar jako `Anubis:Clients` (ty patří
+výchozímu tenantu). Bez `AdminPassword` se administrátorem tenantu stane první zaregistrovaný uživatel.
+
+**Upgrade ze starší verze:** tenanti dříve byli jen štítkem na přiřazení role ve společné databázi. Při migraci
+se tabulka tenantů zruší a přiřazení rolí omezená na jeden tenant se **smažou** (jinak by z nich byly role
+platné všude); přiřazení „ve všech tenantech“ zůstávají. Tenanty je potřeba založit znovu, už s vlastní databází.
+
+## Role aplikací
+
+**Role** si definuje klientská aplikace sama pro sebe (např. `Administrator` a `User` klienta `osiris`) a říká,
+co v ní uživatel smí. Skupiny dál říkají, kdo lidé jsou; role se **přiřazují** uživatelům nebo skupinám (členové
+skupiny mají její role). Role i přiřazení jsou v databázi tenantu, platí tedy v tomto tenantu.
+
+Aplikace si o role řekne scope **`roles`** (musí ho mít povolený). Token pak:
+
+- má v claimu `roles` názvy rolí uživatele **v této aplikaci** (`Administrator`); claim je v access tokenu,
+  ID tokenu, userinfo i v odpovědi introspekce,
+- je vydán **pro tuto aplikaci**: její `client_id` je mezi audiences (`aud`), takže ho její API může přijmout.
+
+Ve kterém tenantu role platí, říká claim **`tenant`** (identifikátor tenantu, `default` u výchozího). Je v každém
+access a ID tokenu, v userinfo i v introspekci, bez ohledu na scope; tenant je zřejmý i z issueru.
+
+Odebrání role (i smazáním role) **zneplatní access tokeny**, ve kterých je zapsaná, takže aplikace,
+která se na token ptá introspekcí, o změně ví hned; refresh token zůstává a přinese token s aktuálními rolemi.
+Nově přidaná role je v tokenech od dalšího přihlášení (nebo obnovení tokenu).
+
+Správa: stránka **Role** (`/roles`: role aplikací a jejich přiřazení) v administraci tenantu, SCIM API (níže)
+a seed z konfigurace:
+
+```json
+"Anubis": {
   "Clients": [ {
     "ClientId": "osiris",
     "GrantTypes": [ "authorization_code", "client_credentials" ],
@@ -169,20 +230,23 @@ jako Users a Groups:
 
 | Endpoint | Prostředek | Atributy |
 |---|---|---|
-| `/api/Tenants` | tenant | `name` (identifikátor, zároveň `id`; neměnný), `displayName` |
+| `/api/Tenants` | tenant (jen na adrese výchozího tenantu, jinde `404`) | `name` (identifikátor, zároveň `id`; neměnný), `displayName`, `hosts` (pole hostnames); jen při vytvoření `adminEmail` + `adminPassword` (první administrátor) |
 | `/api/Roles` | role aplikace | `client` (`client_id`), `name` (obojí neměnné), `description` |
-| `/api/RoleAssignments` | přiřazení role | `role` (`value` = id role, nebo `client` + `name`), `user.value` **nebo** `group.value`, volitelně `tenant`; jen pro čtení `claim` (hodnota v claimu `roles`) |
+| `/api/RoleAssignments` | přiřazení role | `role` (`value` = id role, nebo `client` + `name`), `user.value` **nebo** `group.value`; jen pro čtení `claim` (hodnota v claimu `roles`) |
 
-`GET` (seznam a jeden záznam), `POST` a `DELETE` u všech tří; `PUT` a `PATCH` u tenantu (jen `displayName`) a role
-(jen `description`). Přiřazení se nemění: smaže se a vytvoří nové.
+`GET` (seznam a jeden záznam), `POST` a `DELETE` u všech tří; `PUT` a `PATCH` u tenantu (`displayName`, `hosts`) a role
+(jen `description`). Přiřazení se nemění: smaže se a vytvoří nové. Celé SCIM API (Users, Groups, Roles,
+RoleAssignments) pracuje s daty toho tenantu, na jehož adrese se volá, a přijme jen token vydaný tímto tenantem.
+Výchozí tenant je v seznamu tenantů vidět, ale nejde změnit ani smazat.
 
 ```bash
 curl -X POST http://localhost:5080/api/Tenants -H "Authorization: Bearer $TOKEN" \
-  -H "Content-Type: application/scim+json" -d '{"name":"acme","displayName":"Acme s.r.o."}'
+  -H "Content-Type: application/scim+json" \
+  -d '{"name":"acme","displayName":"Acme s.r.o.","hosts":["login.acme.com"],"adminEmail":"admin@acme.com","adminPassword":"..."}'
 
 curl -X POST http://localhost:5080/api/RoleAssignments -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/scim+json" \
-  -d '{"role":{"client":"osiris","name":"Administrator"},"group":{"value":"<id skupiny>"},"tenant":"acme"}'
+  -d '{"role":{"client":"osiris","name":"Administrator"},"group":{"value":"<id skupiny>"}}'
 ```
 
 ## Webové UI
@@ -206,9 +270,11 @@ curl -X POST http://localhost:5080/api/RoleAssignments -H "Authorization: Bearer
     před uložením (formát a jedinečnost e-mailu, poslední administrátor, vlastní členství v Admins, souběžné změny),
     zablokování, reset MFA, smazání
   - `/groups` — skupiny, jejich claimy a členové
-  - `/tenants`, `/roles` — tenanti, role aplikací a jejich přiřazení uživatelům a skupinám (viz [Tenanti a role aplikací](#tenanti-a-role-aplikací))
+  - `/tenants` — tenanti: vytvoření (s prvním administrátorem), název, vlastní hostnames, smazání; jen ve výchozím
+    tenantu (viz [Tenanti](#tenanti))
+  - `/roles` — role aplikací a jejich přiřazení uživatelům a skupinám (viz [Role aplikací](#role-aplikací))
   - `/scopes`, `/clients` — scopes, OIDC klienti (včetně generování secretu)
-  - **Nastavení** (vše se ukládá do souboru s nastavením a platí hned, kromě veřejné adresy, která se projeví po restartu):
+  - **Nastavení** (vše se ukládá do souboru s nastavením tenantu a platí hned, jen pro tento tenant):
     - `/options-general` – Obecné: název serveru (titulek záložky „Stránka — Název“, logo + název vlevo nahoře),
       veřejná adresa (issuer), samoobslužná registrace, povinné ověření e-mailu
     - `/options-security` – Zabezpečení: pravidla hesel, zablokování po neúspěšném přihlášení, délka přihlášení,
@@ -237,8 +303,8 @@ curl -X POST http://localhost:5080/api/RoleAssignments -H "Authorization: Bearer
   posílá i jako standardní OIDC claim `picture` (userinfo + ID token).
 - **Skupiny v tokenech:** claim `groups` (pole názvů skupin) je vždy v access tokenu; se scope `groups`
   i v ID tokenu a userinfo (stejně jako Keycloak nebo Entra ID). Claimy nastavené na skupině dostanou všichni její členové.
-- **Role v tokenech:** se scope `roles` claim `roles` s rolemi uživatele v aplikaci, která o token žádá, po tenantech
-  (`acme:Administrator`); viz [Tenanti a role aplikací](#tenanti-a-role-aplikací).
+- **Role v tokenech:** se scope `roles` claim `roles` s názvy rolí uživatele v aplikaci, která o token žádá; tenant,
+  ve kterém platí, je v claimu `tenant` (viz [Role aplikací](#role-aplikací)).
 - **Jazyky:** všech 24 úředních jazyků EU (bg, cs, da, de, el, en, es, et, fi, fr, ga, hr, hu, it, lt, lv, mt,
   nl, pl, pt, ro, sk, sl, sv); výchozí je angličtina. Pořadí: jazyk uložený u účtu (volí se na stránce účtu)
   → OIDC parametr `ui_locales` od klienta → jazyk prohlížeče → angličtina.
@@ -257,20 +323,21 @@ Nový jazyk: přidejte `Translations.<kód>.resx` a kód a nativní název do `L
 | `AdminEmail` / `AdminPassword` | admin účet vytvořený při prvním startu; prázdné heslo = admin se nevytvoří a administrátorem se stane první zaregistrovaný uživatel |
 | `AllowRegistration` | povolení self-service registrace |
 | `RequireConfirmedEmail` | přihlášení až po potvrzení e-mailu (default `false`); vyžaduje funkční sekci `Email` |
-| `Issuer` | explicitní issuer (např. za reverse proxy); prázdné = odvozeno z requestu |
+| `Issuer` | explicitní issuer výchozího tenantu (např. za reverse proxy); prázdné = odvozeno z requestu. Ostatní tenanti mají stejnou adresu se svým hostname |
+| `TenantDomain` | doména, jejíž subdomény jsou tenanti (`<id>.<TenantDomain>`); default host z `Issuer`, jinak `localhost` |
 | `ApiScope` / `ApiResource` | scope/resource pro client credentials |
-| `Tenants` | tenanti vytvoření při startu (`Id`, `DisplayName`) |
+| `Tenants` | tenanti vytvoření při startu (`Id`, `DisplayName`, `Hosts`, `AdminEmail` / `AdminPassword`, `Clients`), každý s vlastní databází – viz [Tenanti](#tenanti) |
 | `Clients[].Roles` | role, které si klient definuje (`Name`, `Description`); doplní se i k existujícímu klientovi |
 | `AccessTokenLifetimeMinutes` | životnost access tokenu (default 60) |
 | `IdentityTokenLifetimeMinutes` | životnost ID tokenu (default 20) |
 | `AuthorizationCodeLifetimeMinutes` | životnost authorization code (default 10) |
 | `RefreshTokenLifetimeDays` | životnost refresh tokenu (default 14) |
 | `ConsentCookieLifetimeMinutes` | životnost cookie souhlasu (default 10) |
-| `Clients` | pole klientů, které se při startu idempotentně nasadí do DB (ClientId, ClientSecret, RedirectUris, GrantTypes, Scopes, RequireConsent, ...) |
-| `DataDirectory` | adresář pro databázi, nastavení a klíče (default content root; v image `/data`) – viz Nasazení |
-| `SettingsFile` | soubor s nastavením uloženým z administrace (default `anubis.settings.json` v datovém adresáři) |
+| `Clients` | pole klientů, které se při startu idempotentně nasadí do DB výchozího tenantu (ClientId, ClientSecret, RedirectUris, GrantTypes, Scopes, RequireConsent, ...) |
+| `DataDirectory` | adresář pro databáze, nastavení a klíče všech tenantů (default content root; v image `/data`) – viz Nasazení |
+| `SettingsFile` | soubor s nastavením výchozího tenantu uloženým z administrace (default `anubis.settings.json` v datovém adresáři) |
 | `ConfigFile` / `SecretsDirectory` | volitelný JSON s konfigurací (ConfigMap) a adresář se soubory na klíč (Secret) |
-| `Keys:SigningCertificatePath` / `...Password`, `Keys:EncryptionCertificatePath` / `...Password` | vlastní certifikáty OpenIddict místo vygenerovaných |
+| `Keys:SigningCertificatePath` / `...Password`, `Keys:EncryptionCertificatePath` / `...Password` | vlastní certifikáty OpenIddict výchozího tenantu místo vygenerovaných (ostatní tenanti mají vždy vlastní vygenerované) |
 
 Příklad seedovaného klienta viz `Anubis/appsettings.Development.example.json`.
 
@@ -404,10 +471,12 @@ helm install anubis deploy/helm/anubis -n anubis --create-namespace \
 
 | Soubor | Obsah |
 | --- | --- |
-| `anubis.db` (+ `-wal`, `-shm`) | SQLite databáze (relativní `Data Source` v `ConnectionStrings:Default` je vůči datovému adresáři) |
-| `anubis.settings.json` | nastavení uložené z administrace |
+| `anubis.db` (+ `-wal`, `-shm`) | SQLite databáze výchozího tenantu (relativní `Data Source` v `ConnectionStrings:Default` je vůči datovému adresáři) |
+| `anubis.settings.json` | nastavení výchozího tenantu uložené z administrace |
+| `anubis.tenants.db` | katalog tenantů: identifikátory, názvy a hostnames (`ConnectionStrings:Tenants`) |
+| `tenants/<id>/anubis.db`, `tenants/<id>/anubis.settings.json`, `tenants/<id>/keys/` | databáze, nastavení a certifikáty OpenIddict jednoho tenantu; smazáním tenantu složka zmizí |
 | `keys/key-*.xml` | klíče ASP.NET Core Data Protection (přihlašovací cookies, antiforgery, odkazy v e-mailech) |
-| `keys/signing-*.pfx`, `keys/encryption-*.pfx` | certifikáty OpenIddict (podpis a šifrování tokenů); vygenerují se při prvním startu, platí 2 roky a 60 dní před vypršením se automaticky vytvoří nový (starý se dál používá k ověření) |
+| `keys/signing-*.pfx`, `keys/encryption-*.pfx` | certifikáty OpenIddict výchozího tenantu (podpis a šifrování tokenů); vygenerují se při prvním startu, platí 2 roky a 60 dní před vypršením se automaticky vytvoří nový (starý se dál používá k ověření) |
 
 Místo vygenerovaných certifikátů lze zadat vlastní: `Anubis:Keys:SigningCertificatePath` / `SigningCertificatePassword`
 a `Anubis:Keys:EncryptionCertificatePath` / `EncryptionCertificatePassword` (např. PFX z k8s Secret). Lokálně je datovým
@@ -416,11 +485,14 @@ adresářem složka projektu (`Anubis`), takže se nic nemění.
 **Zdroje konfigurace** (od nejnižší priority): `appsettings.json` → `appsettings.{Environment}.json` →
 `Anubis:ConfigFile` (JSON ve formátu appsettings, např. ConfigMap) → `Anubis:SecretsDirectory` (soubor na klíč, např.
 Secret: soubor `Email__Smtp__Password` nastaví `Email:Smtp:Password`) → proměnné prostředí → příkazová řádka →
-nastavení z administrace. Připojené soubory se načtou znovu při změně (image zapíná `DOTNET_USE_POLLING_FILE_WATCHER`,
+nastavení z administrace (soubor tenantu, platí jen pro něj). Připojené soubory se načtou znovu při změně (image zapíná `DOTNET_USE_POLLING_FILE_WATCHER`,
 protože k8s mění ConfigMapy/Secrety přepnutím symlinku).
 
 **Na co dát pozor:**
 - SQLite: právě **jedna replika** se strategií `Recreate`, úložiště typu block storage (`ReadWriteOnce`), ne NFS.
+- Tenanti: ingress musí směrovat i jejich hostnames (wildcard `*.id.example.com` a případné vlastní domény),
+  předávat původní `Host` a mít pro ně certifikát. Zálohujte celý datový adresář – každý tenant je v něm
+  samostatná složka.
 - TLS končí na ingressu: image zapíná `ASPNETCORE_FORWARDEDHEADERS_ENABLED=true` (schéma a IP klienta z
   `X-Forwarded-*`), pod proto vystavujte jen přes proxy. Nastavte `Anubis:Issuer` na veřejnou adresu.
 - Image běží jako uživatel `app` (uid 1654); `fsGroup: 1654` zpřístupní PVC pro zápis. Kořenový souborový systém
@@ -477,7 +549,8 @@ Anubis/
 │   ├── Pages/Account/                # profil, změna hesla, passkeys a 2FA
 │   ├── Pages/Admin/                  # uživatelé, skupiny, klienti, scopes, nastavení
 │   └── Layout/                       # AppLayout (účet + administrace), MainLayout (přihlášení)
-├── Data/                             # ApplicationDbContext (Identity + OpenIddict), seed, pruning, migrace
+├── Data/                             # AnubisDbContext tenantu (Identity + OpenIddict), seed, pruning, migrace
+├── Tenancy/                          # tenanti: katalog, určení podle hostname, konfigurace a options per tenant, správa
 ├── Services/                         # consent cookie, správa klientů/scopes
 │   └── Email/                        # SMTP (MailKit) + SendGrid/Mailgun/Postmark/Resend, šablony, odkazy
 ├── Identity/                         # Argon2id hasher, passkey endpointy, TOTP setup, token providery
@@ -490,7 +563,7 @@ deploy/helm/anubis/                   # Helm chart
 .devcontainer/                        # .NET 10 devcontainer + sqlite3
 ```
 
-Certifikáty pro podpis/šifrování tokenů se při prvním startu vygenerují do `keys/` v datovém adresáři (viz Nasazení). Expirované tokeny maže na pozadí `TokenPruningService` (1× za hodinu, retence 14 dní).
+Certifikáty pro podpis/šifrování tokenů se při prvním startu vygenerují do `keys/` v datovém adresáři (viz Nasazení), tenantům do jejich složek. Expirované tokeny maže na pozadí `TokenPruningService` ve všech tenantech (1× za hodinu, retence 14 dní).
 
 ## Bezpečnost
 

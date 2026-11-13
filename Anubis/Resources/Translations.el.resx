@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Διάρκεια ισχύος των tokens και κωδικών για εφαρμογές πελάτη. Οι αλλαγές ισχύουν για νέα tokens.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Διακομιστής</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Δημόσιο URL (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Για παράδειγμα https://id.example.com. Κενό = από κάθε αίτημα. Ισχύει μετά από επανεκκίνηση.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Για παράδειγμα https://id.example.com. Κενό = από κάθε αίτημα.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Εγγραφή</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Να επιτρέπεται η αυτόνομη εγγραφή</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Να απαιτείται επιβεβαιωμένο email για σύνδεση</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Αλλαγή avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Φόρτωση…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Μισθωτές</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Οργανισμοί των οποίων οι χρήστες λαμβάνουν ρόλους στις εφαρμογές.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Ξεχωριστοί οργανισμοί, ο καθένας με τη δική του βάση δεδομένων χρηστών, εφαρμογών και ρυθμίσεων.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Ρόλοι</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Ρόλοι που ορίζουν οι εφαρμογές, και οι χρήστες και οι ομάδες που τους έχουν.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Δημιουργία μισθωτή</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Αναγνωριστικό</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Διαγραφή του μισθωτή {0}; Θα διαγραφούν και οι αναθέσεις ρόλων του.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Διαγραφή του μισθωτή {0}; Η βάση δεδομένων του με όλους τους χρήστες, τις εφαρμογές και τις ρυθμίσεις θα διαγραφεί οριστικά.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Δημιουργία ρόλου</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Εφαρμογή</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Ρόλος</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Αναθέσεις ρόλων</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Ανάθεση ρόλου</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Ανατέθηκε σε</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Μισθωτής</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Όλοι οι μισθωτές</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Αφαίρεση του ρόλου {0} από {1};</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Να βλέπει τους ρόλους σας σε αυτή την εφαρμογή</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Το αναγνωριστικό μπορεί να περιέχει μόνο πεζά λατινικά γράμματα, ψηφία και παύλες (έως 63 χαρακτήρες).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Επιλέξτε έναν χρήστη ή μια ομάδα.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Αυτός ο ρόλος έχει ήδη ανατεθεί.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>Το '{0}' δεν βρέθηκε.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Ονόματα κεντρικών υπολογιστών</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Διαχωρισμένα με κενά. Ο μισθωτής είναι πάντα διαθέσιμος και στη διεύθυνση {0}.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Διεύθυνση</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>Email διαχειριστή</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Κωδικός πρόσβασης διαχειριστή</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Προεπιλογή</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>Το '{0}' δεν είναι έγκυρο όνομα κεντρικού υπολογιστή.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>Το όνομα κεντρικού υπολογιστή '{0}' χρησιμοποιείται ήδη.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Εισαγάγετε το email και τον κωδικό πρόσβασης του διαχειριστή.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Αυτό το όνομα κεντρικού υπολογιστή δεν ανήκει σε αυτόν τον μισθωτή.</value></data>
 </root>

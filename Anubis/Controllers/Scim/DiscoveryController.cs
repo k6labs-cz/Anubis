@@ -68,9 +68,9 @@ public sealed class DiscoveryController : ScimControllerBase
     [
         ResourceType("User", "/api/Users", ScimConstants.UserSchema, "An Anubis account (the e-mail address is the userName)."),
         ResourceType("Group", "/api/Groups", ScimConstants.GroupSchema, "An Anubis group; its members are the users in the group."),
-        ResourceType("Tenant", "/api/Tenants", ScimConstants.TenantSchema, "A tenant: an organization shared by the client applications."),
+        ResourceType("Tenant", "/api/Tenants", ScimConstants.TenantSchema, "A tenant: an organization with its own database of users, groups, applications and roles. Managed at the default tenant only."),
         ResourceType("Role", "/api/Roles", ScimConstants.RoleSchema, "A role a client application defines for itself."),
-        ResourceType("RoleAssignment", "/api/RoleAssignments", ScimConstants.RoleAssignmentSchema, "A role given to a user or a group, in one tenant or in all."),
+        ResourceType("RoleAssignment", "/api/RoleAssignments", ScimConstants.RoleAssignmentSchema, "A role given to a user or a group."),
     ];
 
     [HttpGet("Schemas")]
@@ -151,11 +151,14 @@ public sealed class DiscoveryController : ScimControllerBase
             ["schemas"] = new JsonArray(ScimConstants.SchemaSchema),
             ["id"] = ScimConstants.TenantSchema,
             ["name"] = "Tenant",
-            ["description"] = "A tenant. Users belong to it by having a role of an application in it (RoleAssignment).",
+            ["description"] = "A tenant: its own database, settings and address. The other resources of this API are those of the tenant the API is called at.",
             ["attributes"] = new JsonArray(
                 Attribute("id", "string", description: "The same as name."),
-                Attribute("name", "string", required: true, description: "The identifier: lowercase letters, digits and dashes. Immutable; it travels in the \"roles\" claim."),
+                Attribute("name", "string", required: true, description: "The identifier: lowercase letters, digits and dashes. Immutable; it is the tenant's subdomain and the \"tenant\" claim of its tokens."),
                 Attribute("displayName", "string"),
+                Attribute("hosts", "string", multiValued: true, description: "Host names of the tenant's own, besides its subdomain."),
+                Attribute("adminEmail", "string", description: "Write-only, when creating: the e-mail of the tenant's first administrator."),
+                Attribute("adminPassword", "string", description: "Write-only, when creating: the administrator's password."),
                 Attribute("meta", "complex")),
             ["meta"] = new JsonObject { ["resourceType"] = "Schema", ["location"] = $"{BaseUri}/api/Schemas/{ScimConstants.TenantSchema}" },
         };
@@ -188,8 +191,7 @@ public sealed class DiscoveryController : ScimControllerBase
                 Attribute("role", "complex", required: true, description: "value = the role's id; or client + name to find it."),
                 Attribute("user", "complex", description: "value = user id. Exactly one of user and group."),
                 Attribute("group", "complex", description: "value = group id; the group's members have the role."),
-                Attribute("tenant", "string", description: "The tenant's name; without it the role holds in all tenants."),
-                Attribute("claim", "string", description: "Read-only: the value in the \"roles\" claim, \"tenant:Role\" or \"Role\"."),
+                Attribute("claim", "string", description: "Read-only: the value in the \"roles\" claim (the role's name)."),
                 Attribute("meta", "complex")),
             ["meta"] = new JsonObject { ["resourceType"] = "Schema", ["location"] = $"{BaseUri}/api/Schemas/{ScimConstants.RoleAssignmentSchema}" },
         };

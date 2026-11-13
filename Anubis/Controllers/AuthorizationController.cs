@@ -6,6 +6,7 @@ using k6labs.Anubis.Data.Entities;
 using k6labs.Anubis.Identity;
 using k6labs.Anubis.Services;
 using k6labs.Anubis.Services.Avatar;
+using k6labs.Anubis.Tenancy;
 
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Authentication;
@@ -183,6 +184,7 @@ public class AuthorizationController : Controller
 
             identity.SetClaim(Claims.Subject, await _applicationManager.GetClientIdAsync(application));
             identity.SetClaim(Claims.ClientId, await _applicationManager.GetClientIdAsync(application));
+            identity.SetClaim(TenantClaims.Claim, TenantContext.Current.Id);
 
             identity.SetScopes(request.GetScopes());
             identity.SetResources(await _scopeManager.ListResourcesAsync(identity.GetScopes()).ToListAsync());
@@ -204,7 +206,10 @@ public class AuthorizationController : Controller
     [Produces("application/json")]
     public async Task<IActionResult> Userinfo()
     {
-        var user = await _userManager.FindByIdAsync(User.GetClaim(Claims.Subject) ?? string.Empty);
+        // An access token of another tenant is not this tenant's, whoever its subject is.
+        var user = TenantClaims.IsForCurrentTenant(User)
+            ? await _userManager.FindByIdAsync(User.GetClaim(Claims.Subject) ?? string.Empty)
+            : null;
         if (user is null)
         {
             return Challenge(
@@ -219,6 +224,7 @@ public class AuthorizationController : Controller
         var claims = new Dictionary<string, object>(StringComparer.Ordinal)
         {
             [Claims.Subject] = user.Id,
+            [TenantClaims.Claim] = TenantContext.Current.Id,
         };
 
         if (User.HasScope(Scopes.Profile))
@@ -284,6 +290,7 @@ public class AuthorizationController : Controller
                 .SetClaim(Claims.Name, user.DisplayName ?? await _userManager.GetUserNameAsync(user))
                 .SetClaim(Claims.PreferredUsername, await _userManager.GetUserNameAsync(user))
                 .SetClaim(Claims.Picture, AvatarUrl.For(user))
+                .SetClaim(TenantClaims.Claim, TenantContext.Current.Id)
                 .SetClaims(GroupClaims.Claim, (await _userManager.GetRolesAsync(user)).ToImmutableArray());
 
         // Claims set by an administrator on the user's groups and on the user (reserved types are refused when saving).
@@ -295,7 +302,7 @@ public class AuthorizationController : Controller
         identity.SetScopes(scopes);
         var resources = await _scopeManager.ListResourcesAsync(identity.GetScopes()).ToListAsync();
 
-        // The "roles" scope: the user's roles in the asking application (per tenant), in a token issued for it.
+        // The "roles" scope: the user's roles in the asking application, in a token issued for it.
         if (clientId is not null && identity.HasScope(RoleClaims.Scope))
         {
             identity.SetClaims(RoleClaims.Claim, (await RoleClaims.ForUserAsync(_db, user.Id, clientId)).ToImmutableArray());
@@ -358,6 +365,11 @@ public class AuthorizationController : Controller
 
             case RoleClaims.Claim:
                 // Present only with the "roles" scope.
+                yield return Destinations.IdentityToken;
+                yield break;
+
+            case TenantClaims.Claim:
+                // Which tenant signed the user in: always, next to the subject.
                 yield return Destinations.IdentityToken;
                 yield break;
 

@@ -1,5 +1,6 @@
 using k6labs.Anubis.Data.Entities;
 using k6labs.Anubis.Options;
+using k6labs.Anubis.Tenancy;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
@@ -12,10 +13,10 @@ public static class EmailServiceCollectionExtensions
     /// Registers the transport chosen by <c>Email:Provider</c> (SMTP by default) and the
     /// Identity email sender used for password reset and email confirmation.
     /// </summary>
-    public static IServiceCollection AddAnubisEmail(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddAnubisEmail(this IServiceCollection services)
     {
-        services.AddOptions<EmailOptions>()
-            .Bind(configuration.GetSection(EmailOptions.SectionName))
+        // Per tenant: each sends through its own provider (or the server's, when it sets none).
+        services.AddTenantOptions<EmailOptions>(EmailOptions.SectionName)
             .ValidateOnStart();
         services.AddSingleton<IValidateOptions<EmailOptions>, EmailOptionsValidator>();
 

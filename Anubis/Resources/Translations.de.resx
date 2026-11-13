@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Gültigkeit der Tokens und Codes für Client-Anwendungen. Änderungen gelten für neu ausgestellte Tokens.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Server</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Öffentliche URL (Issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Zum Beispiel https://id.example.com. Leer = aus der jeweiligen Anfrage. Wirkt nach einem Neustart.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Zum Beispiel https://id.example.com. Leer = aus der jeweiligen Anfrage.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Registrierung</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Selbstregistrierung erlauben</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Bestätigte E-Mail-Adresse für die Anmeldung verlangen</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Avatar ändern</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Wird geladen…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Mandanten</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organisationen, deren Benutzer Rollen in den Anwendungen erhalten.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Getrennte Organisationen, jede mit eigener Datenbank für Benutzer, Anwendungen und Einstellungen.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Rollen</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Rollen, die Anwendungen definieren, und die Benutzer und Gruppen, die sie haben.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Mandant erstellen</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Kennung</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Den Mandanten {0} löschen? Seine Rollenzuweisungen werden ebenfalls gelöscht.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Den Mandanten {0} löschen? Seine Datenbank mit allen Benutzern, Anwendungen und Einstellungen wird endgültig gelöscht.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Rolle erstellen</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Anwendung</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Rolle</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Rollenzuweisungen</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Rolle zuweisen</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Zugewiesen an</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Mandant</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Alle Mandanten</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Die Rolle {0} von {1} entfernen?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Ihre Rollen in dieser Anwendung sehen</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Die Kennung darf nur Kleinbuchstaben, Ziffern und Bindestriche enthalten (höchstens 63 Zeichen).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Wählen Sie einen Benutzer oder eine Gruppe.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Diese Rolle ist bereits zugewiesen.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' wurde nicht gefunden.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Hostnamen</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Durch Leerzeichen getrennt. Der Mandant ist immer auch unter {0} erreichbar.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Adresse</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>E-Mail des Administrators</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Passwort des Administrators</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Standard</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' ist kein gültiger Hostname.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>Der Hostname '{0}' wird bereits verwendet.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Geben Sie E-Mail und Passwort des Administrators ein.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Dieser Hostname gehört nicht zu diesem Mandanten.</value></data>
 </root>

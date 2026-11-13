@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Giltighetstid för token och koder till klientapplikationer. Ändringar gäller nya token.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Server</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Publik URL (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>Till exempel https://id.example.com. Tomt = från varje begäran. Gäller efter omstart.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>Till exempel https://id.example.com. Tomt = från varje begäran.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Registrering</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Tillåt självregistrering</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Kräv en bekräftad e-postadress för inloggning</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Byt avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Laddar…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Klientorganisationer</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organisationer vars användare får roller i applikationerna.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Separata organisationer, var och en med egen databas med användare, applikationer och inställningar.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Roller</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Roller som applikationer definierar, och de användare och grupper som har dem.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Skapa klientorganisation</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Identifierare</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Ta bort klientorganisationen {0}? Dess rolltilldelningar tas också bort.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Ta bort klientorganisationen {0}? Dess databas med alla användare, applikationer och inställningar tas bort permanent.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Skapa roll</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Applikation</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Roll</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Rolltilldelningar</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Tilldela roll</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Tilldelad till</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Klientorganisation</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Alla klientorganisationer</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Ta bort rollen {0} från {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Se dina roller i den här applikationen</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Identifieraren får bara innehålla små bokstäver, siffror och bindestreck (högst 63 tecken).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Välj en användare eller en grupp.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Den här rollen är redan tilldelad.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' hittades inte.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Värdnamn</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Avgränsade med mellanslag. Klientorganisationen är alltid tillgänglig även på {0}.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Adress</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>Administratörens e-post</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Administratörens lösenord</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Standard</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' är inte ett giltigt värdnamn.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>Värdnamnet '{0}' används redan.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Ange administratörens e-post och lösenord.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Det här värdnamnet tillhör inte den här klientorganisationen.</value></data>
 </root>

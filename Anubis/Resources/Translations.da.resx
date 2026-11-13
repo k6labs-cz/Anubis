@@ -474,7 +474,7 @@
   <data name="Admin_TokensDescription" xml:space="preserve"><value>Gyldighed for tokens og koder til klientapplikationer. Ændringer gælder for nye tokens.</value></data>
   <data name="General_Server" xml:space="preserve"><value>Server</value></data>
   <data name="General_PublicUrl" xml:space="preserve"><value>Offentlig URL (issuer)</value></data>
-  <data name="General_PublicUrlHint" xml:space="preserve"><value>For eksempel https://id.example.com. Tom = fra hver anmodning. Træder i kraft efter genstart.</value></data>
+  <data name="General_PublicUrlHint" xml:space="preserve"><value>For eksempel https://id.example.com. Tom = fra hver anmodning.</value></data>
   <data name="General_Registration" xml:space="preserve"><value>Registrering</value></data>
   <data name="General_AllowRegistration" xml:space="preserve"><value>Tillad selvregistrering</value></data>
   <data name="General_RequireConfirmedEmail" xml:space="preserve"><value>Kræv en bekræftet e-mailadresse for at logge ind</value></data>
@@ -535,12 +535,12 @@
   <data name="Users_ChangeAvatar" xml:space="preserve"><value>Skift avatar</value></data>
   <data name="Common_Loading" xml:space="preserve"><value>Indlæser…</value></data>
   <data name="Admin_Tenants" xml:space="preserve"><value>Lejere</value></data>
-  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Organisationer, hvis brugere får roller i applikationerne.</value></data>
+  <data name="Admin_TenantsDescription" xml:space="preserve"><value>Adskilte organisationer, hver med sin egen database med brugere, applikationer og indstillinger.</value></data>
   <data name="Admin_Roles" xml:space="preserve"><value>Roller</value></data>
   <data name="Admin_RolesDescription" xml:space="preserve"><value>Roller, som applikationer definerer, og de brugere og grupper, der har dem.</value></data>
   <data name="Tenants_Create" xml:space="preserve"><value>Opret lejer</value></data>
   <data name="Tenants_Id" xml:space="preserve"><value>Id</value></data>
-  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Slet lejeren {0}? Dens rolletildelinger slettes også.</value></data>
+  <data name="Tenants_DeleteConfirm" xml:space="preserve"><value>Slet lejeren {0}? Dens database med alle brugere, applikationer og indstillinger slettes permanent.</value></data>
   <data name="Roles_Create" xml:space="preserve"><value>Opret rolle</value></data>
   <data name="Roles_Application" xml:space="preserve"><value>Applikation</value></data>
   <data name="Roles_Role" xml:space="preserve"><value>Rolle</value></data>
@@ -548,8 +548,6 @@
   <data name="Roles_Assignments" xml:space="preserve"><value>Rolletildelinger</value></data>
   <data name="Roles_Assign" xml:space="preserve"><value>Tildel rolle</value></data>
   <data name="Roles_AssignedTo" xml:space="preserve"><value>Tildelt til</value></data>
-  <data name="Roles_Tenant" xml:space="preserve"><value>Lejer</value></data>
-  <data name="Roles_AllTenants" xml:space="preserve"><value>Alle lejere</value></data>
   <data name="Roles_RemoveConfirm" xml:space="preserve"><value>Fjern rollen {0} fra {1}?</value></data>
   <data name="Scope_Roles" xml:space="preserve"><value>Se dine roller i denne applikation</value></data>
   <data name="Error_TenantIdInvalid" xml:space="preserve"><value>Id’et må kun indeholde små bogstaver, cifre og bindestreger (højst 63 tegn).</value></data>
@@ -559,4 +557,14 @@
   <data name="Error_AssignmentPrincipal" xml:space="preserve"><value>Vælg en bruger eller en gruppe.</value></data>
   <data name="Error_AssignmentExists" xml:space="preserve"><value>Denne rolle er allerede tildelt.</value></data>
   <data name="Error_RoleItemNotFound" xml:space="preserve"><value>'{0}' blev ikke fundet.</value></data>
+  <data name="Tenants_Hosts" xml:space="preserve"><value>Værtsnavne</value></data>
+  <data name="Tenants_HostsHint" xml:space="preserve"><value>Adskilt af mellemrum. Lejeren er altid også tilgængelig på {0}.</value></data>
+  <data name="Tenants_Address" xml:space="preserve"><value>Adresse</value></data>
+  <data name="Tenants_AdminEmail" xml:space="preserve"><value>Administratorens e-mail</value></data>
+  <data name="Tenants_AdminPassword" xml:space="preserve"><value>Administratorens adgangskode</value></data>
+  <data name="Tenants_Default" xml:space="preserve"><value>Standard</value></data>
+  <data name="Error_TenantHostInvalid" xml:space="preserve"><value>'{0}' er ikke et gyldigt værtsnavn.</value></data>
+  <data name="Error_TenantHostTaken" xml:space="preserve"><value>Værtsnavnet '{0}' er allerede i brug.</value></data>
+  <data name="Error_TenantAdminRequired" xml:space="preserve"><value>Angiv administratorens e-mail og adgangskode.</value></data>
+  <data name="Validation_PublicUrlHost" xml:space="preserve"><value>Dette værtsnavn tilhører ikke denne lejer.</value></data>
 </root>

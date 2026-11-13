@@ -2,13 +2,26 @@
 @rendermode InteractiveServer
 @attribute [Authorize(Roles = DatabaseInitializer.AdminGroup)]
 
+@using System.ComponentModel.DataAnnotations
 @using Microsoft.AspNetCore.Authorization
-@using k6labs.Anubis.Services
+@using k6labs.Anubis.Tenancy
 
-@inject RoleAdministration Roles
+@inject TenantAdministration Administration
+@inject TenantCatalog Catalog
+@inject NavigationManager Navigation
+@inject Identity.PasswordPolicy PasswordPolicy
 @* Notifications belong to this page and its interactive circuit. *@
 
 <AppPageTitle Text="@(Translations.Common_AdminPageTitle.F(Translations.Admin_Tenants))" />
+
+@if (!TenantContext.Current.IsDefault)
+{
+    @* Tenants are managed from the default tenant; to the others the page does not exist. *@
+    <Alert Severity="AlertSeverity.Neutral" Title="@Translations.Routes_NotFoundTitle">
+        @Translations.Routes_NotFoundText
+    </Alert>
+    return;
+}
 
 <NotificationList State="Notifications" />
 
@@ -21,7 +34,7 @@
             <tr>
                 <th>@Translations.Tenants_Id</th>
                 <th>@Translations.Common_DisplayName</th>
-                <th data-align="end">@Translations.Roles_Assignments</th>
+                <th>@Translations.Tenants_Address</th>
                 <th></th>
             </tr>
         </thead>
@@ -29,13 +42,28 @@
             @foreach (var tenant in tenants)
             {
                 <tr>
-                    <td><code>@tenant.Id</code></td>
+                    <td>
+                        <code>@tenant.Id</code>
+                        @if (tenant.IsDefault)
+                        {
+                            <Badge>@Translations.Tenants_Default</Badge>
+                        }
+                    </td>
                     <td>@tenant.DisplayName</td>
-                    <td data-align="end">@tenant.Assignments</td>
+                    <td>
+                        @foreach (var host in Addresses(tenant))
+                        {
+                            <div><a href="@Address(host)" rel="noopener" target="_blank">@host</a></div>
+                        }
+                    </td>
                     <td data-align="end">
-                        <RowMenu>
-                            <MenuItem Icon="@AppIcons.Delete" OnClick="() => AskDelete(tenant)" data-popup-option Danger="true">@Translations.Common_Delete</MenuItem>
-                        </RowMenu>
+                        @if (!tenant.IsDefault)
+                        {
+                            <RowMenu>
+                                <MenuItem Icon="@AppIcons.Edit" OnClick="() => OpenEdit(tenant)" data-popup-option>@Translations.Common_Edit</MenuItem>
+                                <MenuItem Icon="@AppIcons.Delete" OnClick="() => AskDelete(tenant)" data-popup-option Danger="true">@Translations.Common_Delete</MenuItem>
+                            </RowMenu>
+                        }
                     </td>
                 </tr>
             }
@@ -47,11 +75,15 @@
     <ChildContent>
         <EditForm Model="createModel" OnValidSubmit="CreateAsync" FormName="createTenant" id="createTenantForm">
             <Stack Gap="Gap.Medium">
-                <FormText @bind-Value="createModel.Id" Label="@Translations.Tenants_Id" Placeholder="acme" Id="tenantId" />
-                <FormText @bind-Value="createModel.DisplayName" Label="@Translations.Common_DisplayName" Id="tenantDisplayName" />
-                @if (createError is not null)
+                <FormText @bind-Value="createModel.Id" Label="@Translations.Tenants_Id" Placeholder="acme" Id="tenantId" maxlength="@Tenant.IdMaxLength" />
+                <FormText @bind-Value="createModel.DisplayName" Label="@Translations.Common_DisplayName" Id="tenantDisplayName" maxlength="@Tenant.DisplayNameMaxLength" />
+                <FormText @bind-Value="createModel.Hosts" Label="@Translations.Tenants_Hosts" Placeholder="@("login.acme.com")" Id="tenantHosts"
+                          Hint="@Translations.Tenants_HostsHint.F($"{(string.IsNullOrWhiteSpace(createModel.Id) ? "acme" : createModel.Id.Trim())}.{Catalog.Domain}")" />
+                <FormText @bind-Value="createModel.AdminEmail" Label="@Translations.Tenants_AdminEmail" Placeholder="@Translations.Common_EmailPlaceholder" Id="tenantAdminEmail" Type="email" />
+                <FormText @bind-Value="createModel.AdminPassword" Label="@Translations.Tenants_AdminPassword" Placeholder="@Translations.Common_NewPasswordPlaceholder.F(PasswordPolicy.MinLength)" Id="tenantAdminPassword" Type="password" autocomplete="new-password" />
+                @if (formError is not null)
                 {
-                    <Alert Severity="AlertSeverity.Danger">@createError</Alert>
+                    <Alert Severity="AlertSeverity.Danger">@formError</Alert>
                 }
             </Stack>
         </EditForm>
@@ -59,6 +91,27 @@
     <Footer>
         <Button Variant="ButtonVariant.Text" OnClick="() => createOpen = false">@Translations.Common_Cancel</Button>
         <Button form="createTenantForm" Disabled="busy" Type="submit">@Translations.Tenants_Create</Button>
+    </Footer>
+</AppModal>
+
+<AppModal Title="@Translations.Common_Edit" @bind-Open="editOpen">
+    <ChildContent>
+        <EditForm Model="editModel" OnValidSubmit="SaveAsync" FormName="editTenant" id="editTenantForm">
+            <Stack Gap="Gap.Medium">
+                <FormText Value="@editModel.Id" Label="@Translations.Tenants_Id" Id="editTenantId" ReadOnly="true" />
+                <FormText @bind-Value="editModel.DisplayName" Label="@Translations.Common_DisplayName" Id="editTenantDisplayName" maxlength="@Tenant.DisplayNameMaxLength" />
+                <FormText @bind-Value="editModel.Hosts" Label="@Translations.Tenants_Hosts" Placeholder="@("login.acme.com")" Id="editTenantHosts"
+                          Hint="@Translations.Tenants_HostsHint.F($"{editModel.Id}.{Catalog.Domain}")" />
+                @if (formError is not null)
+                {
+                    <Alert Severity="AlertSeverity.Danger">@formError</Alert>
+                }
+            </Stack>
+        </EditForm>
+    </ChildContent>
+    <Footer>
+        <Button Variant="ButtonVariant.Text" OnClick="() => editOpen = false">@Translations.Common_Cancel</Button>
+        <Button form="editTenantForm" Disabled="busy" Type="submit">@Translations.Common_Save</Button>
     </Footer>
 </AppModal>
 
@@ -77,41 +130,82 @@
     {
         public string? Id { get; set; }
         public string? DisplayName { get; set; }
+
+        /// <summary>Host names separated by spaces, commas or new lines.</summary>
+        public string? Hosts { get; set; }
+        public string? AdminEmail { get; set; }
+        public string? AdminPassword { get; set; }
+
+        public string[] HostList => (Hosts ?? string.Empty).Split([' ', ',', ';', '\n', '\r', '\t'], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
     }
 
     private readonly NotificationState Notifications = new();
     private TenantForm createModel = new();
-    private List<TenantSummary> tenants = new();
+    private TenantForm editModel = new();
+    private IReadOnlyList<Tenant> tenants = [];
     private bool createOpen;
-    private string? createError;
-    private TenantSummary? tenantToDelete;
+    private bool editOpen;
+    private string? formError;
+    private Tenant? tenantToDelete;
     private bool deleteOpen;
     private bool busy;
 
-    protected override async Task OnInitializedAsync() => tenants = await Roles.ListTenantsAsync();
+    protected override void OnInitialized() => tenants = Administration.List();
+
+    /// <summary>Where the tenant is reached: its own host names and its subdomain; this address for the default tenant.</summary>
+    private IEnumerable<string> Addresses(Tenant tenant)
+        => tenant.IsDefault ? [new Uri(Navigation.BaseUri).Host] : tenant.Hosts.Append(Administration.Subdomain(tenant));
+
+    /// <summary>The address of this page with the tenant's host name (the same scheme and port).</summary>
+    private string Address(string host) => new UriBuilder(Navigation.BaseUri) { Host = host }.Uri.AbsoluteUri;
 
     private void OpenCreate()
     {
         createModel = new TenantForm();
-        createError = null;
+        formError = null;
         createOpen = true;
     }
 
-    private async Task CreateAsync()
+    private void OpenEdit(Tenant tenant)
+    {
+        editModel = new TenantForm { Id = tenant.Id, DisplayName = tenant.DisplayName, Hosts = string.Join(' ', tenant.Hosts) };
+        formError = null;
+        editOpen = true;
+    }
+
+    private Task CreateAsync() => SubmitAsync(async () =>
+    {
+        // A tenant without an administrator would belong to whoever registers in it first.
+        if (string.IsNullOrWhiteSpace(createModel.AdminEmail) || string.IsNullOrEmpty(createModel.AdminPassword))
+        {
+            throw new TenantAdministrationException(TenantError.Invalid, Translations.Error_TenantAdminRequired);
+        }
+
+        var created = await Administration.CreateAsync(createModel.Id, createModel.DisplayName, createModel.HostList,
+            new TenantAdministrator(createModel.AdminEmail.Trim(), createModel.AdminPassword));
+        createOpen = false;
+        Notifications.Add(Translations.Users_CreatedText.F(created.Id), AlertSeverity.Success);
+    });
+
+    private Task SaveAsync() => SubmitAsync(async () =>
+    {
+        await Administration.UpdateAsync(editModel.Id!, editModel.DisplayName, editModel.HostList);
+        editOpen = false;
+    });
+
+    /// <summary>Runs a form's change; a refusal shows in the form.</summary>
+    private async Task SubmitAsync(Func<Task> change)
     {
         busy = true;
-        createError = null;
-
+        formError = null;
         try
         {
-            var created = await Roles.CreateTenantAsync(createModel.Id, createModel.DisplayName);
-            createOpen = false;
-            Notifications.Add(Translations.Users_CreatedText.F(created.Id), AlertSeverity.Success);
-            tenants = await Roles.ListTenantsAsync();
+            await change();
+            tenants = Administration.List();
         }
-        catch (RoleAdministrationException exception)
+        catch (TenantAdministrationException exception)
         {
-            createError = exception.Message;
+            formError = exception.Message;
         }
         finally
         {
@@ -119,7 +213,7 @@
         }
     }
 
-    private void AskDelete(TenantSummary tenant)
+    private void AskDelete(Tenant tenant)
     {
         tenantToDelete = tenant;
         deleteOpen = true;
@@ -135,11 +229,11 @@
         deleteOpen = false;
         try
         {
-            await Roles.DeleteTenantAsync(tenantToDelete.Id);
+            await Administration.DeleteAsync(tenantToDelete.Id);
             Notifications.Add(Translations.Users_DeletedText.F(tenantToDelete.Id), AlertSeverity.Success);
-            tenants = await Roles.ListTenantsAsync();
+            tenants = Administration.List();
         }
-        catch (RoleAdministrationException exception)
+        catch (TenantAdministrationException exception)
         {
             Notifications.Add(exception.Message, AlertSeverity.Danger);
         }

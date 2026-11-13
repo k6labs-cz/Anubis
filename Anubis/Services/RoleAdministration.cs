@@ -2,7 +2,6 @@ using System.Text.RegularExpressions;
 
 using k6labs.Anubis.Data;
 using k6labs.Anubis.Data.Entities;
-using k6labs.Anubis.Identity;
 using k6labs.Anubis.Resources;
 
 using Microsoft.EntityFrameworkCore;
@@ -13,18 +12,16 @@ using static OpenIddict.Abstractions.OpenIddictConstants;
 
 namespace k6labs.Anubis.Services;
 
-public sealed record TenantSummary(string Id, string? DisplayName, DateTimeOffset CreatedAt, int Assignments);
-
 /// <summary>A role of an application; <c>ClientId</c> is the application's client_id.</summary>
 public sealed record RoleSummary(string Id, string ClientId, string? ClientName, string Name, string? Description, int Assignments);
 
-/// <summary>A role given to a user or a group (one of the two is set), in a tenant or in all (<c>TenantId</c> null).</summary>
+/// <summary>A role given to a user or a group (one of the two is set).</summary>
 public sealed record AssignmentSummary(
     string Id, string RoleId, string ClientId, string RoleName,
-    string? UserId, string? UserName, string? GroupId, string? GroupName, string? TenantId, DateTimeOffset CreatedAt)
+    string? UserId, string? UserName, string? GroupId, string? GroupName, DateTimeOffset CreatedAt)
 {
     /// <summary>The role as applications see it in the "roles" claim.</summary>
-    public string Claim => RoleClaims.Value(TenantId, RoleName);
+    public string Claim => RoleName;
 }
 
 public enum RoleError
@@ -41,9 +38,9 @@ public sealed class RoleAdministrationException(RoleError error, string message)
 }
 
 /// <summary>
-/// Tenants, the roles applications define, and who has them: the admin UI, the SCIM API and the seeding
-/// at startup all change them here. Taking a role away revokes the access tokens it is written in, so an
-/// application that asks Anubis about a token (introspection) sees the change at once.
+/// The roles the applications of a tenant define, and who has them: the admin UI, the SCIM API and the
+/// seeding at startup all change them here. Taking a role away revokes the access tokens it is written in,
+/// so an application that asks Anubis about a token (introspection) sees the change at once.
 /// </summary>
 public sealed partial class RoleAdministration
 {
@@ -54,53 +51,6 @@ public sealed partial class RoleAdministration
     {
         _db = db;
         _tokens = tokens;
-    }
-
-    // ---------------------------------------------------------------- tenants
-
-    public async Task<List<TenantSummary>> ListTenantsAsync()
-        => await _db.Tenants.OrderBy(t => t.Id)
-            .Select(t => new TenantSummary(t.Id, t.DisplayName, t.CreatedAt, _db.RoleAssignments.Count(a => a.TenantId == t.Id)))
-            .ToListAsync();
-
-    public async Task<TenantSummary?> FindTenantAsync(string id)
-        => (await ListTenantsAsync()).FirstOrDefault(t => t.Id == id);
-
-    public async Task<TenantSummary> CreateTenantAsync(string? id, string? displayName)
-    {
-        id = (id ?? string.Empty).Trim();
-        if (!TenantIdPattern().IsMatch(id))
-        {
-            throw new RoleAdministrationException(RoleError.Invalid, Translations.Error_TenantIdInvalid);
-        }
-
-        if (await _db.Tenants.AnyAsync(t => t.Id == id))
-        {
-            throw new RoleAdministrationException(RoleError.Conflict, Translations.Error_TenantExists.F(id));
-        }
-
-        var tenant = new Tenant { Id = id, DisplayName = Clean(displayName, 200) };
-        _db.Tenants.Add(tenant);
-        await _db.SaveChangesAsync();
-        return new TenantSummary(tenant.Id, tenant.DisplayName, tenant.CreatedAt, 0);
-    }
-
-    /// <summary>A tenant's id is what applications know it by, so only its display name changes.</summary>
-    public async Task<TenantSummary> RenameTenantAsync(string id, string? displayName)
-    {
-        var tenant = await _db.Tenants.FindAsync(id) ?? throw NotFound(id);
-        tenant.DisplayName = Clean(displayName, 200);
-        await _db.SaveChangesAsync();
-        return (await FindTenantAsync(id))!;
-    }
-
-    public async Task DeleteTenantAsync(string id)
-    {
-        var tenant = await _db.Tenants.FindAsync(id) ?? throw NotFound(id);
-        var affected = await AffectedAsync(_db.RoleAssignments.Where(a => a.TenantId == id));
-        _db.Tenants.Remove(tenant);
-        await _db.SaveChangesAsync();
-        await RevokeAsync(affected);
     }
 
     // ---------------------------------------------------------------- roles
@@ -159,21 +109,20 @@ public sealed partial class RoleAdministration
 
     public async Task<List<AssignmentSummary>> ListAssignmentsAsync()
         => await _db.RoleAssignments
-            .OrderBy(a => a.Role!.Client!.ClientId).ThenBy(a => a.Role!.Name).ThenBy(a => a.TenantId).ThenBy(a => a.Id)
+            .OrderBy(a => a.Role!.Client!.ClientId).ThenBy(a => a.Role!.Name).ThenBy(a => a.Id)
             .Select(a => new AssignmentSummary(
                 a.Id, a.RoleId, a.Role!.Client!.ClientId!, a.Role.Name,
-                a.UserId, a.User!.Email, a.GroupId, a.Group!.Name, a.TenantId, a.CreatedAt))
+                a.UserId, a.User!.Email, a.GroupId, a.Group!.Name, a.CreatedAt))
             .ToListAsync();
 
     public async Task<AssignmentSummary?> FindAssignmentAsync(string id)
         => (await ListAssignmentsAsync()).FirstOrDefault(a => a.Id == id);
 
-    /// <summary>Gives the role to a user or a group (exactly one id), in a tenant or (null) in all.</summary>
-    public async Task<AssignmentSummary> AssignAsync(string? roleId, string? userId, string? groupId, string? tenantId)
+    /// <summary>Gives the role to a user or a group (exactly one id).</summary>
+    public async Task<AssignmentSummary> AssignAsync(string? roleId, string? userId, string? groupId)
     {
         userId = Empty(userId);
         groupId = Empty(groupId);
-        tenantId = Empty(tenantId);
         if ((userId is null) == (groupId is null))
         {
             throw new RoleAdministrationException(RoleError.Invalid, Translations.Error_AssignmentPrincipal);
@@ -194,17 +143,12 @@ public sealed partial class RoleAdministration
             throw NotFound(groupId);
         }
 
-        if (tenantId is not null && !await _db.Tenants.AnyAsync(t => t.Id == tenantId))
-        {
-            throw NotFound(tenantId);
-        }
-
-        if (await _db.RoleAssignments.AnyAsync(a => a.RoleId == roleId && a.UserId == userId && a.GroupId == groupId && a.TenantId == tenantId))
+        if (await _db.RoleAssignments.AnyAsync(a => a.RoleId == roleId && a.UserId == userId && a.GroupId == groupId))
         {
             throw new RoleAdministrationException(RoleError.Conflict, Translations.Error_AssignmentExists);
         }
 
-        var assignment = new RoleAssignment { RoleId = roleId!, UserId = userId, GroupId = groupId, TenantId = tenantId };
+        var assignment = new RoleAssignment { RoleId = roleId!, UserId = userId, GroupId = groupId };
         _db.RoleAssignments.Add(assignment);
         await _db.SaveChangesAsync();
         return (await FindAssignmentAsync(assignment.Id))!;
@@ -275,11 +219,7 @@ public sealed partial class RoleAdministration
     private static string? Clean(string? value, int max)
         => Empty(value) is { } text ? (text.Length > max ? text[..max] : text) : null;
 
-    /// <summary>A DNS label: travels in URLs, folder names and the "roles" claim.</summary>
-    [GeneratedRegex("^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$")]
-    private static partial Regex TenantIdPattern();
-
-    /// <summary>No colon (it separates the tenant in the claim) and no whitespace.</summary>
+    /// <summary>No whitespace, and no colon: applications that knew roles as "tenant:Role" split the claim at it.</summary>
     [GeneratedRegex(@"^[^\s:]{1,100}$")]
     private static partial Regex RoleNamePattern();
 }

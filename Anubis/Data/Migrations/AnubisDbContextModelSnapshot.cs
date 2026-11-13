@@ -324,10 +324,6 @@ namespace k6labs.Anubis.Data.Migrations
                         .HasMaxLength(36)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("TenantId")
-                        .HasMaxLength(63)
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("UserId")
                         .HasMaxLength(450)
                         .HasColumnType("TEXT");
@@ -337,8 +333,6 @@ namespace k6labs.Anubis.Data.Migrations
                     b.HasIndex("GroupId");
 
                     b.HasIndex("RoleId");
-
-                    b.HasIndex("TenantId");
 
                     b.HasIndex("UserId");
 
@@ -387,24 +381,6 @@ namespace k6labs.Anubis.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("Scopes", (string)null);
-                });
-
-            modelBuilder.Entity("k6labs.Anubis.Data.Entities.Tenant", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasMaxLength(63)
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("DisplayName")
-                        .HasMaxLength(200)
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tenants", (string)null);
                 });
 
             modelBuilder.Entity("k6labs.Anubis.Data.Entities.Token", b =>
@@ -758,11 +734,6 @@ namespace k6labs.Anubis.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("k6labs.Anubis.Data.Entities.Tenant", "Tenant")
-                        .WithMany()
-                        .HasForeignKey("TenantId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("k6labs.Anubis.Data.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -771,8 +742,6 @@ namespace k6labs.Anubis.Data.Migrations
                     b.Navigation("Group");
 
                     b.Navigation("Role");
-
-                    b.Navigation("Tenant");
 
                     b.Navigation("User");
                 });
